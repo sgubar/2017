@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+D:/Inform/HW1/dk_tool.c
+stdio.h
+D:/Inform/HW1/stdio.h
+string.h
+D:/Inform/HW1/string.h
+dk_tool.h
+D:/Inform/HW1/dk_tool.h
+
+D:/Inform/HW1/dk_tool.h
+
+D:/Inform/HW1/main.c
+stdio.h
+-
+dk_tool.h
+D:/Inform/HW1/dk_tool.h
+
