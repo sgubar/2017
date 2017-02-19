@@ -5,8 +5,8 @@
 int main() {
     int x, y, k;
     printf("Matrix size(x, y)");
-    scanf("%i", &x);
-    scanf("%i", &y);
+    x=tru_scan();
+    y=tru_scan();
     printf("Matrix size (%i, %i)\n Enter the matrix:\n", x, y);
     int mas[x][y];
     read_mas(x, y, mas);
@@ -14,7 +14,8 @@ int main() {
     int mas_n[x][y];
     save_mas(x, y, mas, mas_n);
     printf("Enter multiplier: ");
-    scanf("%i", &k);
+    k=tru_scan();
+    //scanf("%i", &k);
     multi_mas(x, y, mas_n, k);
     print_mas(x, y, mas_n);
 }
