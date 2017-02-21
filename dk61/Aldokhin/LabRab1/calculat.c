@@ -10,6 +10,11 @@ float calc_main(int *id)
 {
     float Q=(*id) * *(id+1);
     float i=(*(id+1) + *(id+2) * *(id+2));
+    if (i==0)
+    {
+        printf("Error\n");
+        return 0;
+    }
     Q= Q/i + (float)sum_q(id);
     return Q;
 }
