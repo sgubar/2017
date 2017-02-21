@@ -18,9 +18,9 @@ int main()
    	 }
 
     Q = ((A*A) + (B*B)) / (float)(B + power(5, C)) + fact(B) ;
-    printf("         (%i^2 + %i^2)                    = %.5f - [Q]\n", A, B, Q);
-    printf("--------------------------------\n");
-    printf("      (%i + 5^%i) + %i!",B, C, B);
+    printf("      (%i^2 + %i^2)               + %i!     = %.5f - [Q]\n", A, B, B, Q);
+    printf("----------------------------\n");
+    printf("   (%i + 5^%i)",B, C);
 
     getch();
     return 0;
