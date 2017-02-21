@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+D:/Inform/LabRab1/calculat.c
+stdio.h
+D:/Inform/LabRab1/stdio.h
+tools.h
+D:/Inform/LabRab1/tools.h
+
+D:/Inform/LabRab1/main.c
+stdio.h
+-
+tools.h
+D:/Inform/LabRab1/tools.h
+malloc.h
+D:/Inform/LabRab1/malloc.h
+
+D:/Inform/LabRab1/read.c
+stdio.h
+D:/Inform/LabRab1/stdio.h
+malloc.h
+D:/Inform/LabRab1/malloc.h
+tools.h
+D:/Inform/LabRab1/tools.h
+
+D:/Inform/LabRab1/tools.h
+

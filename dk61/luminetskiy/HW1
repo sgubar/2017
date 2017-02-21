@@ -1,0 +1,57 @@
+#include <stdio.h> 
+int main(void) 
+{ 
+int a; 
+int b; 
+int i = 0; 
+int j = 0; 
+int C[i][j]; 
+int v; 
+
+{ 
+printf ("Write number that you want to multiplicate: "); 
+scanf ("%i",&v); 
+} 
+
+printf("Write size of matrix:\n"); 
+scanf("%i %i", &a, &b); 
+int A[a][b]; 
+
+printf("You chose matrix %i x %i\n", a, b); 
+printf("Write %i elements of matrix:\n", a*b); 
+
+while(i<a) 
+{ 
+while(j<b) 
+{ 
+scanf("%i", &A[i][j]); 
+j++; 
+} 
+i++; 
+j=0; 
+} 
+
+
+
+{ 
+for(i = 0 ; i<a ; i++) 
+{ 
+for (j= 0 ; j < b ; j++) 
+{ 
+printf("%i ", A[i][j]); 
+} 
+} 
+printf("\n"); 
+} 
+{ 
+for(i = 0 ; i<a ; i++) 
+{ 
+for (j= 0 ; j < b ; j++) 
+{ 
+C[i][j] = A[i][j] * v; 
+printf("%i ", C[i][j]); 
+} 
+printf("\n"); 
+} 
+} 
+}
