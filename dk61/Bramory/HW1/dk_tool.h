@@ -1,14 +1,19 @@
 #ifndef dk_tool_h
 #define dk_tool_h
 
+/*
+Function return N-power of number 
+*/
 int power (int number, int power);
+
+/*
+Function return factorial 
+*/
 int fact(int number);
+
+/*
+Return numbers what we type / ignore another symbols.  
+*/
 int num_scan( void );
 
-void transp(int x, int y, int transp_matr[y][x], int matr[x][y]);
-void read_matr(int x, int y, int matr[x][y] );
-//void print_matr(int x, int y, int matr[x][y])
-
 #endif
-
-

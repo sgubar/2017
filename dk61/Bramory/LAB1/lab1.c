@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include <conio.h>
 #include "dk_tool.h"
-#include "dk_tool.c"
 
 int main()
 {
