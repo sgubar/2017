@@ -1,6 +1,6 @@
 [Project]
-FileName=LAB1.dev
-Name=LAB1
+FileName=HW1.dev
+Name=HW1
 Type=1
 Ver=2
 ObjFiles=
@@ -50,7 +50,7 @@ ProductVersion=
 AutoIncBuildNr=0
 SyncProduct=1
 
-[Unit1]
+[Unit2]
 FileName=dk_tool.c
 CompileCpp=0
 Folder=
@@ -60,7 +60,7 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit2]
+[Unit3]
 FileName=dk_tool.h
 CompileCpp=0
 Folder=
@@ -70,8 +70,8 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit3]
-FileName=lab1.c
+[Unit1]
+FileName=main.c
 CompileCpp=0
 Folder=
 Compile=1
