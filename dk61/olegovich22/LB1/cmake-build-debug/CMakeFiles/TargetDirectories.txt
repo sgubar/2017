@@ -1,0 +1,3 @@
+D:/CLionProjects/dz1/cmake-build-debug/CMakeFiles/dz1.dir
+D:/CLionProjects/dz1/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/CLionProjects/dz1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
