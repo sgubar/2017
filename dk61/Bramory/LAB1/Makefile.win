@@ -1,15 +1,15 @@
-# Project: LAB1
+# Project: HW1
 # Makefile created by Dev-C++ 5.11
 
 CPP      = g++rus.exe
 CC       = gccrus.exe
 WINDRES  = windres.exe
-OBJ      = dk_tool.o lab1.o
-LINKOBJ  = dk_tool.o lab1.o
+OBJ      = main.o dk_tool.o
+LINKOBJ  = main.o dk_tool.o
 LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
 INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
 CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
-BIN      = LAB1.exe
+BIN      = HW1.exe
 CXXFLAGS = $(CXXINCS) 
 CFLAGS   = $(INCS) 
 RM       = rm.exe -f
@@ -24,8 +24,8 @@ clean: clean-custom
 $(BIN): $(OBJ)
 	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
 
+main.o: main.c
+	$(CC) -c main.c -o main.o $(CFLAGS)
+
 dk_tool.o: dk_tool.c
 	$(CC) -c dk_tool.c -o dk_tool.o $(CFLAGS)
-
-lab1.o: lab1.c
-	$(CC) -c lab1.c -o lab1.o $(CFLAGS)
