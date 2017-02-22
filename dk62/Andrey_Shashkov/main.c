@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <ctype.h>
 #include "dk_tool.h"
 
 int main(int argc, const char * argv[])
