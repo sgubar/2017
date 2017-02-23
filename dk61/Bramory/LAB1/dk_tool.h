@@ -1,3 +1,5 @@
+#ifndef dk_tool_h
+#define dk_tool_h
 
 /*
 Return number what we type / ignore another symbols.  
