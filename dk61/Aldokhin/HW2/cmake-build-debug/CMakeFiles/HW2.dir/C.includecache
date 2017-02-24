@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+D:/Inform/HW2/dk_tool.c
+dshow.h
+-
+stdio.h
+D:/Inform/HW2/stdio.h
+dk_tool.h
+D:/Inform/HW2/dk_tool.h
+malloc.h
+D:/Inform/HW2/malloc.h
+stdlib.h
+D:/Inform/HW2/stdlib.h
+string.h
+D:/Inform/HW2/string.h
+memory.h
+D:/Inform/HW2/memory.h
+
+D:/Inform/HW2/dk_tool.h
+
+D:/Inform/HW2/main.c
+stdio.h
+-
+dk_tool.h
+D:/Inform/HW2/dk_tool.h
+

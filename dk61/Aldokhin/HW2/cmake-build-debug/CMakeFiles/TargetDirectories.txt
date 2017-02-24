@@ -1,0 +1,3 @@
+D:/Inform/HW2/cmake-build-debug/CMakeFiles/HW2.dir
+D:/Inform/HW2/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/Inform/HW2/cmake-build-debug/CMakeFiles/rebuild_cache.dir
