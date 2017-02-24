@@ -13,7 +13,8 @@ int main ()
 		c = atoi(cs); 
 		d = atoi(ds);
 		f = strtoul(fs, &p, 16); 
-	} while (c == 0 || d == 0 || f == 0); 
+	} 
+	while (c == 0 || d == 0 || f == 0); 
 	printf("Q = sum from A=1 to D (A*(F16 - C))\n");
 	q = result(c, d, f);
 	printf("Q = %i\n",q);
