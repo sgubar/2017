@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <math.h>
 
 unsigned long int factorial(int d) {
 if(d == 0)
@@ -30,4 +29,3 @@ double qq = a*b;
 qq = qq/xx;
 return qq;
 }
-
