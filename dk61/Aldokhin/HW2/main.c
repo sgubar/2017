@@ -7,5 +7,8 @@ int main() {
     import(Triangle);
     float S=calculate(Triangle);
     printf("Rezalt: %f", S);
+    if (NULL != Triangle) {
+        free (Triangle);
+    }
     return 0;
 }
