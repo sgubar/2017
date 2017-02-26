@@ -13,8 +13,8 @@
 
 long Converting(int EightNumber)
 {
-    int TenthNumber = 0,
-    counter = 0;
+    int TenthNumber = 0;
+    int counter = 0;
     
     while(EightNumber != 0)
     {
