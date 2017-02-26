@@ -13,7 +13,7 @@ write_matrix(lines, columns, matrix);
 printf("\nYou wrote:\n");
 read_matrix(lines, columns, matrix);
 mnoj_matrix(coef, lines, columns, matrix);
-printf("\nResult matrix: \n");
+printf("\nResult matrix:\n");
 read_matrix(lines, columns, matrix);
 
 system("pause");
