@@ -1,16 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
 #include "dk_tool.h"
 
 int main(void) {
-	double A, B, C;
-	printf("Enter peremennuu A:");
-	scanf("%lf",&A);
-	printf("Enter peremennuu B:");
-	scanf("%lf",&B);
+	double A, B, C;	
+	printf("(MENSHE 4 CIFER)Enter peremennuu A:");
+	vvod(&A);	
+	printf("(MENSHE 4 CIFER)Enter peremennuu B:");	
+	vvod(&B);	
 	do{	
-		printf("Enter peremennuu C>0:");	
-		scanf("%lf",&C);
+		printf("(MENSHE 4 CIFER)Enter peremennuu C>0:");	
+		vvod(&C);	
 	}while(C<=0);
 	double result = (Abs(((A * C) - B))/stepen(C,3))*sum(A);	
 	printf("########################\n");	

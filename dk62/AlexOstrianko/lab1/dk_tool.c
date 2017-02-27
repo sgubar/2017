@@ -36,3 +36,18 @@ double Abs(double InpC){
 		InpC= InpC*-1;
 	return InpC;	
 }
+void vvod (double *Inp){
+	int Pointer;
+	char a[5];
+	do{		
+		Pointer = 0;
+		scanf("%s",a);	
+		int i;
+		for (i=0;a[i]!='\0';i++)
+		{
+			if('0' > a[i] || a[i] > '9' )
+				Pointer = 1;
+		}
+	}while(Pointer==1);
+	*Inp = atoi(a); 
+}

@@ -3,4 +3,5 @@
 double sum(double InpA);
 double Abs(double InpC);
 double stepen(double InpA, double Step);
+void vvod (int *Inp);
 #endif
