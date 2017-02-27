@@ -1,4 +1,4 @@
-void main()
+int main(int argc, char *argv[])
 {
 int N;
 int i,j;
