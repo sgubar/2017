@@ -16,3 +16,5 @@ void multi_mas(int x, int y, int pmas[x][y], int k);
 void save_mas(int x, int y, int mas1[x][y], int mas2[x][y]);
 
 int tru_scan();
+
+int read_tru(int min_s, int max_s);
