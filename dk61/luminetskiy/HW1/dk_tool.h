@@ -1,4 +1,4 @@
-//заголовчный файл
+//Г§Г ГЈГ®Г«Г®ГўГ·Г­Г»Г© ГґГ Г©Г«
 #ifndef dk_tool_h
 #define dk_tool_h
 
@@ -9,5 +9,5 @@
 
 void read_mat(int a,int b, int mat[a][b]);
 void print_mat(int a,int b, int mat[a][b]);
-void multiplicated_matrix(int a, int b, int mat[a][b], int v,int mat2[i][j]);
+void multiplicated_matrix(int a, int b, int mat[a][b],int i,int j, int v,int mat2[i][j]);
 #endif //dk_tool_h
