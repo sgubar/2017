@@ -4,7 +4,7 @@
 
 #include "dk_tool.h"
 
-int module(int A, int B, int C){       //це ми разуємо 
+int module(int A, int B, int C){       
 	int module_result;
 	module_result = fabs(((A*C)-B));
 	//printf("Module result: %i\n", module_result);//
