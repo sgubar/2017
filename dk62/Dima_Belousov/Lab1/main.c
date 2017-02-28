@@ -11,8 +11,10 @@ printf("Enter A:");
 scanf("%i", &a);
 printf("Enter B:");
 scanf("%i", &b);
-printf("Enter C:");
-scanf("%i", &c);
+
+do{
+printf("Enter C != 0 :");
+scanf("%i", &c);}while(c==0);
 
 result = ((float)(modul(a,b,c))/(float)(degree(c)))*(float)(sum(a));
 
