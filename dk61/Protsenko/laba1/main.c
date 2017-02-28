@@ -1,4 +1,4 @@
-//  dk_tool.c
+//  main.c
 //  laba1 variant 2
 //  Created by Illia Protsenko 2/28/17.
 
