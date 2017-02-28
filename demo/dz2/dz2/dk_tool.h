@@ -17,8 +17,31 @@ typedef struct tagNote
 	char phone[12];
 }DK_Note, *PDK_Note;
 
-void writeNote(FILE *aFile, DK_Note *aNote);
 
+/*
+{
+	"name" : nill,
+	"phone" : "12345"
+}
+*/
+
+//JSON
+/*
+{
+	"notes" : [
+		{
+			"name" : "Viacheslav",
+			"phone" : "12345"
+		},
+		{
+			"name" : "Viacheslav2",
+			"phone" : "123456"
+		}
+	],
+	"size" : 10,
+	"current_size" : 2
+}
+*/
 typedef struct tagPhoneBook
 {
 	DK_Note *notes;
@@ -28,24 +51,6 @@ typedef struct tagPhoneBook
 
 void writeNote(FILE *aFile, DK_Note *aNote);
 void writePhoneBook(FILE *aFile, DK_PhoneBook *aBook);
-
-/*
-{
-	"notes":[
-		{
-			"name" : "Viacheslav",
-			"phone" : "123456"
-		},
-		{
-			"name" : "Viacheslav2",
-			"phone" : "1234567"
-		}
-	],
-	"size" : 20,
-	"current_size" : 2
-}
-*/
-
 
 DK_PhoneBook *createPhoneBook(int aSize);
 void destroyPhoneBook(DK_PhoneBook *aPhoneBook);

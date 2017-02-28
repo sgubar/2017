@@ -24,6 +24,10 @@ int main(int argc, const char *argv[])
 	addNoteToPhoneBook(theBook, theName, thePhone);
 	addNoteToPhoneBook(theBook, "Mama", "1234567");
 	addNoteToPhoneBook(theBook, "Papa", "12345689");
+	addNoteToPhoneBook(theBook, "Mama1", "12345678908");
+	addNoteToPhoneBook(theBook, "Papa1", "12345689787");
+	addNoteToPhoneBook(theBook, "Mama2", "123456733");
+	addNoteToPhoneBook(theBook, "Papa2", "1234568449");
 	
 	writePhoneBook(theFile, theBook);
 	

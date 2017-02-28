@@ -81,15 +81,14 @@ int addNoteToPhoneBook(DK_PhoneBook *aPhoneBook, char *aName, char *aPhone)
 	return theResult;
 }
 
-void writeNote(FILE *aFile, DK_Note *aNote)
-{
 /*
 		{
 			"name" : "Viacheslav",
 			"phone" : "123456"
 		}
 */
-
+void writeNote(FILE *aFile, DK_Note *aNote)
+{
 	fprintf (aFile, "{");
 	
 	writeString(aFile, "name", aNote->name);
@@ -99,26 +98,29 @@ void writeNote(FILE *aFile, DK_Note *aNote)
 	
 	fprintf (aFile, "}");
 }
+
 /*
-	"notes":[
-		array of DK_Note s
+{
+	"notes" : [
+		the list of notes
 	],
-	"size" : 20,
+	"size" : 10,
 	"current_size" : 2
+}
 */
+
 void writePhoneBook(FILE *aFile, DK_PhoneBook *aBook)
 {
-	fprintf(aFile, "{");
-
-	//"size" : 20,
+	fprintf (aFile, "{");
+	
+	//	"size" : 10,
 	fprintf(aFile, "\"size\":%d", aBook->size);
 	fprintf(aFile, ",");
 
-	//"current_size" : 20,
+	//	"current_size" : 2
 	fprintf(aFile, "\"current_size\":%d", aBook->current_size);
 	fprintf(aFile, ",");
-
-	//"notes":[
+	
 	fprintf(aFile, "\"notes\":");
 	
 	if (NULL == aBook->notes)
@@ -144,7 +146,7 @@ void writePhoneBook(FILE *aFile, DK_PhoneBook *aBook)
 		fprintf(aFile, "]");
 	}
 	
-	fprintf(aFile, "}");
+	fprintf (aFile, "}");
 }
 
 void writeString(FILE *aFile, char *aKey, char *aString)
@@ -153,7 +155,7 @@ void writeString(FILE *aFile, char *aKey, char *aString)
 	
 	if (NULL == aString)
 	{
-		fprintf (aFile, "nill");
+		fprintf (aFile, "null");
 	}
 	else
 	{
