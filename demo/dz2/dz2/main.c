@@ -14,17 +14,28 @@
 int main(int argc, const char *argv[])
 {
 	DK_PhoneBook *theBook = createPhoneBook(10);
+	
+	FILE *theFile = fopen("data.json", "w");
+	
 	char theName[] = "Viacheslav2";
 	char thePhone[] = "1234567";
 	
 	addNoteToPhoneBook(theBook, "Viacheslav", "123456");
 	addNoteToPhoneBook(theBook, theName, thePhone);
+	addNoteToPhoneBook(theBook, "Mama", "1234567");
+	addNoteToPhoneBook(theBook, "Papa", "12345689");
+	
+	writePhoneBook(theFile, theBook);
 	
 	DK_Note theNote = theBook->notes[1];
 	
 	printf("The second element: name - %s, phone - %s\n", theNote.name, theNote.phone);
 	
 	destroyPhoneBook(theBook);
+	
+	fflush(theFile);
+	fclose(theFile);
+	
 	return 0;
 }
 
