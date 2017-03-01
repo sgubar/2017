@@ -34,8 +34,10 @@ scanf("%f" ,&C);
 if(C > 0)
 {
 powC = pow(tchislo , C);
-
-
+}
+else
+{
+return 0;
 }
 float znamennyk;
 float tchiselnik;
@@ -58,4 +60,5 @@ printf(" %f + %f = %f", dilenie , B , otvet );
 getch();
 
 
+}
 }
