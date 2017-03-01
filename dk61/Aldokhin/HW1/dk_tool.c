@@ -14,9 +14,10 @@ int read_tru(int min_s, int max_s)
     {
         t=scanf("%d",&sc_sym);
         fflush(stdin);
-        if(t!=1 || sc_sym<min_s || sc_sym>max_s) printf("%s","Invalid input. Try again.\n");
+        if(!(t!=1 || sc_sym<min_s || sc_sym>max_s)) break;
     }
-    while(t!=1 || sc_sym<min_s || sc_sym>max_s);
+    while(1);
+    printf("%s","Invalid input. Try again.\n");
     return sc_sym;
 }
 
