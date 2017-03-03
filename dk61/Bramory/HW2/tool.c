@@ -1,11 +1,11 @@
-#include "tool.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <memory.h>
+#include "tool.h"
 
-float Square (int radius)
+float Square (Circle *aCircle)
 {
-	return 3.14159*radius*radius;
+	return 3.14159*aCircle->radius * aCircle->radius;
 }
 
 FigureList *createFigureList ( int aSize)
@@ -39,7 +39,7 @@ void destroyFigureList(FigureList *aList)
 
 int addCircle (FigureList *aList, int x, int y, int radius)
 {
-	if (NULL != aList && NULL != x && NULL != y && NULL != radius )
+	if (NULL != aList && 0 <= radius )
 	{
 		if ( aList->current_size < aList -> size )
 		{
@@ -64,4 +64,3 @@ int addCircle (FigureList *aList, int x, int y, int radius)
 	}
 	return 0; 
 }
-
