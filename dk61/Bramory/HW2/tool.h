@@ -16,7 +16,7 @@ typedef struct List
 }FigureList;
 
 int addCircle (FigureList *theList, int x, int y, int radius);
-float Square (int radius);
+float Square (Circle *aCircle);
 
 FigureList *createFigureList ( int aSize);
 void destroyFigureList(FigureList *aList);
