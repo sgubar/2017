@@ -14,8 +14,7 @@ int main()
 	printf("[X,Y] - [%i][%i]\n", myCircle.x, myCircle.y, myCircle.radius);
 	printf("Radius - [%i] \n ", myCircle.radius);
 	
-	
-	container = Square(myCircle.radius);
+	container = Square(&myCircle);
 	printf("\nSquare = %.3f\n", container);
 
 	destroyFigureList( theList );
