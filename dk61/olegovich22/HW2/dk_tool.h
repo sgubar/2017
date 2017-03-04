@@ -7,7 +7,7 @@
 #include <string.h>
 
 //circle size
-typedef struct circle
+typedef struct tagCircle
 {
     float centerX;
     float centerY;
@@ -16,7 +16,7 @@ typedef struct circle
 }circle;
 
 //circle options
-typedef struct optionCircle
+typedef struct tagCircleList
 {
     circle *sizeCircle;
     int size;
