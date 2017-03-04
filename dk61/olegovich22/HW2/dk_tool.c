@@ -58,7 +58,7 @@ int addToCircle(circleList *aCircleList, float centerX, float centerY, float rad
 }
 
 //count square
-float theSquare(circle *aCircleList)
+float theSquare(circle *aCircle)
 {
-    return PI*(powf((aCircleList->radius), 2));
+    return PI*(powf((aCircle->radius), 2));
 }
