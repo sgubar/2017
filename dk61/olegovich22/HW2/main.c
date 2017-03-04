@@ -24,7 +24,9 @@ int main() {
     while(mainCircle->current_size > printCounter)
     {
         circle *getParam=&(mainCircle->sizeCircle[printCounter]);
-        printf("\n%d)Center (x, y): (%.3f, %.3f)\n  Radius: %.3f\n  Square: %f", printCounter+1, getParam->centerX, getParam->centerY, getParam->radius, getParam->square);
+        printf("%d)Center (x, y): (%.3f, %.3f)\n", printCounter+1, getParam->centerX, getParam->centerY);
+        printf("  Radius: %.3f\n", getParam->radius);
+        printf("  Square: %.3f\n", getParam->square);
         printCounter++;
     }
 
