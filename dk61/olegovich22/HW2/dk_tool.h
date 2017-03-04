@@ -31,6 +31,6 @@ void destroyAllCircle(circleList *aCircleList);
 int addToCircle(circleList *aCircleList, float centerX, float centerY, float radius);
 
 //count square
-float theSquare(circle *aCircleList);
+float theSquare(circle *aCircle);
 
 #endif //HW2_DK_TOOL_H
