@@ -1,0 +1,117 @@
+#include <stdio.h>
+#include <math.h>
+#include <stdlib.h>
+#include "dk_tool.h"
+
+#define PI 3.14 //const in math
+
+//make code more beautiful
+#define enter fprintf(aFile, "\n")
+#define coma fprintf(aFile, ",")
+#define space fprintf(aFile, " ")
+
+//main: delete and create
+circleList *createCircle(int size)
+{
+    circleList *aCircleList=(circleList *)malloc(sizeof(circleList));
+
+    if(aCircleList!=NULL)
+    {
+        aCircleList->sizeCircle=(circle *)malloc(size*sizeof(circle));
+        aCircleList->current_size=0;
+        aCircleList->size=size;
+    }
+}
+
+void destroyAllCircle(circleList *aCircleList)
+{
+    if (aCircleList!=NULL)
+    {
+        if(aCircleList->sizeCircle!=NULL)
+            free(aCircleList->sizeCircle);
+
+        free(aCircleList);
+    }
+}
+
+//interface
+int addToCircle(circleList *aCircleList, float centerX, float centerY, float radius)
+{
+    if(aCircleList->current_size < aCircleList->size)
+    {
+        circle *sizeCircle=&(aCircleList->sizeCircle[aCircleList->current_size]);
+        if(sizeCircle!=NULL)
+        {
+            sizeCircle->centerX=centerX;
+            sizeCircle->centerY=centerY;
+            sizeCircle->radius=radius;
+            sizeCircle->square=theSquare(sizeCircle);
+
+            aCircleList->current_size++;
+        }
+        else
+        {
+            return -3;
+        }
+    }
+    else
+    {
+        return -2;
+    }
+
+    return 0;
+}
+
+//count square
+float theSquare(circle *aCircle)
+{
+    return PI*(powf((aCircle->radius), 2));
+}
+
+//write into file
+void writeCircleList(FILE *aFile, circleList *aCircleList)
+{
+    fprintf(aFile, "{");
+    enter;
+    fprintf(aFile, "\"Size\": %d", aCircleList->size);coma;
+    enter;
+    fprintf(aFile, "\"Current_size\": %d", aCircleList->current_size);coma;
+    enter;
+    fprintf(aFile, "\"Circles\":");
+
+    if (NULL == aCircleList->sizeCircle)
+    {
+        fprintf(aFile, "null");
+    }
+    else
+    {
+        fprintf(aFile, "[");
+        enter;
+
+        for (int i=0; i<aCircleList->current_size ; i++)
+        {
+            circle *aCircle=&(aCircleList->sizeCircle[i]);
+            space;
+
+            writeCircle(aFile, aCircle);
+
+            if(i < aCircleList->current_size-1)
+            {
+                coma;
+                enter;
+            }
+        }
+        fprintf(aFile, "]");
+    }
+    enter;
+    fprintf(aFile, "}");
+}
+void writeCircle(FILE *aFile, circle *aCircle)
+{
+    fprintf(aFile, "{");
+    fprintf(aFile, "\"CenterX\": %.3f", aCircle->centerX);coma;
+    fprintf(aFile, "\"CenterY\": %.3f", aCircle->centerY);coma;
+    fprintf(aFile, "\"Radius\": %.3f", aCircle->radius);coma;
+    fprintf(aFile, "\"Square\": %.3f", aCircle->square);
+    fprintf(aFile, "}");
+}
