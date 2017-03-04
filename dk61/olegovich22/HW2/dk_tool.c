@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include "dk_tool.h"
 
-#define PI 3.14
+#define PI 3.14 //cont in math
 
 //main: delete and create
 optionCircle *createCircle(int size)
@@ -28,25 +28,19 @@ void destroyAllCircle(optionCircle *mainCircle)
         free(mainCircle);
     }
 }
-//count square
-float theSquare(float centerX, float centerY, float radiusX, float radiusY)
-{
-    return PI*(powf((radiusX-centerX), 2)+powf((radiusY-centerY), 2));
-}
 
 //interface
-int addToCircle(optionCircle *mainCircle, float centerX, float centerY, float radiusX, float radiusY)
+int addToCircle(optionCircle *mainCircle, float centerX, float centerY, float radius)
 {
-        if(mainCircle->current_size<mainCircle->size)
+        if(mainCircle->current_size < mainCircle->size)
         {
             circle *sizeCircle=&(mainCircle->sizeCircle[mainCircle->current_size]);
             if(sizeCircle!=NULL)
             {
                 sizeCircle->centerX=centerX;
                 sizeCircle->centerY=centerY;
-                sizeCircle->radiusX=radiusX;
-                sizeCircle->radiusY=radiusY;
-                sizeCircle->square=theSquare(centerX, centerY, radiusX, radiusY);
+                sizeCircle->radius=radius;
+                sizeCircle->square=theSquare(mainCircle, mainCircle->current_size);
 
                 mainCircle->current_size++;
             }
@@ -63,3 +57,8 @@ int addToCircle(optionCircle *mainCircle, float centerX, float centerY, float ra
     return 0;
 }
 
+//count square
+float theSquare(optionCircle *mainCircle, int numbOfCircle)
+{
+    return PI*(powf((mainCircle->sizeCircle[numbOfCircle].radius), 2));
+}
