@@ -3,5 +3,5 @@ project(HW2)
 
 set(CMAKE_C_STANDARD 99)
 
-set(SOURCE_FILES main.c dk_tool.c dk_tool.h test.c)
+set(SOURCE_FILES main.c dk_tool.c dk_tool.h)
 add_executable(HW2 ${SOURCE_FILES})

@@ -6,7 +6,6 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_C
   "D:/CLionProjects/HW2/dk_tool.c" "D:/CLionProjects/HW2/cmake-build-debug/CMakeFiles/HW2.dir/dk_tool.c.obj"
   "D:/CLionProjects/HW2/main.c" "D:/CLionProjects/HW2/cmake-build-debug/CMakeFiles/HW2.dir/main.c.obj"
-  "D:/CLionProjects/HW2/test.c" "D:/CLionProjects/HW2/cmake-build-debug/CMakeFiles/HW2.dir/test.c.obj"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

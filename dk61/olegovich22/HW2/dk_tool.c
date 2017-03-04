@@ -40,7 +40,7 @@ int addToCircle(optionCircle *mainCircle, float centerX, float centerY, float ra
                 sizeCircle->centerX=centerX;
                 sizeCircle->centerY=centerY;
                 sizeCircle->radius=radius;
-                sizeCircle->square=theSquare(mainCircle, mainCircle->current_size);
+                sizeCircle->square=theSquare(sizeCircle);
 
                 mainCircle->current_size++;
             }
@@ -58,7 +58,7 @@ int addToCircle(optionCircle *mainCircle, float centerX, float centerY, float ra
 }
 
 //count square
-float theSquare(optionCircle *mainCircle, int numbOfCircle)
+float theSquare(circle *mainCircle)
 {
-    return PI*(powf((mainCircle->sizeCircle[numbOfCircle].radius), 2));
+    return PI*(powf((mainCircle->radius), 2));
 }

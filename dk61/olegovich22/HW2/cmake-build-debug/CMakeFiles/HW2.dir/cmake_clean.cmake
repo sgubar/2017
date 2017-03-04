@@ -1,7 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/HW2.dir/main.c.obj"
   "CMakeFiles/HW2.dir/dk_tool.c.obj"
-  "CMakeFiles/HW2.dir/test.c.obj"
   "HW2.pdb"
   "HW2.exe"
   "HW2.exe.manifest"

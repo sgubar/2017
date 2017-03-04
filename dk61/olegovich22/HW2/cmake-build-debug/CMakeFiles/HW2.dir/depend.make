@@ -7,5 +7,3 @@ CMakeFiles/HW2.dir/dk_tool.c.obj: ../dk_tool.h
 CMakeFiles/HW2.dir/main.c.obj: ../dk_tool.h
 CMakeFiles/HW2.dir/main.c.obj: ../main.c
 
-CMakeFiles/HW2.dir/test.c.obj: ../test.c
-

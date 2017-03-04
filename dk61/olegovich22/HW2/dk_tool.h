@@ -23,14 +23,14 @@ typedef struct optionCircle
     int current_size;
 }optionCircle;
 
-//count square
-float theSquare(optionCircle *mainCircle, int numbOfCircle);
-
 //main create an delete
 optionCircle *createCircle(int size);
 void destroyAllCircle(optionCircle *mainCircle);
 
 //interface
 int addToCircle(optionCircle *mainCircle, float centerX, float centerY, float radius);
+
+//count square
+float theSquare(circle *mainCircle);
 
 #endif //HW2_DK_TOOL_H

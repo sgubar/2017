@@ -89,9 +89,6 @@
 		<Unit filename="D:/CLionProjects/HW2/main.c">
 			<Option target="HW2"/>
 		</Unit>
-		<Unit filename="D:/CLionProjects/HW2/test.c">
-			<Option target="HW2"/>
-		</Unit>
 		<Unit filename="D:/CLionProjects/HW2/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
