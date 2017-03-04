@@ -12,26 +12,26 @@ int main() {
     float radius=7.0;
 
     //create struct
-    optionCircle *mainCircle=createCircle(size);
+    circleList *aCircleList=createCircle(size);
 
     //add to struct data
-    addToCircle(mainCircle, centerX, centerY, radius);
-    addToCircle(mainCircle, 5, 4, 3);
-    addToCircle(mainCircle, 0, 0, 9);
+    addToCircle(aCircleList, centerX, centerY, radius);
+    addToCircle(aCircleList, 5, 4, 3);
+    addToCircle(aCircleList, 0, 0, 9);
 
     //print result
-    int printCounter=0;
-    while(mainCircle->current_size > printCounter)
+    int CircleCounter=0;
+    while(aCircleList->current_size > CircleCounter)
     {
-        circle *getParamCircle=&(mainCircle->sizeCircle[printCounter]);
-        printf("%d)Center (x, y): (%.3f, %.3f)\n", printCounter+1, getParamCircle->centerX, getParamCircle->centerY);
-        printf("  Radius: %.3f\n", getParamCircle->radius);
-        printf("  Square: %.3f\n", getParamCircle->square);
-        printCounter++;
+        circle *sizeCircle=&(aCircleList->sizeCircle[CircleCounter]);
+        printf("%d)Center (x, y): (%.3f, %.3f)\n", CircleCounter+1, sizeCircle->centerX, sizeCircle->centerY);
+        printf("  Radius: %.3f\n", sizeCircle->radius);
+        printf("  Square: %.3f\n", sizeCircle->square);
+        CircleCounter++;
     }
 
     //destroy struct
-    destroyAllCircle(mainCircle);
+    destroyAllCircle(aCircleList);
 
     return 0;
 }

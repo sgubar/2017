@@ -21,16 +21,16 @@ typedef struct optionCircle
     circle *sizeCircle;
     int size;
     int current_size;
-}optionCircle;
+}circleList;
 
 //main create an delete
-optionCircle *createCircle(int size);
-void destroyAllCircle(optionCircle *mainCircle);
+circleList *createCircle(int size);
+void destroyAllCircle(circleList *aCircleList);
 
 //interface
-int addToCircle(optionCircle *mainCircle, float centerX, float centerY, float radius);
+int addToCircle(circleList *aCircleList, float centerX, float centerY, float radius);
 
 //count square
-float theSquare(circle *mainCircle);
+float theSquare(circle *aCircleList);
 
 #endif //HW2_DK_TOOL_H

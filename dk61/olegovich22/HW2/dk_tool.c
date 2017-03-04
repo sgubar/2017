@@ -6,35 +6,35 @@
 #define PI 3.14 //const in math
 
 //main: delete and create
-optionCircle *createCircle(int size)
+circleList *createCircle(int size)
 {
-    optionCircle *mainCircle=(optionCircle *)malloc(sizeof(optionCircle));
+    circleList *aCircleList=(circleList *)malloc(sizeof(circleList));
 
-    if(mainCircle!=NULL)
+    if(aCircleList!=NULL)
     {
-        mainCircle->sizeCircle=(circle *)malloc(size*sizeof(circle));
-        mainCircle->current_size=0;
-        mainCircle->size=size;
+        aCircleList->sizeCircle=(circle *)malloc(size*sizeof(circle));
+        aCircleList->current_size=0;
+        aCircleList->size=size;
     }
 }
 
-void destroyAllCircle(optionCircle *mainCircle)
+void destroyAllCircle(circleList *aCircleList)
 {
-    if (mainCircle!=NULL)
+    if (aCircleList!=NULL)
     {
-        if(mainCircle->sizeCircle!=NULL)
-            free(mainCircle->sizeCircle);
+        if(aCircleList->sizeCircle!=NULL)
+            free(aCircleList->sizeCircle);
 
-        free(mainCircle);
+        free(aCircleList);
     }
 }
 
 //interface
-int addToCircle(optionCircle *mainCircle, float centerX, float centerY, float radius)
+int addToCircle(circleList *aCircleList, float centerX, float centerY, float radius)
 {
-        if(mainCircle->current_size < mainCircle->size)
+        if(aCircleList->current_size < aCircleList->size)
         {
-            circle *sizeCircle=&(mainCircle->sizeCircle[mainCircle->current_size]);
+            circle *sizeCircle=&(aCircleList->sizeCircle[aCircleList->current_size]);
             if(sizeCircle!=NULL)
             {
                 sizeCircle->centerX=centerX;
@@ -42,7 +42,7 @@ int addToCircle(optionCircle *mainCircle, float centerX, float centerY, float ra
                 sizeCircle->radius=radius;
                 sizeCircle->square=theSquare(sizeCircle);
 
-                mainCircle->current_size++;
+                aCircleList->current_size++;
             }
             else
             {
@@ -58,7 +58,7 @@ int addToCircle(optionCircle *mainCircle, float centerX, float centerY, float ra
 }
 
 //count square
-float theSquare(circle *mainCircle)
+float theSquare(circle *aCircleList)
 {
-    return PI*(powf((mainCircle->radius), 2));
+    return PI*(powf((aCircleList->radius), 2));
 }
