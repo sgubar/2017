@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include "dk_tool.h"
 
-#define PI 3.14 //cont in math
+#define PI 3.14 //const in math
 
 //main: delete and create
 optionCircle *createCircle(int size)
