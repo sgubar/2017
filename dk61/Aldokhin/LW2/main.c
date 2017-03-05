@@ -8,7 +8,7 @@
 
 int main() {
 
-    FILE *f_save = fopen("iii.csv","w+");
+    FILE *f_save = fopen("Tabl.csv","w+");
     int *array_main;
     int *array_sort;
     int time;
