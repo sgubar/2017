@@ -10,8 +10,13 @@ var. 3
 
 int input_a(int inp_a){
 	
-		printf("PLease, enter a value for A here: "); 			//vvod inta inp_a
-		scanf("%i", &inp_a);
+		do{
+				printf("PLease, enter a value for A here: "); 			//vvod inta inp_a
+				scanf("%i", &inp_a);
+				}
+				
+					while(inp_a == 0 || inp_a < 0);{ 	//protverka na naturalnost
+				}
 		return inp_a;
 		
 }
@@ -27,7 +32,7 @@ int input_a(int inp_a){
 				
 				
 				
-				while(inp_b == 0);{ 	//protverka na duraka => znamenatel ne mozhet bit 0
+				while(inp_b == 0 || inp_b < 0);{ 	//protverka na duraka => znamenatel ne mozhet bit 0
 				}
 				
 				return inp_b;
@@ -37,8 +42,14 @@ int input_a(int inp_a){
 
 int input_c(int inp_c){
 
-printf("PLease, enter a value for C here: "); 					//vvod inta inp_c
+
+				do{
+				printf("PLease, enter a value for C here: "); 					//vvod inta inp_c
 				scanf("%i", &inp_c);
+				}
+				
+					while(inp_c == 0 || inp_c < 0);{ 	//protverka na naturalnost
+				}
 				
 				return inp_c;
 }
