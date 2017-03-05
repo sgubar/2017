@@ -11,7 +11,8 @@ var. 3
 int input_a(int inp_a){
 	
 		do{
-				printf("PLease, enter a value for A here: "); 			//vvod inta inp_a
+				printf("PLease, enter an integer (not 0 or negative)\n");
+				printf("Enter A here: "); 			//vvod inta inp_a
 				scanf("%i", &inp_a);
 				}
 				
@@ -26,7 +27,7 @@ int input_a(int inp_a){
 	int input_b(int inp_b){
 		
 		do{
-				printf("PLease, enter a value for B here: "); 	//vvod inta inp_b
+				printf("Enter B here: ");  	//vvod inta inp_b
 				scanf("%i", &inp_b);
 				}
 				
@@ -44,7 +45,7 @@ int input_c(int inp_c){
 
 
 				do{
-				printf("PLease, enter a value for C here: "); 					//vvod inta inp_c
+				printf("Enter C here: ");  					//vvod inta inp_c
 				scanf("%i", &inp_c);
 				}
 				
