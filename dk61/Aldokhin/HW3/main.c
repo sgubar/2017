@@ -10,11 +10,11 @@ int main() {
     {
         memset(Triangle, 0, 3 * sizeof(DK_coor));
     }
-
+//make file
     FILE *File_main = fopen("data.json", "w+");
 
     read_coor(Triangle);
-
+// arow file
     float S=calculate(Triangle);
     printf("Rezalt: %f", S);
     if (NULL != Triangle) {
@@ -23,6 +23,7 @@ int main() {
 
     write_Triangl(File_main, Triangle, S);
 
+//    clouse file
     fflush(File_main);
     fclose(File_main);
 

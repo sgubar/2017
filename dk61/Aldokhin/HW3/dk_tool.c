@@ -38,7 +38,7 @@ void read_coor(DK_coor *rTriangle)
         }
     }
 }
-
+//calculate area triangl
 float calculate(DK_coor *RCTriangle)
 {
     char mas[3] = {'A', 'B', 'C'};
@@ -49,7 +49,27 @@ float calculate(DK_coor *RCTriangle)
     if(rez<0)rez = rez * (-1);
     return rez;
 }
-
+/*"Triangl" : {
+"Area" : 1.500000,
+"A" : {
+{
+"X" : 2.000000,
+"Y" : 5.000000,
+},
+},
+"B" : {
+{
+"X" : 2.000000,
+"Y" : 5.000000,
+},
+},
+"C" : {
+{
+"X" : 2.000000,
+"Y" : 5.000000,
+},
+},
+}*/
 void write_Triangl(FILE *aFile, DK_coor *dArray, float S)
 {
     char index[3] = {'A', 'B', 'C'};
