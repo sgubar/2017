@@ -1,1 +1,1 @@
-LAB2. Algorithm sorting
+LAB2. Sorting Algorithms
