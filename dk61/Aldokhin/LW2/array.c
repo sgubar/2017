@@ -109,7 +109,7 @@ int scan_size()
     {
         t=scanf("%d",&sc_sym);
         fflush(stdin);
-        if(!(t!=1 || sc_sym<0 || sc_sym>1000000)) break;
+        if(!(t!=1 || sc_sym<0 || sc_sym>100000000)) break;
         printf("%s","Invalid input. Try again.\n");
     }
     while(1);

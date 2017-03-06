@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <malloc.h>
 #include <time.h>
+#include <unistd.h>
 
 #include "Write.h"
 #include "array.h"
@@ -14,7 +15,7 @@ int main() {
     int time;
     if (NULL==f_save)
     {
-        printf("Error, memory overflow in file.");
+        printf("Error, memory overflow in file.\n");
         return 0;
     }
     //array's size
@@ -23,7 +24,7 @@ int main() {
 
     if (NULL==array_main)
     {
-        printf("Error, memory overflow.");
+        printf("Error, memory overflow.\n");
         return 0;
     }
 
@@ -31,7 +32,7 @@ int main() {
     if (NULL==array_sort)
     {
         free(array_main);
-        printf("Error, memory overflow.");
+        printf("Error, memory overflow.\n");
         return 0;
     }
     //makefile(f_save);
@@ -42,6 +43,7 @@ int main() {
 
     Write_in_file(f_save, 2, msize, array_main);
 
+    //sort selection
     for (int i = 3; i < 8; ++i) {
         overstore_array(array_main, array_sort, msize); //copy the array to sort array
         time=clock();
@@ -78,12 +80,19 @@ int main() {
         Write_in_file(f_save, i, msize, array_sort);
     }
 
-
-    free(array_main);
-    free(array_sort);
-
+    //closing the file
     make_futter_file(f_save);
     closefile(f_save);
+
+    //write adress current dir
+    char *dir_current = malloc(100* sizeof(char));
+    if (getcwd(dir_current, 100* sizeof(char))!=NULL)
+    printf("Data is recorded in files %s\n%s\n", dir_current, "Name: Tabl.csv");
+
+    //deallocation
+    free(dir_current);
+    free(array_main);
+    free(array_sort);
 
     return 0;
 }
