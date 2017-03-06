@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <malloc.h>
 #include <memory.h>
+#include <unistd.h>
 
 #include "dk_tool.h"
 
@@ -16,7 +17,7 @@ int main() {
     read_coor(Triangle);
 // arow file
     float S=calculate(Triangle);
-    printf("Rezalt: %f", S);
+    printf("Rezalt: %f\n", S);
     if (NULL != Triangle) {
         free (Triangle);
     }
@@ -26,6 +27,13 @@ int main() {
 //    clouse file
     fflush(File_main);
     fclose(File_main);
+
+    //write adress current dir
+    char *dir_current = malloc(100* sizeof(char));
+    if (getcwd(dir_current, 100* sizeof(char))!=NULL)
+        printf("Data is recorded in files %s\n%s\n", dir_current, "Name: data.json");
+
+    free(dir_current);
 
     return 0;
 }

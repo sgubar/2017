@@ -32,7 +32,7 @@ void read_coor(DK_coor *rTriangle)
     if (NULL != rTriangle) {
         char mas[3] = {'A', 'B', 'C'};
         for (int i = 0; i < 3; ++i) {
-            printf("Please enter dot %c (-100000.000; 100000.000)", mas[i]);
+            printf("Please enter dot %c (-100000.000; 100000.000)\n", mas[i]);
             rTriangle[i].x_coor = read_tru(-100000.000, 100000.000);
             rTriangle[i].y_coor = read_tru(-100000.000, 100000.000);
         }
