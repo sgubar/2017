@@ -13,9 +13,9 @@ int Search(char TheString[], char TheWord[])
 	{																	
 			for(int n = 0; n < strlen(TheWord); n++)
 			{																			
-				if(TheWord[PositionW+n] == TheString[PositionStr+n])
+				if(TheWord[PositionW+n] == TheString[PositionStr+n]) 
 				{
-				Counter++;																//ñ÷¸ò÷èê ñîâïàäåíèé ñèìâîëîâ
+				Counter++;							//ÑÑ‡Ñ‘Ñ‚Ñ‡Ð¸Ðº ÑÐ¾Ð²Ð¿Ð°Ð´ÐµÐ½Ð¸Ð¹																//Ã±Ã·Â¸Ã²Ã·Ã¨Ãª Ã±Ã®Ã¢Ã¯Ã Ã¤Ã¥Ã­Ã¨Ã© Ã±Ã¨Ã¬Ã¢Ã®Ã«Ã®Ã¢
 					if(Counter == strlen(TheWord))
 					{
 						Coordinates = PositionStr+1;
@@ -27,7 +27,7 @@ int Search(char TheString[], char TheWord[])
 			PositionStr++;
 	}
 	
-	if(Coordinates = -1)																//åñëè ñîâïàäåíèé íåò
+	if(Coordinates = -1)								       //ÐµÑÐ»Ð¸ ÑÐ¾Ð²Ð¿Ð°Ð´ÐµÐ½Ð¸Ð¹ Ð½Ðµ Ð½Ð°Ð¹Ð´ÐµÐ½Ð¾																//Ã¥Ã±Ã«Ã¨ Ã±Ã®Ã¢Ã¯Ã Ã¤Ã¥Ã­Ã¨Ã© Ã­Ã¥Ã²
  	{
  		return -1;
 	}
