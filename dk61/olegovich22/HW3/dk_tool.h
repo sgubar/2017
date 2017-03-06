@@ -34,7 +34,7 @@ int addToCircle(circleList *aCircleList, float centerX, float centerY, float rad
 float theSquare(circle *aCircle);
 
 //writing into file
-void writeCircleList(FILE *aFile, circleList *aCircleList);
+int writeCircleList(FILE *aFile, circleList *aCircleList);
 void writeCircle(FILE *aFile, circle *aCircle);
 
 #endif //HW2_DK_TOOL_H

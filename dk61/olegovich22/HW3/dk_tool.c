@@ -69,42 +69,51 @@ float theSquare(circle *aCircle)
 }
 
 //write into file
-void writeCircleList(FILE *aFile, circleList *aCircleList)
+int writeCircleList(FILE *aFile, circleList *aCircleList)
 {
-    fprintf(aFile, "{");
-    enter;
-    fprintf(aFile, "\"Size\": %d", aCircleList->size);coma;
-    enter;
-    fprintf(aFile, "\"Current_size\": %d", aCircleList->current_size);coma;
-    enter;
-    fprintf(aFile, "\"Circles\":");
-
-    if (NULL == aCircleList->sizeCircle)
+    if (aFile==NULL && aCircleList==NULL)
     {
-        fprintf(aFile, "null");
+        return -1;
     }
     else
     {
-        fprintf(aFile, "[");
+        fprintf(aFile, "{");
         enter;
+        fprintf(aFile, "\"Size\": %d", aCircleList->size);coma;
+        enter;
+        fprintf(aFile, "\"Current_size\": %d", aCircleList->current_size);coma;
+        enter;
+        fprintf(aFile, "\"Circles\":");
 
-        for (int i=0; i<aCircleList->current_size ; i++)
+        if (NULL == aCircleList->sizeCircle)
         {
-            circle *aCircle=&(aCircleList->sizeCircle[i]);
-            space;
-
-            writeCircle(aFile, aCircle);
-
-            if(i < aCircleList->current_size-1)
-            {
-                coma;
-                enter;
-            }
+            fprintf(aFile, "null");
         }
-        fprintf(aFile, "]");
+        else
+        {
+            fprintf(aFile, "[");
+            enter;
+
+            for (int i=0; i<aCircleList->current_size ; i++)
+            {
+                circle *aCircle=&(aCircleList->sizeCircle[i]);
+                space;
+
+                writeCircle(aFile, aCircle);
+
+                if(i < aCircleList->current_size-1)
+                {
+                    coma;
+                    enter;
+                }
+            }
+            fprintf(aFile, "]");
+        }
+        enter;
+        fprintf(aFile, "}");
     }
-    enter;
-    fprintf(aFile, "}");
+
+
 }
 void writeCircle(FILE *aFile, circle *aCircle)
 {

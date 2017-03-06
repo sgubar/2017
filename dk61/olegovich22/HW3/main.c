@@ -9,7 +9,7 @@ int main() {
     //circle options
     float centerX=2.0;
     float centerY=2.0;
-    float radius=7.0;
+    float radius=8.0;
 
     FILE *aFile=fopen("data.json", "w+");
 
@@ -18,8 +18,9 @@ int main() {
 
     //add to struct data
     addToCircle(aCircleList, centerX, centerY, radius);
-    addToCircle(aCircleList, 5, 4, 3);
-    addToCircle(aCircleList, 0, 0, 9);
+    addToCircle(aCircleList, 1, 5, 8);
+    addToCircle(aCircleList, 0, 0, 7);
+
 
     //writing into file
     writeCircleList(aFile, aCircleList);
@@ -34,6 +35,9 @@ int main() {
         printf("  Square: %.3f\n", sizeCircle->square);
         CircleCounter++;
     }
+
+    //close file after using
+    fclose(aFile);
 
     //destroy struct
     destroyAllCircle(aCircleList);
