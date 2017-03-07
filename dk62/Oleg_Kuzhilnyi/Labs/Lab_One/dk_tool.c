@@ -24,8 +24,8 @@ float MathDEL(int A, int B, int C)
 
 double MathDegree(int A, int B, int C)
 {
-    double Degree=1;// counter for exponent. For example: [0]: 2^1 || 2^degree but not 2^0
     int D=0;//zero pointer
+    double Degree=1;// counter for exponent. For example: [0]: 2^1 || 2^degree but not 2^0
     double SigmaSUMdegree=0;
    //int counter = 0;
     
