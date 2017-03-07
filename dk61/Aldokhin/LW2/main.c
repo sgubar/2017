@@ -82,7 +82,7 @@ int main() {
 
     //closing the file
     make_futter_file(f_save);
-    closefile(f_save);
+    fclose(f_save);
 
     //write adress current dir
     char *dir_current = malloc(100* sizeof(char));
