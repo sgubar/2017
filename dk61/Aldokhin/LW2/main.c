@@ -43,7 +43,7 @@ int main() {
 
     Write_in_file(f_save, 2, msize, array_main);
 
-    //sort selection
+    //
     for (int i = 3; i < 8; ++i) {
         overstore_array(array_main, array_sort, msize); //copy the array to sort array
         time=clock();
@@ -82,7 +82,7 @@ int main() {
 
     //closing the file
     make_futter_file(f_save);
-    fclose(f_save);
+    closefile(f_save);
 
     //write adress current dir
     char *dir_current = malloc(100* sizeof(char));

@@ -7,6 +7,10 @@
 
 #endif //LABWORK2_WRITE_H
 
+void makefile(FILE *tabl);
+
+void closefile(FILE *d_f_save);
+
 void make_heder_file(FILE *d_f_save);
 
 void Write_time(FILE *d_f_save, int x, int time);
