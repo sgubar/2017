@@ -37,7 +37,7 @@ double MathDegree(int A, int B, int C)
          }
          for(int i=D;i<A*(-1);i++)
          {
-             SigmaSUMdegree += Degree; //count for sum All elements
+             SigmaSUMdegree += Degree; //count for summ All elements
          }
          
      }else
@@ -49,10 +49,16 @@ double MathDegree(int A, int B, int C)
          
          for(int j=D;j<D+A;j++)
          {
-             SigmaSUMdegree += Degree; //count for sum All elements
+             SigmaSUMdegree += Degree; //count for summ All elements
          }
          
      }
+    if  (A==0)
+     {
+         Degree = 1;  // 2^0 = 1
+         SigmaSUMdegree = 1; // summ = 1
+     }
+
     
     return SigmaSUMdegree;
 }

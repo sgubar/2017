@@ -8,23 +8,6 @@
 
 #include "Write.h"
 
-void makefile(FILE *tabl)
-{
-//    printf("Please enter a name file(max long 50 elements):");
-//    char *name;
-//    name = malloc(56*sizeof(char));
-//    fgets(*name, 51, stdin);
-//    strcat(*name, ".json");
-      tabl=fopen("11.json", "w+");
-//    free(*name);
-    return;
-}
-
-void closefile(FILE *d_f_save)
-{
-    fclose(d_f_save);
-    return;
-}
 
 void make_heder_file(FILE *d_f_save)
 {
