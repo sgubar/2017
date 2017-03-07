@@ -1,13 +1,20 @@
 #include "perestanovka.h"
 
-int perestanovka(int massiv[], int size, int begin)
+void perestanovka(int massiv[], int size)
 {
-	int t;//counter for loop
-	int returrn;
-	for(t = begin; t<(size); t++)
+	int t = 0;//counter for loop
+	int f = size-1;
+	
+	int buffer = 0;
+	
+	
+	for( ; t!=f; t++, f--)
 	{
-		returrn = massiv[(size - begin-1)];
+		buffer = massiv[t];
+		massiv [t] = massiv [f];
+		massiv [f] = buffer;
+		
 	}
 	
-	return returrn;
+	
 }

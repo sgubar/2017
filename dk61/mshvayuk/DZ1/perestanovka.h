@@ -3,7 +3,7 @@
 
 #include <stdio.h>
 
-int perestanovka(int massiv[], int size, int begin);
+void perestanovka(int massiv[], int size);
 
 /*декларація функції, що переставляє масив
 	massiv[] - наш изначальний массив

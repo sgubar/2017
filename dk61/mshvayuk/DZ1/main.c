@@ -10,7 +10,7 @@
 	 begin - номер члена масива з якого буде починатися перестановка в циклі(кожного разу новий)
 													*/
 int main(void)
-{	int i,j,begin;//counters for loops 2)"begin" is one of the arguments
+{	int i,j;//counters for loops 2)"begin" is one of the arguments
 
 	printf("give me the size of massiv = ");// size of main massiv
 	int size;
@@ -34,36 +34,25 @@ int main(void)
 	printf("\n");
 	
 	
-	int final[size];//final array
+//	int final[size];//final array
 	
-	for(begin = 0; begin<size; begin++)//perestanovka
-	{
-		final[begin] = perestanovka(massiv, size, begin);
-		
-	}
+//	for(begin = 0; begin<size; begin++)//perestanovka
+	
+		perestanovka(massiv, size);
+	
+	
 
 	printf("your final massiv:    ");
 	
 	for ( j=0;j<size;j++)//вывод финального массива
 	{
-		printf(" %i ",final[j]);
+		printf(" %i ",massiv[j]);
 	}
 	
+	return 0;
 
 		
 }
-
-/*int perestanovka(int massiv[], int size, int begin)
-{
-	int t;//counter for loop
-	int returrn;
-	for(t = begin; t<(size); t++)
-	{
-		returrn = massiv[(size - begin-1)];
-	}
-	
-	return returrn;
-}*/
 
 
 
