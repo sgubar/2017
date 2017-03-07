@@ -11,10 +11,12 @@
 
 static char *__dk_json_parse_value(char *aBuffer, char *aKey,
 			DK_JSON_Item *aParent);
-static char *__dk_json_parse_key(char *aBuffer, char **aKey);
+static char *__dk_json_parse_key(char *aBuffer, char **outKey);
 
 static DK_JSON_Item *__dk_create_json_item(DK_JSON_ItemType aType, char *aKey,
 			DK_JSON_Item *aParent);
+
+static char *__dk_json_read_string(char *aBuffer);
 
 #pragma mark -
 DK_JSON_Item *dk_json_parse(char *aBuffer)
@@ -95,12 +97,13 @@ DK_JSON_Item *__dk_create_json_item(DK_JSON_ItemType aType, char *aKey,
 char *__dk_json_parse_value(char *aBuffer, char *aKey, DK_JSON_Item *aParent)
 {
 	DK_JSON_Item *theItem = NULL;
+	int isOut = 0;
 	
-	while (NULL != aBuffer)
+	while (NULL != aBuffer && 0 == isOut)
 	{
 		switch (*aBuffer)
 		{
-			case '{':
+			case '{': // Create object
 			{
 				theItem = __dk_create_json_item(kDK_JSON_Object_Type, aKey, aParent);
 				
@@ -113,10 +116,25 @@ char *__dk_json_parse_value(char *aBuffer, char *aKey, DK_JSON_Item *aParent)
 				{
 					aBuffer ++;
 					
+					// At first we look on the key
 					while (NULL != aBuffer)
 					{
 						char *theKey = NULL;
 						aBuffer = __dk_json_parse_key(aBuffer, &theKey);
+					
+						if (NULL != aBuffer)
+						{
+							if ('}' == *aBuffer)
+							{
+								aBuffer++;
+								isOut = 1;
+							}
+							else
+							{
+								// At second we look on the value
+								aBuffer = __dk_json_parse_value(aBuffer, theKey, theItem);
+							}
+						}
 					}
 				}
 				
@@ -134,7 +152,27 @@ char *__dk_json_parse_value(char *aBuffer, char *aKey, DK_JSON_Item *aParent)
 
 char *__dk_json_parse_key(char *aBuffer, char **aKey)
 {
-	DK_JSON_Item *theResult = NULL;
+	char *theKey = NULL;
+	
+	
 	
 	return aBuffer;
 }
+
+char *__dk_json_read_string(char *aBuffer)
+{
+	char theChar = '\0';
+	
+	while ( '\0' != (theChar = *aBuffer++))
+	{
+		// The code base does not work with strings that separate on two in the files
+		if ('"' == theChar)
+		{
+			*(aBuffer - 1) = '\0'; //make the end of string
+			break;
+		}
+	}
+	
+	return aBuffer;
+}
+
