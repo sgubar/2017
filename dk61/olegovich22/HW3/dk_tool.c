@@ -10,6 +10,8 @@
 #define coma fprintf(aFile, ",")
 #define space fprintf(aFile, " ")
 
+
+
 //main: delete and create
 circleList *createCircle(int size)
 {
@@ -21,6 +23,7 @@ circleList *createCircle(int size)
         aCircleList->current_size=0;
         aCircleList->size=size;
     }
+    return aCircleList;
 }
 
 void destroyAllCircle(circleList *aCircleList)
@@ -60,6 +63,19 @@ int addToCircle(circleList *aCircleList, float centerX, float centerY, float rad
     }
 
     return 0;
+}
+
+void print(circleList *aCircleList)
+{
+    int CircleCounter=0;
+    while(aCircleList->current_size > CircleCounter)
+    {
+        circle *sizeCircle=&(aCircleList->sizeCircle[CircleCounter]);
+        printf("%d)Center (x, y): (%.3f, %.3f)\n", CircleCounter+1, sizeCircle->centerX, sizeCircle->centerY);
+        printf("  Radius: %.3f\n", sizeCircle->radius);
+        printf("  Square: %.3f\n", sizeCircle->square);
+        CircleCounter++;
+    }
 }
 
 //count square

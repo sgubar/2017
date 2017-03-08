@@ -20,15 +20,7 @@ int main() {
     addToCircle(aCircleList, 0, 0, 9);
 
     //print result
-    int CircleCounter=0;
-    while(aCircleList->current_size > CircleCounter)
-    {
-        circle *sizeCircle=&(aCircleList->sizeCircle[CircleCounter]);
-        printf("%d)Center (x, y): (%.3f, %.3f)\n", CircleCounter+1, sizeCircle->centerX, sizeCircle->centerY);
-        printf("  Radius: %.3f\n", sizeCircle->radius);
-        printf("  Square: %.3f\n", sizeCircle->square);
-        CircleCounter++;
-    }
+    print(aCircleList);
 
     //destroy struct
     destroyAllCircle(aCircleList);
