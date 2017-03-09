@@ -10,7 +10,7 @@ int strings(char string[], char search[])
 	{
 		for (j = i, k = 0; search[k] != '\0' && string[j] == search[k]; j++, k++);// check if our second array also has something; and if their symbols are matched, do iteration;
 			//i - flag for entry point
-		if (k > 0 && search[k] == '\0')// checking if we get the end of "poisk"
+		if (k > 0 && search[k] == '\0')// checking if we get the end of "search"
 			return i+1;//return entry point
 	}
 	return -1;//if we don't get what we want returning -1;
