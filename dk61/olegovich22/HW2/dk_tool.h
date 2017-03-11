@@ -7,7 +7,7 @@
 #include <string.h>
 
 //circle size
-typedef struct tagCircle
+typedef struct circle
 {
     float centerX;
     float centerY;
@@ -16,7 +16,7 @@ typedef struct tagCircle
 }circle;
 
 //circle options
-typedef struct tagCircleList
+typedef struct optionCircle
 {
     circle *sizeCircle;
     int size;
@@ -30,7 +30,10 @@ void destroyAllCircle(circleList *aCircleList);
 //interface
 int addToCircle(circleList *aCircleList, float centerX, float centerY, float radius);
 
+void print(circleList *aCircleList);
+
 //count square
 float theSquare(circle *aCircle);
+
 
 #endif //HW2_DK_TOOL_H

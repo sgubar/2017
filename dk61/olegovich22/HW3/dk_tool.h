@@ -29,6 +29,7 @@ void destroyAllCircle(circleList *aCircleList);
 
 //interface
 int addToCircle(circleList *aCircleList, float centerX, float centerY, float radius);
+void print(circleList *aCircleList);
 
 //count square
 float theSquare(circle *aCircle);
