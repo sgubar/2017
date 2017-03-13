@@ -22,7 +22,7 @@ double Obchislennya_Za_Formulou(int A, int B, int C)
             Sigma=Sigma+Factorial(K);                       //обчислення суми факторіалів в якій викликається функція для обчислення факторіалу
         }
         Rezultat=Dobutok+Sigma;
-        return Rezultat;
+        printf("Rezultat:%.3Lf", Rezultat);                 //вивід результату обчислення на екран
     }
     else
     {
