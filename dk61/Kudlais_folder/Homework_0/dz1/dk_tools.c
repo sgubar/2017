@@ -7,7 +7,6 @@ bool check(string s, int *results){
         int counter_length = 0;
         int res_quant = 0;
         int cntr = 0;
-        int number = 0;
         for(int i  = 0; i < length; i++){
             if(((int)s[i] <= 57 && (int)s[i] => 48) || (int)s[i] == 32){
                 if((int)s[i] == 32 && i != 0){
@@ -24,11 +23,10 @@ bool check(string s, int *results){
                 if(counter_quantity == 7){
                     int number = 0;
                     cntr++;
+                    number = number + ((int)s[i] - 48) * power(10, cntr);
                     if((int)s[i+1] == 32){
-                        while(cntr > 0){
-                            number = number + ((int)s[i] - 48) * power(10, cntr);
-                        }
                         *(array + res_quant) = number;
+                        cntr = 0;
                     }
                 }    
             }
