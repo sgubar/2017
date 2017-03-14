@@ -2,4 +2,4 @@
 #define dk_tool_h
 bool check(string s, int *results);
 int power(int data, int n);
-#endif dk_tool_h 
+#endif //dk_tool_h 
