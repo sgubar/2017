@@ -1,6 +1,5 @@
 #include "dk_tools.h"
 #include <stdio.h>
-#include <cs50.h>
 
 bool check(string s, int *results){
     if(s != NULL){
