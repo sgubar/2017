@@ -24,7 +24,7 @@ int main(int argc, const char * argv[])
     {
         Random(MassOfRandomNumbers,aSizeOf);
         Input(theFileForRandom,MassOfRandomNumbers,aSizeOf);
-    }else return -1;
+    }else return -1; //exit if not 0
 
      puts("-----------------------");
     puts("1 - Bubble Sort");
