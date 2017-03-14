@@ -8,7 +8,7 @@
 
 #include "Sorting.h"
 
-void BubbleSort(int *MassOfNumbers,int aSize)
+void BubbleSort(int *MassOfNumbers,int aSize)    //Bubble Sort
 {
 for(int TheOut = 0;TheOut < aSize; TheOut++)
 {
@@ -24,7 +24,7 @@ for(int TheOut = 0;TheOut < aSize; TheOut++)
 
 }
 
-void SelectSort(int *MassOfNumbers,int aSize)
+void SelectSort(int *MassOfNumbers,int aSize)  //Selection Sort
 {
     for(int TheOut = 0; TheOut< aSize; TheOut++)
     {
@@ -40,7 +40,7 @@ void SelectSort(int *MassOfNumbers,int aSize)
     }
 }
 
-void QuickSort(int *MassOfNumbers,int left,int right)
+void QuickSort(int *MassOfNumbers,int left,int right)  //Quick Sort
 {
     int TheOut,last;
     if(left >= right)
@@ -56,7 +56,7 @@ void QuickSort(int *MassOfNumbers,int left,int right)
     QuickSort(MassOfNumbers, last+1, right);
 }
 
-void ShellsSort(int *MassOfNumbers,int aSize)
+void ShellsSort(int *MassOfNumbers,int aSize)   //Shell Sort
 {
     int t = 0;
     for(int q = aSize/2; q > 0; q /= 2)
