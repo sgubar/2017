@@ -1,10 +1,4 @@
-//
-//  first.c
-//  S_K
-//
-//  Created by air on 27.02.17.
-//  Copyright © 2017 O_Student. All rights reserved.
-//
+
 
 #include "first.h"
 
