@@ -22,14 +22,22 @@ int main(int argc, const char *argv[])
 	
 	addNoteToPhoneBook(theBook, "Viacheslav", "123456");
 	addNoteToPhoneBook(theBook, theName, thePhone);
-	addNoteToPhoneBook(theBook, "Mama", "1234567");
-	addNoteToPhoneBook(theBook, "Papa", "12345689");
-	addNoteToPhoneBook(theBook, "Mama1", "12345678908");
-	addNoteToPhoneBook(theBook, "Papa1", "12345689787");
-	addNoteToPhoneBook(theBook, "Mama2", "123456733");
-	addNoteToPhoneBook(theBook, "Papa2", "1234568449");
+	addNoteToPhoneBook(theBook, "Mama", "9");
+	addNoteToPhoneBook(theBook, "Papa", "8");
+	addNoteToPhoneBook(theBook, "Mama1", "7");
+	addNoteToPhoneBook(theBook, "Papa1", "6");
+	addNoteToPhoneBook(theBook, "Mama2", "5");
+	addNoteToPhoneBook(theBook, "Papa2", "4");
 	
 	writePhoneBook(theFile, theBook);
+	
+	printf ("Before sorting ...");
+	printPhoneBook(theBook);
+
+	sortPhoneBook(theBook);
+
+	printf ("After sorting ...");
+	printPhoneBook(theBook);
 	
 	DK_Note theNote = theBook->notes[1];
 	

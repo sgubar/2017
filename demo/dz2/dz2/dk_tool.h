@@ -17,7 +17,7 @@ typedef struct tagNote
 	char phone[12];
 }DK_Note, *PDK_Note;
 
-
+void printNote(DK_Note *aNote);
 /*
 {
 	"name" : nill,
@@ -57,5 +57,8 @@ void destroyPhoneBook(DK_PhoneBook *aPhoneBook);
 
 //interfaces
 int addNoteToPhoneBook(DK_PhoneBook *inPhoneBook, char *aName, char *aPhone);
+
+void printPhoneBook(DK_PhoneBook *inPhoneBook);
+void sortPhoneBook(DK_PhoneBook *inPhoneBook);
 
 #endif /* dk_tool_h */

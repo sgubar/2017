@@ -149,6 +149,51 @@ void writePhoneBook(FILE *aFile, DK_PhoneBook *aBook)
 	fprintf (aFile, "}");
 }
 
+void printNote(DK_Note *aNote)
+{
+	printf("name: %s\t", aNote->name);
+	printf("phone: %s\n", aNote->phone);
+}
+
+void printPhoneBook(DK_PhoneBook *inPhoneBook)
+{
+	printf("size: %d\t", inPhoneBook->size);
+	printf("current size: %d\n", inPhoneBook->current_size);
+	
+	for (int i = 0; i < inPhoneBook->current_size; i++)
+	{
+		printf("[%d] - ", i);
+		printNote(&(inPhoneBook->notes[i]));
+	}
+}
+
+void sortPhoneBook(DK_PhoneBook *inPhoneBook)
+{
+	for (int theOut = 0;
+				theOut < inPhoneBook->current_size - 1; theOut ++)
+	{
+		int theMinIndex = theOut;
+	
+		for (int theIn = theOut + 1;
+					theIn < inPhoneBook->current_size; theIn ++)
+		{
+//			if (inPhoneBook->notes[theIn].name < inPhoneBook->notes[theMinIndex].name)
+			if (-1 == strcmp(
+						inPhoneBook->notes[theIn].phone,
+						inPhoneBook->notes[theMinIndex].phone))
+			{
+				theMinIndex = theIn;
+			}
+		}
+	
+		DK_Note theTmp = inPhoneBook->notes[theOut];
+		inPhoneBook->notes[theOut] = inPhoneBook->notes[theMinIndex];
+		inPhoneBook->notes[theMinIndex] = theTmp;
+	}
+}
+
+#pragma mark -
+
 void writeString(FILE *aFile, char *aKey, char *aString)
 {
 	fprintf(aFile, "\"%s\":", aKey);
