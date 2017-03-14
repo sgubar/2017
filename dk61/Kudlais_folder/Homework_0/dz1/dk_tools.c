@@ -27,6 +27,7 @@ bool check(string s, int *results){
                     if((int)s[i+1] == 32){
                         *(array + res_quant) = number;
                         cntr = 0;
+                        number = 0;
                     }
                 }    
             }
