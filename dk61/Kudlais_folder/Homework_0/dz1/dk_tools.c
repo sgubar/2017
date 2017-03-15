@@ -23,11 +23,16 @@ bool check(string s, int *results){
                 if(counter_quantity == 7){
                     int number = 0;
                     cntr++;
-                    number = number + ((int)s[i] - 48) * power(10, cntr);
                     if((int)s[i+1] == 32){
+                        int j = 0;
+                        while (cntr > j){
+                             number = number + ((int)s[i-j] - 48) * power(10, j);
+                             j++;
+                        }
                         *(array + res_quant) = number;
                         cntr = 0;
                         number = 0;
+                        J = 0;
                     }
                 }    
             }
