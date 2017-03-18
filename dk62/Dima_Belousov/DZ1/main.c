@@ -1,41 +1,27 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "function.h"
+#include <malloc.h>
+#include "dk_tools.h"
 
 int main(int argc, char *argv[])
 {
 int N;
-int i,j;
-int x = 1;
+int matr1[10][10];
+int matr2[10][10];
+int result_matr[10][10];
 
-printf("Vvedte razmer matr \n");
+printf("Enter array size: \n");
 scanf("%i", &N);
 
-int matr1[N][N];
-int matr2[N][N];
 
 
 
+FillMatrix(N,matr1);
+FillMatrix(N,matr2);
+result(N,matr1,matr2,result_matr);
+print_result(N,result_matr);
 
 
-for(i = 0; i < N; i++){
-for(j = 0; j < N; j++){
-printf("Vvedite %i element matr1: \n", x);
-scanf("%i", &matr1[i][j]);
-x++;
-}
+return 0;
 }
 
-x = 1;
-
-for(i = 0; i < N; i++){
-for(j = 0; j < N; j++){
-printf("Vvedite %i element matr2: \n", x);
-scanf("%i", &matr2[i][j]);
-x++;
-}
-}
-
-result(N,matr1,matr2);
-
-}
