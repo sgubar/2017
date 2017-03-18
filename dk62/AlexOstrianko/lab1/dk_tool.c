@@ -14,7 +14,7 @@ double stepen(double InpA, double Step){
 		}
 		InpA=1/InpA;
 	}	
-	return InpA;		
+	return InpA;			
 }
 double sum(double InpA){	
 	double i;//dlya forov
@@ -37,17 +37,24 @@ double Abs(double InpC){
 	return InpC;	
 }
 void vvod (double *Inp){
-	int Pointer;
-	char a[5];
-	do{		
-		Pointer = 0;
-		scanf("%s",a);	
-		int i;
-		for (i=0;a[i]!='\0';i++)
-		{
-			if('0' > a[i] || a[i] > '9' )
+  	char character;
+	int Pointer = 0;
+  	char Str[5];
+  	do{
+  		int Current = 0;
+  		Pointer = 0;
+	  	while ((character = getchar()) != '\n')
+	  	{	
+		  	if(Current<4){		
+		    Str[Current]=character;
+			if((Str[Current]<'0'||Str[Current]>'9')&&Str[Current]!='-')
 				Pointer = 1;
-		}
-	}while(Pointer==1);
-	*Inp = atoi(a); 
+			Current++;}
+	  	}  
+	  	Str[Current]='\0';
+	  	if(Pointer!=0)	  		
+			printf("Try again: ");
+	}while(Pointer != 0);
+    putchar ('\n'); 
+  	*Inp=atoi(Str);//perevod v chislo
 }
