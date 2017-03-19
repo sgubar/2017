@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "function.h"
+#include "dk_tools.h"
 
 int main(int argc, char *argv[])
 {
 int a,b,c;
-float result;
+float mod,deg,su,res;
 
 printf("Enter A:");
 scanf("%i", &a);
@@ -16,10 +16,19 @@ do{
 printf("Enter C != 0 :");
 scanf("%i", &c);}while(c==0);
 
-result = ((float)(modul(a,b,c))/(float)(degree(c)))*(float)(sum(a));
+mod = (float)modul(a,b,c);
+deg = (float)degree(c);
+su = (float)sum(a);
 
-printf("Result:");
-printf("%f", result);
+printf("Modul: %f\n", mod);
+printf("Degree: %f\n", deg);
+printf("Sum: %f\n", su);
+
+res = result(mod,deg,su);
+
+printf("Result: %f\n", res);
+
 
 return 0;
 }
+

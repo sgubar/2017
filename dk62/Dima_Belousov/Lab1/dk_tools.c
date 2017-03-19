@@ -1,6 +1,5 @@
-#ifndef function_h
-#define function_h
-
+#include <stdio.h>
+#include "dk_tools.h"
 
 int modul(int a, int b,int c){
 
@@ -16,6 +15,7 @@ if(x == 0) return 1;
 
 else return x*x*x;
 }
+
 
 int sum(int x){
 
@@ -34,4 +34,6 @@ for(i = 0; i < x; i++){
 return result;
 }
 
-#endif
+float result(float mod, float deg,float su){
+	return ((mod)/(deg))*(su);
+}
