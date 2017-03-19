@@ -27,25 +27,25 @@ float read_tru(float min_s, float max_s)
     return sc_sym;
 }
 
-void read_coor(DK_coor *rTriangle)
+void read_coor(DK_coor *rTriangle, char dindex, int i)
 {
-    if (NULL != rTriangle) {
-        char mas[3] = {'A', 'B', 'C'};
-        for (int i = 0; i < 3; ++i) {
-            printf("Please enter dot %c (-100000.000; 100000.000)\n", mas[i]);
-            rTriangle[i].x_coor = read_tru(-100000.000, 100000.000);
-            rTriangle[i].y_coor = read_tru(-100000.000, 100000.000);
-        }
-    }
+    printf("Please enter tgiangle number %i dot %c  (-100000.000; 100000.000)\n", i+1, dindex);
+    rTriangle->x_coor = read_tru(-100000.000, 100000.000);
+    rTriangle->y_coor = read_tru(-100000.000, 100000.000);
+    return;
 }
-//calculate area triangl
-float calculate(DK_coor *RCTriangle)
+
+void print_triangl(DK_coor *rTriangle, char dindex, int dnumber)
 {
-    char mas[3] = {'A', 'B', 'C'};
-    for (int i = 0; i < 3; ++i) {
-        printf("%c (%f ; %f)\n",mas[i], RCTriangle[i].x_coor, RCTriangle[i].y_coor);
-    }
-    float rez=(((RCTriangle+0)->x_coor-(RCTriangle+2)->x_coor)*((RCTriangle+1)->y_coor - (RCTriangle+2)->y_coor) - ((RCTriangle+1)->x_coor - (RCTriangle+2)->x_coor) * ((RCTriangle+1)->y_coor - (RCTriangle+2)->y_coor))/(float)2;
+    printf("Triangl: %i Vertex: %c (%f ; %f)\n",dnumber+1,dindex, rTriangle->x_coor, rTriangle->y_coor);
+    return;
+}
+
+
+//calculate area triangl
+float calculate(DK_coor RCTriangle0, DK_coor RCTriangle1, DK_coor RCTriangle2)
+{
+    float rez=((RCTriangle0.x_coor-RCTriangle2.x_coor)*(RCTriangle1.y_coor - RCTriangle2.y_coor) - (RCTriangle1.x_coor - RCTriangle2.x_coor) * (RCTriangle1.y_coor - RCTriangle2.y_coor))/(float)2;
     if(rez<0)rez = rez * (-1);
     return rez;
 }
@@ -70,31 +70,40 @@ float calculate(DK_coor *RCTriangle)
 },
 },
 }*/
-void write_Triangl(FILE *aFile, DK_coor *dArray, float S)
+void write_dot(FILE *aFile, DK_coor dArray, char index)
 {
-    char index[3] = {'A', 'B', 'C'};
+    fprintf(aFile, "\"%c\" : {\n", index);
 
+    fprintf(aFile, "\"X\" : %f,\n", dArray.x_coor);
 
-    fprintf(aFile, "\"Triangl\" : ");
+    fprintf(aFile, "\"Y\" : %f\n", dArray.y_coor);
 
+    if (index=='C')  fprintf (aFile, "}\n");
+                else fprintf (aFile, "},\n");
+    //fprintf (aFile, "}\n");
+}
+
+void write_triangle(FILE *aFile, triangle_str dTriangle, int index, int allsize)
+{
+    fprintf(aFile, "\"Triangl number %i\" : ", index+1);
     fprintf(aFile, "{\n");
 
-    fprintf(aFile, "\"Area\" : %f,\n", S);
+    write_dot(aFile, dTriangle.A_Vertex, 'A');
+    write_dot(aFile, dTriangle.B_Vertex, 'B');
+    write_dot(aFile, dTriangle.C_Vertex, 'C');
 
-    for (int i = 0; i < 3; ++i) {
-        fprintf(aFile, "\"%c\" : {\n", index[i]);
+    if (index==(allsize-1))  fprintf (aFile, "}\n");
+                else fprintf (aFile, "},\n");
+}
 
 
-        fprintf(aFile, "{\n");
-
-        fprintf(aFile, "\"X\" : %f,\n", dArray[1].x_coor);
-
-        fprintf(aFile, "\"Y\" : %f,\n", dArray[1].y_coor);
-
-        fprintf(aFile, "},\n");
-
-        fprintf(aFile, "},\n");
+void Write_all(FILE *File_main, int long_array, triangle_str *Triangle)
+{
+    fprintf (File_main, "{\n");
+    fprintf(File_main, "\"Triangls\" : [\n");
+    for (int i = 0; i < long_array; ++i) {
+        write_triangle(File_main, Triangle[i], i, long_array);
     }
 
-    fprintf (aFile, "}");
+    fprintf (File_main, "]\n}\n");
 }
