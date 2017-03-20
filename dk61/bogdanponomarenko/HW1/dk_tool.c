@@ -1,14 +1,14 @@
 #include "dk_tool.h"
 
 void display_first_matrix(int row, int col, int first_matrix[10][10]) {
+
     int i , j;
-    printf("Elements of first_matrix:\n");
     for (i = 0; i < row; i++) {
         for (j = 0; j < col; j++) {
             scanf("%i", &first_matrix[i][j]);
         }
     }
-    printf("first_matrix\n");
+
     i=0,j=0;
     while(i<row)
     {
@@ -26,14 +26,12 @@ void display_first_matrix(int row, int col, int first_matrix[10][10]) {
 
         int i , j;
 
-
-        printf("Elements of second_matrix:\n");
         for (i = 0; i < row; i++) {
             for (j = 0; j < col; j++) {
                 scanf("%i", &second_matrix[i][j]);
             }
         }
-        printf("second_matrix\n");
+
         i=0,j=0;
         while(i<row)
         {
@@ -50,10 +48,9 @@ void display_first_matrix(int row, int col, int first_matrix[10][10]) {
     }
     void sum(int row, int col, int first_matrix[10][10], int second_matrix[20][20]) {
 
-
         int summ[row][col];
         int i , j;
-        printf("Sum of first_matrix and second_matrix:\n");
+
 
             for (i = 0; i < row; i++) {
                 for (j = 0; j < col; j++) {
@@ -74,4 +71,8 @@ void display_first_matrix(int row, int col, int first_matrix[10][10]) {
             i++;
         }
     }
+
+
+
+
 
