@@ -7,6 +7,6 @@ int AQUATION(int D,int C,int b)
 	{
 	result = A * (b - C) + result;
 	A++;
-    } 
+        } 
     return result; 
 }
