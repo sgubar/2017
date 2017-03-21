@@ -66,7 +66,7 @@ int main() {
         float S = calculate(Triangle[i].A_Vertex, Triangle[i].B_Vertex, Triangle[i].C_Vertex);
         Array_Square[i].Square=S;
         Array_Square[i].index=i;
-        printf("Rezalt number triangle %i: %f\n", i, S);
+        printf("Rezalt sqere number triangle %i: %.4f\n", i, S);
     }
 
     overstore_array(Array_Square, Temp_Array_Square, long_array);
