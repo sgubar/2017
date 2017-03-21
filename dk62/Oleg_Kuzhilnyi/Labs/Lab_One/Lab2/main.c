@@ -10,8 +10,8 @@
 
 int main(int argc, const char * argv[])
 {
-    FILE *theFileForRandom = fopen("/Users/air/Documents/Programming_C/Lab2/Lab2/RandomNumber.txt","w");
-    FILE *theFileForSort = fopen("/Users/air/Documents/Programming_C/Lab2/Lab2/SortedElemets.txt","w");
+    FILE *theFileForRandom = fopen("RandomNumber.txt","w");
+    FILE *theFileForSort = fopen("SortedElemets.txt","w");
     
     int MassOfRandomNumbers[aSizeOf];
     int SelectorSort = 0;
