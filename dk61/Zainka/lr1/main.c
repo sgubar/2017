@@ -6,59 +6,42 @@
 
 int main()
 {
- 
- float A;
-int stepen= 2;
-float B;
-float kvA;
-int kvB;
-int tchislo = 5;
-float C;
-int powC;
-float dilenie;
+int B;
+int D;
+int G ;
+int A;
+int k
+int Otvet;
+ int G;
+ int R;
+
 printf("Vvedit tchislo A\n");
-scanf("%f" , &A);
+scanf("%i" , & A);
 {
-kvA=pow((double)A,(double)stepen);
-	printf("tchislo %f v stepeni %i = %f\n" , A , stepen , kvA);
-	}
+G = pow2(A , 2); 
+printf(" %i stepen" , G);
+}
+
 printf("Vvedit tchislo B\n");
-scanf("%f" , &B);
+scanf("%i" , & B);
 {
-kvB=pow((double)B,(double)stepen);
-	printf("tchislo %f v stepeni %i = %f\n" , B , stepen , kvB);
-	}
-printf("Vvedit tchislo C\n");
-scanf("%f" ,&C);
-{
-if(C > 0)
-{
-powC = pow(tchislo , C);
-}
-else
-{
-return 0;
-}
-float znamennyk;
-float tchiselnik;
-{
-znamennyk = kvA + kvB;
-}
-{
-tchiselnik = B + powC;
-}
-{
-dilenie = (znamennyk / tchiselnik);
-printf("Rezultat dilenija %f / %f = %f\n" , znamennyk ,tchiselnik , dilenie);
-}
-     float otvet;
- {
-otvet = dilenie + fact(B);
-printf(" %f + %f = %f", dilenie , B , otvet );
 
+D = power(B , 2) ;	
+printf(" %i" , D);
 }
-getch();
+{
+
+K = fact(B);
+printf(" %i" , K);
+}
+printf("vvod tchislo C/n");
+scanf("%i" , & C);
+R = fact(5C);
+
+Otvet = (G + D)/(B + R) + K;
+printf(" %i = otvet" , Otvet);
+
 
 
 }
-}
+
