@@ -1,30 +1,28 @@
+#include "dk_tool.h"
+#include <stdio.h>
+#include <stdlib.h>
 
-#ifndef dk_tool_h
-#define dk_tool_h
-
-
-int fact(int number)
+#include <conio.h>
+int pow2(int number  )
 {
-    int theResult =1;
-    while( number > 0 )
-    {
-    theResult *= theResult * number;
-    number--;
-    
-	}
-return theResult;
 
-
-
-
-int pow(int number , int power )
 int theResult = 1;
-while(number > 1)
+while(power > 1)
 {
-theResult *= theResult  * power;
+theResult = theResult  * power;
 power --;
 }
-return theResult
+return power;
 
 }
-#endif
+int fact(int number)
+{
+int theResult = 1;
+while( number > 0 )
+{
+theResult *= theResult;
+number--;
+}
+return theResult;
+}
+
