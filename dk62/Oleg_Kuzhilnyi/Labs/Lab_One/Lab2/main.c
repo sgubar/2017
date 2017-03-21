@@ -58,7 +58,6 @@ int main(int argc, const char * argv[])
             InsertSort(MassOfRandomNumbers,aSizeOf);
             Input(theFileForSort,MassOfRandomNumbers,aSizeOf);
             break;
-        
             
         default:
             printf("You might select number from 1 to 4");
