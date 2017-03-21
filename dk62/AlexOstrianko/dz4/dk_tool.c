@@ -53,6 +53,15 @@ void AddKol (Car *PCar)
 	free(InpPokr);
 }
 
+void Vivod (Garaj *PGar){
+	int i =0;
+	while(i<PGar->curent)
+	{
+		printf("%s\n",PGar->kolvo[i].Name);
+		i++;
+	}
+}
+
 void DeleteKol (Car *PCar)
 {
 	if (NULL != PCar)

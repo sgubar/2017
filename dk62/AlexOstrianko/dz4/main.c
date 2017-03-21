@@ -21,9 +21,8 @@ int main(void) {
 	//bubbleSortCars(PGar,PGar->curent);
 	insertionSort(PGar,PGar->curent);
 	
-	printf("%s\n",PGar->kolvo[0].Name);	
-	printf("%s\n",PGar->kolvo[1].Name);
-	printf("%s\n",PGar->kolvo[2].Name);
+	printf("\nSorted:\n");
+	Vivod(PGar);
 	
 	DelGar(PGar);//udalyaem garaj
 	return 0;	
