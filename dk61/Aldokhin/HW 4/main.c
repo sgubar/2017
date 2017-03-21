@@ -8,7 +8,7 @@
 #include "Sort.h"
 
 int main() {
-    int long_array=1;
+    int long_array=3;
 
     Square_Triangle *Array_Square=(Square_Triangle *)malloc(long_array * sizeof(Square_Triangle));
 
@@ -71,8 +71,10 @@ int main() {
 
     overstore_array(Array_Square, Temp_Array_Square, long_array);
 
+    //запись основного файла
     Write_all(File_main, long_array, Triangle);
 
+    //сортировки
     for (int i = 0; i < 4; ++i) {
         char *name_file = malloc(30 * sizeof(char));
         switch (i) {
@@ -113,6 +115,7 @@ int main() {
         Write_all_sort(File_sort, long_array, Triangle, Temp_Array_Square);
         overstore_array(Array_Square, Temp_Array_Square, long_array);
 
+        //освобождение памяти
         fflush(File_sort);
         fclose(File_sort);
         free(name_file);

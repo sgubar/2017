@@ -85,7 +85,7 @@ void write_dot(FILE *aFile, DK_coor dArray, char index)
 
 void write_triangle(FILE *aFile, triangle_str dTriangle, int index, int allsize)
 {
-    fprintf(aFile, "\"Triangl number %i\" : ", index+1);
+    fprintf(aFile, "\"Triangle number %i\" : ", index+1);
     fprintf(aFile, "{\n");
 
     write_dot(aFile, dTriangle.A_Vertex, 'A');

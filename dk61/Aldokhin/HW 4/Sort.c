@@ -9,6 +9,7 @@
 
 void swap(Square_Triangle *a, Square_Triangle *b);
 
+//сортировка пузырьком
 void sort_bubble(Square_Triangle *darray, int dsize)
 {
     for (int i = 0; i < dsize-1; ++i) {
@@ -24,6 +25,7 @@ void sort_bubble(Square_Triangle *darray, int dsize)
     return;
 }
 
+//сортировка выбором
 void sort_selection(Square_Triangle *darray, int dsize)
 {
     int temp; //variable for min's
@@ -40,6 +42,7 @@ void sort_selection(Square_Triangle *darray, int dsize)
     return;
 }
 
+//сортировка вставкой
 void sort_insert(Square_Triangle *darray, int dsize)
 {
     float temp; // save temporary data
@@ -60,7 +63,7 @@ void sort_insert(Square_Triangle *darray, int dsize)
     return;
 }
 
-
+//менять местами 2 эллемента
 void swap(Square_Triangle *a, Square_Triangle *b)
 {
     Square_Triangle c=*a;
@@ -68,6 +71,7 @@ void swap(Square_Triangle *a, Square_Triangle *b)
     *b=c;
 }
 
+//сортировка Шела
 void sort_Shell(Square_Triangle *darray, int dsize)
 {   int i, j;
     for (int devis = dsize/2; devis > 0; devis/=2) {
@@ -81,6 +85,7 @@ void sort_Shell(Square_Triangle *darray, int dsize)
     return;
 }
 
+//быстрая сортировка
 void sort_QuickSort(Square_Triangle *darray, int dfirst, int dlast)
 {
     int i=dfirst, j=dlast, t=(dfirst+dlast)/2, x=(darray+t)->Square;
