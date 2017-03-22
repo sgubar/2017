@@ -21,7 +21,7 @@ char *Transform_file_text_to_str (int *InpInt){
 	}
 	printf("Lenth_of_File: %i\n",Lenth_of_File);
 	
-	char *String = (char *)malloc(sizeof(char)*(Lenth_of_File+1));
+	char *String = (char *)malloc(sizeof(char)*(Lenth_of_File));
 	
 	fseek(file, 0L, SEEK_SET); 	
 	int i = 0;
@@ -30,24 +30,23 @@ char *Transform_file_text_to_str (int *InpInt){
 	{	
 		Proverka_na_n=fgetc(file);
 		if(Proverka_na_n!='\n'){
-			String[i]=Proverka_na_n;
-			//printf("%c",Proverka_na_n);		
+			String[i]=Proverka_na_n;		
 			i++;
 		}	
 	}while(Proverka_na_n!=EOF);
-	*InpInt = i;
+	*InpInt = i-1;
 	fclose(file);
 	return String;	
 }
 
-void Vivod (int Lenth, char *PStr){
-	int i =0;
-	printf("\n");
-	while(i<Lenth)
-	{
-		printf("%c",PStr[i]);
+void Print_To_File (int Lenth_of_Str,char *PStr){
+	FILE *file = fopen("After_Sort.txt","w");
+	int i = 0;
+	while(i<Lenth_of_Str){		
+		fputc((int)PStr[i],file);
 		i++;
 	}
+	fclose(file);
 }
 
 void selectionSort(int lenth ,char *string)

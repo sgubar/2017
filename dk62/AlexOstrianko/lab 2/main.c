@@ -29,7 +29,7 @@ int main(void){
 	printf ("time of insertionSort: %.10lf\n", (double)(theEnd2 - theStart2)/CLOCKS_PER_SEC);	
 	putchar('\n');
 	
-	Vivod(Lenth_of_Str,String2);
+	Print_To_File(Lenth_of_Str,String1);
 	
 	free(String0);
 	free(String1);
