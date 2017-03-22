@@ -3,6 +3,6 @@
 
 #include <stdio.h>
 
-int AQUATION(int D,int C,int b);
+int AQUATION(int D,int C,int F);
 
 #endif 
