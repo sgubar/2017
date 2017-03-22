@@ -6,7 +6,40 @@
 
 #include "dk_tool.h"
 
-void Vivod (int Lenth,char *PStr){
+char *Transform_file_text_to_str (int *InpInt){	
+	FILE *file = fopen("some_file.txt","r");
+	if(file == NULL)	
+	{
+		printf("File don't open some_file.txt");
+		return 0;
+	}
+	int Lenth_of_File=0;
+	while(fgetc(file)!=EOF)
+	{		
+		Lenth_of_File++;
+	}
+	printf("Lenth_of_File: %i\n",Lenth_of_File);
+	
+	char *String = (char *)malloc(sizeof(char)*(Lenth_of_File+1));
+	
+	fseek(file, 0L, SEEK_SET); 	
+	int i = 0;
+	char Proverka_na_n;	
+	do
+	{	
+		Proverka_na_n=fgetc(file);
+		if(Proverka_na_n!='\n'){
+			String[i]=Proverka_na_n;
+			printf("%c",Proverka_na_n);		
+			i++;
+		}	
+	}while(Proverka_na_n!=EOF);
+	*InpInt = i;
+	fclose(file);
+	return String;	
+}
+
+void Vivod (int Lenth, char *PStr){
 	int i =0;
 	printf("\n");
 	while(i<Lenth)
@@ -18,7 +51,7 @@ void Vivod (int Lenth,char *PStr){
 
 void selectionSort(int lenth ,char *string)
 {
-	int theOut;
+	int theOut;	
 	for (theOut = 0; theOut < lenth - 1; theOut ++)
 	{
 		int theMinIndex = theOut;
@@ -70,12 +103,3 @@ void insertionSort(int lenth, char *string)
 			string[theIn] = theTmp;
 	}
 }
-
-
-
-
-
-
-
-
-
