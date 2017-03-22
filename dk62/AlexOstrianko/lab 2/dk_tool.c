@@ -4,6 +4,7 @@
 #include <io.h>
 
 
+
 #include "dk_tool.h"
 
 char *Transform_file_text_to_str (int *InpInt){	
@@ -30,7 +31,7 @@ char *Transform_file_text_to_str (int *InpInt){
 		Proverka_na_n=fgetc(file);
 		if(Proverka_na_n!='\n'){
 			String[i]=Proverka_na_n;
-			printf("%c",Proverka_na_n);		
+			//printf("%c",Proverka_na_n);		
 			i++;
 		}	
 	}while(Proverka_na_n!=EOF);
