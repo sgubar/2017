@@ -7,9 +7,6 @@
 //
 
 #include "DKfigure.h"
-#include <stdio.h>
-#include <math.h>
-#include <stdio.h>
 void AddCoods(DK_Note *AddCoodrs);
 
 int AddTochki(DK_tochki *AddsInMassiv) //Struct of Points
