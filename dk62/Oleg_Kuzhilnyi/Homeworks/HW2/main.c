@@ -6,9 +6,8 @@
 //  Copyright © 2017 Oleg Kuzhilnyi. All rights reserved.
 //
 
-#include <stdio.h>
+
 #include "DKfigure.h"
-#include <stdlib.h>
 
 int main(int argc, const char *argv[])
 {
