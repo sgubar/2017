@@ -12,7 +12,6 @@ typedef struct circle
     float centerX;
     float centerY;
     float radius;
-    float square;
 }circle;
 
 //circle options
@@ -32,7 +31,7 @@ int addToCircle(circleList *aCircleList, float centerX, float centerY, float rad
 void print(circleList *aCircleList);
 
 //count square
-float theSquare(circle *aCircle);
+double theSquare(circle *aCircle);
 
 //writing into file
 int writeCircleList(FILE *aFile, circleList *aCircleList);
