@@ -19,7 +19,7 @@ int fact(int number)
 int theResult = 1;
 while( number > 0 )
 {
-theResult *= theResult;
+theResult *= number;
 number--;
 }
 return theResult;
