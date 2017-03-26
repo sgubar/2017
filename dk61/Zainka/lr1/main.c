@@ -11,7 +11,7 @@ int D;
 int G;
 int A;
 int K;
-float Otvet;
+int Otvet;
 int C;
  int R;
 
@@ -40,7 +40,7 @@ R = pow2(C);
 printf(" %i" , R);
 
 Otvet = (G + D)/(B + R) + K;
-printf(" %2f = otvet" , Otvet);
+printf(" %i = otvet" , Otvet);
 
 
 
