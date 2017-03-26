@@ -4,17 +4,17 @@
 int NumInput()
 {
 	int Num;
-	int Proof;							//для проверки того, что возратит scanf - 0 или 1	
+	int Proof;								
 					
 	while(1)
 	{						
 		Proof = scanf("%d", &Num);
-		if(Proof == 1)		 		//ввели число - выходим из цикла
+		if(Proof == 1)		 		
 			{
 				break;
 			}
 		printf("Please enter another number:\n");
-		fflush (stdin); 				//если ввели не число, то есть scanf возвратил не единицу, а false, то чистим память, то, что ввели, и цикл крутится заново, пока не введут число
+		fflush (stdin); 				
 	}
 	return Num;
 }
