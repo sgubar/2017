@@ -24,11 +24,10 @@ int main()
 		
 	printf("A: %d\t B: %d\t C: %d\n", A, B, C);
 	
-//	printf("Your summ is: %d\n", Sum(A));
-//	
+//	printf("Your summ is: %d\n", Sum(A));	
 //	printf("Drib: %.3f\n", (float) (A+B+C)/(100-B-C));
 	
-	float theResult = (float) (A+B+C)/(100-B-C)+Sum(A); 	//приведение типа int к типу float, чтобы избежать усечение результата при расчёте из-за целочисельного деления
+	float theResult = (float) (A+B+C)/(100-B-C)+Sum(A); 	// РїСЂРёРІРµРґРµРЅРёРµ С‚РёРїР° int Рє С‚РёРїСѓ float, С‡С‚РѕР±С‹ РёР·Р±РµР¶Р°С‚СЊ СѓСЃРµС‡РµРЅРёСЏ СЂРµР·СѓР»СЊС‚Р°С‚Р° РїСЂРё С†РµР»РѕС‡РёСЃРµР»СЊРЅРѕРј РґРµР»РµРЅРёРё
 	printf("Your lab result is: %.2f", theResult);
 	
 	return 0;
