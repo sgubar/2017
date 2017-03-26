@@ -10,6 +10,7 @@
 #define dk_tool_h
 
 #include <stdio.h>
+#include <stdlib.h>
 
 //Struct of coords
 typedef struct point {
