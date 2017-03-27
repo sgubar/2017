@@ -30,6 +30,7 @@ void AddCoords(DK_Note *AddCoodrs) //Screen Input Coords X,Y
     scanf("%i", &AddCoodrs->x);
     printf("please y:");
     scanf("%i", &AddCoodrs->y);
+    printf("------------------------\n");
     
 }
 

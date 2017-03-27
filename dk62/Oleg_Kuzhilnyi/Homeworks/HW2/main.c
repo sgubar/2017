@@ -13,6 +13,8 @@ int main(int argc, const char *argv[])
 {
     DK_tochki *ForMemory = CreateCoords();//Create memory for Points
     
+    printf("Please Enter the Integer Number of Coords X,Y\n");
+    
     AddTochki(ForMemory);// Add Points
     
     printf("The Res:%.2f\n",Calculator(ForMemory));//Calculate area and PRINT
