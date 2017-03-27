@@ -1,0 +1,46 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+D:/CLionProjects/LW2/cmake-build-debug/test.c
+stdio.h
+-
+
+D:/CLionProjects/LW2/dk_tool.c
+stdlib.h
+-
+stdio.h
+-
+dk_tool.h
+D:/CLionProjects/LW2/dk_tool.h
+
+D:/CLionProjects/LW2/dk_tool.h
+stdio.h
+-
+
+D:/CLionProjects/LW2/main.c
+stdio.h
+-
+stdlib.h
+-
+dk_tool.h
+D:/CLionProjects/LW2/dk_tool.h
+sort.h
+D:/CLionProjects/LW2/sort.h
+
+D:/CLionProjects/LW2/sort.c
+sort.h
+D:/CLionProjects/LW2/sort.h
+time.h
+-
+
+D:/CLionProjects/LW2/sort.h
+
+D:/CLionProjects/LW2/sortbyoleg.c
+dk_tool.h
+D:/CLionProjects/LW2/dk_tool.h
+

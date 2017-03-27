@@ -1,0 +1,10 @@
+{
+"Size": 10,
+"Current_size": 5,
+"Circles":[
+ {"CenterX": 2.000,"CenterY": 2.000,"Radius": 2.000},
+ {"CenterX": 5.000,"CenterY": 5.000,"Radius": 5.000},
+ {"CenterX": 6.000,"CenterY": 6.000,"Radius": 6.000},
+ {"CenterX": 8.000,"CenterY": 8.000,"Radius": 8.000},
+ {"CenterX": 10.000,"CenterY": 10.000,"Radius": 10.000}]
+}

@@ -64,7 +64,29 @@ int addToCircle(circleList *aCircleList, float centerX, float centerY, float rad
     return 0;
 }
 
-void print(circleList *aCircleList)
+
+//get users choice type of sort from user
+int getChoiceTypeSort()
+{
+    int numb=0;
+    printf("\nPlease make a choice type of sorting:\n");
+    printf("Enter 1 - bubble sorting\n");
+    printf("Enter 2 - select sorting\n");
+    printf("Enter 3 - insert sorting\n");
+    do
+    {
+        int aChek=scanf("%d", &numb);
+        rewind(stdin); //clear buffer in scanf
+        if (numb<1 || numb>3 || aChek!=1)
+            printf("ERROR. Please make a choice and enter one ineger from 1 to 3\n");
+    }
+    while(numb<1 || numb>3);
+
+    return numb;
+}
+
+
+void printCircles(circleList *aCircleList)
 {
     int CircleCounter=0;
     while(aCircleList->current_size > CircleCounter)
@@ -72,7 +94,6 @@ void print(circleList *aCircleList)
         circle *sizeCircle=&(aCircleList->sizeCircle[CircleCounter]);
         printf("%d)Center (x, y): (%.3f, %.3f)\n", CircleCounter+1, sizeCircle->centerX, sizeCircle->centerY);
         printf("  Radius: %.3f\n", sizeCircle->radius);
-        printf("  Square: %.3f\n", theSquare(sizeCircle));
         CircleCounter++;
     }
 }

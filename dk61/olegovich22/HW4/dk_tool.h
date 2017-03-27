@@ -5,6 +5,7 @@
 #ifndef HW2_DK_TOOL_H
 #define HW2_DK_TOOL_H
 #include <string.h>
+#include <stdio.h>
 
 //circle size
 typedef struct circle
@@ -28,7 +29,8 @@ void destroyAllCircle(circleList *aCircleList);
 
 //interface
 int addToCircle(circleList *aCircleList, float centerX, float centerY, float radius);
-void print(circleList *aCircleList);
+int getChoiceTypeSort();
+void printCircles(circleList *aCircleList);
 
 //count square
 double theSquare(circle *aCircle);

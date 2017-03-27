@@ -41,7 +41,6 @@ int addToCircle(circleList *aCircleList, float centerX, float centerY, float rad
                 sizeCircle->centerX=centerX;
                 sizeCircle->centerY=centerY;
                 sizeCircle->radius=radius;
-                sizeCircle->square=theSquare(sizeCircle);
 
                 aCircleList->current_size++;
             }
@@ -66,13 +65,13 @@ void print(circleList *aCircleList)
         circle *sizeCircle=&(aCircleList->sizeCircle[CircleCounter]);
         printf("%d)Center (x, y): (%.3f, %.3f)\n", CircleCounter+1, sizeCircle->centerX, sizeCircle->centerY);
         printf("  Radius: %.3f\n", sizeCircle->radius);
-        printf("  Square: %.3f\n", sizeCircle->square);
+        printf("  Square: %.3lf\n", theSquare(sizeCircle));
         CircleCounter++;
     }
 }
 
 //count square
-float Square(circle *aCircle)
+double theSquare(circle *aCircle)
 {
     return PI*(powf((aCircle->radius), 2));
 }
