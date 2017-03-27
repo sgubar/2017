@@ -11,15 +11,13 @@
 
 int main(int argc, const char *argv[])
 {
- 
-     DK_tochki *ForMemory = (DK_tochki*) malloc(sizeof(DK_tochki)); //Add in memory Struct of points
-        
-    AddTochki(ForMemory);
+    DK_tochki *ForMemory = CreateCoords();//Create memory for Points
     
-    printf("The Res:%.2f\n",Calculator(ForMemory));
+    AddTochki(ForMemory);// Add Points
     
+    printf("The Res:%.2f\n",Calculator(ForMemory));//Calculate area and PRINT
 
-    free(ForMemory);
+    DestroyFigure(ForMemory);// Free memory
     
     return 0;
 }

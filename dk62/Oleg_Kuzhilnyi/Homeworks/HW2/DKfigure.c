@@ -7,7 +7,31 @@
 //
 
 #include "DKfigure.h"
-void AddCoods(DK_Note *AddCoodrs);
+
+void AddCoords(DK_Note *AddCoodrs);
+
+DK_tochki *CreateCoords(void)
+{
+    DK_tochki *ForMemory = (DK_tochki *) malloc(sizeof(DK_tochki));// Create memory
+    
+    if(NULL != ForMemory)
+    {
+        bzero(ForMemory,sizeof(DK_tochki)); //Zero for elements of struct
+   
+    }
+    
+    return ForMemory;
+}
+
+void AddCoords(DK_Note *AddCoodrs) //Screen Input Coords X,Y
+{
+    
+    printf("please x:");
+    scanf("%i", &AddCoodrs->x);
+    printf("please y:");
+    scanf("%i", &AddCoodrs->y);
+    
+}
 
 int AddTochki(DK_tochki *AddsInMassiv) //Struct of Points
 {
@@ -20,23 +44,24 @@ int AddTochki(DK_tochki *AddsInMassiv) //Struct of Points
     DK_Note *TheNoteFour = &AddsInMassiv->versFour;
     
     //Add in Massiv Coords
-    AddCoods(TheNoteOne);
-    AddCoods(TheNoteTwo);
-    AddCoods(TheNoteThree);
-    AddCoods(TheNoteFour);
+    AddCoords(TheNoteOne);
+    AddCoords(TheNoteTwo);
+    AddCoords(TheNoteThree);
+    AddCoords(TheNoteFour);
     
     return 0;
 }
 
-void AddCoods(DK_Note *AddCoodrs) //Screen Input
+
+
+void DestroyFigure(DK_tochki * theTochki)
 {
-    
-    printf("please x:");
-    scanf("%i", &AddCoodrs->x);
-    printf("please y:");
-    scanf("%i", &AddCoodrs->y);
-    
+    if(NULL != theTochki)
+    {
+        free(theTochki);
+    }
 }
+
 
 
 double Calculator(DK_tochki *Area) //Calculate Area of Quadrilateral
@@ -59,4 +84,3 @@ double Calculator(DK_tochki *Area) //Calculate Area of Quadrilateral
 }
 
 
-//void Calculator

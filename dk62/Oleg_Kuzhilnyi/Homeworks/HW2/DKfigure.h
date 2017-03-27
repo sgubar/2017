@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 //Struct of coords
 typedef struct point {
@@ -27,8 +28,12 @@ typedef struct TagFigure
     DK_Note versFour;
 }DK_tochki;
 
+
+DK_tochki *CreateCoords(void);// Create memory
+
 int AddTochki(DK_tochki *AddsInMassiv);
-void AddCoods(DK_Note *AddCoodrs);
+void AddCoords(DK_Note *AddCoodrs);
 double Calculator(DK_tochki *Area);
+void DestroyFigure(DK_tochki * theTochki);
 
 #endif /* dk_tool_h */
