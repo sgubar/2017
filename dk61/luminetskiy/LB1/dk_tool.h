@@ -7,8 +7,8 @@
 
 
 int HEXtoDEC(void); //HEX to DEC
-int DECnumbers(void);
-int sum(int d,int f, int c);
+int DECnumbers(void); // DEC numbers
+int summing(int d,int f, int c); //main function
 
 
 #endif /* dk_tool_h */
