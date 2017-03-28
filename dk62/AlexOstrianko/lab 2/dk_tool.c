@@ -1,9 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <io.h>
-
-
 
 #include "dk_tool.h"
 
@@ -11,7 +8,7 @@ char *Transform_file_text_to_str (int *InpInt){
 	FILE *file = fopen("some_file.txt","r");
 	if(file == NULL)	
 	{
-		printf("File don't open some_file.txt");
+		printf("File don't open some_file.txt\n");
 		return 0;
 	}
 	int Lenth_of_File=0;
@@ -19,13 +16,14 @@ char *Transform_file_text_to_str (int *InpInt){
 	{		
 		Lenth_of_File++;
 	}
+	
 	printf("Lenth_of_File: %i\n",Lenth_of_File);
 	
 	char *String = (char *)malloc(sizeof(char)*(Lenth_of_File));
 	
 	fseek(file, 0L, SEEK_SET); 	
 	int i = 0;
-	char Proverka_na_n;	
+	int Proverka_na_n;	
 	do
 	{	
 		Proverka_na_n=fgetc(file);
@@ -34,8 +32,8 @@ char *Transform_file_text_to_str (int *InpInt){
 			i++;
 		}	
 	}while(Proverka_na_n!=EOF);
-	*InpInt = i-1;
 	fclose(file);
+	*InpInt = i-1;
 	return String;	
 }
 
