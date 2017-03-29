@@ -2,11 +2,12 @@
 #include "dk_tool.h"
 
 unsigned long int factorial(int d) {
-if(d == 0)
-	return 1;
 
 int i = 0;
 unsigned long int result = 1;
+
+if(d == 0)
+	return 1;
 
 for(i = 1; i <= d; i++)
     result *= i;
