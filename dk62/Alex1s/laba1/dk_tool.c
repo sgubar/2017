@@ -3,18 +3,13 @@
 
 unsigned long int factorial(int d) {
 if(d == 0)
-	{
-	int h = 1;
-	return h;
-	}
+	return 1;
 
 int i = 0;
 unsigned long int result = 1;
 
 for(i = 1; i <= d; i++)
-    {
-    result = result * i;
-    }
+    result *= i;
 return result;
 }
 
@@ -34,4 +29,16 @@ double qq = a*b;
 qq = qq/xx;
 return qq;
 }
+
+
+//--------------------------------------------------------------------------------------------------------------------------------
+
+
+int enter_value(int a)
+{
+printf("Enter value: ");
+scanf("%d", &a);
+return a;
+}
+
 
