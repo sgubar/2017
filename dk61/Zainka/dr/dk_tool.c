@@ -1,9 +1,11 @@
-#ifndef <dk_tool.h>
-#define dk_tool.h
+#include "dk_tool.h"
+#include <stdio.h>
 
-int matrix1(int a, b, A[a][b] ) 
+void matrix1( int a ,  int b , int  A[a][b]) 
 {
-
+int i;
+int j;
+int c;
 	for(i = 0 ; i<a ; i++)
  {
  	for (j= 0 ; j < b ; j++)
@@ -11,12 +13,13 @@ int matrix1(int a, b, A[a][b] )
  		scanf("%i", &A[i][j]);
 	}
  }
- {
-{
+
+}
  
- int vivod_matrix1(int a, b, A[a][b] ) 
+ void vivod_matrix1(int a, int b, int A[a][b]) 
 {
- 
+ int i;
+ int j;
  for(i = 0 ; i<a ; i++)
  {
  	for (j= 0 ; j < b ; j++)
@@ -27,19 +30,24 @@ int matrix1(int a, b, A[a][b] )
 	printf("\n"); 
 }
 } 
-int matrix2(int b, c, B[b][c]); 
+void matrix2( int b, int c, int B[b][c]) 
  {
- 
- 	for(i = 0 ; i<b ; i++)
+ int i;
+ int j;
+
+
+ 	for(i = 0 ; i < b ; i++)
  {
  	for (j= 0 ; j < c ; j++)
  	{
-printf("\n" , B[i][j]);
+     scanf("%i ", & B[i][j]);
 }
 }
 }
-int vivod_matrix2( int b, c, B[b][c]);
+void vivod_matrix2( int b, int  c, int B[b][c])
 {
+int i;
+int j;
 for(i = 0; i < b; i++)
 {
 	for(j = 0; j <c; j++ )
@@ -49,24 +57,29 @@ for(i = 0; i < b; i++)
 	}
 printf("\n"); 
 }
+printf("\n");
 }
-int result( C[i][j], B[a]b] , A[b][c]);
+void result(int j ,int i ,  int a, int b , int c, int  A[a][b],int B[b][c], int  C[i][j])
 {
+int k;
+
+
+
 
 for(i = 0; i < a; i++ )
-for(j = 0; j < a; j++)
+for(j = 0; j < b; j++)
 { 
-
- for(k = 0; k < a ; k++)
+  C[i][j] = 0;
+  for(k = 0; k < c ; k++)
  C[i][j] += A[i][k] * B[k][j];
-}}
-int vivod_result( C[i][j], B[a]b] , A[b][c]);
+} 
+
+for (i = 0; i < a; i++)
 {
+    for (j = 0; j < a; j++)
+        printf("%3d ", C[i][j]);
+    printf("\n");
+}
+}
 
-printf("%i ", C[i][j]);
-}
-       printf("\n");
-}
 
-}
-#endif /* _DLL_H_ */
