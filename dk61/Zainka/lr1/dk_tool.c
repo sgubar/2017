@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <conio.h>
-float pow2(int number  )
+int pow2(int number  )
 {
 
 int theResult = 1;
