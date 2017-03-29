@@ -5,7 +5,7 @@
 float pow2(int number  )
 {
 
-float theResult = 1;
+int theResult = 1;
 /*while(power > 1)
 {
 theResult = theResult  * power;
@@ -14,9 +14,9 @@ power --;
 */return number*number;
 
 }
-float fact(int number)
+int fact(int number)
 {
-float theResult = 1;
+int theResult = 1;
 while( number > 0 )
 {
 theResult *= number;
