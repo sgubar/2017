@@ -130,17 +130,20 @@ int addPyramid(pyramidList *aPyramidList)
 			double AB = 0;
 			double AC = 0;
 			double BC = 0;
-			
+			//vectors
 			
 
-			double x, y, z, P, S1,S2,S3,S4,square;
+			double x, y, z, P, S1,S2,S3,S4,square;//points,half-perimeter,S1..S4 - squares of each of triangles, square - that we're needed to find
 			square = 0;
+
+			//calculating the length of vectors
 
 			x = 0; y = 0; z = 0;
 			x = (thePyramid->points[0].x) - (thePyramid->points[3].x);
 			y = (thePyramid->points[0].y) - (thePyramid->points[3].y);
 			z = (thePyramid->points[0].z) - (thePyramid->points[3].z);
 			PA = sqrt((x*x) + (y*y) + (z*z));
+			
 
 			x = 0; y = 0; z = 0;
 
@@ -173,9 +176,11 @@ int addPyramid(pyramidList *aPyramidList)
 			z = (thePyramid->points[2].z) - (thePyramid->points[1].z);
 			BC = sqrt((x*x) + (y*y) + (z*z));
 
+			
+
 			P = 0;
-			P = (AB + AC + BC) / 2;
-			S1 = sqrt(P*((P - AB)*(P - AC)*(P - BC)));
+			P = (AB + AC + BC) / 2;//half-perimeter;
+			S1 = sqrt(P*((P - AB)*(P - AC)*(P - BC)));//using Geron's formula
 			
 			P = 0;
 			P = (PA + PB + AB) / 2;
@@ -189,7 +194,7 @@ int addPyramid(pyramidList *aPyramidList)
 			P = (PC + PB + BC) / 2;
 			S4= sqrt(P*((P - PC)*(P - PB)*(P - BC)));
 
-			square = S1 + S2 + S3 + S4;
+			square = S1 + S2 + S3 + S4;//adding all squares to one big square
 
 
 				return square;
