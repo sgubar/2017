@@ -8,80 +8,108 @@
 
 #include "DKfigure.h"
 
-void AddCoords(DK_Note *AddCoodrs);
-
-DK_tochki *CreateCoords(void)
+DK_Figures *createFigure(int aSize)
 {
-    DK_tochki *ForMemory = (DK_tochki *) malloc(sizeof(DK_tochki));// Create memory
+    DK_Figures *theFigures = (DK_Figures *) malloc(sizeof(DK_Figures));
     
-    if(NULL != ForMemory)
+    if(NULL != theFigures)
     {
-        bzero(ForMemory,sizeof(DK_tochki)); //Zero for elements of struct
-   
+        theFigures->ListOfFigures = (descriptionOfFigure *)malloc(aSize * sizeof(descriptionOfFigure));
+        
+       // bzero(theFigures,aSize*sizeof(Coords_Of_Geometry_Points)); //Zero for elements of struct
+        memset(theFigures->ListOfFigures, 0, aSize * sizeof(Coords_Of_Geometry_Points));
+        theFigures->size = aSize;
+        theFigures->current_size = 0;
+        
     }
     
-    return ForMemory;
+    return theFigures;
 }
 
-void AddCoords(DK_Note *AddCoodrs) //Screen Input Coords X,Y
+int addMyFigureToArrayOfFigures(DK_Figures *ArrayFigures)
 {
-    
-    printf("please x:");
-    scanf("%i", &AddCoodrs->x);
-    printf("please y:");
-    scanf("%i", &AddCoodrs->y);
-    printf("------------------------\n");
-    
-}
-
-int AddTochki(DK_tochki *AddsInMassiv) //Struct of Points
-{
-    
-    //Memory allocation
-    
-    DK_Note *TheNoteOne = &AddsInMassiv->versOne;
-    DK_Note *TheNoteTwo = &AddsInMassiv->versTwo;
-    DK_Note *TheNoteThree = &AddsInMassiv->versThree;
-    DK_Note *TheNoteFour = &AddsInMassiv->versFour;
-    
-    //Add in Massiv Coords
-    AddCoords(TheNoteOne);
-    AddCoords(TheNoteTwo);
-    AddCoords(TheNoteThree);
-    AddCoords(TheNoteFour);
-    
-    return 0;
-}
-
-
-
-void DestroyFigure(DK_tochki * theTochki)
-{
-    if(NULL != theTochki)
+    int theResult = 0;
+    int MountOfAngle = 4;
+    if (NULL != ArrayFigures)
     {
-        free(theTochki);
+        if (ArrayFigures->current_size < ArrayFigures->size)
+        {
+            descriptionOfFigure *ArrayOfFigures = &(ArrayFigures->ListOfFigures[ArrayFigures->current_size]);
+
+            ArrayOfFigures->Points = (Coords_Of_Geometry_Points *)malloc(MountOfAngle*sizeof(Coords_Of_Geometry_Points));
+
+            for(int i=0 ; i < MountOfAngle ; i++)
+            {
+                scanf("%i",&ArrayOfFigures->Points[i].x);   //= rand()%100;
+                scanf("%i",&ArrayOfFigures->Points[i].y);    //    =  rand()%100;
+                
+           }
+           ArrayFigures->current_size ++;
+        }
+        else
+        {
+            theResult = -2;
+        }
+    }
+    else
+    {
+        theResult = -1;
+    }
+    
+    return theResult;
+}
+
+void destroyFigure(DK_Figures *Figure)
+{
+    if (NULL != Figure)
+    {
+        if(NULL != Figure->ListOfFigures)
+        {
+            for (int i = 0; i < Figure->current_size; i++)
+            {
+                descriptionOfFigure *theLinkTolist = &(Figure->ListOfFigures[i]);
+                if (NULL != theLinkTolist->Points)
+                {
+                    free(theLinkTolist->Points);
+                }
+            }
+            free(Figure->ListOfFigures);
+        }
+      free(Figure);
     }
 }
 
-
-
-double Calculator(DK_tochki *Area) //Calculate Area of Quadrilateral
+double FindArea(descriptionOfFigure *Figure) //Calculate Area of Quadrilateral
 {
+    
+   // descriptionOfFigure *FigurePoint = (Figure->ListOfFigures);
+    
     double ResultArea =
-    ((((Area->versOne.x)*(Area->versTwo.y)- (Area->versOne.y)*(Area->versTwo.x)))
+    ((((Figure->Points[0].x)*(Figure->Points[1].y)- (Figure->Points[0].y)*(Figure->Points[1].x)))
     +
-    (((Area->versTwo.x)*(Area->versThree.y)-(Area->versTwo.y)*(Area->versThree.x)))
+    (((Figure->Points[1].x)*(Figure->Points[2].y)-(Figure->Points[1].y)*(Figure->Points[2].x)))
     +
-    (((Area->versThree.x)*(Area->versFour.y)-(Area->versThree.y)*(Area->versFour.x)))
+    (((Figure->Points[2].x)*(Figure->Points[3].y)-(Figure->Points[2].y)*(Figure->Points[3].x)))
     +
-    (((Area->versFour.x)*(Area->versOne.y)- (Area->versFour.y)*(Area->versOne.x))))
+    (((Figure->Points[3].x)*(Figure->Points[0].y)- (Figure->Points[3].y)*(Figure->Points[0].x))))
                                         /2;
-
-  if (ResultArea < 0)
+if (ResultArea < 0)
     return ResultArea*(-1); //ABS of Area
   else
     return ResultArea;
 
+}
+
+void printPhoneBook(DK_Figures *FigureList)
+{
+    for (int i = 0; i < FigureList->current_size; i++)
+    {
+        descriptionOfFigure *theFigure = &(FigureList->ListOfFigures[i]);
+
+            printf("[%d] - ", i);
+            printf("Area Of Figure:%.2f\n",FindArea(theFigure));
+    } 
+    
 }
 
 

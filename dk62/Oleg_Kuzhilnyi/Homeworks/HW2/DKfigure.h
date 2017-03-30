@@ -14,26 +14,34 @@
 #include <string.h>
 
 //Struct of coords
-typedef struct point {
+typedef struct Coords {
     int x;
     int y;
-}DK_Note;
+}Coords_Of_Geometry_Points;
 
 //Struct of Points
+typedef struct
+{
+    Coords_Of_Geometry_Points *Points;
+    
+}descriptionOfFigure;
+
 typedef struct TagFigure
 {
-    DK_Note versOne;
-    DK_Note versTwo;
-    DK_Note versThree;
-    DK_Note versFour;
-}DK_tochki;
+    descriptionOfFigure * ListOfFigures;
+    int size;
+    int current_size;
+   
+}DK_Figures;
 
 
-DK_tochki *CreateCoords(void);// Create memory
+descriptionOfFigure *CreateCoords(void);// Create memory
 
-int AddTochki(DK_tochki *AddsInMassiv);
-void AddCoords(DK_Note *AddCoodrs);
-double Calculator(DK_tochki *Area);
-void DestroyFigure(DK_tochki * theTochki);
+int addMyFigureToArrayOfFigures(DK_Figures *ArrayFigures);
+int addCoordsInPointsOfmyFigure(Coords_Of_Geometry_Points *isertedCoordsToPointsOfFigue);
 
+DK_Figures *createFigure(int aSize);
+double FindArea(descriptionOfFigure *Figure);
+void destroyFigure(DK_Figures *FigureList);
+void printPhoneBook(DK_Figures *inPhoneBook);
 #endif /* dk_tool_h */
