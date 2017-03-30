@@ -40,7 +40,9 @@ int addMyFigureToArrayOfFigures(DK_Figures *ArrayFigures)
 
             for(int i=0 ; i < MountOfAngle ; i++)
             {
+                printf("Print x: ");
                 scanf("%i",&ArrayOfFigures->Point[i].x);   //= rand()%100;
+                printf("Print x: ");
                 scanf("%i",&ArrayOfFigures->Point[i].y);    //    =  rand()%100;
                 
            }
