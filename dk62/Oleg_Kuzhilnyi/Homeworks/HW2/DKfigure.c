@@ -17,7 +17,7 @@ DK_Figures *createFigure(int aSize)
         theFigures->ListOfFigures = (descriptionOfFigure *)malloc(aSize * sizeof(descriptionOfFigure));
         
        // bzero(theFigures,aSize*sizeof(Coords_Of_Geometry_Points)); //Zero for elements of struct
-        memset(theFigures->ListOfFigures, 0, aSize * sizeof(Coords_Of_Geometry_Points));
+        memset(theFigures->ListOfFigures, 0, aSize * sizeof(Coords_Of_Geometry_Points)); // Set zero array
         theFigures->size = aSize;
         theFigures->current_size = 0;
         
@@ -38,15 +38,28 @@ int addMyFigureToArrayOfFigures(DK_Figures *ArrayFigures)
 
             ArrayOfFigures->Point = (Coords_Of_Geometry_Points *)malloc(MountOfAngle*sizeof(Coords_Of_Geometry_Points));
 
-            for(int i=0 ; i < MountOfAngle ; i++)
+            for(int Counter_Points = 0 ; Counter_Points < MountOfAngle ; Counter_Points++)
             {
-                printf("Print x: ");
-                scanf("%i",&ArrayOfFigures->Point[i].x);   //= rand()%100;
-                printf("Print x: ");
-                scanf("%i",&ArrayOfFigures->Point[i].y);    //    =  rand()%100;
-                
+                switch(Counter_Points) // idintificate
+                {
+                    case 0: printf("\t\tPoint A\n");
+                        break;
+                    case 1: printf("\t\tPoint B\n");
+                        break;
+                    case 2: printf("\t\tPoint C\n");
+                        break;
+                    case 3: printf("\t\tPoint D\n");
+                        break;
+                }
+                printf("\tx: ");
+                scanf("%i",&ArrayOfFigures->Point[Counter_Points].x);   //= rand()%100;
+                printf("\ty: ");
+                scanf("%i",&ArrayOfFigures->Point[Counter_Points].y);    //    =  rand()%100;
            }
-           ArrayFigures->current_size ++;
+            printf("-------------------\n");
+            
+            ArrayFigures->current_size ++;
+            
         }
         else
         {
@@ -81,11 +94,8 @@ void destroyFigure(DK_Figures *Figure)
     }
 }
 
-double FindArea(descriptionOfFigure *Figure) //Calculate Area of Quadrilateral
+double FindAreaQuadrilateral(descriptionOfFigure *Figure) //Calculate Area of Quadrilateral
 {
-    
-   // descriptionOfFigure *FigurePoint = (Figure->ListOfFigures);
-    
     double ResultArea =
     ((((Figure->Point[0].x)*(Figure->Point[1].y)- (Figure->Point[0].y)*(Figure->Point[1].x)))
     +
@@ -109,7 +119,7 @@ void printfFigure(DK_Figures *FigureList)
         descriptionOfFigure *theFigure = &(FigureList->ListOfFigures[i]);
 
             printf("[%d] - ", i);
-            printf("Area Of Figure:%.2f\n",FindArea(theFigure));
+            printf("Area Of Figure:%.2f\n",FindAreaQuadrilateral(theFigure));
     } 
     
 }

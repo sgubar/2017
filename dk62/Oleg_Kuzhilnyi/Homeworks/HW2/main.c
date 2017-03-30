@@ -11,17 +11,16 @@
 
 int main(int argc, const char *argv[])
 {
-    DK_Figures *aFigure = createFigure(4);//Create memory for Points
+    DK_Figures *aFigure = createFigure(4);    
     
 
     addMyFigureToArrayOfFigures(aFigure);
     addMyFigureToArrayOfFigures(aFigure);
     addMyFigureToArrayOfFigures(aFigure);
-    addMyFigureToArrayOfFigures(aFigure);
 
-    printfFigure(aFigure);
+    printfFigure(aFigure);      // Print Area of Figure "aFigure"
     
-    destroyFigure(aFigure);// Free memory
+    destroyFigure(aFigure);     // Free memory
     
     return 0;
 }
