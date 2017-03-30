@@ -19,7 +19,7 @@ int main(int argc, const char *argv[])
     addMyFigureToArrayOfFigures(aFigure);
     addMyFigureToArrayOfFigures(aFigure);
 
-    printPhoneBook(aFigure);
+    printfFigure(aFigure);
     
     destroyFigure(aFigure);// Free memory
     

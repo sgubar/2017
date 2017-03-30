@@ -36,12 +36,12 @@ int addMyFigureToArrayOfFigures(DK_Figures *ArrayFigures)
         {
             descriptionOfFigure *ArrayOfFigures = &(ArrayFigures->ListOfFigures[ArrayFigures->current_size]);
 
-            ArrayOfFigures->Points = (Coords_Of_Geometry_Points *)malloc(MountOfAngle*sizeof(Coords_Of_Geometry_Points));
+            ArrayOfFigures->Point = (Coords_Of_Geometry_Points *)malloc(MountOfAngle*sizeof(Coords_Of_Geometry_Points));
 
             for(int i=0 ; i < MountOfAngle ; i++)
             {
-                scanf("%i",&ArrayOfFigures->Points[i].x);   //= rand()%100;
-                scanf("%i",&ArrayOfFigures->Points[i].y);    //    =  rand()%100;
+                scanf("%i",&ArrayOfFigures->Point[i].x);   //= rand()%100;
+                scanf("%i",&ArrayOfFigures->Point[i].y);    //    =  rand()%100;
                 
            }
            ArrayFigures->current_size ++;
@@ -68,9 +68,9 @@ void destroyFigure(DK_Figures *Figure)
             for (int i = 0; i < Figure->current_size; i++)
             {
                 descriptionOfFigure *theLinkTolist = &(Figure->ListOfFigures[i]);
-                if (NULL != theLinkTolist->Points)
+                if (NULL != theLinkTolist->Point)
                 {
-                    free(theLinkTolist->Points);
+                    free(theLinkTolist->Point);
                 }
             }
             free(Figure->ListOfFigures);
@@ -85,13 +85,13 @@ double FindArea(descriptionOfFigure *Figure) //Calculate Area of Quadrilateral
    // descriptionOfFigure *FigurePoint = (Figure->ListOfFigures);
     
     double ResultArea =
-    ((((Figure->Points[0].x)*(Figure->Points[1].y)- (Figure->Points[0].y)*(Figure->Points[1].x)))
+    ((((Figure->Point[0].x)*(Figure->Point[1].y)- (Figure->Point[0].y)*(Figure->Point[1].x)))
     +
-    (((Figure->Points[1].x)*(Figure->Points[2].y)-(Figure->Points[1].y)*(Figure->Points[2].x)))
+    (((Figure->Point[1].x)*(Figure->Point[2].y)-(Figure->Point[1].y)*(Figure->Point[2].x)))
     +
-    (((Figure->Points[2].x)*(Figure->Points[3].y)-(Figure->Points[2].y)*(Figure->Points[3].x)))
+    (((Figure->Point[2].x)*(Figure->Point[3].y)-(Figure->Point[2].y)*(Figure->Point[3].x)))
     +
-    (((Figure->Points[3].x)*(Figure->Points[0].y)- (Figure->Points[3].y)*(Figure->Points[0].x))))
+    (((Figure->Point[3].x)*(Figure->Point[0].y)- (Figure->Point[3].y)*(Figure->Point[0].x))))
                                         /2;
 if (ResultArea < 0)
     return ResultArea*(-1); //ABS of Area
@@ -100,7 +100,7 @@ if (ResultArea < 0)
 
 }
 
-void printPhoneBook(DK_Figures *FigureList)
+void printfFigure(DK_Figures *FigureList)
 {
     for (int i = 0; i < FigureList->current_size; i++)
     {

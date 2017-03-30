@@ -22,7 +22,7 @@ typedef struct Coords {
 //Struct of Points
 typedef struct
 {
-    Coords_Of_Geometry_Points *Points;
+    Coords_Of_Geometry_Points *Point;
     
 }descriptionOfFigure;
 
@@ -34,14 +34,15 @@ typedef struct TagFigure
    
 }DK_Figures;
 
-
-descriptionOfFigure *CreateCoords(void);// Create memory
-
 int addMyFigureToArrayOfFigures(DK_Figures *ArrayFigures);
-int addCoordsInPointsOfmyFigure(Coords_Of_Geometry_Points *isertedCoordsToPointsOfFigue);
+
 
 DK_Figures *createFigure(int aSize);
+
+
 double FindArea(descriptionOfFigure *Figure);
+
+void printfFigure(DK_Figures *inPhoneBook);
+
 void destroyFigure(DK_Figures *FigureList);
-void printPhoneBook(DK_Figures *inPhoneBook);
 #endif /* dk_tool_h */
