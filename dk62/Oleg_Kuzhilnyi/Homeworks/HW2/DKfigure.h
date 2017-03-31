@@ -12,6 +12,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#define POINT_A theLinkTolist->PointA
+#define POINT_B theLinkTolist->PointB
+#define POINT_C theLinkTolist->PointC
+#define POINT_D theLinkTolist->PointD
 
         //Coords of Point
 typedef struct Coords {
@@ -22,7 +26,10 @@ typedef struct Coords {
         //Description Figure ( points )
 typedef struct
 {
-    Coords_Of_Geometry_Points *Point;
+    Coords_Of_Geometry_Points * PointA;
+    Coords_Of_Geometry_Points * PointB;
+    Coords_Of_Geometry_Points * PointC;
+    Coords_Of_Geometry_Points * PointD;
     
 }descriptionOfFigure;
 
@@ -43,7 +50,8 @@ DK_Figures *createFigure(int aSize);
 
 double FindAreaQuadrilateral(descriptionOfFigure *Figure);
 
-void printfFigure(DK_Figures *inPhoneBook);
+void ScanfCoords(Coords_Of_Geometry_Points *Point);
+void printfAreaFigure(DK_Figures *inPhoneBook);
 
 void destroyFigure(DK_Figures *FigureList);
 

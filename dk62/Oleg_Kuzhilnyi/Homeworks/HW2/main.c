@@ -11,14 +11,16 @@
 
 int main(int argc, const char *argv[])
 {
-    DK_Figures *aFigure = createFigure(4);    
+    DK_Figures *aFigure = createFigure(3);
     
+     printf("\t\tPlease Enter a Four Points for %i Figure \n\n",aFigure->size);
 
     addMyFigureToArrayOfFigures(aFigure);
     addMyFigureToArrayOfFigures(aFigure);
     addMyFigureToArrayOfFigures(aFigure);
 
-    printfFigure(aFigure);      // Print Area of Figure "aFigure"
+   
+    printfAreaFigure(aFigure);      // Print Area of Figure "aFigure"
     
     destroyFigure(aFigure);     // Free memory
     
