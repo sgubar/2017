@@ -151,10 +151,9 @@ void writePoint(FILE *aFile, descriptionOfFigure *aNote)
         fprintf (aFile, "\"Point D\": \"coord x\": \"%d\",\"coord y\": \"%d\"\n" ,aNote->PointD->x , aNote->PointD->y);
         fprintf (aFile, DOUBLETAB);
     
-    fprintf (aFile, "\"Area\":\"%.2f\"\n", FindAreaQuadrilateral(aNote));
-    
     fprintf (aFile,MINITAB);
     fprintf (aFile, "}");
+    fprintf(aFile, COMMA);
     fprintf(aFile,NEWLINE);
 
 
