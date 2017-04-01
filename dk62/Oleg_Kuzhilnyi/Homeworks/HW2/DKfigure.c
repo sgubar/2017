@@ -27,6 +27,8 @@ DK_Figures *createFigure(int aSize)
 }
 int addMyFigureToArrayOfFigures(DK_Figures *ArrayFigures)
 {
+    printf("\t\tPlease Enter a Points for %i Figure \n\n",aFigure->size);
+    
     int theResult = 0;
     if (NULL != ArrayFigures)
     {
