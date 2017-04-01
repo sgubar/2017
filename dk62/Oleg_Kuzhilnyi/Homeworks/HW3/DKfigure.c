@@ -139,13 +139,13 @@ void writePoint(FILE *aFile, descriptionOfFigure *aNote)
     
 
         fprintf (aFile, DOUBLETAB);
-        fprintf (aFile, "\"Point A\": \"coord x\": \"%d\",\"coord y\": \"%d\",\n" ,aNote->PointA->x , aNote->PointA->y);
+        fprintf (aFile, "\"Point A\": \"coord x\": \"%d\",\"coord y\": \"%d\"\n" ,aNote->PointA->x , aNote->PointA->y);
         fprintf (aFile, DOUBLETAB);
     
-        fprintf (aFile, "\"Point B\": \"coord x\": \"%d\",\"coord y\": \"%d\",\n" ,aNote->PointB->x , aNote->PointB->y);
+        fprintf (aFile, "\"Point B\": \"coord x\": \"%d\",\"coord y\": \"%d\"\n" ,aNote->PointB->x , aNote->PointB->y);
         fprintf (aFile, DOUBLETAB);
     
-        fprintf (aFile, "\"Point C\": \"coord x\": \"%d\",\"coord y\": \"%d\",\n" ,aNote->PointC->x , aNote->PointC->y);
+        fprintf (aFile, "\"Point C\": \"coord x\": \"%d\",\"coord y\": \"%d\"\n" ,aNote->PointC->x , aNote->PointC->y);
         fprintf (aFile, DOUBLETAB);
     
         fprintf (aFile, "\"Point D\": \"coord x\": \"%d\",\"coord y\": \"%d\"\n" ,aNote->PointD->x , aNote->PointD->y);
@@ -153,8 +153,6 @@ void writePoint(FILE *aFile, descriptionOfFigure *aNote)
     
     fprintf (aFile,MINITAB);
     fprintf (aFile, "}");
-    fprintf(aFile, COMMA);
-    fprintf(aFile,NEWLINE);
 
 
 }
@@ -183,9 +181,16 @@ void writeFigures(FILE *aFile, DK_Figures *aList)
             descriptionOfFigure *theNote = &(aList->ListOfFigures[i]);
             
             writePoint(aFile, theNote);
-            
-         
+            if (i < (aList->current_size - 1))
+            {
+                fprintf (aFile, COMMA);
+                fprintf(aFile, NEWLINE);
+
+            }
         }
+        
+   
+    fprintf(aFile, NEWLINE);
     fprintf (aFile, TAB);
     fprintf(aFile, "]");
     fprintf(aFile, COMMA);
