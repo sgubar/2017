@@ -155,7 +155,6 @@ void writePoint(FILE *aFile, descriptionOfFigure *aNote)
     
     fprintf (aFile,MINITAB);
     fprintf (aFile, "}");
-     fprintf(aFile, COMMA);
     fprintf(aFile,NEWLINE);
 
 
