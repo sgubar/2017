@@ -1,27 +1,12 @@
 #include <stdio.h>
 
-int enter_lines()
+int enter_value()
 {
 int lines = 0;
 do{
-	printf("Enter amount of lines: ");
 	scanf("%i", &lines);
 }while(lines<2);
 return lines;
-}
-
-
-//--------------------------------------------------------------------------------------------------------------------------------
-
-
-int enter_columns()
-{
-int columns = 0;
-do{
-	printf("Enter amount of columns: ");
-	scanf("%i", &columns);
-}while(columns<2);
-return columns;
 }
 
 
