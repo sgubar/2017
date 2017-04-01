@@ -16,6 +16,7 @@
 #define MINITAB "\t   "
 #define TAB "\t"
 #define NEWLINE "\n"
+#define COMMA ","
 
 
         //Coords of Point

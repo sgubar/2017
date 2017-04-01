@@ -155,7 +155,7 @@ void writePoint(FILE *aFile, descriptionOfFigure *aNote)
     
     fprintf (aFile,MINITAB);
     fprintf (aFile, "}");
-    fprintf(aFile,",");
+     fprintf(aFile, COMMA);
     fprintf(aFile,NEWLINE);
 
 
@@ -190,11 +190,14 @@ void writeFigures(FILE *aFile, DK_Figures *aList)
         }
     fprintf (aFile, TAB);
     fprintf(aFile, "]");
+    fprintf(aFile, COMMA);
     fprintf(aFile, NEWLINE);
 
              }
     fprintf(aFile, MINITAB);
-    fprintf(aFile, "\"size\":%d\n", aList->size);
+    fprintf(aFile, "\"size\": %d ,\n", aList->size);
+    fprintf(aFile, MINITAB);
+    fprintf(aFile, "\"current size\" : %d\n", aList->current_size);
     fprintf (aFile, "}");
     fprintf(aFile, NEWLINE);
 

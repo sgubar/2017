@@ -13,17 +13,13 @@ int main(int argc, const char *argv[])
 {
     FILE *theFile = fopen("/Users/air/Documents/Programming_C/Homework 3/HW3/HW3/data.json","w");
     
-    DK_Figures *aFigure = createFigure(5);
+    DK_Figures *aFigure = createFigure(10);
     
      printf("\t\tPlease Enter a Four Points for %i Figure \n\n",aFigure->size);
 
     addMyFigureToArrayOfFigures(aFigure);
     addMyFigureToArrayOfFigures(aFigure);
     addMyFigureToArrayOfFigures(aFigure);
-    addMyFigureToArrayOfFigures(aFigure);
-
-    addMyFigureToArrayOfFigures(aFigure);
-
 
     writeFigures(theFile, aFigure);
 
