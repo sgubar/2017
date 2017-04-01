@@ -1,0 +1,26 @@
+{
+
+"Figures":
+	[
+	   {
+		"Point A": "coord x": "0","coord y": "0"
+		"Point B": "coord x": "0","coord y": "0"
+		"Point C": "coord x": "0","coord y": "0"
+		"Point D": "coord x": "0","coord y": "0"
+			   },
+	   {
+		"Point A": "coord x": "0","coord y": "0"
+		"Point B": "coord x": "0","coord y": "0"
+		"Point C": "coord x": "0","coord y": "0"
+		"Point D": "coord x": "0","coord y": "0"
+			   },
+	   {
+		"Point A": "coord x": "0","coord y": "0"
+		"Point B": "coord x": "0","coord y": "0"
+		"Point C": "coord x": "0","coord y": "0"
+		"Point D": "coord x": "0","coord y": "0"
+			   }
+	],
+	   "size": 10 ,
+	   "current size" : 3
+}
