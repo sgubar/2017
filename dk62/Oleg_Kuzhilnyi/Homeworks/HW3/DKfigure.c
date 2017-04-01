@@ -14,7 +14,7 @@ DK_Figures *createFigure(int aSize)
     
     if(NULL != theFigures)
     {
-        theFigures->ListOfFigures = (descriptionOfFigure *)malloc(aSize * sizeof(descriptionOfFigure));
+        theFigures->ListOfFigures = (descriptionOfFigure *)malloc(aSize*sizeof(descriptionOfFigure));
         
        // bzero(theFigures,aSize*sizeof(Coords_Of_Geometry_Points)); //Zero for elements of struct
         memset(theFigures->ListOfFigures, 0, aSize * sizeof(Coords_Of_Geometry_Points)); // Set zero array
@@ -25,38 +25,31 @@ DK_Figures *createFigure(int aSize)
     
     return theFigures;
 }
-
 int addMyFigureToArrayOfFigures(DK_Figures *ArrayFigures)
 {
     int theResult = 0;
-    int MountOfAngle = 4;
     if (NULL != ArrayFigures)
     {
         if (ArrayFigures->current_size < ArrayFigures->size)
         {
             descriptionOfFigure *ArrayOfFigures = &(ArrayFigures->ListOfFigures[ArrayFigures->current_size]);
-
-            ArrayOfFigures->Point = (Coords_Of_Geometry_Points *)malloc(MountOfAngle*sizeof(Coords_Of_Geometry_Points));
-
-            for(int Counter_Points = 0 ; Counter_Points < MountOfAngle ; Counter_Points++)
-            {
-                switch(Counter_Points) // idintificate
-                {
-                    case 0: printf("\t\tPoint A\n");
-                        break;
-                    case 1: printf("\t\tPoint B\n");
-                        break;
-                    case 2: printf("\t\tPoint C\n");
-                        break;
-                    case 3: printf("\t\tPoint D\n");
-                        break;
-                }
-                printf("\tx: ");
-                scanf("%i",&ArrayOfFigures->Point[Counter_Points].x);   //= rand()%100;
-                printf("\ty: ");
-                scanf("%i",&ArrayOfFigures->Point[Counter_Points].y);    //    =  rand()%100;
-           }
-            printf("-------------------\n");
+            
+            ArrayOfFigures->PointA = (Coords_Of_Geometry_Points *)malloc(sizeof(Coords_Of_Geometry_Points));
+            ArrayOfFigures->PointB = (Coords_Of_Geometry_Points *)malloc(sizeof(Coords_Of_Geometry_Points));
+            
+            ArrayOfFigures->PointC = (Coords_Of_Geometry_Points *)malloc(sizeof(Coords_Of_Geometry_Points));
+            ArrayOfFigures->PointD = (Coords_Of_Geometry_Points *)malloc(sizeof(Coords_Of_Geometry_Points));
+            
+            printf("\t\t\tThe Figure №%i\n", ArrayFigures->current_size);
+            
+            puts("\t PointA: ");
+            ScanfCoords(ArrayOfFigures->PointA);
+            puts("\t PointB: ");
+            ScanfCoords(ArrayOfFigures->PointB);
+            puts("\t PointC: ");
+            ScanfCoords(ArrayOfFigures->PointC);
+            puts("\t PointD: ");
+            ScanfCoords(ArrayOfFigures->PointD);
             
             ArrayFigures->current_size ++;
             
@@ -73,6 +66,15 @@ int addMyFigureToArrayOfFigures(DK_Figures *ArrayFigures)
     
     return theResult;
 }
+void ScanfCoords(Coords_Of_Geometry_Points *Point)
+{
+    puts("x: ");
+    scanf("%i",&Point->x);
+    puts("y: ");
+    scanf("%i",&Point->y);
+    puts("----");
+    
+}
 
 void destroyFigure(DK_Figures *Figure)
 {
@@ -83,9 +85,12 @@ void destroyFigure(DK_Figures *Figure)
             for (int i = 0; i < Figure->current_size; i++)
             {
                 descriptionOfFigure *theLinkTolist = &(Figure->ListOfFigures[i]);
-                if (NULL != theLinkTolist->Point)
+                if (NULL != theLinkTolist->PointA &&NULL != theLinkTolist->PointA && NULL != theLinkTolist->PointA && NULL != theLinkTolist->PointA)
                 {
-                    free(theLinkTolist->Point);
+                    free(theLinkTolist->PointA);
+                        free(theLinkTolist->PointB);
+                            free(theLinkTolist->PointC);
+                                free(theLinkTolist->PointD);
                 }
             }
             free(Figure->ListOfFigures);
@@ -97,13 +102,13 @@ void destroyFigure(DK_Figures *Figure)
 double FindAreaQuadrilateral(descriptionOfFigure *Figure) //Calculate Area of Quadrilateral
 {
     double ResultArea =
-    ((((Figure->Point[0].x)*(Figure->Point[1].y)- (Figure->Point[0].y)*(Figure->Point[1].x)))
+    ((((Figure->PointA->x)*(Figure->PointB->y)-(Figure->PointA->y)*(Figure->PointB->x)))
     +
-    (((Figure->Point[1].x)*(Figure->Point[2].y)-(Figure->Point[1].y)*(Figure->Point[2].x)))
+    (((Figure->PointB->x)*(Figure->PointC->y)-(Figure->PointB->y)*(Figure->PointB->x)))
     +
-    (((Figure->Point[2].x)*(Figure->Point[3].y)-(Figure->Point[2].y)*(Figure->Point[3].x)))
+    (((Figure->PointC->x)*(Figure->PointC->y)-(Figure->PointB->y)*(Figure->PointC->x)))
     +
-    (((Figure->Point[3].x)*(Figure->Point[0].y)- (Figure->Point[3].y)*(Figure->Point[0].x))))
+    (((Figure->PointC->x)*(Figure->PointA->y)- (Figure->PointC->y)*(Figure->PointA->x))))
                                         /2;
 if (ResultArea < 0)
     return ResultArea*(-1); //ABS of Area
@@ -112,46 +117,55 @@ if (ResultArea < 0)
 
 }
 
-void printfFigure(DK_Figures *FigureList)
+void printfAreaFigure(DK_Figures *FigureList)
 {
     for (int i = 0; i < FigureList->current_size; i++)
     {
         descriptionOfFigure *theFigure = &(FigureList->ListOfFigures[i]);
-
-            printf("[%d] - ", i);
-            printf("Area Of Figure:%.2f\n",FindAreaQuadrilateral(theFigure));
-    } 
+        
+        printf("[%d] - ", i);
+        printf("Area Of Figure:%.2f\n",FindAreaQuadrilateral(theFigure));
+    }
     
 }
 
-                // Write Coords in json
+// Write Coords in json
 void writePoint(FILE *aFile, descriptionOfFigure *aNote)
 {
+    fprintf (aFile,MINITAB);
     fprintf (aFile, "{");
+    fprintf(aFile, NEWLINE);
+
     
-    for(int Counter_Points = 0; Counter_Points < 4 ; Counter_Points++)
-    {
-        char ASCIIcounter = 65;
-        
-        fprintf (aFile, "\"P%d\": \"coord x\": \"%d\",\"coord y\": \"%d\"" ,Counter_Points,aNote->Point[Counter_Points].x , aNote->Point[Counter_Points].x);
+
+        fprintf (aFile, DOUBLETAB);
+        fprintf (aFile, "\"Point A\": \"coord x\": \"%d\",\"coord y\": \"%d\",\n" ,aNote->PointA->x , aNote->PointA->y);
+        fprintf (aFile, DOUBLETAB);
     
-    fprintf (aFile, ",");
-        ASCIIcounter++;
-    }
-    fprintf (aFile, "\"Area\":\"%.2f\"", FindAreaQuadrilateral(aNote));
-   
+        fprintf (aFile, "\"Point B\": \"coord x\": \"%d\",\"coord y\": \"%d\",\n" ,aNote->PointB->x , aNote->PointB->y);
+        fprintf (aFile, DOUBLETAB);
+    
+        fprintf (aFile, "\"Point C\": \"coord x\": \"%d\",\"coord y\": \"%d\",\n" ,aNote->PointC->x , aNote->PointC->y);
+        fprintf (aFile, DOUBLETAB);
+    
+        fprintf (aFile, "\"Point D\": \"coord x\": \"%d\",\"coord y\": \"%d\"\n" ,aNote->PointD->x , aNote->PointD->y);
+        fprintf (aFile, DOUBLETAB);
+    
+    fprintf (aFile, "\"Area\":\"%.2f\"\n", FindAreaQuadrilateral(aNote));
+    
+    fprintf (aFile,MINITAB);
     fprintf (aFile, "}");
+    fprintf(aFile,",");
+    fprintf(aFile,NEWLINE);
+
+
 }
 
-                //  Write Figure in json
+//  Write Figure in json
 void writeFigures(FILE *aFile, DK_Figures *aList)
 {
     fprintf (aFile, "{");
-    
-    fprintf(aFile, "\"size\":%d", aList->size);
-    fprintf(aFile, ",");
-    
-    fprintf(aFile, "\"Figure\":");
+   fprintf (aFile, NEWLINE);
     
     if (NULL == aList->ListOfFigures)
     {
@@ -159,7 +173,11 @@ void writeFigures(FILE *aFile, DK_Figures *aList)
     }
     else
     {
-        fprintf(aFile, "[");
+        fprintf (aFile, NEWLINE);
+       
+        fprintf (aFile, "\"Figures\":\n");
+        fprintf (aFile, "\t");
+        fprintf(aFile, "[\n");
         
         for (int i = 0; i < aList->current_size; i++)
         {
@@ -167,18 +185,16 @@ void writeFigures(FILE *aFile, DK_Figures *aList)
             
             writePoint(aFile, theNote);
             
-            if (i < (aList->current_size - 1))
-            {
-                fprintf (aFile, ",");
-            }
+         
         }
-        
-        fprintf(aFile, "]");
-    }
-    
+    fprintf (aFile, "\t");
+    fprintf(aFile, "]");
+    fprintf(aFile, NEWLINE);
+
+             }
+    fprintf(aFile, "\t");
+    fprintf(aFile, "\"size\":%d,\n", aList->size);
     fprintf (aFile, "}");
+    fprintf(aFile, NEWLINE);
+
 }
-
-
-
-

@@ -1,1 +1,42 @@
-{"size":3,"Figure":[{"P0": "coord x": "345","coord y": "345","P1": "coord x": "5","coord y": "5","P2": "coord x": "4","coord y": "4","P3": "coord x": "4","coord y": "4","Area":"72460455.00"},{"P0": "coord x": "4","coord y": "4","P1": "coord x": "4","coord y": "4","P2": "coord x": "34","coord y": "34","P3": "coord x": "4","coord y": "4","Area":"570.00"},{"P0": "coord x": "3","coord y": "3","P1": "coord x": "234","coord y": "234","P2": "coord x": "4","coord y": "4","P3": "coord x": "4","coord y": "4","Area":"3321.00"}]}
+{
+
+"Figures":
+	[
+	   {
+		"Point A": "coord x": "0","coord y": "0",
+		"Point B": "coord x": "0","coord y": "0",
+		"Point C": "coord x": "0","coord y": "0",
+		"Point D": "coord x": "0","coord y": "0"
+		"Area":"0.00"
+	   },
+	   {
+		"Point A": "coord x": "0","coord y": "0",
+		"Point B": "coord x": "0","coord y": "0",
+		"Point C": "coord x": "0","coord y": "0",
+		"Point D": "coord x": "0","coord y": "0"
+		"Area":"0.00"
+	   },
+	   {
+		"Point A": "coord x": "-985120624","coord y": "32767",
+		"Point B": "coord x": "0","coord y": "0",
+		"Point C": "coord x": "0","coord y": "0",
+		"Point D": "coord x": "0","coord y": "0"
+		"Area":"0.00"
+	   },
+	   {
+		"Point A": "coord x": "0","coord y": "0",
+		"Point B": "coord x": "0","coord y": "0",
+		"Point C": "coord x": "0","coord y": "0",
+		"Point D": "coord x": "0","coord y": "0"
+		"Area":"0.00"
+	   },
+	   {
+		"Point A": "coord x": "0","coord y": "0",
+		"Point B": "coord x": "0","coord y": "0",
+		"Point C": "coord x": "0","coord y": "0",
+		"Point D": "coord x": "0","coord y": "0"
+		"Area":"0.00"
+	   },
+	]
+	"size":5,
+}
