@@ -14,6 +14,7 @@
 #include <string.h>
 #define DOUBLETAB "\t\t"
 #define MINITAB "\t   "
+#define TAB "\t"
 #define NEWLINE "\n"
 
 

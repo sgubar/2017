@@ -165,7 +165,7 @@ void writePoint(FILE *aFile, descriptionOfFigure *aNote)
 void writeFigures(FILE *aFile, DK_Figures *aList)
 {
     fprintf (aFile, "{");
-   fprintf (aFile, NEWLINE);
+    fprintf (aFile, NEWLINE);
     
     if (NULL == aList->ListOfFigures)
     {
@@ -176,8 +176,9 @@ void writeFigures(FILE *aFile, DK_Figures *aList)
         fprintf (aFile, NEWLINE);
        
         fprintf (aFile, "\"Figures\":\n");
-        fprintf (aFile, "\t");
-        fprintf(aFile, "[\n");
+        fprintf (aFile, TAB);
+        fprintf(aFile, "[");
+        fprintf(aFile, NEWLINE);
         
         for (int i = 0; i < aList->current_size; i++)
         {
@@ -187,13 +188,13 @@ void writeFigures(FILE *aFile, DK_Figures *aList)
             
          
         }
-    fprintf (aFile, "\t");
+    fprintf (aFile, TAB);
     fprintf(aFile, "]");
     fprintf(aFile, NEWLINE);
 
              }
-    fprintf(aFile, "\t");
-    fprintf(aFile, "\"size\":%d,\n", aList->size);
+    fprintf(aFile, MINITAB);
+    fprintf(aFile, "\"size\":%d\n", aList->size);
     fprintf (aFile, "}");
     fprintf(aFile, NEWLINE);
 
