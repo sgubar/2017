@@ -8,13 +8,13 @@ void Bubble_Sort_List(pyramidList *aPyramidList)
 	int i, j, result;
 	for (i = 1; i < aPyramidList->current_size; i++)
 	{
-		result = 0; 						//	flag: sorted
+		result = 0; 						
 		for (j = 1; j < aPyramidList->current_size - i + 1; j++)
 		{
 			if (square(&aPyramidList->arrayofPyramids[j]) > square(&aPyramidList->arrayofPyramids[j - 1]))
 			{
 				swap(&aPyramidList->arrayofPyramids[j], &aPyramidList->arrayofPyramids[j - 1]);
-				result++; 					//	flag: not sorted
+				result++; 					
 			}
 		}
 		if (!result)
