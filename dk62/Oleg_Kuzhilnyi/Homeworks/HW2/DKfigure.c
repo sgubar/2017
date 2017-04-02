@@ -27,8 +27,6 @@ DK_Figures *createFigure(int aSize)
 }
 int addMyFigureToArrayOfFigures(DK_Figures *ArrayFigures)
 {
-    printf("\t\tPlease Enter a Points for %i Figure \n\n",aFigure->size);
-    
     int theResult = 0;
     if (NULL != ArrayFigures)
     {
@@ -42,7 +40,7 @@ int addMyFigureToArrayOfFigures(DK_Figures *ArrayFigures)
             ArrayOfFigures->PointC = (Coords_Of_Geometry_Points *)malloc(sizeof(Coords_Of_Geometry_Points));
             ArrayOfFigures->PointD = (Coords_Of_Geometry_Points *)malloc(sizeof(Coords_Of_Geometry_Points));
             
-            printf("\t\tThe Figure №%i\n", ArrayFigures->current_size);
+             printf("\t\t\tPlease Enter Four Point for Figure №%i\n", ArrayFigures->current_size);
             
              ScanfCoords(ArrayOfFigures->PointA);
              ScanfCoords(ArrayOfFigures->PointB);
