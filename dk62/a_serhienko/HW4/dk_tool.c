@@ -37,12 +37,12 @@ void destroyAllPyramid(pyramidList *aPyramidList)//deleting pyramids:(
 
 
 
-/*void swap(pyramid *var1, pyramid *var2)
+void swap(pyramid *var1, pyramid *var2)
 {
 	pyramid temp = *var1;
 	*var1 = *var2;
 	*var2 = temp;
-}*/
+}
 
 
 int addPyramid(pyramidList *aPyramidList)
