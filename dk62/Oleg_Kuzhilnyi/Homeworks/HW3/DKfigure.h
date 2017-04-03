@@ -58,7 +58,7 @@ void printfAreaFigure(DK_Figures *inPhoneBook);
 void destroyFigure(DK_Figures *FigureList);
 
 
-void writePoint(FILE *aFile, descriptionOfFigure *aNote);
+void write_aFigure(FILE *aFile, descriptionOfFigure *aNote);
 void writeFigures(FILE *aFile, DK_Figures *aList);
 
 #endif /* dk_tool_h */
