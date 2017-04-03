@@ -8,19 +8,18 @@
 
 int main(int argc, const char * argv[])
 {
-    //printf("Vvedit rozmir spisku:");
-    int RzmR=10;
-    //scanf("%d", RzmR);
+    printf("Vvedit rozmir spisku:");
+    scanf("%d", RzmR);
 
-    SpskOfTrK *TagSpskOfTrK=StvorennyaSpsK(RzmR);
+    SpskOfTrK *TagSpskOfTrK=StvorennyaSpsK(RzmR); //Виклик функції створення списку трикутників
 
     addDani(TagSpskOfTrK, 43, 14, 5, 2, 6, 3);
-    addDani(TagSpskOfTrK, 53, 64, 4, 5, 12, 3);
+    addDani(TagSpskOfTrK, 53, 64, 4, 5, 12, 3);   //Виклик функції додавання координат вершин трикутників
     addDani(TagSpskOfTrK, 6, 1, 55, 4, 5, 6);
 
-    Print(TagSpskOfTrK);
+    Print(TagSpskOfTrK);                          //Виклик функції виведення списку трикутників
 
-    Vidalennya(TagSpskOfTrK);
+    Vidalennya(TagSpskOfTrK);                     //Виклик функції звільнення памяті
 
     return 0;
 }
