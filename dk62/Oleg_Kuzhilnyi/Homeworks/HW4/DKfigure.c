@@ -7,6 +7,8 @@
 //
 
 #include "DKfigure.h"
+#include <stdlib.h>
+#include <time.h>
 
 DK_Figures *createFigure(int aSize)
 {
@@ -16,7 +18,7 @@ DK_Figures *createFigure(int aSize)
     {
         theFigures->ListOfFigures = (descriptionOfFigure *)malloc(aSize*sizeof(descriptionOfFigure));
         
-       // bzero(theFigures,aSize*sizeof(Coords_Of_Geometry_Points)); //Zero for elements of struct
+        //bzero(theFigures->ListOfFigures,aSize*sizeof(Coords_Of_Geometry_Points)); //Zero for elements of struct
         memset(theFigures->ListOfFigures, 0, aSize * sizeof(Coords_Of_Geometry_Points)); // Set zero array
         theFigures->size = aSize;
         theFigures->current_size = 0;
@@ -41,7 +43,6 @@ int addMyFigureToArrayOfFigures(DK_Figures *ArrayFigures)
             ArrayOfFigures->PointD = (Coords_Of_Geometry_Points *)malloc(sizeof(Coords_Of_Geometry_Points));
             
             printf("\t\t\tPlease Enter Four Point for Figure №%i\n", ArrayFigures->current_size);
-            
             puts("\t PointA: ");
             ScanfCoords(ArrayOfFigures->PointA);
             puts("\t PointB: ");
@@ -73,6 +74,11 @@ void ScanfCoords(Coords_Of_Geometry_Points *Point)
     puts("y: ");
     scanf("%i",&Point->y);
     puts("----");
+  
+
+   // Point->x = rand() % 150;
+  //  Point->y = rand() % 150;
+   
     
 }
 

@@ -11,21 +11,18 @@
 
 void bubbleSort(DK_Figures *FigureList)
 {
-    for(int TheOut = 0;TheOut < FigureList->current_size; TheOut++)
+    for (int theOut = FigureList->current_size-1 ; theOut > 1; theOut --)
     {
-        for(int TheIn = 0; TheIn < FigureList->current_size-1;TheIn++)
+        for (int theIn = 0; theIn < theOut; theIn ++)
         {
-            
-            if (FindAreaQuadrilateral(&FigureList->ListOfFigures[TheIn]) >FindAreaQuadrilateral(&FigureList->ListOfFigures[TheIn+1]))
+            if (FindAreaQuadrilateral(&FigureList->ListOfFigures[theIn]) >FindAreaQuadrilateral(&FigureList->ListOfFigures[theIn+1]))
             {
-                descriptionOfFigure temp = FigureList->ListOfFigures[TheOut];
-                FigureList->ListOfFigures[TheOut] = FigureList->ListOfFigures[TheIn+1];
-                FigureList->ListOfFigures[TheIn+1] = temp;
-               
+                descriptionOfFigure theTmp = FigureList->ListOfFigures[theIn];
+                 FigureList->ListOfFigures[theIn] = FigureList->ListOfFigures[theIn + 1];
+                FigureList->ListOfFigures[theIn + 1] = theTmp;
             }
         }
     }
-    
 }
 
 void selectionSort(DK_Figures *FigureList)
@@ -46,9 +43,6 @@ void selectionSort(DK_Figures *FigureList)
         
     }
 }
-
-
-
 
 void insertionSort(DK_Figures *FigureList)
 {

@@ -18,7 +18,6 @@
 #define NEWLINE "\n"
 #define COMMA ","
 
-
         //Coords of Point
 typedef struct Coords {
     int x;

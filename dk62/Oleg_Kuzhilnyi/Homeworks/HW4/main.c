@@ -14,15 +14,21 @@ int main(int argc, const char *argv[])
 {
     FILE *theFile = fopen("/Users/air/Documents/Programming_C/HW4/HW4/data.json","w");
     
-    DK_Figures *aFigure = createFigure(3);
+    DK_Figures *aFigure = createFigure(5);
     
     addMyFigureToArrayOfFigures(aFigure);
     addMyFigureToArrayOfFigures(aFigure);
     addMyFigureToArrayOfFigures(aFigure);
+    addMyFigureToArrayOfFigures(aFigure);
+    addMyFigureToArrayOfFigures(aFigure);
+
+    
     
     
     printf ("Before sorting ...\n");
+    
      printfAreaFigure(aFigure);
+     writeFigures(theFile, aFigure);
     
     puts("-----------------------");
     puts("\t1 - Bubble Sort");
