@@ -50,8 +50,8 @@ bool check(string s, int *results){
     }
 }
 int power(int data, int n){
-    int powered = data;
-    for(int j = 0; j < n; j++){
+    int powered;
+    for(powered = 1; n > 0;--n ){
         powered = powered*data;
     }
     return powered;
