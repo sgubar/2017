@@ -6,4 +6,11 @@
 #define SORTING_C_SORTING_H
 #include <stdio.h>
 void swap(int *a, int *b);
+int GetRand(void);
+void GetValue(int arr[], int N);
+bool check(int arr[], int N);
+void BubbleSort(int arr[],int N);
+void SampleSort(int arr[],int N);
+void InclusionSort;
+void MergeSort(int arr[],int N);
 #endif //SORTING_C_SORTING_H
