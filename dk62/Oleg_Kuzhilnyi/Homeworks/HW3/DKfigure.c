@@ -42,11 +42,11 @@ int addMyFigureToArrayOfFigures(DK_Figures *ArrayFigures)
             
             printf("\t\t\tPlease Enter Four Point for Figure №%i\n", ArrayFigures->current_size);
             
-            puts("\t PointA: ");
-            ScanfCoords(ArrayOfFigures->PointA);
-            puts("\t PointB: ");
+            puts("\t PointA: ");   
+            ScanfCoords(ArrayOfFigures->PointA);     
+            puts("\t PointB: ");                                                
             ScanfCoords(ArrayOfFigures->PointB);
-            puts("\t PointC: ");
+            puts("\t PointC: ");                                              /* Input coords */
             ScanfCoords(ArrayOfFigures->PointC);
             puts("\t PointD: ");
             ScanfCoords(ArrayOfFigures->PointD);
@@ -89,7 +89,7 @@ void destroyFigure(DK_Figures *Figure)
                 {
                     free(theLinkTolist->PointA);
                         free(theLinkTolist->PointB);
-                            free(theLinkTolist->PointC);
+                            free(theLinkTolist->PointC);                    
                                 free(theLinkTolist->PointD);
                 }
             }
