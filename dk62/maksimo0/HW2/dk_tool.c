@@ -9,25 +9,25 @@
 
 SpskOfTrK *StvorennyaSpsK(int RzmR)
 {
-    SpskOfTrK *TagSpskOfTrK=(SpskOfTrK *)malloc(sizeof(SpskOfTrK));
-    if(TagSpskOfTrK!=NULL)
+    SpskOfTrK *TagSpskOfTrK=(SpskOfTrK *)malloc(sizeof(SpskOfTrK));      //Резервування памяті під трикутники
+    if(TagSpskOfTrK!=NULL)                                           
     {
-        TagSpskOfTrK->TrK=(Trykutnyk *)malloc(RzmR*(sizeof(Trykutnyk)));
+        TagSpskOfTrK->TrK=(Trykutnyk *)malloc(RzmR*(sizeof(Trykutnyk))); //Резервування памяті під точки
         TagSpskOfTrK->CurrentTrK=0;
         TagSpskOfTrK->MaxKilkTrK=RzmR;
     }
     return TagSpskOfTrK;
 }
 
-int addDani(SpskOfTrK *TagSpskOfTrK, int X1, int Y1, int X2, int Y2, int X3, int Y3)
+int addDani(SpskOfTrK *TagSpskOfTrK, int X1, int Y1, int X2, int Y2, int X3, int Y3)  //Функція введення даних
 {
     if(TagSpskOfTrK->CurrentTrK<TagSpskOfTrK->MaxKilkTrK)
     {
-        Trykutnyk *TrK=&(TagSpskOfTrK->TrK[TagSpskOfTrK->CurrentTrK]);
+        Trykutnyk *TrK=&(TagSpskOfTrK->TrK[TagSpskOfTrK->CurrentTrK]);  
         if (TrK!=NULL)
         {
             TrK->Tochka_A=(Tochka *)malloc(sizeof(Tochka));
-            TrK->Tochka_B=(Tochka *)malloc(sizeof(Tochka));
+            TrK->Tochka_B=(Tochka *)malloc(sizeof(Tochka));             //Резервування памяті під координати
             TrK->Tochka_C=(Tochka *)malloc(sizeof(Tochka));
             TrK->Tochka_A->Koordinata_X=X1;
             TrK->Tochka_A->Koordinata_Y=Y1;
@@ -51,7 +51,7 @@ int addDani(SpskOfTrK *TagSpskOfTrK, int X1, int Y1, int X2, int Y2, int X3, int
     return 0;
 }
 
-void Vidalennya(SpskOfTrK *TagSpskOfTrK)
+void Vidalennya(SpskOfTrK *TagSpskOfTrK)  //Функція очищення виділеної памяті
 {
     if(TagSpskOfTrK!=NULL)
     {
@@ -74,7 +74,7 @@ void Vidalennya(SpskOfTrK *TagSpskOfTrK)
 }
 
 
-int ObchislennyaPloschi(Trykutnyk *TrK)
+int ObchislennyaPloschi(Trykutnyk *TrK)  //Функція обчислення площі трикутника
 {
     int ploscha=abs((TrK->Tochka_A->Koordinata_X-TrK->Tochka_C->Koordinata_X)*(TrK->Tochka_B->Koordinata_Y-TrK->Tochka_C->Koordinata_Y)
                  -
@@ -82,7 +82,7 @@ int ObchislennyaPloschi(Trykutnyk *TrK)
     return ploscha;
 }
 
-void Print(SpskOfTrK *TagSpskOfTrK)
+void Print(SpskOfTrK *TagSpskOfTrK)   //Функція виведення списку трикутників
 {
     for(int i=0; i<TagSpskOfTrK->CurrentTrK; i++)
     {
