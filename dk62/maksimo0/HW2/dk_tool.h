@@ -19,14 +19,14 @@ typedef struct Tochki
     Tochka *Tochka_B;
     Tochka *Tochka_C;
     int Ploscha;
-}Trykutnyk;
+}Trykutnyk;  //Структура трикутника, який містить в собі три точки і площу
 
 typedef struct TagTrK
 {
     Trykutnyk *TrK;
     int CurrentTrK;
     int MaxKilkTrK;
-}SpskOfTrK;
+}SpskOfTrK; //Структура яка містить в собі список трикутників
 
 SpskOfTrK *StvorennyaSpsK(int RzmR);
 
