@@ -130,7 +130,7 @@ void printfAreaFigure(DK_Figures *FigureList)
 }
 
 // Write Coords in json
-void writePoint(FILE *aFile, descriptionOfFigure *aNote)
+void write_aFigure(FILE *aFile, descriptionOfFigure *aNote)
 {
     fprintf (aFile,MINITAB);
     fprintf (aFile, "{");
@@ -180,7 +180,7 @@ void writeFigures(FILE *aFile, DK_Figures *aList)
         {
             descriptionOfFigure *theNote = &(aList->ListOfFigures[i]);
             
-            writePoint(aFile, theNote);
+            write_aFigure(aFile, theNote);
             if (i < (aList->current_size - 1))
             {
                 fprintf (aFile, COMMA);

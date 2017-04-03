@@ -12,7 +12,7 @@
 
 int main(int argc, const char *argv[])
 {
-    FILE *theFile = fopen("/Users/air/Documents/Programming_C/Homework 3/HW3/HW3/data.json","w");
+    FILE *theFile = fopen("/Users/air/Documents/Programming_C/HW4/HW4/data.json","w");
     
     DK_Figures *aFigure = createFigure(3);
     
