@@ -16,7 +16,7 @@ DK_Figures *createFigure(int aSize)
     {
         theFigures->ListOfFigures = (descriptionOfFigure *)malloc(aSize*sizeof(descriptionOfFigure));
         
-       // bzero(theFigures,aSize*sizeof(Coords_Of_Geometry_Points)); //Zero for elements of struct
+        // bzero(theFigures,aSize*sizeof(Coords_Of_Geometry_Points)); //Zero for elements of struct
         memset(theFigures->ListOfFigures, 0, aSize * sizeof(Coords_Of_Geometry_Points)); // Set zero array
         theFigures->size = aSize;
         theFigures->current_size = 0;
@@ -42,9 +42,9 @@ int addMyFigureToArrayOfFigures(DK_Figures *ArrayFigures)
             
             printf("\t\t\tPlease Enter Four Point for Figure №%i\n", ArrayFigures->current_size);
             
-            puts("\t PointA: ");   
-            ScanfCoords(ArrayOfFigures->PointA);     
-            puts("\t PointB: ");                                                
+            puts("\t PointA: ");
+            ScanfCoords(ArrayOfFigures->PointA);
+            puts("\t PointB: ");
             ScanfCoords(ArrayOfFigures->PointB);
             puts("\t PointC: ");                                              /* Input coords */
             ScanfCoords(ArrayOfFigures->PointC);
@@ -88,14 +88,14 @@ void destroyFigure(DK_Figures *Figure)
                 if (NULL != theLinkTolist->PointA &&NULL != theLinkTolist->PointA && NULL != theLinkTolist->PointA && NULL != theLinkTolist->PointA)
                 {
                     free(theLinkTolist->PointA);
-                        free(theLinkTolist->PointB);
-                            free(theLinkTolist->PointC);                    
-                                free(theLinkTolist->PointD);
+                    free(theLinkTolist->PointB);
+                    free(theLinkTolist->PointC);
+                    free(theLinkTolist->PointD);
                 }
             }
             free(Figure->ListOfFigures);
         }
-      free(Figure);
+        free(Figure);
     }
 }
 
@@ -103,18 +103,18 @@ double FindAreaQuadrilateral(descriptionOfFigure *Figure) //Calculate Area of Qu
 {
     double ResultArea =
     ((((Figure->PointA->x)*(Figure->PointB->y)-(Figure->PointA->y)*(Figure->PointB->x)))
-    +
-    (((Figure->PointB->x)*(Figure->PointC->y)-(Figure->PointB->y)*(Figure->PointB->x)))
-    +
-    (((Figure->PointC->x)*(Figure->PointC->y)-(Figure->PointB->y)*(Figure->PointC->x)))
-    +
-    (((Figure->PointC->x)*(Figure->PointA->y)- (Figure->PointC->y)*(Figure->PointA->x))))
-                                        /2;
-if (ResultArea < 0)
-    return ResultArea*(-1); //ABS of Area
-  else
-    return ResultArea;
-
+     +
+     (((Figure->PointB->x)*(Figure->PointC->y)-(Figure->PointB->y)*(Figure->PointB->x)))
+     +
+     (((Figure->PointC->x)*(Figure->PointC->y)-(Figure->PointB->y)*(Figure->PointC->x)))
+     +
+     (((Figure->PointC->x)*(Figure->PointA->y)- (Figure->PointC->y)*(Figure->PointA->x))))
+    /2;
+    if (ResultArea < 0)
+        return ResultArea*(-1); //ABS of Area
+    else
+        return ResultArea;
+    
 }
 
 void printfAreaFigure(DK_Figures *FigureList)
@@ -135,26 +135,26 @@ void write_aFigure(FILE *aFile, descriptionOfFigure *aNote)
     fprintf (aFile,MINITAB);
     fprintf (aFile, "{");
     fprintf(aFile, NEWLINE);
-
     
-
-        fprintf (aFile, DOUBLETAB);
-        fprintf (aFile, "\"Point A\": \"coord x\": \"%d\",\"coord y\": \"%d\"\n" ,aNote->PointA->x , aNote->PointA->y);
-        fprintf (aFile, DOUBLETAB);
     
-        fprintf (aFile, "\"Point B\": \"coord x\": \"%d\",\"coord y\": \"%d\"\n" ,aNote->PointB->x , aNote->PointB->y);
-        fprintf (aFile, DOUBLETAB);
     
-        fprintf (aFile, "\"Point C\": \"coord x\": \"%d\",\"coord y\": \"%d\"\n" ,aNote->PointC->x , aNote->PointC->y);
-        fprintf (aFile, DOUBLETAB);
+    fprintf (aFile, DOUBLETAB);
+    fprintf (aFile, "\"Point A\": \"coord x\": \"%d\",\"coord y\": \"%d\"\n" ,aNote->PointA->x , aNote->PointA->y);
+    fprintf (aFile, DOUBLETAB);
     
-        fprintf (aFile, "\"Point D\": \"coord x\": \"%d\",\"coord y\": \"%d\"\n" ,aNote->PointD->x , aNote->PointD->y);
-        fprintf (aFile, DOUBLETAB);
+    fprintf (aFile, "\"Point B\": \"coord x\": \"%d\",\"coord y\": \"%d\"\n" ,aNote->PointB->x , aNote->PointB->y);
+    fprintf (aFile, DOUBLETAB);
+    
+    fprintf (aFile, "\"Point C\": \"coord x\": \"%d\",\"coord y\": \"%d\"\n" ,aNote->PointC->x , aNote->PointC->y);
+    fprintf (aFile, DOUBLETAB);
+    
+    fprintf (aFile, "\"Point D\": \"coord x\": \"%d\",\"coord y\": \"%d\"\n" ,aNote->PointD->x , aNote->PointD->y);
+    fprintf (aFile, DOUBLETAB);
     
     fprintf (aFile,MINITAB);
     fprintf (aFile, "}");
-
-
+    
+    
 }
 
 //  Write Figure in json
@@ -170,7 +170,7 @@ void writeFigures(FILE *aFile, DK_Figures *aList)
     else
     {
         fprintf (aFile, NEWLINE);
-       
+        
         fprintf (aFile, "\"Figures\":\n");
         fprintf (aFile, TAB);
         fprintf(aFile, "[");
@@ -185,23 +185,23 @@ void writeFigures(FILE *aFile, DK_Figures *aList)
             {
                 fprintf (aFile, COMMA);
                 fprintf(aFile, NEWLINE);
-
+                
             }
         }
         
-   
-    fprintf(aFile, NEWLINE);
-    fprintf (aFile, TAB);
-    fprintf(aFile, "]");
-    fprintf(aFile, COMMA);
-    fprintf(aFile, NEWLINE);
-
-             }
+        
+        fprintf(aFile, NEWLINE);
+        fprintf (aFile, TAB);
+        fprintf(aFile, "]");
+        fprintf(aFile, COMMA);
+        fprintf(aFile, NEWLINE);
+        
+    }
     fprintf(aFile, MINITAB);
     fprintf(aFile, "\"size\": %d ,\n", aList->size);
     fprintf(aFile, MINITAB);
     fprintf(aFile, "\"current size\" : %d\n", aList->current_size);
     fprintf (aFile, "}");
     fprintf(aFile, NEWLINE);
-
+    
 }

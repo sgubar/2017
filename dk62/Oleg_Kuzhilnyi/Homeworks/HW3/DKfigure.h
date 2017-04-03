@@ -19,13 +19,13 @@
 #define COMMA ","
 
 
-        //Coords of Point
+//Coords of Point
 typedef struct Coords {
     int x;
     int y;
 }Coords_Of_Geometry_Points;
 
-        //Description Figure ( points )
+//Description Figure ( points )
 typedef struct
 {
     Coords_Of_Geometry_Points * PointA;
@@ -35,13 +35,13 @@ typedef struct
     
 }descriptionOfFigure;
 
-        //List with Figures
+//List with Figures
 typedef struct TagFigure
 {
     descriptionOfFigure * ListOfFigures;
     int size;
     int current_size;
-   
+    
 }DK_Figures;
 
 int addMyFigureToArrayOfFigures(DK_Figures *ArrayFigures);

@@ -3,22 +3,22 @@
 "Figures":
 	[
 	   {
-		"Point A": "coord x": "0","coord y": "0"
-		"Point B": "coord x": "0","coord y": "0"
-		"Point C": "coord x": "0","coord y": "0"
-		"Point D": "coord x": "0","coord y": "0"
+		"Point A": "coord x": "5345","coord y": "36"
+		"Point B": "coord x": "34","coord y": "23"
+		"Point C": "coord x": "4","coord y": "6"
+		"Point D": "coord x": "324","coord y": "3"
 			   },
 	   {
-		"Point A": "coord x": "0","coord y": "0"
-		"Point B": "coord x": "0","coord y": "0"
-		"Point C": "coord x": "0","coord y": "0"
-		"Point D": "coord x": "0","coord y": "0"
+		"Point A": "coord x": "63","coord y": "24"
+		"Point B": "coord x": "36","coord y": "32"
+		"Point C": "coord x": "4","coord y": "6"
+		"Point D": "coord x": "32","coord y": "41"
 			   },
 	   {
-		"Point A": "coord x": "0","coord y": "0"
-		"Point B": "coord x": "0","coord y": "0"
-		"Point C": "coord x": "0","coord y": "0"
-		"Point D": "coord x": "0","coord y": "0"
+		"Point A": "coord x": "6","coord y": "6"
+		"Point B": "coord x": "324","coord y": "53"
+		"Point C": "coord x": "24","coord y": "234"
+		"Point D": "coord x": "5","coord y": "3424"
 			   }
 	],
 	   "size": 10 ,
