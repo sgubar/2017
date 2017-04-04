@@ -76,9 +76,7 @@ void Vidalennya(SpskOfTrK *TagSpskOfTrK)  //Функція очищення ви
 
 int ObchislennyaPloschi(Trykutnyk *TrK)  //Функція обчислення площі трикутника
 {
-    int ploscha=abs((TrK->Tochka_A->Koordinata_X-TrK->Tochka_C->Koordinata_X)*(TrK->Tochka_B->Koordinata_Y-TrK->Tochka_C->Koordinata_Y)
-                 -
-                 (TrK->Tochka_B->Koordinata_X-TrK->Tochka_C->Koordinata_X)*(TrK->Tochka_A->Koordinata_Y-TrK->Tochka_C->Koordinata_Y));
+    int ploscha=abs((TrK->Tochka_A->Koordinata_X-TrK->Tochka_C->Koordinata_X)*(TrK->Tochka_B->Koordinata_Y-TrK->Tochka_C->Koordinata_Y)-(TrK->Tochka_B->Koordinata_X-TrK->Tochka_C->Koordinata_X)*(TrK->Tochka_A->Koordinata_Y-TrK->Tochka_C->Koordinata_Y));
     return ploscha;
 }
 
