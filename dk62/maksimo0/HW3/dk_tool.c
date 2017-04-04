@@ -98,7 +98,7 @@ void Print(SpskOfTrK *TagSpskOfTrK)
 void WriteSpskOfTrK(FILE *TagFilE, SpskOfTrK *TagSpskOfTrK)
 {
     BraceL;
-    if (TagSpskOfTrK->TrK!=NULL)
+    if (TagSpskOfTrK!=NULL)
     {
         NewLinE; SpacE; fprintf(TagFilE, "\"Size\": %d", TagSpskOfTrK->MaxKilkTrK); CommA;
         NewLinE; SpacE; fprintf(TagFilE, "\"Current size\": %d", TagSpskOfTrK->CurrentTrK); CommA;
