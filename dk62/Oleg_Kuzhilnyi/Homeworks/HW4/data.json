@@ -3,36 +3,24 @@
 "Figures":
 	[
 	   {
-		"Point A": "coord x": "456","coord y": "657"
-		"Point B": "coord x": "34","coord y": "567"
-		"Point C": "coord x": "3","coord y": "45"
-		"Point D": "coord x": "4","coord y": "67"
+		"Point A":{"coord x": 65,"coord y": 4},
+		"Point B":{"coord x": 6,"coord y": 7},
+		"Point C":{"coord x": 4,"coord y": 4565},
+		"Point D":{"coord x": 34,"coord y": 5}
 			   },
 	   {
-		"Point A": "coord x": "8","coord y": "453"
-		"Point B": "coord x": "67","coord y": "654"
-		"Point C": "coord x": "3","coord y": "4567"
-		"Point D": "coord x": "4","coord y": "234"
+		"Point A":{"coord x": 6,"coord y": 324},
+		"Point B":{"coord x": 56,"coord y": 43},
+		"Point C":{"coord x": 2,"coord y": 4},
+		"Point D":{"coord x": 6345,"coord y": 34}
 			   },
 	   {
-		"Point A": "coord x": "7","coord y": "43"
-		"Point B": "coord x": "43","coord y": "7"
-		"Point C": "coord x": "4","coord y": "345"
-		"Point D": "coord x": "7","coord y": "343"
-			   },
-	   {
-		"Point A": "coord x": "67","coord y": "34"
-		"Point B": "coord x": "57","coord y": "23"
-		"Point C": "coord x": "5","coord y": "745"
-		"Point D": "coord x": "345","coord y": "734"
-			   },
-	   {
-		"Point A": "coord x": "6","coord y": "65"
-		"Point B": "coord x": "34","coord y": "6"
-		"Point C": "coord x": "45","coord y": "725"
-		"Point D": "coord x": "65","coord y": "45"
+		"Point A":{"coord x": 6,"coord y": 3},
+		"Point B":{"coord x": 4,"coord y": 5},
+		"Point C":{"coord x": 234,"coord y": 5},
+		"Point D":{"coord x": 234,"coord y": 5}
 			   }
 	],
-	   "size": 5 ,
-	   "current size" : 5
+	   "size": 10 ,
+	   "current size" : 3
 }

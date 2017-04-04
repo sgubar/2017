@@ -18,13 +18,14 @@
 #define NEWLINE "\n"
 #define COMMA ","
 
-        //Coords of Point
+
+//Coords of Point
 typedef struct Coords {
     int x;
     int y;
 }Coords_Of_Geometry_Points;
 
-        //Description Figure ( points )
+//Description Figure ( points )
 typedef struct
 {
     Coords_Of_Geometry_Points * PointA;
@@ -34,13 +35,13 @@ typedef struct
     
 }descriptionOfFigure;
 
-        //List with Figures
+//List with Figures
 typedef struct TagFigure
 {
     descriptionOfFigure * ListOfFigures;
     int size;
     int current_size;
-   
+    
 }DK_Figures;
 
 int addMyFigureToArrayOfFigures(DK_Figures *ArrayFigures);
@@ -52,12 +53,12 @@ DK_Figures *createFigure(int aSize);
 double FindAreaQuadrilateral(descriptionOfFigure *Figure);
 
 void ScanfCoords(Coords_Of_Geometry_Points *Point);
-void printfAreaFigure(DK_Figures *inPhoneBook);
+void printfAreaFigure(DK_Figures *FigureList);
 
 void destroyFigure(DK_Figures *FigureList);
 
 
-void write_aFigure(FILE *aFile, descriptionOfFigure *aNote);
-void writeFigures(FILE *aFile, DK_Figures *aList);
+void write_theFigure(FILE *aFile, descriptionOfFigure *aNote);
+void writeFiguresToFile(FILE *aFile, DK_Figures *aList);
 
 #endif /* dk_tool_h */
