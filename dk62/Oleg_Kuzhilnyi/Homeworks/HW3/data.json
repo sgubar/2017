@@ -3,7 +3,8 @@
 "Figures":
 	[
 	   {
-		"Point A": "coord x": "5345","coord y": "36"
+		"Point A": { "coord x": 5345,"coord y": 36},
+
 		"Point B": "coord x": "34","coord y": "23"
 		"Point C": "coord x": "4","coord y": "6"
 		"Point D": "coord x": "324","coord y": "3"
