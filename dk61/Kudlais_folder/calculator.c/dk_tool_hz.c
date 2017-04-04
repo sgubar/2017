@@ -20,7 +20,7 @@ float power(int a, int b){ //функція, яка возводить int a в 
 	}
 }
 int sum(int a) { //функція для обчислення суми з i по a
-	if(a > 0) { //перевірка на вірне значення
+	if(a > 0) { 
 	    int summed = 0;
 	    int i = 0;
         while(i < a){
