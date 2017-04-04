@@ -3,23 +3,22 @@
 "Figures":
 	[
 	   {
-		"Point A": { "coord x": 5345,"coord y": 36},
-
-		"Point B": "coord x": "34","coord y": "23"
-		"Point C": "coord x": "4","coord y": "6"
-		"Point D": "coord x": "324","coord y": "3"
+		"Point A":{"coord x": 45443,"coord y": 6},
+		"Point B":{"coord x": 7,"coord y": 43},
+		"Point C":{"coord x": 4,"coord y": 6},
+		"Point D":{"coord x": 43,"coord y": 46}
 			   },
 	   {
-		"Point A": "coord x": "63","coord y": "24"
-		"Point B": "coord x": "36","coord y": "32"
-		"Point C": "coord x": "4","coord y": "6"
-		"Point D": "coord x": "32","coord y": "41"
+		"Point A":{"coord x": 3,"coord y": 67},
+		"Point B":{"coord x": 4,"coord y": 13},
+		"Point C":{"coord x": 65,"coord y": 6},
+		"Point D":{"coord x": 43,"coord y": 5}
 			   },
 	   {
-		"Point A": "coord x": "6","coord y": "6"
-		"Point B": "coord x": "324","coord y": "53"
-		"Point C": "coord x": "24","coord y": "234"
-		"Point D": "coord x": "5","coord y": "3424"
+		"Point A":{"coord x": 6,"coord y": 34},
+		"Point B":{"coord x": 6,"coord y": 6},
+		"Point C":{"coord x": 4,"coord y": 4},
+		"Point D":{"coord x": 6,"coord y": 7}
 			   }
 	],
 	   "size": 10 ,
