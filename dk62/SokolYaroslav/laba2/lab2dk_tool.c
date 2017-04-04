@@ -1,14 +1,10 @@
-int inputint(int input, int n)
+int inputint(int input, int limit)
 {
-    int max=n;
-    n+=2;
-    char string[n];
-    fgets( string, n, stdin ); 
-    int longstring =strlen(string)-1;
-
-
+    char string[limit+1];
+    fgets( string, 2147483647, stdin ); 
+    int longstring =strlen(string);
     input = atoi (string);
-    for(int i=0;i<n-1;i++)
+    for(int i=0;i<limit+1;i++)
     {
         if(isalpha(string[i]))
         {
@@ -16,49 +12,34 @@ int inputint(int input, int n)
             exit(0);
         }
     }
-    printf("\ndebil");
-    printf("\nmax=%i",max);
-    printf("\nlongstring=%i\n",longstring);
-    if(longstring>max)
+    if(longstring>limit+1)
     {
-        printf("Введите меньше число!!!\n");
+        printf("Ведіть меньше число!!!\n");
         exit(0);
     }
-
+    else if(input<1)
+    {
+        printf("Ведіть більше число!!!\n");
+        exit(0);
+    }
   return input;
 }
-/*{
-    if(scanf("%i",&znachenie)!=1)
-    {
-        printf("Введите число!!!\n");
-        exit(0);
-    }
-    if(znachenie>max||znachenie<0)
-    {
-        printf("Введите число A от 0 до %i!!!\n",max);
-        exit(0);
-    }
-    return znachenie;
-}*/
-/////////////////////////
-void generate(int kolslov,int kolelement,char slovoelement [kolslov][kolelement])
+
+void generatestring(int kolslov,int kolelement,char slovoelement [kolslov][kolelement])
 {
+    int ltime = time (NULL);
+    int stime = ltime/2;
+    srand(stime);
     for (int i=0; i<kolslov; i++) 
     {
         for (int j=0; j<kolelement; j++) 
         {
-            slovoelement [i][j]= rand() % 10 + 48;
-            
-            printf("%c", slovoelement [i][j]);
-            
+            slovoelement [i][j]= rand() % 26 + 65;
         }
-        printf(" ");
     }
-    printf("\n"); 
 }
-//////////////////////
 
-void pechat(int kolslov,int kolelement,char slovoelement [kolslov][kolelement])
+void print(int kolslov,int kolelement,char slovoelement [kolslov][kolelement])
 {
     printf("\n"); 
     for (int i=0; i<kolslov; i++) 
@@ -72,7 +53,92 @@ void pechat(int kolslov,int kolelement,char slovoelement [kolslov][kolelement])
     printf("\n"); 
 }
 
-void zmeshchenie (int kolslov,int kolelement,char slovoelement [kolslov][kolelement],int i)
+int razmerf(int kolelement)
+{
+    FILE * file = fopen("slova.txt" , "r");
+    if (file == NULL) perror("Ошибка открытия файла");
+    while ( !feof(file) )                          
+    {
+        fgetc(file);                                  
+        kolelement++;
+    }
+    fclose (file);
+    return kolelement;
+}
+
+int kolslovf(int kolelement,int kolslov)
+{
+    FILE * file = fopen("slova.txt" , "r");
+    if (file == NULL) perror("Ошибка открытия файла");
+    char string [kolelement];
+    fseek(file,0,SEEK_SET);  
+    if(fgets(string,kolelement,file)!=NULL)
+    for(int k=0;k<kolelement;k++)
+    {
+        if(string[k]==' ')
+        {
+             kolslov++;    
+        }
+	}
+	fclose (file);
+	return kolslov;
+}
+
+void filestingr(int kolelement,int kolslov,char filestring [kolslov][kolelement])
+{
+    FILE * file = fopen("slova.txt" , "r");
+    if (file == NULL) perror("Ошибка открытия файла");
+    char string [kolelement]; int j=0;
+    if(fgets(string,kolelement,file)!=NULL)
+    for(int k=0,i=0;k<kolelement;k++,i++)
+    {
+        filestring [j][i]=string[k];
+        if(string[k]==' ')
+        {
+            j++;
+            i=-1;
+        }
+	
+    }
+}
+
+void printinf(int kolslov,int kolelement,char filestring [kolslov][kolelement])
+{
+    FILE * file = fopen("slova.txt" , "r+");
+    if (file == NULL) perror("Ошибка открытия файла");
+    fseek( file , 0 , SEEK_END);  
+    fprintf(file,"\n");
+
+    for(int i=0,j=0;j< kolslov;i++)
+    {
+
+        fprintf(file,"%c",filestring [j][i]);
+        if(filestring [j][i]==' ')
+        {
+            i=-1;
+            j++;
+        }
+    }
+    fclose (file);
+}
+
+void printfile(int kolslov,int kolelement,char filestring [kolslov][kolelement])
+{
+    printf("\n");
+    for(int i=0,j=0;j< kolslov;i++)
+    {
+
+        printf("%c",filestring [j][i]);
+        if(filestring [j][i]==' ')
+        {
+            i=-1;
+            j++;
+        }
+    }
+    printf("\n");
+}
+
+void obmenslov(int kolslov,int kolelement,char slovoelement [kolslov][kolelement],int i)
  {
     int tmp [kolslov][kolelement];
     for(int k=0;k<kolelement; k++)
@@ -83,8 +149,7 @@ void zmeshchenie (int kolslov,int kolelement,char slovoelement [kolslov][kolelem
     }
  }
 
-//////////////////////
-void buble(int kolslov,int kolelement,char slovoelement [kolslov][kolelement])
+void bublesort(int kolslov,int kolelement,char slovoelement [kolslov][kolelement])
 {
     int j=0;
     for(int m=0;m<kolslov-1;m++)
@@ -93,7 +158,7 @@ void buble(int kolslov,int kolelement,char slovoelement [kolslov][kolelement])
         {
             if(slovoelement [i][j]<slovoelement [i-1][j])
             {
-                zmeshchenie (kolslov,kolelement,slovoelement,i);
+                obmenslov (kolslov,kolelement,slovoelement,i);
             }
             else if (slovoelement [i][j] == slovoelement [i-1][j])
             {
@@ -101,7 +166,7 @@ void buble(int kolslov,int kolelement,char slovoelement [kolslov][kolelement])
                 {
                     if(slovoelement [i][j]<slovoelement [i-1][j])
                     {
-                        zmeshchenie (kolslov,kolelement,slovoelement,i);
+                        obmenslov (kolslov,kolelement,slovoelement,i);
 
                     }
                     if(slovoelement [i][j]>slovoelement [i-1][j])
