@@ -138,7 +138,7 @@ void write_theFigure(FILE *aFile, descriptionOfFigure *aNote)
     
     
     fprintf (aFile, DOUBLETAB);
-    fprintf (aFile, "\"Point A\":");
+    fprintf (aFile, "\"Point A\": ");
     fprintf (aFile, "{");
     fprintf (aFile,  "\"coord x\": %d,\"coord y\": %d" ,aNote->PointA->x , aNote->PointA->y);
     fprintf (aFile, "}");
@@ -146,7 +146,7 @@ void write_theFigure(FILE *aFile, descriptionOfFigure *aNote)
         fprintf (aFile, NEWLINE);
         fprintf (aFile, DOUBLETAB);
     
-    fprintf (aFile, "\"Point B\":");
+    fprintf (aFile, "\"Point B\": ");
     fprintf (aFile, "{");
     fprintf (aFile,"\"coord x\": %d,\"coord y\": %d" ,aNote->PointB->x , aNote->PointB->y);
     fprintf (aFile, "}");
@@ -154,7 +154,7 @@ void write_theFigure(FILE *aFile, descriptionOfFigure *aNote)
         fprintf (aFile, NEWLINE);
         fprintf (aFile, DOUBLETAB);
     
-    fprintf (aFile, "\"Point C\":");
+    fprintf (aFile, "\"Point C\": ");
     fprintf (aFile, "{");
     fprintf (aFile,"\"coord x\": %d,\"coord y\": %d" ,aNote->PointC->x , aNote->PointC->y);
     fprintf (aFile, "}");
@@ -162,7 +162,7 @@ void write_theFigure(FILE *aFile, descriptionOfFigure *aNote)
         fprintf (aFile, NEWLINE);
         fprintf (aFile, DOUBLETAB);
     
-    fprintf (aFile, "\"Point D\":");
+    fprintf (aFile, "\"Point D\": ");
     fprintf (aFile, "{");
     fprintf (aFile,"\"coord x\": %d,\"coord y\": %d" ,aNote->PointD->x , aNote->PointD->y);
     fprintf (aFile, "}");
