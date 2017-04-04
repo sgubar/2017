@@ -5,20 +5,20 @@
 #include "tool.h"
 
  
-FigureList *createFigureList(int aSize)
+FigureList *createFigureList(int aSize) //create List of Figure;
 {
-    FigureList *List = (FigureList *)malloc(sizeof(FigureList));
+    FigureList *List = (FigureList *)malloc(sizeof(FigureList)); //create List and memory;
     if(List != NULL)
 	{
-		List->paralel = (Figure *)malloc(aSize * sizeof(Figure));
+		List->paralel = (Figure *)malloc(aSize * sizeof(Figure)); //create memory for figure;
 		memset(List->paralel, 0, sizeof(Figure));
-		List->size = aSize;
-		List->current_size = 0;		
+		List->size = aSize; //quantity of figure;
+		List->current_size = 0;	//flag of figure;	
 	}
 	return List;
 }
 
-int addCoor(FigureList *aFigure)
+int addCoor(FigureList *aFigure) //adding coordinate of points;
 {
 	if(NULL != aFigure )
 	{
@@ -27,11 +27,11 @@ int addCoor(FigureList *aFigure)
 			Figure *theFigure = &(aFigure->paralel[aFigure->current_size]);
 			if( NULL != theFigure)
 			{ int num, i=0;
-			  theFigure->points = (Point *)malloc(sizeof(Point)*8);
+			  theFigure->points = (Point *)malloc(sizeof(Point)*8); //create memory for points;
 				for(i=0; i<8; i++)
 				{
 				printf("Enter the point[%d]\n", i+1);
-				theFigure->points[i].x = scan_f();
+				theFigure->points[i].x = scan_f(); 
 				theFigure->points[i].y = scan_f();
 			    theFigure->points[i].z = scan_f();
 			    }
@@ -49,7 +49,7 @@ int addCoor(FigureList *aFigure)
     
 }
 
-void destroyFigureList(FigureList *aFigure)
+void destroyFigureList(FigureList *aFigure) //delete List;
 {
 	if(NULL != aFigure)
 	{
@@ -70,12 +70,12 @@ int printFigure(FigureList *aFigure)
      Figure *theFigure = &(aFigure->paralel[i]); 
      	
 	printf("Figure [%d]\n", i + 1);
-	printf("the square of that figure is %d\n\n", abs(square(theFigure)));
+	printf("the square of figure is %d\n", abs(square(theFigure))); //print square figure;
 
      for (j = 0; j < 8; j++) 
       { 
 
-      printf("point[%d]={%d, %d, %d}\n", j+1, theFigure->points[j].x, theFigure->points[j].y, theFigure->points[j].z); 
+      printf("point[%d]={%d, %d, %d}\n", j+1, theFigure->points[j].x, theFigure->points[j].y, theFigure->points[j].z); //print point of figure;
 
       }    
 
@@ -94,7 +94,6 @@ int scan_f(void)
     
 int square(Figure *Figure)
 {
-	double PA = 0;
 			double L12 = 0;
 			double L23 = 0;
 			double L15 = 0;
@@ -108,7 +107,7 @@ int square(Figure *Figure)
 			x = (Figure->points[1].x) - (Figure->points[2].x);
 			y = (Figure->points[1].y) - (Figure->points[2].y);
 			z = (Figure->points[1].z) - (Figure->points[2].z);
-			L12 = sqrt((x*x) + (y*y) + (z*z));
+			L12 = sqrt((x*x) + (y*y) + (z*z));      //сalculate leght of side figure;
 			x=0; y=0; z=0;
 
 			x = (Figure->points[2].x) - (Figure->points[3].x);
@@ -123,10 +122,10 @@ int square(Figure *Figure)
 			L25 = sqrt((x*x) + (y*y) + (z*z));
 			x=0; y=0; z=0;
 			
-			S1=(L12*L23)/2;
+			S1=(L12*L23)/2; //Intermediate square;
 			S2=(L25*L23)/2;
 			S3=(L25*L12)/2;
-			square =(4*S1)+(4*S2)+(4*S3);
+			square =(4*S1)+(4*S2)+(4*S3); //calculate square of figure
 			return square;			
 }
 

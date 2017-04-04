@@ -3,7 +3,7 @@
 
 #define tool_h
 
-typedef struct coordinate
+typedef struct coordinate 
 {
 	int x;
 	int y; 
@@ -13,12 +13,12 @@ typedef struct coordinate
 
 typedef struct Points
 {
-	Point *points;
+	Point *points; //pointer on coordinate;
 }Figure;
 
 typedef struct List
 {
-	Figure *paralel;
+	Figure *paralel; //pointer on points;
 	int size;
 	int current_size;
 	
