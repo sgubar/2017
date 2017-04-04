@@ -8,6 +8,7 @@
 
 int main(int argc, const char * argv[])
 {
+    int RzmR;
     printf("Vvedit rozmir spisku:");
     scanf("%d", RzmR);
 
