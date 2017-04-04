@@ -50,15 +50,15 @@ int addMyFigureToArrayOfFigures(DK_Figures *ArrayFigures);
 DK_Figures *createFigure(int aSize);
 
 
-double FindAreaQuadrilateral(descriptionOfFigure *Figure);
+double CalculateAreaQuadrilateral(descriptionOfFigure *Figure);
 
 void ScanfCoords(Coords_Of_Geometry_Points *Point);
-void printfAreaFigure(DK_Figures *inPhoneBook);
+void printfAreaFigure(DK_Figures *FigureList);
 
 void destroyFigure(DK_Figures *FigureList);
 
 
-void write_aFigure(FILE *aFile, descriptionOfFigure *aNote);
-void writeFigures(FILE *aFile, DK_Figures *aList);
+void write_theFigure(FILE *aFile, descriptionOfFigure *aNote);
+void writeFiguresToFile(FILE *aFile, DK_Figures *aList);
 
 #endif /* dk_tool_h */

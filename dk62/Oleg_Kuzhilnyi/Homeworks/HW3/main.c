@@ -19,9 +19,10 @@ int main(int argc, const char *argv[])
     addMyFigureToArrayOfFigures(aFigure);
     addMyFigureToArrayOfFigures(aFigure);
     
-    writeFigures(theFile, aFigure);
+    writeFiguresToFile(theFile, aFigure);
     
-    printfAreaFigure(aFigure);      // Print Area of Figure "aFigure"
+    //printfAreaFigure(aFigure);
+    // Print Area of Figure "aFigure"
     
     destroyFigure(aFigure);     // Free memory
     

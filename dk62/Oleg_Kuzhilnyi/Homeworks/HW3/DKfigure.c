@@ -98,7 +98,7 @@ void destroyFigure(DK_Figures *Figure)
     }
 }
 
-double FindAreaQuadrilateral(descriptionOfFigure *Figure) //Calculate Area of Quadrilateral
+double CalculateAreaQuadrilateral(descriptionOfFigure *Figure) //Calculate Area of Quadrilateral
 {
     double ResultArea =
     ((((Figure->PointA->x)*(Figure->PointB->y)-(Figure->PointA->y)*(Figure->PointB->x)))
@@ -123,13 +123,13 @@ void printfAreaFigure(DK_Figures *FigureList)
         descriptionOfFigure *theFigure = &(FigureList->ListOfFigures[i]);
         
         printf("[%d] - ", i);
-        printf("Area Of Figure:%.2f\n",FindAreaQuadrilateral(theFigure));
+        printf("Area Of Figure:%.2f\n",CalculateAreaQuadrilateral(theFigure));
     }
     
 }
 
 // Write Coords in json
-void write_aFigure(FILE *aFile, descriptionOfFigure *aNote)
+void write_theFigure(FILE *aFile, descriptionOfFigure *aNote)
 {
     fprintf (aFile,MINITAB);
     fprintf (aFile, "{");
@@ -138,26 +138,46 @@ void write_aFigure(FILE *aFile, descriptionOfFigure *aNote)
     
     
     fprintf (aFile, DOUBLETAB);
-    fprintf (aFile, "\"Point A\": \"coord x\": \"%d\",\"coord y\": \"%d\"\n" ,aNote->PointA->x , aNote->PointA->y);
-    fprintf (aFile, DOUBLETAB);
+    fprintf (aFile, "\"Point A\":");
+    fprintf (aFile, "{");
+    fprintf (aFile,  "\"coord x\": %d,\"coord y\": %d" ,aNote->PointA->x , aNote->PointA->y);
+    fprintf (aFile, "}");
+        fprintf (aFile, COMMA);
+        fprintf (aFile, NEWLINE);
+        fprintf (aFile, DOUBLETAB);
     
-    fprintf (aFile, "\"Point B\": \"coord x\": \"%d\",\"coord y\": \"%d\"\n" ,aNote->PointB->x , aNote->PointB->y);
-    fprintf (aFile, DOUBLETAB);
+    fprintf (aFile, "\"Point B\":");
+    fprintf (aFile, "{");
+    fprintf (aFile,"\"coord x\": %d,\"coord y\": %d" ,aNote->PointB->x , aNote->PointB->y);
+    fprintf (aFile, "}");
+        fprintf (aFile, COMMA);
+        fprintf (aFile, NEWLINE);
+        fprintf (aFile, DOUBLETAB);
     
-    fprintf (aFile, "\"Point C\": \"coord x\": \"%d\",\"coord y\": \"%d\"\n" ,aNote->PointC->x , aNote->PointC->y);
-    fprintf (aFile, DOUBLETAB);
+    fprintf (aFile, "\"Point C\":");
+    fprintf (aFile, "{");
+    fprintf (aFile,"\"coord x\": %d,\"coord y\": %d" ,aNote->PointC->x , aNote->PointC->y);
+    fprintf (aFile, "}");
+        fprintf (aFile, COMMA);
+        fprintf (aFile, NEWLINE);
+        fprintf (aFile, DOUBLETAB);
     
-    fprintf (aFile, "\"Point D\": \"coord x\": \"%d\",\"coord y\": \"%d\"\n" ,aNote->PointD->x , aNote->PointD->y);
-    fprintf (aFile, DOUBLETAB);
+    fprintf (aFile, "\"Point D\":");
+    fprintf (aFile, "{");
+    fprintf (aFile,"\"coord x\": %d,\"coord y\": %d" ,aNote->PointD->x , aNote->PointD->y);
+    fprintf (aFile, "}");
+        fprintf (aFile, NEWLINE);
+        fprintf (aFile, DOUBLETAB);
+    
+    
     
     fprintf (aFile,MINITAB);
     fprintf (aFile, "}");
     
-    
 }
 
 //  Write Figure in json
-void writeFigures(FILE *aFile, DK_Figures *aList)
+void writeFiguresToFile(FILE *aFile, DK_Figures *aList)
 {
     fprintf (aFile, "{");
     fprintf (aFile, NEWLINE);
@@ -179,7 +199,7 @@ void writeFigures(FILE *aFile, DK_Figures *aList)
         {
             descriptionOfFigure *theNote = &(aList->ListOfFigures[i]);
             
-            write_aFigure(aFile, theNote);
+            write_theFigure(aFile, theNote);
             if (i < (aList->current_size - 1))
             {
                 fprintf (aFile, COMMA);
@@ -203,4 +223,5 @@ void writeFigures(FILE *aFile, DK_Figures *aList)
     fprintf (aFile, "}");
     fprintf(aFile, NEWLINE);
     
+    puts("Write to File your Figures complete");
 }
