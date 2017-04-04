@@ -70,15 +70,15 @@ void printFigure(FigureList *aFigure)
      Figure *theFigure = &(aFigure->paralel[i]); 
      	
 	printf("Figure [%d]\n", i + 1); 
-	printf("the square of that figure is %d\n\n", abs(square(theFigure))); //print square figure;
+	printf("the square of that figure is %d\n", abs(square(theFigure))); //print square figure;
 
      for (j = 0; j < 8; j++) 
       { 
 
       printf("point[%d]=[%d, %d, %d]\n", j+1, theFigure->points[j].x, theFigure->points[j].y, theFigure->points[j].z); //print point of figure;
-
+      
       }    
-
+       printf("\n");
    } 
    
 }
