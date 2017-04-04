@@ -20,7 +20,7 @@ array_fill_values(array, rzmr, typevalues, typeval_similar, typeval_false);
 
 array_sort_choose(array, rzmr, typetest);
 
-print_array(array, rzmr);
+//print_array(array, rzmr);
 
 free(array);
 system("pause");
