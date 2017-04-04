@@ -46,7 +46,7 @@ int addCoor(FigureList *aFigure) //adding coordinate of points;
 	{
 	    return -1;
     }
-    
+    return 0;
 }
 
 void destroyFigureList(FigureList *aFigure) //delete List;
@@ -61,7 +61,7 @@ void destroyFigureList(FigureList *aFigure) //delete List;
 	}
 }
 
-int printFigure(FigureList *aFigure) 
+void printFigure(FigureList *aFigure) 
 { 
  int i, j;
   for ( i = 0; i < aFigure->current_size; i++) 
@@ -75,12 +75,12 @@ int printFigure(FigureList *aFigure)
      for (j = 0; j < 8; j++) 
       { 
 
-      printf("point[%d]=[%d, %d, %d]\n\n", j+1, theFigure->points[j].x, theFigure->points[j].y, theFigure->points[j].z); //print point of figure;
+      printf("point[%d]=[%d, %d, %d]\n", j+1, theFigure->points[j].x, theFigure->points[j].y, theFigure->points[j].z); //print point of figure;
 
       }    
 
    } 
-   return 0; 
+   
 }
 
 int scan_f(void)
