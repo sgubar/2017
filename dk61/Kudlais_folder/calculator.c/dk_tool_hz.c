@@ -1,13 +1,23 @@
 #include "dk_tool_hz.h"
-
-int power(int a, int b){ //функція, яка возводить int a в степінь int b
-    int powered = a;
-    int j = 0;
-    while(j < b){
-        powered = powered*a;
-        j++;
-    }
-    return powered;
+//  Змінення зроблені із врахуванням зауважень В'ячеслава Григоровича Губара
+float power(int a, int b){ //функція, яка возводить int a в степінь int b
+    float powered = a;// покращенно з приклада в книзі Б. Кернігана та Д. Рітчі "Мова програмування Сі"
+	if(b > 0) {
+		while (b > 0) {
+			powered = powered * a;
+			--b;
+		}
+	}
+	else if(b < 0) {
+		while (b < 0) {
+			powered = (float) powered / (float) a;
+			++b;
+		}
+		return powered;
+	}
+	else{
+		return 1;
+	}
 }
 int sum(int a) { //функція для обчислення суми з i по a
 	if(a > 0) { //перевірка на вірне значення
@@ -19,7 +29,16 @@ int sum(int a) { //функція для обчислення суми з i по
 	    }
 	    return summed;
 	}
+	else if(a < 0){
+		int summed = 0;
+		int i = 0;
+		while(a < i){
+			summed += power(2, a + i);
+			i--;
+		}
+		return powered;
+	}
 	else{
-		return 0;
+		return 1;
 	}
 }
