@@ -12,13 +12,13 @@ FigureList *createFigureList(int aSize) //create List of Figure;
 	{
 		List->paralel = (Figure *)malloc(aSize * sizeof(Figure)); //create memory for figure;
 		memset(List->paralel, 0, sizeof(Figure));
-		List->size = aSize;
-		List->current_size = 0;		
+		List->size = aSize; //quantity of figure;
+		List->current_size = 0;	//flag of figure;	
 	}
 	return List;
 }
 
-int addCoor(FigureList *aFigure)
+int addCoor(FigureList *aFigure) //adding coordinate of points;
 {
 	if(NULL != aFigure )
 	{
@@ -31,7 +31,7 @@ int addCoor(FigureList *aFigure)
 				for(i=0; i<8; i++)
 				{
 				printf("Enter the point[%d]\n", i+1);
-				theFigure->points[i].x = scan_f();
+				theFigure->points[i].x = scan_f(); 
 				theFigure->points[i].y = scan_f();
 			    theFigure->points[i].z = scan_f();
 			    }
