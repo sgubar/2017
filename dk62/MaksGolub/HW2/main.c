@@ -6,8 +6,7 @@
 int main(void)
 {   
     printf("Enter a quantity of Figure:");
-	int aSize;
-    scanf("%d", &aSize);
+	int aSize=scan_f();
 	FigureList *List=createFigureList(aSize);
 	int i;
 	for(i=0; i<aSize; i++)
