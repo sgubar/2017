@@ -18,8 +18,8 @@ typedef struct Tochki
     Tochka *Tochka_A;
     Tochka *Tochka_B;
     Tochka *Tochka_C;
-    int Ploscha;
-}Trykutnyk;  //Структура трикутника, який містить в собі три точки і площу
+  //  int Ploscha;
+}Trykutnyk;  //Структура трикутника, який містить в собі три точки
 
 typedef struct TagTrK
 {
