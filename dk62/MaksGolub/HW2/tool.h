@@ -3,7 +3,7 @@
 
 #define tool_h
 
-typedef struct coordinate 
+typedef struct coordinate
 {
 	int x;
 	int y; 
@@ -26,6 +26,6 @@ typedef struct List
 
 FigureList *createFigureList(int size);
 int addCoor(FigureList *aFigure);
-int printFigure(FigureList *aFigure);
+void printFigure(FigureList *aFigure);
 void destroyFigureList(FigureList *aFigure);
 int scan_f(void);
