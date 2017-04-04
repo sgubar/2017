@@ -35,7 +35,6 @@ int addDani(SpskOfTrK *TagSpskOfTrK, int X1, int Y1, int X2, int Y2, int X3, int
             TrK->Tochka_B->Koordinata_Y=Y2;
             TrK->Tochka_C->Koordinata_X=X3;
             TrK->Tochka_C->Koordinata_Y=Y3;
-          //  TrK->Ploscha=ObchislennyaPloschi(TrK);
             TagSpskOfTrK->CurrentTrK++;
 
         }
