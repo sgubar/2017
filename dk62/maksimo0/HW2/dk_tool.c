@@ -35,7 +35,7 @@ int addDani(SpskOfTrK *TagSpskOfTrK, int X1, int Y1, int X2, int Y2, int X3, int
             TrK->Tochka_B->Koordinata_Y=Y2;
             TrK->Tochka_C->Koordinata_X=X3;
             TrK->Tochka_C->Koordinata_Y=Y3;
-            TrK->Ploscha=ObchislennyaPloschi(TrK);
+          //  TrK->Ploscha=ObchislennyaPloschi(TrK);
             TagSpskOfTrK->CurrentTrK++;
 
         }
@@ -89,6 +89,6 @@ void Print(SpskOfTrK *TagSpskOfTrK)   //Функція виведення спи
         printf("Tochka A={%d,%d}\n", TrK->Tochka_A->Koordinata_X, TrK->Tochka_A->Koordinata_Y);
         printf("Tochka B={%d,%d}\n", TrK->Tochka_B->Koordinata_X, TrK->Tochka_B->Koordinata_Y);
         printf("Tochka C={%d,%d}\n", TrK->Tochka_C->Koordinata_X, TrK->Tochka_C->Koordinata_Y);
-        printf("Ploscha=%d\n", TrK->Ploscha);
+        printf("Ploscha=%d\n", ObchislennyaPloschi(TrK));
     }
 }
