@@ -6,10 +6,8 @@ int main() {
 	int B = 50;
 	int C = 50;
 	//значення зміним надаються такі, щоб ввійти в цикли
-	while(A <= 0){
-		printf("Please take the meaning of number A:");
-	    scanf("%i", &A);
-	}
+	printf("Please take the meaning of number A:");
+	scanf("%i", &A);
 	while((B + C) == 100){
 		printf("Remember that B + C must not be equaled 100\n");
 		printf("Please take the meaning of number B:");
