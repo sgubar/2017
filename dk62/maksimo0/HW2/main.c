@@ -10,7 +10,7 @@ int main(int argc, const char * argv[])
 {
     int RzmR;
     printf("Vvedit rozmir spisku:");
-    scanf("%d", RzmR);
+    scanf("%d", &RzmR);
 
     SpskOfTrK *TagSpskOfTrK=StvorennyaSpsK(RzmR); //Виклик функції створення списку трикутників
 
