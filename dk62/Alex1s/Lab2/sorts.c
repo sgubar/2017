@@ -3,20 +3,20 @@
 #include "dk_tool.h"
 #include "sorts.h"
 
-void merge(int rzmr, int *array, int l, int r)
+void merge(int array_size, int *array, int l, int r)
 {
 if(l < r)
     {
     int m = l+(r-l)/2;
-    merge(rzmr, array, l, m);
-    merge(rzmr, array, m+1, r);
-    mergesort(rzmr, array, l, m, r);
+    merge(array_size, array, l, m);
+    merge(array_size, array, m+1, r);
+    mergesort(array_size, array, l, m, r);
     }
 }
 
-//-----------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------
 
-void mergesort(int rzmr, int *array, int l, int m, int r)
+void mergesort(int array_size, int *array, int l, int m, int r)
 {
 int i, j, k;
 int n1 = m - l + 1;
@@ -61,7 +61,7 @@ while(j < n2)
     }
 }
 
-//-----------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------
 
 void swap(int *val1, int *val2)
 {
@@ -70,30 +70,30 @@ int tmp = *val1;
 *val2 = tmp;
 }
 
-//-----------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------
 
-void print_array(int *array, int rzmr)
+void print_array(int *array, int array_size)
 {
 int i;
-for(i = 0; i < rzmr; i++)
+for(i = 0; i < array_size; i++)
 	printf("%i ", array[i]);
 printf("\n");
 }
 
-//-----------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------
 
-void shellsort(int *array, int rzmr)
+void shellsort(int *array, int array_size)
 {
 int theInner = 0;
 int theOuter = 0;
 int H = 1;
 
-while (H <= rzmr/3)
+while (H <= array_size/3)
 	H = H*3 + 1;
 
 while (H > 0)
 	{
-	for(theOuter = H; theOuter < rzmr; theOuter ++)
+	for(theOuter = H; theOuter < array_size; theOuter ++)
 		{
 		int theTmp = array[theOuter];
 		theInner = theOuter;
@@ -109,14 +109,14 @@ while (H > 0)
 	}
 }
 
-//-----------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------
 
-void bubblesort(int *array, int rzmr)
+void bubblesort(int *array, int array_size)
 {
 int k, i, swaps;
-for(k = 0; k < rzmr-1; k++)
+for(k = 0; k < array_size-1; k++)
     {
-    for(i = 0; i < rzmr-1-k; i++)
+    for(i = 0; i < array_size-1-k; i++)
         {
         if(array[i] > array[i+1])
             {
@@ -132,15 +132,15 @@ for(k = 0; k < rzmr-1; k++)
     }
 }
 
-//-----------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------
 
-void selectionsort(int *array, int rzmr)
+void selectionsort(int *array, int array_size)
 {
 int theOut;
-for(theOut = 0; theOut < rzmr - 1; theOut++)
+for(theOut = 0; theOut < array_size - 1; theOut++)
 	{
 	int theMinIndex = theOut, theIn;
-	for(theIn = theOut + 1; theIn < rzmr; theIn++)
+	for(theIn = theOut + 1; theIn < array_size; theIn++)
 		{
 		if(array[theIn] < array[theMinIndex])
 			{
@@ -151,12 +151,12 @@ for(theOut = 0; theOut < rzmr - 1; theOut++)
 	}
 }
 
-//-----------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------
 
-void insertionsort(int *array, int rzmr)
+void insertionsort(int *array, int array_size)
 {
 int theOut;
-for(theOut = 1; theOut < rzmr; theOut++)
+for(theOut = 1; theOut < array_size; theOut++)
 	{
 	int theTmp = array[theOut];
 	int theIn = theOut;
@@ -169,7 +169,7 @@ for(theOut = 1; theOut < rzmr; theOut++)
 	}
 }
 
-//-----------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------
 
 void quicksort(int *array, int first, int last)
 {
@@ -195,5 +195,5 @@ if(first < j)
 	quicksort(array, first, j);
 }
 
-//-----------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------
 

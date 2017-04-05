@@ -1,0 +1,8 @@
+Result				Time							Array		Type of unsorted array
+
+Bubblesort			65.859999999999999000 sec		100000		All random                             
+Mergesort			0.016000000000000000 sec		100000		All random                             
+Insertionsort		0.000000000000000000 sec		100000		All random                             
+Selectionsort		22.155000000000001000 sec		100000		All random                             
+Shellsort			0.000000000000000000 sec		100000		All random                             
+Quicksort			0.014999999999999999 sec		100000		All random                             
