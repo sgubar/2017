@@ -3,7 +3,6 @@
 //
 
 #include "dk_tool.h"
-#include <stdio.h>
 
 int main(int argc, const char * argv[])
 {
