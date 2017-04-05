@@ -1,8 +1,7 @@
 {
  "size":10,
  "current_size":2
-
-	"parallelepipeds":
+ "parallelepipeds":
 	[
 	 {
 	 "Point[1]": {"CoordX:12, "CoordY:34, "CoordZ:56},
