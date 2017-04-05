@@ -6,6 +6,7 @@
 #define dk_tool_h
 #include <stdio.h>
 #include <string.h>
+
 #define CommA fprintf(TagFilE, ",")
 #define BraceR fprintf(TagFilE, "}")
 #define BraceL fprintf(TagFilE, "{")
