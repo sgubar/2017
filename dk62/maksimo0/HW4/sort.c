@@ -32,7 +32,6 @@ void SelectionSorT(SpskOfTrK *TagSpskOfTrK)
                 TheMiN=j;
             }
         }
-
         Trykutnyk FlaG=TagSpskOfTrK->TrK[i];
         TagSpskOfTrK->TrK[i]=TagSpskOfTrK->TrK[TheMiN];
         TagSpskOfTrK->TrK[TheMiN]=FlaG;
