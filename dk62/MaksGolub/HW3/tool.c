@@ -131,7 +131,7 @@ void writeList(FILE *aFile, FigureList *aFigure)
 {
 	        fprintf(aFile, "{\n");
 			fprintf(aFile, " \"size\":%d,\n", aFigure->size);
-			fprintf(aFile, " \"current_size\":%d\n\n\t", aFigure->current_size);
+			fprintf(aFile, " \"current_size\":%d,\n", aFigure->current_size);
 			fprintf(aFile, "\"parallelepipeds\":\n\t");
 			
 			if (NULL == aFigure->paralel)
