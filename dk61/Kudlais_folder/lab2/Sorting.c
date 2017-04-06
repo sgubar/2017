@@ -30,8 +30,8 @@ bool check(int arr[], int N){
 void BubbleSort(int arr[],int N){
     for(int cont = 0 ; ; ){
         for(int i = 0; i < N; ++i){
-            if(arr[N] > arr[N+1]) {
-                swap(&arr[N], &arr[N - 1]);
+            if(arr[i] > arr[i+1]) {
+                swap(&arr[i], &arr[i - 1]);
                 cont++;
             }
         }
