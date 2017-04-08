@@ -29,7 +29,7 @@ array_fill_values(array, array_size, typevalues, typeval_similar, typeval_false)
 
 array_sort(array, array_size, typetest, typevalues, typeval_similar, typeval_false);
 
-print_array(array, array_size);
+printf("Results were added to the file in same directory. Bye!\n");
 free(array);
 system("pause");
 return 0;
