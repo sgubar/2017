@@ -1,5 +1,5 @@
-#ifndef _COR_TYPES_H
-#define _COR_TYPES_H
+#ifndef COR_TYPES_H
+#define COR_TYPES_H
 
 #include <float.h>
 #include <limits.h>
