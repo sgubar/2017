@@ -1,8 +1,8 @@
-Type of sorting		Time							Array		Type of unsorted array
+Type of sorting		Time							Array		Type of unsorted array					Position of false
 
-Bubblesort			65.300030000010000000 sec		10000		Several similar with choise of quantity
-Mergesort			0.130000000000000030 sec		10000		Several similar with choise of quantity
-Insertionsort	              	14.520000800000000000 sec		10000		Several similar with choise of quantity
-Selectionsort  	        	27.930000500000000000 sec		10000		Several similar with choise of quantity
-Shellsort			0.160000000000000040 sec		10000		Several similar with choise of quantity
-Quicksort			0.090000060000000000 sec		10000		Several similar with choise of quantity
+Bubblesort			18.000000000000000000 sec		100000		Sorted array with one false value		Random place
+Mergesort			0.000000000000000000 sec		100000		Sorted array with one false value		Random place
+Insertionsort		0.000000000000000000 sec		100000		Sorted array with one false value		Random place
+Selectionsort		21.000000000000000000 sec		100000		Sorted array with one false value		Random place
+Shellsort			0.000000000000000000 sec		100000		Sorted array with one false value		Random place
+Quicksort			0.000000000000000000 sec		100000		Sorted array with one false value		Random place
