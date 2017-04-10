@@ -3,8 +3,8 @@
 #include "dk_tool.h"
 
 int main(int argc, char *argv[]) {
-	char str[100];
-	char search[50];
+	char *str = (char *) malloc(sizeof(char) * 100);
+	char *search = (char *) malloc(sizeof(char) * 50);
 	int result = 0;
 
 	printf("Enter stroku\n");
@@ -15,6 +15,9 @@ int main(int argc, char *argv[]) {
 	
 	result = sea(str, search);
 	printf("%i\n", result);
+	
+	free(search);
+	free(str);
 	
 	system("pause");	
 	return 0;
