@@ -2,18 +2,20 @@
 #include <stdlib.h>
 #include "dk_tool.h"
 
-int main(int argc, char *argv[]) {
-int a = 0, b = 0, c = 0, d = 0;
+int main(int argc, const char *argv[])
+{
+printf("Greetings! The program is designed to test my skills in programming.\n");
+printf("Enter 3 integer values:\n\n");
+
+int a, b, c, d;
 double q = 0;
 
-a = enter_value(a);
-b = enter_value(b);
-c = enter_value(c);
-
+enter_values(&a, &b, &c);
 q = drob(a, b, c);
-for(d = 0; d <= b; d++)
-q += factorial(d);
+sigma(&q, b, d);
 
-printf("Q = %.3lf\n", q);
+printf("Q = %.6lf\n", q);
+
+system("pause");
 return 0;
 }
