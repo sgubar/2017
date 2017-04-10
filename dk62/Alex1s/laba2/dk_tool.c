@@ -175,7 +175,7 @@ if(!sort)
 	printf("Memory Error!!!\n");
 	free(array);
 	free(sort);
-	exit (1);
+	exit (10);
 	}
 char *fal = (char *) malloc(sizeof(char));
 if(!fal)
@@ -184,7 +184,7 @@ if(!fal)
 	free(array);
 	free(sort);
 	free(fal);
-	exit (1);
+	exit (11);
 	}
 int *sec_array = (int *) malloc(sizeof(int));
 if(!sec_array)
@@ -194,7 +194,7 @@ if(!sec_array)
 	free(fal);
 	free(array);
 	free(sec_array);
-	exit (1);
+	exit (12);
 	}
 
 switch(typevalues)
@@ -208,7 +208,7 @@ switch(typevalues)
 			free(sort);
 			free(fal);
 			free(array);
-			exit (1);
+			exit (20);
 			}
 		strcpy(sort, "Several similar with choise of quantity");
 		break;
@@ -222,7 +222,7 @@ switch(typevalues)
 			free(sort);
 			free(fal);
 			free(array);
-			exit (1);
+			exit (21);
 			}
 		strcpy(sort, "All random");
 		break;
@@ -236,7 +236,7 @@ switch(typevalues)
 			free(sort);
 			free(fal);
 			free(array);
-			exit (1);
+			exit (22);
 			}
 		strcpy(sort, "Numbers in opposite order");
 		break;
@@ -250,7 +250,7 @@ switch(typevalues)
 			free(sort);
 			free(fal);
 			free(array);
-			exit (1);
+			exit (23);
 			}
 		strcpy(sort, "Sorted array with one false value");
 		break;
@@ -268,7 +268,7 @@ switch(typeval_false)
 			free(sort);
 			free(fal);
 			free(array);
-			exit (1);
+			exit (30);
 			}
 		strcpy(fal, "First element");
 		break;
@@ -282,7 +282,7 @@ switch(typeval_false)
 			free(sort);
 			free(fal);
 			free(array);
-			exit (1);
+			exit (31);
 			}	
 		strcpy(fal, "Center element");
 		break;
@@ -296,7 +296,7 @@ switch(typeval_false)
 			free(sort);
 			free(fal);
 			free(array);
-			exit (1);
+			exit (32);
 			}
 		strcpy(fal, "End of array");
 		break;
@@ -310,7 +310,7 @@ switch(typeval_false)
 			free(sort);
 			free(fal);
 			free(array);
-			exit (1);
+			exit (33);
 			}
 		strcpy(fal, "Random place");
 		break;
@@ -325,7 +325,7 @@ if(!file)
 	free(fal);
 	free(array);
 	free(sec_array);
-	exit (1);
+	exit (40);
 	}
 
 fprintf(file, "Type of sorting\t\tTime\t\t\t\t\t\t\tArray\t\tType of unsorted array");
@@ -345,7 +345,7 @@ if(!typetest)
 		free(fal);
 		free(array);
 		free(sec_array);
-		exit (1);
+		exit (50);
 		}
 
 	for(i = 0; i < array_size; i++)
