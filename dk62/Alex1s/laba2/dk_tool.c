@@ -10,38 +10,34 @@
 
 void enter_values(int *Aarray_size, int *Atypetest, int *Atypevalues, int *Atypeval_similar, int *Atypeval_false)
 {
-int array_size, typevalues, typetest, typeval_similar, typeval_false;
+
 do{
     printf("Enter amount of elements (between 10 and 100000).\n");
 	printf("Warning!!! If you choose 100000 elements and bubblesort, you'll lose performanse of your PC.\n\nEnter: ");
-    array_size = gint();
-}while(array_size < 10 || array_size > 100000);
-*Aarray_size = array_size;
+    *Aarray_size = gint();
+}while(*Aarray_size < 10 || *Aarray_size > 100000);
 
 do{
     printf("\nEnter number of type of sorting:\n0 - All types;\n1 - Bubble;\n2 - Merge;\n");
 	printf("3 - Insertion;\n4 - Selection;\n5 - Shell;\n6 - Quick;\n\nEnter: ");
-	typetest = gint();
-}while(typetest < 0 || typetest > 6);
-*Atypetest = typetest;
+	*Atypetest = gint();
+}while(*Atypetest < 0 || *Atypetest > 6);
 
 do{
     printf("\nSelection of values:\n1. Several similar with choise of quantity;\n2. All random;\n");
 	printf("3. Numbers in opposite order;\n4. Sorted array with one false number;\n\nEnter: ");
-    typevalues = gint();
-}while(typevalues < 1 || typevalues > 4);
-*Atypevalues = typevalues;
+    *Atypevalues = gint();
+}while(*Atypevalues < 1 || *Atypevalues > 4);
 
-switch(typevalues)
+switch(*Atypevalues)
 {
 	case 1:
 	{
 	do{
 		printf("\nChoose quantity of similar numbers.");
-		printf(" You can't enter value larger then %i amount of elements. Enter: ", array_size/5);
-		typeval_similar = gint();
-	}while(typeval_similar < 2 || typeval_similar > array_size/5);
-	*Atypeval_similar = typeval_similar;
+		printf(" You can't enter value larger then %i amount of elements. Enter: ", *Aarray_size/5);
+		*Atypeval_similar = gint();
+	}while(*Atypeval_similar < 2 || *Atypeval_similar > *Aarray_size/5);
 	break;
 	}
 
@@ -50,9 +46,8 @@ switch(typevalues)
 	do{
 		printf("\nEnter number of location of false element:\n1 - First element;");
 		printf("\n2 - Center element;\n3 - End of array;\n4 - Random place;\n\nEnter: ");
-		typeval_false = gint();
-	}while(typeval_false < 1 || typeval_false > 4);
-	*Atypeval_false = typeval_false;
+		*Atypeval_false = gint();
+	}while(*Atypeval_false < 1 || *Atypeval_false > 4);
 	break;
 	}
 }
@@ -85,8 +80,7 @@ for(i = 0; i < array_size; i++)
 
 void array_values_opposite_order(int *array, int array_size)
 {
-srand(time(NULL));
-int i = array_size;
+int i;
 for(i = 0; i < array_size; i++)
 	array[i] = array_size - i - 1;
 }
@@ -324,6 +318,15 @@ switch(typeval_false)
 	}
 
 FILE* file = fopen("Results.txt", "w");
+if(!file)
+	{
+	printf("File Error!!!\n");
+	free(sort);
+	free(fal);
+	free(array);
+	free(sec_array);
+	exit (1);
+	}
 
 fprintf(file, "Type of sorting\t\tTime\t\t\t\t\t\t\tArray\t\tType of unsorted array");
 if(typeval_false)
