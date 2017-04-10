@@ -12,54 +12,154 @@ int main(int argc, const char * argv[])
 {
   //  FILE *theFileForSort = fopen("/Users/air/Documents/Programming_C/Lab2/Lab2/SortedElemets.txt","w");
     
-    const unsigned int CountOfElements = AMOUNT;//10000
     
-    theDescriptionArray MassOfNumber = createArray(CountOfElements);
+    theDescriptionArray ArrayWithTen = createArray(10);
+    theDescriptionArray ArrayWithHundred = createArray(100);
+    theDescriptionArray ArrayWithOneThousand = createArray(1000);
+    theDescriptionArray ArrayWithTenThousand = createArray(10000);
+
     
     srand( (unsigned)time( NULL ) );
-    for(int i = 0 ; i < CountOfElements; i++)   //Input CountOfElements  elements in Array
-    {
-        input_in_Array(&MassOfNumber , (unsigned)random() %100);
-        //GenerateArray_OfintRandom(int aSize, int *MassOfNumbers, int min, int max)
-    }
-    puts("Please create a choose:\n(q)sort, (b)ubble sort, (s)election sort,(i)nsertion sort:");
+    for(int i = 0 ; i < TEN; i++)   //Input CountOfElements  elements in Array
+        input_in_Array(&ArrayWithTen , (unsigned)random() %TEN);
+    
+    
+    for(int i = 0 ; i < HUNDRED; i++)   //Input CountOfElements  elements in Array
+        input_in_Array(&ArrayWithHundred , (unsigned)random() %HUNDRED);
+    
+    
+    for(int i = 0 ; i < ONE_THOUSAND; i++)   //Input CountOfElements  elements in Array
+        input_in_Array(&ArrayWithOneThousand , (unsigned)random() %ONE_THOUSAND);
+    
+    for(int i = 0 ; i < TEN_THOUSAND; i++)   //Input CountOfElements  elements in Array
+        input_in_Array(&ArrayWithTenThousand , (unsigned)random() %TEN_THOUSAND);
+    
+    
+    puts("Please create a choose:\n(Q)sort, (B)ubble sort, (S)election sort,(I)nsertion sort:");
     char option = '\0';
     
-    while  (        option != 'q' &&
-                        option != 'b' &&
-                            option != 's' &&
-                                option != 'i'
+    while  (        option != 'Q' &&
+                        option != 'B' &&
+                            option != 'S' &&
+                                option != 'I'
             )
     {
         option = getchar();
     }
-    float time = clock(); // time at this moment
-    
+    float TimeForTen = clock(); // time at this moment
+    float TimeForHundred = clock();
+    float TimeForOneThousand = clock();
+    float TimeForTenThousand = clock();
+
     switch(option)
     {
-        case 'q':
-            QuickSort(&MassOfNumber, ZERO, MassOfNumber.current_size);
+        case 'Q':
+            
+            QuickSort(&ArrayWithTen, ZERO, ArrayWithTen.current_size);
+            TimeForTen = (clock()-TimeForTen);
+            QuickSort(&ArrayWithHundred, ZERO, ArrayWithHundred.current_size);
+            TimeForHundred = (clock()-TimeForHundred);
+
+            QuickSort(&ArrayWithOneThousand, ZERO, ArrayWithOneThousand.current_size);
+            TimeForOneThousand = (clock()-TimeForOneThousand);
+
+            QuickSort(&ArrayWithTenThousand, ZERO, ArrayWithTenThousand.current_size);
+            TimeForTenThousand = (clock()-TimeForTenThousand);
+
             break;
-        case 'b':
-            bubbleSort(&MassOfNumber);
+        case 'B':
+            
+            bubbleSort(&ArrayWithTen);
+            TimeForTen = (clock()-TimeForTen);
+
+              bubbleSort(&ArrayWithHundred);
+            TimeForHundred = (clock()-TimeForHundred);
+
+              bubbleSort(&ArrayWithOneThousand);
+            TimeForOneThousand = (clock()-TimeForOneThousand);
+
+              bubbleSort(&ArrayWithTenThousand);
+            TimeForTenThousand = (clock()-TimeForTenThousand);
+
             break;
-        case 's':
-            selectionSort(&MassOfNumber);
+        case 'S':
+            
+            selectionSort(&ArrayWithTen);
+            TimeForTen = (clock()-TimeForTen);
+
+            selectionSort(&ArrayWithHundred);
+            TimeForHundred = (clock()-TimeForHundred);
+
+            selectionSort(&ArrayWithOneThousand);
+            TimeForOneThousand = (clock()-TimeForOneThousand);
+
+            selectionSort(&ArrayWithTenThousand);
+            TimeForTenThousand = (clock()-TimeForTenThousand);
+
             break;
-        case 'i':
-            insertionSort(&MassOfNumber);
+        case 'I':
+            
+            insertionSort(&ArrayWithTen);
+            TimeForTen = (clock()-TimeForTen);
+
+            insertionSort(&ArrayWithHundred);
+            TimeForHundred = (clock()-TimeForHundred);
+
+            insertionSort(&ArrayWithOneThousand);
+            TimeForOneThousand = (clock()-TimeForOneThousand);
+
+            insertionSort(&ArrayWithTenThousand);
+            TimeForTenThousand = (clock()-TimeForTenThousand);
+
             break;
     }
-    time = (clock() - time); //The time one of option sort in miliseconds
-    printf("\"Time performance the %c-sort : %.1f ms\"\n", option,time);
-    Print_To_File (MassOfNumber.current_size,&MassOfNumber); // Print Sorted array to file
     
-    time = clock();
-    line_search(&MassOfNumber,MassOfNumber.current_size);
-    time = (clock() - time); // The time of performance the line search in ms
-    printf("\"Time performance the line search: %.0f ms\"\n",time);
+    printf("@==========");
+    printf("10");
+    printf("===========");
+    printf("100");
+    printf("===========");
+    printf("1000");
+    printf("===========");
+    printf("10000");
+    printf("===========|\n");
+    
+    printf("||%c-Sort",option);
+       printf("==");
+    printf("\"%.0f ms\"",TimeForTen);
+       printf("========");
+    printf("\"%.0f ms\"",TimeForHundred);
+       printf("========");
+    printf("\"%.0f ms\"",TimeForHundred);
+       printf("========");
+    printf("\"%.0f ms\"",TimeForHundred);
+    printf("========\n");
+    printf("@====================================================================|\n\n");
+
+    
+   float TimeLineSearch = clock();
+    line_search(&ArrayWithTenThousand,ArrayWithTenThousand.current_size);
+    TimeLineSearch = (clock() - TimeLineSearch); // The time of performance the line search in ms
+    printf("Time performance the line search: %.0f ms\n",TimeLineSearch);
     
     
+
+    
+    Print_To_File (ArrayWithTen.current_size,&ArrayWithTen);
+    
+    Print_To_File (ArrayWithHundred.current_size,&ArrayWithHundred);
+    
+    Print_To_File (ArrayWithOneThousand.current_size,&ArrayWithOneThousand);
+    
+    Print_To_File (ArrayWithTenThousand.current_size,&ArrayWithTenThousand);// Print Sorted array to file
+    
+
+    
+    destroyArray(&ArrayWithTen);
+   // destroyArray(&ArrayWithHundred);
+    //destroyArray(&ArrayWithOneThousand);
+    //destroyArray(&ArrayWithTenThousand);
+
     
     return 0;
 }

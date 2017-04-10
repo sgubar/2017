@@ -9,8 +9,12 @@
 #ifndef Sorting_h
 #define Sorting_h
 
-#define AMOUNT 10000
-#define ZERO 0 //amount of numbers
+#define ZERO 0
+#define TEN 0xA //10
+#define HUNDRED 0x64    //100
+#define ONE_THOUSAND 0x3E8      //1000
+#define TEN_THOUSAND 0x2710      //10000
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -25,7 +29,7 @@ typedef struct MassArray    //Descript of Array
 }theDescriptionArray;
 
 
-/*---------------Types of sort---------------*/
+/*---------------Types of Operation---------------*/
 void QuickSort(theDescriptionArray *MassOfNumbers,int left,int right);  //Quick Sort
 void bubbleSort(theDescriptionArray *iArray);
 void selectionSort(theDescriptionArray *iArray);
@@ -36,10 +40,8 @@ int line_search(theDescriptionArray *iArray ,int aSize);
 
 theDescriptionArray createArray(unsigned aSize);
 unsigned input_in_Array(theDescriptionArray *theArray , int aValue);
+void destroyArray(theDescriptionArray *iArray);
 
 void Print_To_File (int aSize,theDescriptionArray *MassOfNumbers);
-
-
-//void printArray(theDescriptionArray *theArray);
 
 #endif /* Sorting_h */

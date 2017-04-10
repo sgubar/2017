@@ -60,10 +60,27 @@ unsigned input_in_Array(theDescriptionArray *theArray , int aValue)
         return theResult;
     }
 
+void destroyArray(theDescriptionArray *iArray)
+{
+    if (NULL != iArray)
+    {
+        if (NULL != iArray->value)
+        {
+            free(iArray->value);
+        }
+        
+        free(iArray);
+    }
+}
+
 void Print_To_File (int aSize,theDescriptionArray *MassOfNumbers){
 
-  FILE *FileWithArray = fopen("/Users/air/Documents/Programming_C/Lab2/Lab2/AfterSort.txt","w");
+  //  FILE *FileWithoutArray = fopen("/Users/air/Documents/Programming_C/Lab2/Lab2/AfterSort.txt","w");
+    FILE *FileWithArray = fopen("/Users/air/Documents/Programming_C/Lab2/Lab2/AfterSort.txt","w+a");
     
+    fprintf(FileWithArray,"\n---------------------------------Array with %i Symbols--------------------------------------------\n",aSize);
+
+
     int i = 0;
     while(i < aSize){
         
@@ -72,15 +89,13 @@ void Print_To_File (int aSize,theDescriptionArray *MassOfNumbers){
         i++;
         
     }
-    puts("--------------------");
-    printf("|");
-    puts("Array create in AfterSort.txt");
-    puts("--------------------");
-
+    
+   
+    fflush(FileWithArray);
     fclose(FileWithArray);
 }
 
-
+//int FillingInArray(int theSize,void Function(theDescriptionArray* Air))
 
 
 /*
