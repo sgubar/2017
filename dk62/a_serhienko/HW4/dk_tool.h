@@ -36,7 +36,7 @@ void destroyAllPyramid(pyramidList *aPyramidList);//deleting pyramids
 
 int addPyramid(pyramidList *aPyramidList);//adding pyramid to pyramidlist
 int printPyramid(pyramid*thePyramid);//additional function for printing pyramids
-int printPyramidList(pyramidList *aPyramidList);//printing pyramids
+void printPyramidList(pyramidList *aPyramidList);//printing pyramids
 
 int square(pyramid*thePyramid);//calculating square for each pyramid
 
