@@ -19,14 +19,17 @@ return result;
 
 double drob(int a, int b, int c)
 {
-if(b + my_square(c) == 0)
+int xx = b + my_square(c);
+
+if(!xx)
 	{
 	printf("Error!!!\n");
 	exit(11);
 	}
-int xx = b + my_square(c);
+
 double qq = a * b;
-qq = qq / xx;
+qq /= xx;
+
 return qq;
 }
 
@@ -53,8 +56,9 @@ return a*a;
 
 //-----------------------------------------------------------------------------------------------------------
 
-void sigma(double *Q, int B, int D)
+void sigma(double *Q, int B)
 {
+int D;
 for(D = 0; D <= B; D++)
 	*Q += factorial(D);
 }
