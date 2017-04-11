@@ -4,7 +4,7 @@
 
 unsigned long int factorial(int d)
 {
-if(d == 0)
+if(!d)
 	return 1;
 
 int i;
@@ -19,10 +19,10 @@ return result;
 
 double drob(int a, int b, int c)
 {
-if(b + c * c == 0)
+if(b + my_square(c) == 0)
 	{
-	printf("Error!\n");
-	exit(1);
+	printf("Error!!!\n");
+	exit(11);
 	}
 int xx = b + my_square(c);
 double qq = a * b;
@@ -60,5 +60,4 @@ for(D = 0; D <= B; D++)
 }
 
 //-----------------------------------------------------------------------------------------------------------
-
 
