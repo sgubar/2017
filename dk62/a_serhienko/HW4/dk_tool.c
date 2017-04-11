@@ -84,11 +84,12 @@ int addPyramid(pyramidList *aPyramidList)
 			return -1;
 		}
 		printf("The Pyramid has been successfully created!\n\n");
-		return 0;
+		
 	}
+	return 0;
 }
 
-		int printPyramidList(pyramidList *aPyramidList)
+		void printPyramidList(pyramidList *aPyramidList)
 		{
 
 
