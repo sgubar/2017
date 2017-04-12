@@ -5,6 +5,7 @@
 #ifndef LW2_SORT_H
 #define LW2_SORT_H
 
+
 //bubble sort
 double bubbleSort(int *anArray, int aSize);
 
@@ -13,5 +14,12 @@ double selectionSort(int *anArray, int aSize);
 
 //insertion sort
 double insertionSort(int *anArray, int aSize);
+
+//shell sort
+double shellSort(int *anArray, int aSize);
+
+//quick sort
+double quickSort(int *anArray, int aLeftIndex, int aRightIndex);
+
 
 #endif //LW2_SORT_H
