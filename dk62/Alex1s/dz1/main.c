@@ -5,7 +5,6 @@
 int main(int argc, const char *argv[]) {
 
 int lines, columns;
-float coef = 0;
 
 printf("Enter amount of lines: ");
 lines = enter_value();
@@ -18,7 +17,7 @@ write_matrix(lines, columns, matrix);
 printf("\nYou wrote:\n");
 
 read_matrix(lines, columns, matrix);
-mnoj_matrix(coef, lines, columns, matrix);
+mnoj_matrix(lines, columns, matrix);
 
 printf("\nResult matrix:\n");
 read_matrix(lines, columns, matrix);
