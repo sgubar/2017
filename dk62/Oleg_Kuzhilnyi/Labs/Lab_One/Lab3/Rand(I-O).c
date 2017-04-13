@@ -11,7 +11,7 @@
 #include <string.h>
 #include <memory.h>
 
-theDescriptionArray *createArray(unsigned aSize )
+theDescriptionArray *createArray(unsigned aSize)
 {
     theDescriptionArray *theArrays = (theDescriptionArray *)malloc(sizeof(theDescriptionArray));
     
@@ -30,8 +30,10 @@ theDescriptionArray *createArray(unsigned aSize )
 unsigned input_in_Array(theDescriptionArray *theArray , int aValue)
 
 {
-    unsigned theResult = theArray->current_size;
     int i = 0;
+    
+    unsigned theResult = theArray->current_size;
+    
     
     if(theArray->current_size == theArray->maxSize)
     {
@@ -73,51 +75,39 @@ void destroyArray(theDescriptionArray *iArray)
     }
 }
 
-void Print_To_File (unsigned aSize,theDescriptionArray *MassOfNumbers)
-{
-    
-  //  FILE *FileWithoutArray = fopen("/Users/air/Documents/Programming_C/Lab2/Lab2/AfterSort.txt","w");
-    FILE *FileWithArray = fopen("/Users/air/Documents/Programming_C/Lab2/Lab2/AfterSort.txt","a");
-    
-    fprintf(FileWithArray,"\n---------------------------------------------------------Array with %i Symbols----------------------------------------------------------------\n",aSize);
-
-    int i = 0;
-    while(i < aSize){
-        
-        fprintf(FileWithArray,"%i",MassOfNumbers->value[i]);
-        fprintf(FileWithArray," ");
-        i++;
-        
-    }
-    
-    fflush(FileWithArray);
-    fclose(FileWithArray);
-}
-
-
 float TheResultOfTimePoint(float aTime)
 {
          aTime = clock() - aTime ; // time at this moment
     return aTime;
 }
 
-void FillingInTypeOfArrays(theDescriptionArray *SmallArray, theDescriptionArray *MediumArray, theDescriptionArray *theBigArray , theDescriptionArray *TheBiggestArray)
+void FillingInTypeOfArrays(theDescriptionArray *iArray)
+{
+    srand( (unsigned)time( NULL ) );
+    
+    for(int i = 0 ; i < iArray->maxSize; i++)
+        input_in_Array(iArray , (unsigned)random() %(iArray->maxSize));
+}
+
+void Print_To_File (theDescriptionArray *ArrayOfNumbers,unsigned aSize)
 {
     
-    srand( (unsigned)time( NULL ) );
-    for(int i = 0 ; i < HUNDRED; i++)
-        input_in_Array(SmallArray , (unsigned)random() %HUNDRED);
+    //  FILE *FileWithoutArray = fopen("/Users/air/Documents/Programming_C/Lab2/Lab2/AfterSort.txt","w");
+    FILE *FileWithArray = fopen("/Users/air/Documents/Programming_C/Lab2/Lab2/AfterSort.txt","a");
     
-    srand( (unsigned)time( NULL ) );
-    for(int i = 0 ; i < ONE_THOUSAND; i++)
-        input_in_Array(MediumArray , (unsigned)random() %ONE_THOUSAND);
+    fprintf(FileWithArray,"\n----------------------------------------------------------------------------------");
+    fprintf(FileWithArray,"Array with %i Symbols",aSize);
+    fprintf(FileWithArray,"----------------------------------------------------------------------------------\n");
+
+    int SEEK = 0;
+    while(SEEK < aSize){
+        
+        fprintf(FileWithArray,"%i",ArrayOfNumbers->value[SEEK]);
+        fprintf(FileWithArray," ");
+        SEEK++;
+        
+    }
     
-    srand( (unsigned)time( NULL ) );
-    for(int i = 0 ; i < TEN_THOUSAND; i++)
-        input_in_Array(theBigArray , (unsigned)random() %TEN_THOUSAND);
-    
-    srand( (unsigned)time( NULL ) );
-    for(int i = 0 ; i < TWENTY_THOUSAND; i++)
-        input_in_Array(TheBiggestArray , (unsigned)random() %TWENTY_THOUSAND);
-    
+    fflush(FileWithArray);
+    fclose(FileWithArray);
 }

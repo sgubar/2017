@@ -8,7 +8,7 @@
 
 #include "Sorting.h"
 
-int line_search(theDescriptionArray *iArray ,int aSize)
+int line_search(theDescriptionArray *iArray ,unsigned aSize)
 {
     int key = 0;
     puts("Please Enter integer which you want to find in Array:");
@@ -18,12 +18,11 @@ int line_search(theDescriptionArray *iArray ,int aSize)
     {
         if (iArray->value[thePosition] == key)
             {
-             
                 puts("The line search could find next information:");
                 puts("-------------------");              
-            printf("|The key: %i\n|The Position: %i\n",key,thePosition);
+                printf("|The key: %i\n|The Position: %i\n",key,thePosition);
                 puts("-------------------");
-            return thePosition;
+                        return thePosition;
             }
     }
   
@@ -60,27 +59,27 @@ void bubbleSort(theDescriptionArray *iArray)
     }
 }
 
-
-
 void selectionSort(theDescriptionArray *iArray)
 {
-    for(int TheOut = 0; TheOut< iArray->current_size; TheOut++)
+    for (int theOut = 0; theOut < iArray->current_size- 1; theOut ++)
     {
-        int min = TheOut;
-        for(int TheIn = TheOut;TheIn < iArray->current_size; TheIn++)
+        int theMinIndex = theOut;
+        
+        for (int theIn = theOut + 1; theIn < iArray->current_size; theIn ++)
         {
-            if(iArray->value[TheIn] < iArray->value[min])
+            if (iArray->value[theIn] < iArray->value[theMinIndex])
             {
-                min = TheIn;
+                theMinIndex = theIn;
             }
         }
-        swap(iArray,iArray->value[TheOut],iArray->value[min]);
+        //swap(iArray,iArray->value[theOut],iArray->value[theMinIndex]);
+
         
+        int theTmp = iArray->value[theOut];
+        iArray->value[theOut] = iArray->value[theMinIndex];
+        iArray->value[theMinIndex] = theTmp;
     }
 }
-
-
-
 void insertionSort(theDescriptionArray *iArray)
 {
     for (int theOut = 1; theOut < iArray->current_size; theOut ++)
@@ -108,151 +107,174 @@ void swap(theDescriptionArray *srcArray,int x,int y)//transposition two elements
 
 void TheSorts_For_DifferentArrays(theDescriptionArray *Small, theDescriptionArray *Medium, theDescriptionArray *theBig , theDescriptionArray *TheBiggest)
 {
-    TheArrayList TimeClass;
+    TheArrayList TimeClass ;
     float TheTimeAtTheMoment;
-    
+
     // -----------------------------------------------------------------------------//   Quick Sort
+    
+    FillingInTypeOfArrays(Small);
     TheTimeAtTheMoment = clock();
     QuickSort(Small, ZERO, Small->current_size);
     TimeClass.For_Q_Sort.TheTime[0] = TheResultOfTimePoint(TheTimeAtTheMoment);
     
-    
+    FillingInTypeOfArrays(Medium);
     TheTimeAtTheMoment = clock();
     QuickSort(Medium, ZERO, Medium->current_size);
     TimeClass.For_Q_Sort.TheTime[1] = TheResultOfTimePoint(TheTimeAtTheMoment);
     
-    
-    
+    FillingInTypeOfArrays(theBig);
     TheTimeAtTheMoment = clock();
     QuickSort(theBig, ZERO, theBig->current_size);
     TimeClass.For_Q_Sort.TheTime[2] = TheResultOfTimePoint(TheTimeAtTheMoment);
     
-    
+    FillingInTypeOfArrays(TheBiggest);
     TheTimeAtTheMoment = clock();
     QuickSort(TheBiggest, ZERO, TheBiggest->current_size);
     TimeClass.For_Q_Sort.TheTime[3] = TheResultOfTimePoint(TheTimeAtTheMoment);
+  
     // -----------------------------------------------------------------------------//      Bubble Sort
     
+    FillingInTypeOfArrays(Small);
     TheTimeAtTheMoment = clock();
     bubbleSort(Small);
     TimeClass.For_B_Sort.TheTime[0] = TheResultOfTimePoint(TheTimeAtTheMoment);
     
-    
+    FillingInTypeOfArrays(Medium);
     TheTimeAtTheMoment = clock();
     bubbleSort(Medium);
     TimeClass.For_B_Sort.TheTime[1] = TheResultOfTimePoint(TheTimeAtTheMoment);
     
-    
+    FillingInTypeOfArrays(theBig);
     TheTimeAtTheMoment = clock();
     bubbleSort(theBig);
     TimeClass.For_B_Sort.TheTime[2] = TheResultOfTimePoint(TheTimeAtTheMoment);
     
+    FillingInTypeOfArrays(TheBiggest);
     TheTimeAtTheMoment = clock();
     bubbleSort(TheBiggest);
     TimeClass.For_B_Sort.TheTime[3] = TheResultOfTimePoint(TheTimeAtTheMoment);
-    
+
     // -----------------------------------------------------------------------------//      Selection Sort
     
     
+    FillingInTypeOfArrays(Small);
    TheTimeAtTheMoment = clock();
     selectionSort(Small);
     TimeClass.For_S_Sort.TheTime[0] = TheResultOfTimePoint(TheTimeAtTheMoment);
     
+    FillingInTypeOfArrays(Medium);
     TheTimeAtTheMoment = clock();
     selectionSort(Medium);
     TimeClass.For_S_Sort.TheTime[1] = TheResultOfTimePoint(TheTimeAtTheMoment);
     
+    FillingInTypeOfArrays(theBig);
     TheTimeAtTheMoment = clock();
     selectionSort(theBig);
     TimeClass.For_S_Sort.TheTime[2] = TheResultOfTimePoint(TheTimeAtTheMoment);
     
+    FillingInTypeOfArrays(TheBiggest);
     TheTimeAtTheMoment = clock();
     selectionSort(TheBiggest);
     TimeClass.For_S_Sort.TheTime[3] = TheResultOfTimePoint(TheTimeAtTheMoment);
-    
+
     // -----------------------------------------------------------------------------//  Insertion Sort
     
-    
+    FillingInTypeOfArrays(Small);
     TheTimeAtTheMoment = clock();
     insertionSort(Small);
     TimeClass.For_I_Sort.TheTime[0] = TheResultOfTimePoint(TheTimeAtTheMoment);
     
+    FillingInTypeOfArrays(Medium);
     TheTimeAtTheMoment = clock();
     insertionSort(Medium);
     TimeClass.For_I_Sort.TheTime[1] = TheResultOfTimePoint(TheTimeAtTheMoment);
     
+    FillingInTypeOfArrays(theBig);
     TheTimeAtTheMoment = clock();
     insertionSort(theBig);
     TimeClass.For_I_Sort.TheTime[2] = TheResultOfTimePoint(TheTimeAtTheMoment);
     
+    FillingInTypeOfArrays(TheBiggest);
     TheTimeAtTheMoment = clock();
     insertionSort(TheBiggest);
     TimeClass.For_I_Sort.TheTime[3] = TheResultOfTimePoint(TheTimeAtTheMoment);
     
     // -----------------------------------------------------------------------------//  The End
     
+    
+    PrintfTheResultTable(&TimeClass);
+
 }
 
-void PrintfTheResultTable(void)
+void PrintfTheResultTable(TheArrayList *VariableTime)
 {
-    TheArrayList VariableTime;
-
-    printf("@==========");
-    printf("10");
+    printf("@===============================================================================@\n");
+    printf("||=");
+    printf("/TYPE OF SORT/");
+    printf("===");
+    printf("/SMALL/");
+    printf("=====");
+    printf("/MEDIUM/");
+    printf("==========");
+    printf("/BIG/");
+    printf("========");
+    printf("/THE BIGGEST/");
+    printf("====|\n");
+    
+    printf("||QuickSort");
+    printf("========");
+    printf("|%.0fms|",VariableTime->For_Q_Sort.TheTime[0]);
+    printf("========");
+    printf("|%.0fms|",VariableTime->For_Q_Sort.TheTime[1]);
+    printf("=========");
+    printf("|%.0fms|",VariableTime->For_Q_Sort.TheTime[2]);
+    printf("==========");
+    printf("|%.0fms|",VariableTime->For_Q_Sort.TheTime[3]);
+    printf("=====|\n");
+    
+    printf("||BubbleSort");
+    printf("=======");
+    printf("|%.0fms|",VariableTime->For_B_Sort.TheTime[0]);
+    printf("========");
+    printf("|%.0fms|",VariableTime->For_B_Sort.TheTime[1]);
+    printf("========");
+    printf("|%.0fms|",VariableTime->For_B_Sort.TheTime[2]);
+    printf("========");
+    printf("|%.0fms|",VariableTime->For_B_Sort.TheTime[3]);
+    printf("===|\n");
+    
+    printf("||SelectionSort");
+    printf("====");
+    printf("|%.0fms|",VariableTime->For_S_Sort.TheTime[0]);
+    printf("========");
+    printf("|%.0fms|",VariableTime->For_S_Sort.TheTime[1]);
+    printf("========");
+    printf("|%.0fms|",VariableTime->For_S_Sort.TheTime[2]);
+    printf("========");
+    printf("|%.0fms|",VariableTime->For_S_Sort.TheTime[3]);
+    printf("===|\n");
+    
+    printf("||InsertionSort");
+    printf("====");
+    printf("|%.0fms|",VariableTime->For_I_Sort.TheTime[0]);
+    printf("=========");
+    printf("|%.0fms|",VariableTime->For_I_Sort.TheTime[1]);
+    printf("==========");
+    printf("|%.0fms|",VariableTime->For_I_Sort.TheTime[2]);
     printf("===========");
-    printf("1000");
-    printf("===========");
-    printf("10000");
-    printf("===========");
-    printf("20000");
-    printf("===========|\n");
+    printf("|%.0fms|",VariableTime->For_I_Sort.TheTime[3]);
+    printf("======|\n");
     
-    printf("||Q-Sort");
-    printf("==");
-    printf("\"%.0f ms\"",VariableTime.For_Q_Sort.TheTime[0]);
-    printf("========");
-    printf("\"%.0f ms\"",VariableTime.For_Q_Sort.TheTime[1]);
-    printf("========");
-    printf("\"%.0f ms\"",VariableTime.For_Q_Sort.TheTime[2]);
-    printf("========");
-    printf("\"%.0f ms\"",VariableTime.For_Q_Sort.TheTime[3]);
-    printf("========\n");
-    printf("@====================================================================|\n\n");
+    printf("||=================");
+    printf("[TIME]");
+    printf("=========");
+    printf("[TIME]");
+    printf("==========");
+    printf("[TIME]");
+    printf("============");
+    printf("[TIME]");
+    printf("======|\n");
     
-    printf("||B-Sort");
-    printf("==");
-    printf("\"%.0f ms\"",VariableTime.For_B_Sort.TheTime[0]);
-    printf("========");
-    printf("\"%.0f ms\"",VariableTime.For_B_Sort.TheTime[1]);
-    printf("========");
-    printf("\"%.0f ms\"",VariableTime.For_B_Sort.TheTime[2]);
-    printf("========");
-    printf("\"%.0f ms\"",VariableTime.For_B_Sort.TheTime[3]);
-    printf("========\n");
-    printf("@====================================================================|\n\n");
+    printf("@===============================================================================@\n\n");
     
-    printf("||S-Sort");
-    printf("==");
-    printf("\"%.0f ms\"",VariableTime.For_S_Sort.TheTime[0]);
-    printf("========");
-    printf("\"%.0f ms\"",VariableTime.For_S_Sort.TheTime[1]);
-    printf("========");
-    printf("\"%.0f ms\"",VariableTime.For_S_Sort.TheTime[2]);
-    printf("========");
-    printf("\"%.0f ms\"",VariableTime.For_S_Sort.TheTime[3]);
-    printf("========\n");
-    printf("@====================================================================|\n\n");
-    
-    printf("||I-Sort");
-    printf("==");
-    printf("\"%.0f ms\"",VariableTime.For_I_Sort.TheTime[0]);
-    printf("========");
-    printf("\"%.0f ms\"",VariableTime.For_I_Sort.TheTime[1]);
-    printf("========");
-    printf("\"%.0f ms\"",VariableTime.For_I_Sort.TheTime[2]);
-    printf("========");
-    printf("\"%.0f ms\"",VariableTime.For_I_Sort.TheTime[3]);
-    printf("========\n");
-    printf("@====================================================================|\n\n");
-
 }
