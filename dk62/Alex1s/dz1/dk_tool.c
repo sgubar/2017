@@ -2,55 +2,52 @@
 
 int enter_value()
 {
-int lines = 0;
+int l;
 do{
-	scanf("%i", &lines);
-}while(lines<2);
-return lines;
+scanf("%i", &l);
+}while(l < 2);
+
+return l;
 }
 
+//-----------------------------------------------------------------------------------------------------------
 
-//--------------------------------------------------------------------------------------------------------------------------------
-
-
-void write_matrix(int lines, int columns, float matrix[lines][columns])
+void write_matrix(int lines, int columns, float **matrix)
 {
-int i = 0, j = 0;
+int i, j;
 for(i = 0; i < lines; i++)
-for(j = 0; j < columns; j++) {
-printf("Enter variable[%i][%i]: ", i, j);   //[i][j] for better meaning position of elements
-scanf("%f", &matrix[i][j]);}
+	for(j = 0; j < columns; j++)
+		{
+		printf("Enter variable[%i][%i]: ", i, j); //[i][j] for better meaning position of elements
+		scanf("%f", &matrix[i][j]);
+		}
 }
 
+//-----------------------------------------------------------------------------------------------------------
 
-//--------------------------------------------------------------------------------------------------------------------------------
-
-
-void mnoj_matrix(float coef, int lines, int columns, float matrix[lines][columns])
+void mnoj_matrix(float coef, int lines, int columns, float **matrix)
 {
 printf("Enter coefficient of result matrix: ");
 scanf("%f", &coef);
-int i = 0, j = 0;
+int i, j;
+
 for(i = 0; i < lines; i++)
-for(j = 0; j < columns; j++)
-matrix[i][j] *= coef;        //matrix[i][j] = matrix[i][j]*coef;
+	for(j = 0; j < columns; j++)
+		matrix[i][j] *= coef;
 }
 
+//-----------------------------------------------------------------------------------------------------------
 
-//--------------------------------------------------------------------------------------------------------------------------------
-
-
-void read_matrix(int lines, int columns, float matrix[lines][columns])
+void read_matrix(int lines, int columns, float **matrix)
 {
-int i = 0, j = 0;
-for(i = 0; i < lines; i++){
-for(j = 0; j < columns; j++)
-printf("%.3f ", matrix[i][j]);
-printf("\n");}
+int i, j;
+for(i = 0; i < lines; i++)
+	{
+	for(j = 0; j < columns; j++)
+		printf("%.3f ", matrix[i][j]);
+	printf("\n");
+	}
 printf("\n");
 }
 
-
-//--------------------------------------------------------------------------------------------------------------------------------
-
-
+//-----------------------------------------------------------------------------------------------------------
