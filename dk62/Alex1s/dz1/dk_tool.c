@@ -25,8 +25,9 @@ for(i = 0; i < lines; i++)
 
 //-----------------------------------------------------------------------------------------------------------
 
-void mnoj_matrix(float coef, int lines, int columns, float **matrix)
+void mnoj_matrix(int lines, int columns, float **matrix)
 {
+float coef;
 printf("Enter coefficient of result matrix: ");
 scanf("%f", &coef);
 int i, j;
