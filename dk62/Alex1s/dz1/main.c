@@ -4,21 +4,26 @@
 
 int main(int argc, const char *argv[]) {
 
-int lines = 0, columns = 0;
+int lines, columns;
 float coef = 0;
+
 printf("Enter amount of lines: ");
 lines = enter_value();
+
 printf("Enter amount of columns: ");
 columns = enter_value();
-float matrix[lines][columns];
+float **matrix = (float **) malloc(sizeof(float) * lines * columns);
+
 write_matrix(lines, columns, matrix);
 printf("\nYou wrote:\n");
+
 read_matrix(lines, columns, matrix);
 mnoj_matrix(coef, lines, columns, matrix);
+
 printf("\nResult matrix:\n");
 read_matrix(lines, columns, matrix);
 
+free(matrix);
 system("pause");
 return 0;
 }
-
