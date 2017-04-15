@@ -7,8 +7,8 @@
 #include <stdlib.h>
 
 char gchar();
-double gdouble();
-float gfloat();
+//double gdouble();
+//float gfloat();
 int gint();
 long long glonglong();
 char *gstring();
