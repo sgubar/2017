@@ -17,7 +17,6 @@ typedef struct Atriangles
 
 void make_triangle(Triangles *Element, Figure *Dots);
 void enter_coor(Figure *Dots);
-void delete_triangle(Triangles *Element, Figure *Dots, int i);
 void delete_all(Triangles *Element, Figure *Dots);
 float calc_area(Figure *Dots);
 
