@@ -9,8 +9,8 @@ int main(int argc, const char *argv[])
 {
 printf("Greetings! The program is designed to make a list of triangles.\n");
 printf("You can create 5 different triangles. Enter coordinates\n");
-printf("Program works in loop by 3 steps:\n1) Creating figures;\n");
-printf("2) Try to stop program;\n\nYou can add and delete figures more then 5 times.\n");
+printf("Program works in loop by 2 steps:\n1) Creating figures;\n");
+printf("2) Try to stop program;\n\n");
 
 Triangles *Element = (Triangles *) malloc(sizeof(Triangles));
 if(!Element)
