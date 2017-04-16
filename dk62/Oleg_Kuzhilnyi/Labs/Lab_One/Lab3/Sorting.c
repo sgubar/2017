@@ -113,7 +113,7 @@ int line_search(theDescriptionArray *iArray ,unsigned aSize)
 
 //-----------------------------------------------------------------------------------------//
 
-void TheSorts_For_DifferentArrays(theDescriptionArray *Small, theDescriptionArray *Medium, theDescriptionArray *theBig , theDescriptionArray *TheBiggest)
+void TheSorting_aFourArraysAndPrintHim(theDescriptionArray *Small, theDescriptionArray *Medium, theDescriptionArray *theBig , theDescriptionArray *TheBiggest)
 {
     TheArrayList TimeClass ;
     float TheTimeAtTheMoment;
@@ -312,7 +312,6 @@ int partitionIt(theDescriptionArray anArray[], int aLeftIndex, int aRightIndex, 
         else
         {
             //lets to swap elements
-            
             
             int theTmp = anArray->value[theLeft];
             anArray->value[theLeft] = anArray->value[theRight];

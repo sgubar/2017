@@ -15,7 +15,7 @@ int main(int argc, const char * argv[])
     theDescriptionArray *BigArray = createArray(TEN_THOUSAND);
     theDescriptionArray *theBiggestArray = createArray(TWENTY_THOUSAND);
 
-    TheSorts_For_DifferentArrays( SmallArray, MediumArray,BigArray ,theBiggestArray);
+    TheSorting_aFourArraysAndPrintHim(SmallArray,MediumArray,BigArray,theBiggestArray);
     
     float aTime = clock();
     line_search(theBiggestArray,theBiggestArray->current_size);
@@ -24,12 +24,9 @@ int main(int argc, const char * argv[])
     printf("Time performance the line search: %.0f ms\n",TheTimeResultForLineSearch);
     
      Print_To_File (SmallArray,SmallArray->maxSize);
-     
      Print_To_File (MediumArray,MediumArray->maxSize);
-     
      Print_To_File (BigArray,BigArray->maxSize);
-     
-     Print_To_File (theBiggestArray,theBiggestArray->maxSize);// Print Sorted array to file
+     Print_To_File (theBiggestArray,theBiggestArray->maxSize);// Print Sorted array with last type of Sort to file
     
     
     destroyArray(SmallArray);

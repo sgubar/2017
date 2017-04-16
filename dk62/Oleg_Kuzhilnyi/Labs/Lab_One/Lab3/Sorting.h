@@ -58,7 +58,7 @@ theDescriptionArray *createArray(unsigned aSize);
 unsigned input_in_Array(theDescriptionArray *theArray , int aValue);
 void destroyArray(theDescriptionArray *iArray);
 float TheResultOfTimePoint(float aTime);
-void TheSorts_For_DifferentArrays(theDescriptionArray *Small, theDescriptionArray *Medium, theDescriptionArray *theBig , theDescriptionArray *TheBiggest);
+void TheSorting_aFourArraysAndPrintHim(theDescriptionArray *Small, theDescriptionArray *Medium, theDescriptionArray *theBig , theDescriptionArray *TheBiggest);
 void FillingInTypeOfArrays(theDescriptionArray *iArray);
 void Print_To_File (theDescriptionArray *ArrayOfNumbers,unsigned aSize);
 void PrintfTheResultTable(TheArrayList *VariableTime);
