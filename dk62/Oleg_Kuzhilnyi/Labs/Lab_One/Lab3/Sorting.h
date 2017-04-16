@@ -35,7 +35,6 @@ typedef struct Times
     
 }TheTypeOfTimes_ForDifferentSize;
 
-
 typedef struct Clock_ListTime
 {
     TheTypeOfTimes_ForDifferentSize For_Q_Sort;
@@ -51,17 +50,31 @@ void bubbleSort(theDescriptionArray *iArray);
 void selectionSort(theDescriptionArray *iArray);
 void insertionSort(theDescriptionArray *iArray);
 void swap(theDescriptionArray anArray[], int aLeftIndex, int aRightIndex); //transposition two elements of array
+int partitionIt(theDescriptionArray anArray[], int aLeftIndex, int aRightIndex, int aPivot);
 /*-------------------------------------------*/
 int line_search(theDescriptionArray *iArray ,unsigned aSize);
 
+
+
 theDescriptionArray *createArray(unsigned aSize);
-unsigned input_in_Array(theDescriptionArray *theArray , int aValue);
+
+unsigned input_in_ArrayNewElement(theDescriptionArray *theArray , int aValue);
+
 void destroyArray(theDescriptionArray *iArray);
-float TheResultOfTimePoint(float aTime);
-void TheSorting_aFourArraysAndPrintHim(theDescriptionArray *Small, theDescriptionArray *Medium, theDescriptionArray *theBig , theDescriptionArray *TheBiggest);
-void FillingInTypeOfArrays(theDescriptionArray *iArray);
-void Print_To_File (theDescriptionArray *ArrayOfNumbers,unsigned aSize);
-void PrintfTheResultTable(TheArrayList *VariableTime);
+
+
 int rrand(int range_min, int range_max);
-int partitionIt(theDescriptionArray anArray[], int aLeftIndex, int aRightIndex, int aPivot);
+
+float TheResultOfTimePoint(float aTime);
+
+
+
+void TheSorting_aFourArraysAndPrintTheirTimePerformance(theDescriptionArray *Small, theDescriptionArray *Medium, theDescriptionArray *theBig , theDescriptionArray *TheBiggest);
+void FillingInTypeOfArrays(theDescriptionArray *iArray);
+void PrintfTheResultTable(TheArrayList *VariableTime);
+
+
+void Print_To_File (theDescriptionArray *ArrayOfNumbers,unsigned aSize);
+
+
 #endif /* Sorting_h */

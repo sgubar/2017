@@ -113,7 +113,7 @@ int line_search(theDescriptionArray *iArray ,unsigned aSize)
 
 //-----------------------------------------------------------------------------------------//
 
-void TheSorting_aFourArraysAndPrintHim(theDescriptionArray *Small, theDescriptionArray *Medium, theDescriptionArray *theBig , theDescriptionArray *TheBiggest)
+void TheSorting_aFourArraysAndPrintTheirTimePerformance(theDescriptionArray *Small, theDescriptionArray *Medium, theDescriptionArray *theBig , theDescriptionArray *TheBiggest)
 {
     TheArrayList TimeClass ;
     float TheTimeAtTheMoment;

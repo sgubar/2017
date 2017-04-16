@@ -27,7 +27,7 @@ theDescriptionArray *createArray(unsigned aSize)
     return theArrays;
 }
 
-unsigned input_in_Array(theDescriptionArray *theArray , int aValue)
+unsigned input_in_ArrayNewElement(theDescriptionArray *theArray , int aValue)
 
 {
     unsigned theResult = theArray->current_size;
@@ -43,6 +43,25 @@ unsigned input_in_Array(theDescriptionArray *theArray , int aValue)
     return theResult;
 }
 
+void FillingInTypeOfArrays(theDescriptionArray *iArray)
+{
+    srand( (unsigned)time( NULL ) );
+    
+    for(int i = 0 ; i < iArray->maxSize; i++)
+        input_in_ArrayNewElement(iArray , rrand(ZERO,ONE_THOUSAND));
+}
+
+float TheResultOfTimePoint(float aTime)
+{
+    aTime = clock() - aTime ; // time at this moment
+    return aTime;
+}
+
+
+int rrand(int range_min, int range_max) {
+    return rand() % (range_max - range_min + 1) + range_min;
+}
+
 void destroyArray(theDescriptionArray *iArray)
 {
     while (NULL == iArray)
@@ -54,14 +73,6 @@ void destroyArray(theDescriptionArray *iArray)
         
         free(iArray);
     }
-}
-
-void FillingInTypeOfArrays(theDescriptionArray *iArray)
-{
-    srand( (unsigned)time( NULL ) );
-    
-    for(int i = 0 ; i < iArray->maxSize; i++)
-        input_in_Array(iArray , rrand(ZERO,ONE_THOUSAND));
 }
 
 void Print_To_File (theDescriptionArray *ArrayOfNumbers,unsigned aSize)
@@ -85,16 +96,4 @@ void Print_To_File (theDescriptionArray *ArrayOfNumbers,unsigned aSize)
     
     fflush(FileWithArray);
     fclose(FileWithArray);
-}
-
-
-float TheResultOfTimePoint(float aTime)
-{
-    aTime = clock() - aTime ; // time at this moment
-    return aTime;
-}
-
-
-int rrand(int range_min, int range_max) {
-    return rand() % (range_max - range_min + 1) + range_min;
 }

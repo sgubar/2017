@@ -15,7 +15,7 @@ int main(int argc, const char * argv[])
     theDescriptionArray *BigArray = createArray(TEN_THOUSAND);
     theDescriptionArray *theBiggestArray = createArray(TWENTY_THOUSAND);
 
-    TheSorting_aFourArraysAndPrintHim(SmallArray,MediumArray,BigArray,theBiggestArray);
+    TheSorting_aFourArraysAndPrintTheirTimePerformance(SmallArray,MediumArray,BigArray,theBiggestArray);
     
     float aTime = clock();
     line_search(theBiggestArray,theBiggestArray->current_size);
