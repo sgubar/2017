@@ -113,7 +113,7 @@ int line_search(theDescriptionArray *iArray ,unsigned aSize)
 
 //-----------------------------------------------------------------------------------------//
 
-TheArrayList *TheSorting_aFourArraysAndPrintTheirTimePerformance(theDescriptionArray *Small, theDescriptionArray *Medium, theDescriptionArray *theBig , theDescriptionArray *TheBiggest)
+TheArrayList *TheSorting_Of_a_FourArrays(theDescriptionArray *Small, theDescriptionArray *Medium, theDescriptionArray *theBig , theDescriptionArray *TheBiggest)
 {
     float TheTimeAtTheMoment;
 
@@ -213,9 +213,7 @@ TheArrayList *TheSorting_aFourArraysAndPrintTheirTimePerformance(theDescriptionA
     
 }
 
-void PrintfTheResultTable(TheArrayList *VariableTime)
-
-
+void PrintTheResultTable(TheArrayList *VariableTime)
 {
     printf("@================================|^Sort Table^|=================================@\n");
     printf("||");

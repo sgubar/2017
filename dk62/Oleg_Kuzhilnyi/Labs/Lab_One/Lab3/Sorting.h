@@ -69,9 +69,9 @@ float TheResultOfTimePoint(float aTime);
 
 
 
-TheArrayList *TheSorting_aFourArraysAndPrintTheirTimePerformance(theDescriptionArray *Small, theDescriptionArray *Medium, theDescriptionArray *theBig , theDescriptionArray *TheBiggest);
+TheArrayList *TheSorting_Of_a_FourArrays(theDescriptionArray *Small, theDescriptionArray *Medium, theDescriptionArray *theBig , theDescriptionArray *TheBiggest);
 void FillingInTypeOfArrays(theDescriptionArray *iArray);
-void PrintfTheResultTable(TheArrayList *VariableTime);
+void PrintTheResultTable(TheArrayList *VariableTime);
 
 
 void Print_To_File (theDescriptionArray *ArrayOfNumbers,unsigned aSize);
