@@ -30,7 +30,6 @@ theDescriptionArray *createArray(unsigned aSize)
 unsigned input_in_Array(theDescriptionArray *theArray , int aValue)
 
 {
-    int i = 0;
     
     unsigned theResult = theArray->current_size;
     
@@ -40,35 +39,21 @@ unsigned input_in_Array(theDescriptionArray *theArray , int aValue)
         return theResult;
         
     }
+
     
-    for(;i < theArray->current_size;i++)
-    {
-        
-        if(theArray->value[i] > aValue)
-        {
-            theResult = i;
-            break;
-        }
-    }
-        for(int j = theArray->current_size; j > i; j --)
-        {
-            theArray->value[j] = theArray->value[j-1];
-            
-        }
-        
-        theArray->value[i] = aValue;
-        theArray->current_size ++;
-        
-        return theResult;
-    }
+    theArray->value[theArray->current_size] = aValue;
+    theArray->current_size ++;
+    
+    return theResult;
+}
 
 void destroyArray(theDescriptionArray *iArray)
 {
-    if (NULL != iArray)
+    while (NULL == iArray)
     {
         if (NULL != iArray->value)
         {
-           free(iArray->value);
+            free(iArray->value);
         }
         
         free(iArray);
@@ -77,16 +62,22 @@ void destroyArray(theDescriptionArray *iArray)
 
 float TheResultOfTimePoint(float aTime)
 {
-         aTime = clock() - aTime ; // time at this moment
+    aTime = clock() - aTime ; // time at this moment
     return aTime;
 }
+
+
+int rrand(int range_min, int range_max) {
+    return rand() % (range_max - range_min + 1) + range_min;
+}
+
 
 void FillingInTypeOfArrays(theDescriptionArray *iArray)
 {
     srand( (unsigned)time( NULL ) );
     
     for(int i = 0 ; i < iArray->maxSize; i++)
-        input_in_Array(iArray , (unsigned)random() %(iArray->maxSize));
+        input_in_Array(iArray , rrand(ZERO,ONE_THOUSAND));
 }
 
 void Print_To_File (theDescriptionArray *ArrayOfNumbers,unsigned aSize)
@@ -98,7 +89,7 @@ void Print_To_File (theDescriptionArray *ArrayOfNumbers,unsigned aSize)
     fprintf(FileWithArray,"\n----------------------------------------------------------------------------------");
     fprintf(FileWithArray,"Array with %i Symbols",aSize);
     fprintf(FileWithArray,"----------------------------------------------------------------------------------\n");
-
+    
     int SEEK = 0;
     while(SEEK < aSize){
         

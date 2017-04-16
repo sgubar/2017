@@ -10,10 +10,10 @@
 #define Sorting_h
 
 #define ZERO 0
-#define HUNDRED 0xA                  //10
-#define ONE_THOUSAND 0x64           //100
-#define TEN_THOUSAND 10000         //1000
-#define TWENTY_THOUSAND 20000    //20000
+#define HUNDRED 0x64                  //10
+#define ONE_THOUSAND 0x3e8           //100
+#define TEN_THOUSAND 0x2710         //1000
+#define TWENTY_THOUSAND 0x4e20     //20000
 
 #include <stdio.h>
 #include <string.h>
@@ -21,7 +21,7 @@
 #include <time.h>
 #include <ctype.h>
 
-typedef struct MassArray    //Descript of Array 
+typedef struct MassArray    //Descript of Array
 {
     int *value;
     unsigned current_size;
@@ -42,15 +42,15 @@ typedef struct Clock_ListTime
     TheTypeOfTimes_ForDifferentSize For_B_Sort;
     TheTypeOfTimes_ForDifferentSize For_I_Sort;
     TheTypeOfTimes_ForDifferentSize For_S_Sort;
-
+    
 }TheArrayList;
 
 /*---------------Types of Operation---------------*/
-void QuickSort(theDescriptionArray *MassOfNumbers,int left,int right);  //Quick Sort
+void quickSort(theDescriptionArray anArray[], int aLeftIndex, int aRightIndex);  //Quick Sort
 void bubbleSort(theDescriptionArray *iArray);
 void selectionSort(theDescriptionArray *iArray);
 void insertionSort(theDescriptionArray *iArray);
-void swap(theDescriptionArray *srcArray,int x,int y);//transposition two elements of array
+void swap(theDescriptionArray anArray[], int aLeftIndex, int aRightIndex); //transposition two elements of array
 /*-------------------------------------------*/
 int line_search(theDescriptionArray *iArray ,unsigned aSize);
 
@@ -62,6 +62,6 @@ void TheSorts_For_DifferentArrays(theDescriptionArray *Small, theDescriptionArra
 void FillingInTypeOfArrays(theDescriptionArray *iArray);
 void Print_To_File (theDescriptionArray *ArrayOfNumbers,unsigned aSize);
 void PrintfTheResultTable(TheArrayList *VariableTime);
-
-
+int rrand(int range_min, int range_max);
+int partitionIt(theDescriptionArray anArray[], int aLeftIndex, int aRightIndex, int aPivot);
 #endif /* Sorting_h */
