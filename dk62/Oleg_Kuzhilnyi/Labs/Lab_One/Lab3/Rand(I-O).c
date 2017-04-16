@@ -7,9 +7,6 @@
 //
 
 #include "Sorting.h"
-#include <stdlib.h>
-#include <string.h>
-#include <memory.h>
 
 theDescriptionArray *createArray(unsigned aSize)
 {

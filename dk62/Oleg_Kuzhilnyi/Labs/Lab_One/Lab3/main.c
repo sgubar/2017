@@ -15,8 +15,10 @@ int main(int argc, const char * argv[])
     theDescriptionArray *BigArray = createArray(TEN_THOUSAND);
     theDescriptionArray *theBiggestArray = createArray(TWENTY_THOUSAND);
 
-    TheSorting_aFourArraysAndPrintTheirTimePerformance(SmallArray,MediumArray,BigArray,theBiggestArray);
+    TheArrayList *TimeTable = TheSorting_aFourArraysAndPrintTheirTimePerformance(SmallArray,MediumArray,BigArray,theBiggestArray);
     
+    PrintfTheResultTable(TimeTable);
+
     float aTime = clock();
     line_search(theBiggestArray,theBiggestArray->current_size);
     float TheTimeResultForLineSearch = TheResultOfTimePoint(aTime); // The time of performance the line search in ms

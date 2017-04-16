@@ -10,7 +10,7 @@
 
 void bubbleSort(theDescriptionArray *iArray)
 {
-    for (int theOut = iArray->current_size-1 ; theOut > 1; theOut --)
+    for (int theOut = iArray->maxSize-1 ; theOut > 1; theOut --)
     {
         for (int theIn = 0; theIn < theOut; theIn ++)
         {
@@ -47,11 +47,11 @@ void insertionSort(theDescriptionArray *iArray)
 
 void selectionSort(theDescriptionArray *iArray)
 {
-    for (int theOut = 0; theOut < iArray->current_size- 1; theOut ++)
+    for (int theOut = 0; theOut < iArray->maxSize- 1; theOut ++)
     {
         int theMinIndex = theOut;
         
-        for (int theIn = theOut + 1; theIn < iArray->current_size; theIn ++)
+        for (int theIn = theOut + 1; theIn < iArray->maxSize; theIn ++)
         {
             if (iArray->value[theIn] < iArray->value[theMinIndex])
             {
@@ -113,53 +113,53 @@ int line_search(theDescriptionArray *iArray ,unsigned aSize)
 
 //-----------------------------------------------------------------------------------------//
 
-void TheSorting_aFourArraysAndPrintTheirTimePerformance(theDescriptionArray *Small, theDescriptionArray *Medium, theDescriptionArray *theBig , theDescriptionArray *TheBiggest)
+TheArrayList *TheSorting_aFourArraysAndPrintTheirTimePerformance(theDescriptionArray *Small, theDescriptionArray *Medium, theDescriptionArray *theBig , theDescriptionArray *TheBiggest)
 {
-    TheArrayList TimeClass ;
     float TheTimeAtTheMoment;
-    
 
+    TheArrayList *TimeClass = (TheArrayList*)malloc(sizeof(TheArrayList)) ;
+    
     FillingInTypeOfArrays(Small);
     TheTimeAtTheMoment = clock();
     insertionSort(Small);
-    TimeClass.For_I_Sort.TheTime[0] = TheResultOfTimePoint(TheTimeAtTheMoment);
+    TimeClass->For_I_Sort.TheTime[0] = TheResultOfTimePoint(TheTimeAtTheMoment);
     
     FillingInTypeOfArrays(Medium);
     TheTimeAtTheMoment = clock();
     insertionSort(Medium);
-    TimeClass.For_I_Sort.TheTime[1] = TheResultOfTimePoint(TheTimeAtTheMoment);
+    TimeClass->For_I_Sort.TheTime[1] = TheResultOfTimePoint(TheTimeAtTheMoment);
     
     FillingInTypeOfArrays(theBig);
     TheTimeAtTheMoment = clock();
     insertionSort(theBig);
-    TimeClass.For_I_Sort.TheTime[2] = TheResultOfTimePoint(TheTimeAtTheMoment);
+    TimeClass->For_I_Sort.TheTime[2] = TheResultOfTimePoint(TheTimeAtTheMoment);
     
     FillingInTypeOfArrays(TheBiggest);
     TheTimeAtTheMoment = clock();
     insertionSort(TheBiggest);
-    TimeClass.For_I_Sort.TheTime[3] = TheResultOfTimePoint(TheTimeAtTheMoment);
+    TimeClass->For_I_Sort.TheTime[3] = TheResultOfTimePoint(TheTimeAtTheMoment);
     
     // -----------------------------------------------------------------------------//  Insertion Sort
     
     FillingInTypeOfArrays(Small);
     TheTimeAtTheMoment = clock();
     bubbleSort(Small);
-    TimeClass.For_B_Sort.TheTime[0] = TheResultOfTimePoint(TheTimeAtTheMoment);
+    TimeClass->For_B_Sort.TheTime[0] = TheResultOfTimePoint(TheTimeAtTheMoment);
     
     FillingInTypeOfArrays(Medium);
     TheTimeAtTheMoment = clock();
     bubbleSort(Medium);
-    TimeClass.For_B_Sort.TheTime[1] = TheResultOfTimePoint(TheTimeAtTheMoment);
+    TimeClass->For_B_Sort.TheTime[1] = TheResultOfTimePoint(TheTimeAtTheMoment);
     
     FillingInTypeOfArrays(theBig);
     TheTimeAtTheMoment = clock();
     bubbleSort(theBig);
-    TimeClass.For_B_Sort.TheTime[2] = TheResultOfTimePoint(TheTimeAtTheMoment);
+    TimeClass->For_B_Sort.TheTime[2] = TheResultOfTimePoint(TheTimeAtTheMoment);
     
     FillingInTypeOfArrays(TheBiggest);
     TheTimeAtTheMoment = clock();
     bubbleSort(TheBiggest);
-    TimeClass.For_B_Sort.TheTime[3] = TheResultOfTimePoint(TheTimeAtTheMoment);
+    TimeClass->For_B_Sort.TheTime[3] = TheResultOfTimePoint(TheTimeAtTheMoment);
     
     // -----------------------------------------------------------------------------//      Bubble Sort
     
@@ -167,22 +167,22 @@ void TheSorting_aFourArraysAndPrintTheirTimePerformance(theDescriptionArray *Sma
     FillingInTypeOfArrays(Small);
     TheTimeAtTheMoment = clock();
     selectionSort(Small);
-    TimeClass.For_S_Sort.TheTime[0] = TheResultOfTimePoint(TheTimeAtTheMoment);
+    TimeClass->For_S_Sort.TheTime[0] = TheResultOfTimePoint(TheTimeAtTheMoment);
     
     FillingInTypeOfArrays(Medium);
     TheTimeAtTheMoment = clock();
     selectionSort(Medium);
-    TimeClass.For_S_Sort.TheTime[1] = TheResultOfTimePoint(TheTimeAtTheMoment);
+    TimeClass->For_S_Sort.TheTime[1] = TheResultOfTimePoint(TheTimeAtTheMoment);
     
     FillingInTypeOfArrays(theBig);
     TheTimeAtTheMoment = clock();
     selectionSort(theBig);
-    TimeClass.For_S_Sort.TheTime[2] = TheResultOfTimePoint(TheTimeAtTheMoment);
+    TimeClass->For_S_Sort.TheTime[2] = TheResultOfTimePoint(TheTimeAtTheMoment);
     
     FillingInTypeOfArrays(TheBiggest);
     TheTimeAtTheMoment = clock();
     selectionSort(TheBiggest);
-    TimeClass.For_S_Sort.TheTime[3] = TheResultOfTimePoint(TheTimeAtTheMoment);
+    TimeClass->For_S_Sort.TheTime[3] = TheResultOfTimePoint(TheTimeAtTheMoment);
   
     
     // -----------------------------------------------------------------------------//  Selection Sort
@@ -190,26 +190,26 @@ void TheSorting_aFourArraysAndPrintTheirTimePerformance(theDescriptionArray *Sma
     FillingInTypeOfArrays(Small);
     TheTimeAtTheMoment = clock();
     quickSort(Small, ZERO, Small->current_size);
-    TimeClass.For_Q_Sort.TheTime[0] = TheResultOfTimePoint(TheTimeAtTheMoment);
+    TimeClass->For_Q_Sort.TheTime[0] = TheResultOfTimePoint(TheTimeAtTheMoment);
     
     FillingInTypeOfArrays(Medium);
     TheTimeAtTheMoment = clock();
     quickSort(Medium, ZERO, Medium->current_size);
-    TimeClass.For_Q_Sort.TheTime[1] = TheResultOfTimePoint(TheTimeAtTheMoment);
+    TimeClass->For_Q_Sort.TheTime[1] = TheResultOfTimePoint(TheTimeAtTheMoment);
     
     FillingInTypeOfArrays(theBig);
     TheTimeAtTheMoment = clock();
     quickSort(theBig, ZERO, theBig->current_size);
-    TimeClass.For_Q_Sort.TheTime[2] = TheResultOfTimePoint(TheTimeAtTheMoment);
+    TimeClass->For_Q_Sort.TheTime[2] = TheResultOfTimePoint(TheTimeAtTheMoment);
     
     FillingInTypeOfArrays(TheBiggest);
     TheTimeAtTheMoment = clock();
     quickSort(TheBiggest, ZERO, TheBiggest->current_size);
-    TimeClass.For_Q_Sort.TheTime[3] = TheResultOfTimePoint(TheTimeAtTheMoment);
+    TimeClass->For_Q_Sort.TheTime[3] = TheResultOfTimePoint(TheTimeAtTheMoment);
     
     // -----------------------------------------------------------------------------//     Quick Sort
     
-    PrintfTheResultTable(&TimeClass);
+    return TimeClass;
     
 }
 
@@ -290,8 +290,6 @@ void PrintfTheResultTable(TheArrayList *VariableTime)
     
 }
 
-
-
 int partitionIt(theDescriptionArray anArray[], int aLeftIndex, int aRightIndex, int aPivot)
 {
     int theLeft = aLeftIndex - 1;
@@ -327,9 +325,11 @@ int partitionIt(theDescriptionArray anArray[], int aLeftIndex, int aRightIndex, 
     return theLeft; // return break position
 }
 
+/*
 void swap(theDescriptionArray anArray[], int aLeftIndex, int aRightIndex)
 {
     int theTmp = anArray->value[aLeftIndex];
     anArray->value[aLeftIndex] = anArray->value[aRightIndex];
     anArray->value[aRightIndex] = theTmp;
 }
+ */

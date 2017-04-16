@@ -69,7 +69,7 @@ float TheResultOfTimePoint(float aTime);
 
 
 
-void TheSorting_aFourArraysAndPrintTheirTimePerformance(theDescriptionArray *Small, theDescriptionArray *Medium, theDescriptionArray *theBig , theDescriptionArray *TheBiggest);
+TheArrayList *TheSorting_aFourArraysAndPrintTheirTimePerformance(theDescriptionArray *Small, theDescriptionArray *Medium, theDescriptionArray *theBig , theDescriptionArray *TheBiggest);
 void FillingInTypeOfArrays(theDescriptionArray *iArray);
 void PrintfTheResultTable(TheArrayList *VariableTime);
 
