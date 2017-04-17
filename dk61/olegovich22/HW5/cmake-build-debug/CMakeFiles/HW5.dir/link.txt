@@ -1,0 +1,3 @@
+"D:\Program Files (x86)\JetBrains\CLion 2016.3.3\bin\cmake\bin\cmake.exe" -E remove -f CMakeFiles\HW5.dir/objects.a
+D:\PROGRA~2\MINGW-~1\I686-6~1.0-P\mingw32\bin\ar.exe cr CMakeFiles\HW5.dir/objects.a @CMakeFiles\HW5.dir\objects1.rsp
+D:\PROGRA~2\MINGW-~1\I686-6~1.0-P\mingw32\bin\gcc.exe  -g   -Wl,--whole-archive CMakeFiles\HW5.dir/objects.a -Wl,--no-whole-archive  -o HW5.exe -Wl,--out-implib,libHW5.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\HW5.dir\linklibs.rsp
