@@ -8,15 +8,16 @@
 int getSize()
 {
     int size=0;
+    int aChek=0;
     printf("Please enter size of array from 2 to 100000\n");
     do
     {
-        int aChek=scanf("%d", &size);
+        aChek=scanf("%d", &size);
         rewind(stdin); //clear buffer in scanf
         if (size<2 || size>100000 || aChek!=1)
             printf("ERROR. Please enter size of array from 2 to 100000\n");
     }
-    while(size<2 || size>100000);
+    while(size<2 || size>100000 || aChek!=1);
 
     return size;
 }

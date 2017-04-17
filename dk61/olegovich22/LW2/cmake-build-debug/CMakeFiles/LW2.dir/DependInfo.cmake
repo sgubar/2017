@@ -8,7 +8,6 @@ set(CMAKE_DEPENDS_CHECK_C
   "D:/CLionProjects/LW2/main.c" "D:/CLionProjects/LW2/cmake-build-debug/CMakeFiles/LW2.dir/main.c.obj"
   "D:/CLionProjects/LW2/sort.c" "D:/CLionProjects/LW2/cmake-build-debug/CMakeFiles/LW2.dir/sort.c.obj"
   "D:/CLionProjects/LW2/sortbyoleg.c" "D:/CLionProjects/LW2/cmake-build-debug/CMakeFiles/LW2.dir/sortbyoleg.c.obj"
-  "D:/CLionProjects/LW2/cmake-build-debug/test.c" "D:/CLionProjects/LW2/cmake-build-debug/CMakeFiles/LW2.dir/test.c.obj"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

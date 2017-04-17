@@ -1,7 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/LW2.dir/main.c.obj"
   "CMakeFiles/LW2.dir/dk_tool.c.obj"
-  "CMakeFiles/LW2.dir/test.c.obj"
   "CMakeFiles/LW2.dir/sortbyoleg.c.obj"
   "CMakeFiles/LW2.dir/sort.c.obj"
   "LW2.pdb"

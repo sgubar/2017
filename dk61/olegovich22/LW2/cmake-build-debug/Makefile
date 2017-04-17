@@ -230,33 +230,6 @@ sortbyoleg.c.s:
 	$(MAKE) -f CMakeFiles\LW2.dir\build.make CMakeFiles/LW2.dir/sortbyoleg.c.s
 .PHONY : sortbyoleg.c.s
 
-test.obj: test.c.obj
-
-.PHONY : test.obj
-
-# target to build an object file
-test.c.obj:
-	$(MAKE) -f CMakeFiles\LW2.dir\build.make CMakeFiles/LW2.dir/test.c.obj
-.PHONY : test.c.obj
-
-test.i: test.c.i
-
-.PHONY : test.i
-
-# target to preprocess a source file
-test.c.i:
-	$(MAKE) -f CMakeFiles\LW2.dir\build.make CMakeFiles/LW2.dir/test.c.i
-.PHONY : test.c.i
-
-test.s: test.c.s
-
-.PHONY : test.s
-
-# target to generate assembly for a file
-test.c.s:
-	$(MAKE) -f CMakeFiles\LW2.dir\build.make CMakeFiles/LW2.dir/test.c.s
-.PHONY : test.c.s
-
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -278,9 +251,6 @@ help:
 	@echo ... sortbyoleg.obj
 	@echo ... sortbyoleg.i
 	@echo ... sortbyoleg.s
-	@echo ... test.obj
-	@echo ... test.i
-	@echo ... test.s
 .PHONY : help
 
 

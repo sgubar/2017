@@ -80,7 +80,7 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="D:/CLionProjects/LW2/cmake-build-debug/test.c">
+		<Unit filename="D:/CLionProjects/LW2">
 			<Option target="LW2"/>
 		</Unit>
 		<Unit filename="D:/CLionProjects/LW2/dk_tool.c">

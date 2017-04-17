@@ -14,5 +14,3 @@ CMakeFiles/LW2.dir/sort.c.obj: ../sort.h
 CMakeFiles/LW2.dir/sortbyoleg.c.obj: ../dk_tool.h
 CMakeFiles/LW2.dir/sortbyoleg.c.obj: ../sortbyoleg.c
 
-CMakeFiles/LW2.dir/test.c.obj: test.c
-

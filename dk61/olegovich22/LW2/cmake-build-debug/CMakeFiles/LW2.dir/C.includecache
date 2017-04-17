@@ -6,10 +6,6 @@
 
 #IncludeRegexTransform: 
 
-D:/CLionProjects/LW2/cmake-build-debug/test.c
-stdio.h
--
-
 D:/CLionProjects/LW2/dk_tool.c
 stdlib.h
 -

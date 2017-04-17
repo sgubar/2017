@@ -125,7 +125,7 @@ double quickSort(int *anArray, int aLeftIndex, int aRightIndex)
         int thePivot = mediana(anArray, aLeftIndex, aRightIndex);
         int thePartitionIndex = partitionIt(anArray, aLeftIndex, aRightIndex, thePivot);
         //left part sorting
-        quickSort(anArray, aLeftIndex, thePartitionIndex);
+        quickSort(anArray, aLeftIndex, thePartitionIndex-1);
         //right part sorting
         quickSort(anArray, thePartitionIndex, aRightIndex);
     }
