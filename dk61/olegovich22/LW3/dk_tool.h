@@ -21,19 +21,13 @@ int *getArray(int size);
 //make copy of array
 int *makeArrayCopy(int *anArray, int size);
 
-//get type of sort
-int getTypeOfSort();
-
-//get type of search
-int getTypeOfSearch();
-
-//get key
-int getKey();
-
 //write the result in the file
 void writeIntoFile(FILE *aFile, int size, int *anArray, int *anArrayForWork, double timeSort, int searchPosition, double timeSearch, int aKey);
 
 //destroy all arrays
 void destroyAllArrays(int *anArray1, int *anArray2);
+
+int get1or2();
+
 
 #endif //LW2_DK_TOOL_H

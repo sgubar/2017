@@ -33,15 +33,20 @@ int main() {
     int *anArrayForWork=makeArrayCopy(anArray, size);
 
     //get type of sorting
-    int choice=getTypeOfSort();
+    printf("Please choose type of sort. Or 1, or 2\n");
+    printf("1 - shellSort\n");
+    printf("2 - quickSort\n");
+    int choice=get1or2();
 
     clock_t theStart = clock();
     if (choice==1)
     {
+        printf("Sorting.... Wait\n");
         shellSort(anArrayForWork, size);
     }
     else if(choice==2)
     {
+        printf("Sorting.... Wait\n");
         quickSort(anArrayForWork, 0, size-1);
     }
     clock_t theEnd = clock();
@@ -50,11 +55,14 @@ int main() {
     double timeSort = (double)(theEnd - theStart)/CLOCKS_PER_SEC;
     printf("An array has been sorted for %lf sec\n", timeSort);
 
-    //get key
+    //get numb which user want to find
     int aKey=getKey();
 
     //get type of search
-    choice=getTypeOfSearch();
+    printf("Please choose type of search. Or 1, or 2\n");
+    printf("1 - line search\n");
+    printf("2 - binary search\n");
+    choice=get1or2();
 
     int searchPosition=0;
     clock_t theStart1 = clock();
@@ -71,18 +79,12 @@ int main() {
     //get time of search
     double timeSearch = (double)(theEnd1 - theStart1)/CLOCKS_PER_SEC;
 
-    if(searchPosition==-1)
-    {
-        printf("An array has not been found your int\n");
-    }
-    else
-    {
-        printf("An array has been found int for %lf sec on %i position\n", timeSearch, searchPosition);
-    }
+    printSearchResult(&timeSearch, searchPosition);
 
     //write all in the file
+    printf("\nWriting in the file..... Wait please\n");
     writeIntoFile(aFile, size, anArray, anArrayForWork, timeSort, searchPosition, timeSearch, aKey);
-    printf("\nAll data have been written in file %s\n", aName);
+    printf("All data have been written in file %s\n", aName);
 
     //free memory
     destroyAllArrays(anArray, anArrayForWork);

@@ -2,6 +2,7 @@
 // Created by Oleh on 26.03.2017.
 //
 #include "sort.h"
+#include <stdio.h>
 
 //declaration function
 void swap(int *theInt1, int *theInt2);
@@ -58,8 +59,9 @@ void quickSort(int *anArray, int aLeftIndex, int aRightIndex)
     {
         int thePivot = mediana(anArray, aLeftIndex, aRightIndex);
         int thePartitionIndex = partitionIt(anArray, aLeftIndex, aRightIndex, thePivot);
+        printf("PARTITIONINT: %i\n", thePartitionIndex);
         //left part sorting
-        quickSort(anArray, aLeftIndex, thePartitionIndex);
+        quickSort(anArray, aLeftIndex, thePartitionIndex-1);
         //right part sorting
         quickSort(anArray, thePartitionIndex, aRightIndex);
     }
@@ -170,3 +172,5 @@ void swap(int *theInt1, int *theInt2)
     *theInt1=*theInt2;
     *theInt2=temp;
 }
+
+

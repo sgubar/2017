@@ -3,7 +3,8 @@
 //
 
 #include "search.h"
-
+#include <stdio.h>
+#include <stdlib.h>
 
 int line_find(int *anArray, int aSize, int aKey)
 {
@@ -34,6 +35,7 @@ int binary_find(int *anArray, int aSize, int aKey)
         if (*(anArray+theCurIn) == aKey) //<!- an element was found
         {
             theResult = theCurIn;
+
             break;
         }
         else if (theLowerBound > theUpperBound) //<!- all elements were viewed
@@ -55,4 +57,37 @@ int binary_find(int *anArray, int aSize, int aKey)
     }
 
     return theResult;
+}
+
+//get key
+int getKey()
+{
+    printf("Please enter int from 0 till 10000 which you want to find in this array\n");
+
+    int aKey=0;
+    int repair=0;
+    do
+    {
+        repair=scanf("%i", &aKey);
+        if (aKey>10000 || aKey<0 || repair!=1)
+        {
+            printf("ERROR. Please enter int from 0 till 10000 which you want to find in this array\n");
+        }
+        fflush(stdin);
+    }while(aKey>10000 || aKey<0 || repair!=1);
+
+    return aKey;
+}
+
+//print search result
+void printSearchResult(double *timeSearch, int searchPosition)
+{
+    if(searchPosition==-1)
+    {
+        printf("Your numb has not been found in array\n");
+    }
+    else
+    {
+        printf("Your numb has been found in array for %lf sec on %i position\n", *timeSearch, searchPosition);
+    }
 }

@@ -11,4 +11,10 @@ int line_find(int *anArray, int aSize, int aKey);
 //binary search
 int binary_find(int *anArray, int aSize, int aKey);
 
+//get key
+int getKey();
+
+//print search result
+void printSearchResult(double *timeSearch, int searchPosition);
+
 #endif //LW3_SEARCH_H

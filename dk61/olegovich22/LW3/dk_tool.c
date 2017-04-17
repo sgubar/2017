@@ -4,8 +4,6 @@
 #include <string.h>
 #include "dk_tool.h"
 
-//declaration
-int getChoice();
 
 //get information from user
 int getSize()
@@ -165,48 +163,6 @@ int *makeArrayCopy(int *anArray, int size)
     return arrayCopy;
 }
 
-//get type of sort
-int getTypeOfSort()
-{
-    printf("Please choose type of sort. Or 1, or 2\n");
-    printf("1 - shellSort\n");
-    printf("2 - quickSort\n");
-
-    int sortChoice=getChoice();
-
-    return sortChoice;
-}
-
-//get type of search
-int getTypeOfSearch()
-{
-    printf("Please choose type of search. Or 1, or 2\n");
-    printf("1 - line search\n");
-    printf("2 - binary search\n");
-
-    int searchChoice=getChoice();
-
-    return searchChoice;
-}
-
-//get key
-int getKey()
-{
-    printf("Please enter int from 0 till 10000 which you want to find in this array\n");
-
-    int Choice=0;
-    int repair=0;
-    do
-    {
-        repair=scanf("%i", &Choice);
-        if (Choice>10000 || Choice<0 || repair!=1)
-        {
-            printf("ERROR. Please enter int from 0 till 10000 which you want to find in this array\n");
-        }
-        fflush(stdin);
-    }while(Choice>10000 || Choice<0 || repair!=1);
-}
-
 //write all in the file
 void writeIntoFile(FILE *aFile, int size, int *anArray, int *anArrayForWork, double timeSort, int searchPosition, double timeSearch, int aKey)
 {
@@ -226,13 +182,13 @@ void writeIntoFile(FILE *aFile, int size, int *anArray, int *anArrayForWork, dou
     //sort data
     fprintf(aFile, "\n");
     fprintf(aFile, "Sort data\n");
-    fprintf(aFile, ";Not sorted array;;Sorted array\n");
-    fprintf(aFile, "Time of Sorting(s);;;%.10lf\n", timeSort);
+    fprintf(aFile, ";Index;Not sorted array;;Sorted array\n");
+    fprintf(aFile, "Time of Sorting(s);;;;%.10lf\n", timeSort);
 
     int m=0;
     while(m<size)
     {
-        fprintf(aFile, ";%d;;%d\n", *(anArray+m), *(anArrayForWork+m));
+        fprintf(aFile, ";%i;%d;;%d\n", m, *(anArray+m), *(anArrayForWork+m));
         m++;
     }
 }
@@ -244,18 +200,19 @@ void destroyAllArrays(int *anArray1, int *anArray2)
     free(anArray2);
 }
 
-//get or 1 or 2
-int getChoice()
+int get1or2()
 {
     int Choice=0;
     int repair=0;
     do
     {
-         repair=scanf("%i", &Choice);
+        repair=scanf("%i", &Choice);
         if (Choice>2 || Choice<1 || repair!=1)
         {
             printf("ERROR. Please make choice or 1 or 2\n");
         }
         fflush(stdin);
     }while(Choice>2 || Choice<1 || repair!=1);
+
+    return Choice;
 }

@@ -35,12 +35,18 @@ time.h
 D:/CLionProjects/LW3/search.c
 search.h
 D:/CLionProjects/LW3/search.h
+stdio.h
+-
+stdlib.h
+-
 
 D:/CLionProjects/LW3/search.h
 
 D:/CLionProjects/LW3/sort.c
 sort.h
 D:/CLionProjects/LW3/sort.h
+stdio.h
+-
 
 D:/CLionProjects/LW3/sort.h
 
