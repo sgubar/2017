@@ -76,7 +76,7 @@ void Print_To_File (theDescriptionArray *ArrayOfNumbers,unsigned aSize)
 {
     
     //  FILE *FileWithoutArray = fopen("/Users/air/Documents/Programming_C/Lab2/Lab2/AfterSort.txt","w");
-    FILE *FileWithArray = fopen("/Users/air/Documents/Programming_C/Lab2/Lab2/AfterSort.txt","a");
+    FILE *FileWithArray = fopen("AfterSort.txt","a");
     
     fprintf(FileWithArray,"\n----------------------------------------------------------------------------------");
     fprintf(FileWithArray,"Array with %i Symbols",aSize);

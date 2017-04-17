@@ -113,7 +113,7 @@ int line_search(theDescriptionArray *iArray ,unsigned aSize)
 
 //-----------------------------------------------------------------------------------------//
 
-TheArrayList *TheSorting_Of_a_FourArrays(theDescriptionArray *Small, theDescriptionArray *Medium, theDescriptionArray *theBig , theDescriptionArray *TheBiggest)
+TheArrayList *TheTimeOfPerformance_aDifferentTypeOfSort_ForFourRandomArrays(theDescriptionArray *Small, theDescriptionArray *Medium, theDescriptionArray *theBig , theDescriptionArray *TheBiggest)
 {
     float TheTimeAtTheMoment;
 

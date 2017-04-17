@@ -15,7 +15,7 @@ int main(int argc, const char * argv[])
     theDescriptionArray *BigArray = createArray(TEN_THOUSAND);
     theDescriptionArray *theBiggestArray = createArray(TWENTY_THOUSAND);
 
-    TheArrayList *TimeTable = TheSorting_Of_a_FourArrays(SmallArray,MediumArray,BigArray,theBiggestArray);
+    TheArrayList *TimeTable = TheTimeOfPerformance_aDifferentTypeOfSort_ForFourRandomArrays(SmallArray,MediumArray,BigArray,theBiggestArray);
     
     PrintTheResultTable(TimeTable);
 
