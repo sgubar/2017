@@ -27,10 +27,8 @@ int main()
 	
 
 	readarraysfromfile(smallarray, mediumarray, largearray, MegaArray);
-
 	linear_search(smallarray, mediumarray, largearray, MegaArray);
-	
-    bubblesorting(smallarray, mediumarray, largearray, MegaArray,BubbleTime);
+        bubblesorting(smallarray, mediumarray, largearray, MegaArray,BubbleTime);
 	insertionsorting(smallarray, mediumarray, largearray, MegaArray, InsertionTime);
 	selectionsorting(smallarray, mediumarray, largearray, MegaArray, SelectionTime);
 	shellsorting(smallarray, mediumarray, largearray, MegaArray, ShellTime);
