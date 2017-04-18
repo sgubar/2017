@@ -140,7 +140,7 @@ int *getArray(int size)
     }
 
     for (int i = 0; i < size; ++i) {
-        *(anArray+i)=rand()%10000;
+        *(anArray+i)=rand()%10001;
     }
     return anArray;
 }
