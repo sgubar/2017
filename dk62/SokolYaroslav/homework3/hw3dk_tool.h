@@ -22,5 +22,4 @@ void print_figura(spisok_figur *myfigura);		//друк структури
 void printinfile_spisok(FILE *file, spisok_figur *myfigura);		//друк списка в файл JSON
 void printinfile_figura(FILE *file, figura *myfigura);
 int inputint(int limit);		//введення та перевірка числа
-float Ploshcha(figura *figura);		//знаходження площі чотирикутника
 #endif
