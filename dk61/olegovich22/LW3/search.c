@@ -35,7 +35,6 @@ int binary_find(int *anArray, int aSize, int aKey)
         if (*(anArray+theCurIn) == aKey) //<!- an element was found
         {
             theResult = theCurIn;
-
             break;
         }
         else if (theLowerBound > theUpperBound) //<!- all elements were viewed

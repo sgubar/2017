@@ -59,7 +59,6 @@ void quickSort(int *anArray, int aLeftIndex, int aRightIndex)
     {
         int thePivot = mediana(anArray, aLeftIndex, aRightIndex);
         int thePartitionIndex = partitionIt(anArray, aLeftIndex, aRightIndex, thePivot);
-        printf("PARTITIONINT: %i\n", thePartitionIndex);
         //left part sorting
         quickSort(anArray, aLeftIndex, thePartitionIndex-1);
         //right part sorting
