@@ -20,5 +20,4 @@ int add_сoord(spisok_figur *myfigura);		//додавання коодинат �
 void delete_spisok_figur(spisok_figur *myfigura);		//видалення структури
 void print_figura(spisok_figur *myfigura);		//друк структури
 int inputint(int limit);		//введення та перевірка числа
-float Ploshcha(figura *figura);		//знаходження площі чотирикутника
 #endif
