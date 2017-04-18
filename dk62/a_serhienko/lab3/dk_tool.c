@@ -375,6 +375,7 @@ int linear_search(char*Sarray, char*Marray, char*Larray, char*MegAarray)
 
 
 		default:
+				printf("bad nakolampocal,good bye!\n");
 			return -1;
 
 		}
