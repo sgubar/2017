@@ -23,7 +23,6 @@ int LengthOfUnsortedArray(char *name)
                 Length++;
             }
         }while(aSmb!=EOF);
-        printf("%i\n", Length);
         fclose(file);
         return Length;
     }
