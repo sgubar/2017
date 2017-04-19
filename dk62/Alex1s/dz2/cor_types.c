@@ -33,7 +33,7 @@ while(true)
 	{
 	char* line = gstring();
 	if(line == NULL)
-		return 1;
+		return DBL_MAX;
 
 	double d;
 	char c;
@@ -58,7 +58,7 @@ while(true)
 	{
 	char* line = gstring();
 	if(line == NULL)
-		return 1;
+		return FLT_MAX;
 	char c;
 	float f;
 	if(sscanf(line, " %f %c", &f, &c) == 1)

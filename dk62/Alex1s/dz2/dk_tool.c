@@ -61,3 +61,33 @@ free(Dots);
 Element->place = NULL;
 free(Element);
 }
+
+//-----------------------------------------------------------------------------------------------------------
+
+void delete_fig(Triangles *Element, Figure *Dots, int i)
+{
+if(i < Element->current_fig)
+	{
+	int k, l;
+	float tmp1, tmp2, tmp3;
+	for(l = i; l < Element->max_fig; l++)
+		{
+		for(k = 0; k < 3; k++)
+			{
+			Element->place = &(Dots[l + 1]);
+			tmp1 = Element->place->x_coor[k];
+			tmp2 = Element->place->y_coor[k];
+			
+			Element->place = &(Dots[l]);
+			Element->place->x_coor[k] = tmp1;
+			Element->place->y_coor[k] = tmp2;
+			}
+		Element->place = &(Dots[l + 1]);
+		tmp3 = Element->place->area;
+		
+		Element->place = &(Dots[l]);
+		Element->place->area = tmp3;
+		}
+	}
+Element->current_fig--;
+}
