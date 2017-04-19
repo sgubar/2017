@@ -49,9 +49,9 @@ while(true)
 		}
 	}
 }
-
+*/
 //-----------------------------------------------------------------------------------------------------------
-
+/*
 float gfloat()
 {
 while(true)
@@ -154,7 +154,7 @@ while((c = fgetc(stdin)) != '\n' && c != EOF)
     	}
     buf[n++] = c;
     }
-if(n == 0 && c == EOF)
+if(!n && c == EOF)
     return NULL;
 char* min = malloc((n + 1) * sizeof(char));
 strncpy(min, buf, n);

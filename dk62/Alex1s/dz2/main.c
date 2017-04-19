@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include <stdbool.h>
 #include "dk_tool.h"
 #include "cor_types.h"
@@ -9,8 +8,8 @@ int main(int argc, const char *argv[])
 {
 printf("Greetings! The program is designed to make a list of triangles.\n");
 printf("You can create 5 different triangles. Enter coordinates\n");
-printf("Program works in loop by 2 steps:\n1) Creating figures;\n");
-printf("2) Try to stop program;\n\n");
+printf("Program works in loop by 3 steps:\n1) Creating figures;\n");
+printf("2) Try to stop program;\n\nYou can add and delete figures more then 5 times.\n");
 
 Triangles *Element = (Triangles *) malloc(sizeof(Triangles));
 if(!Element)
@@ -19,19 +18,11 @@ if(!Element)
 Element->max_fig = 5;
 Element->current_fig = 0;
 
-Element->place = (Figure *) malloc(sizeof(Figure) * Element->max_fig);
-if(!Element->place)
+Figure *Dots = (Figure *) malloc(sizeof(Figure) * Element->max_fig);
+if(!Dots)
 	{
 	free(Element);
 	exit(11);
-	}
-
-Figure *Dots = &(Element->place[Element->current_fig]);
-if(!Dots)
-	{
-	free(Element->place);
-	free(Element);
-	exit(12);
 	}
 
 char arg;
@@ -47,11 +38,32 @@ while(true)
 		arg = gchar();	
 	}while(arg == 'y'|| arg == 'Y');
 	
-	printf("\nAmount of figures: %i\n", Element->current_fig);
-	printf("List of areas:\n\n");
+	printf("\nAmount of figures: %i\nList of areas:\n\n", Element->current_fig);
 	for(i = 0; i < Element->current_fig; i++)
-		printf("%i) %f\n", i, Element->area[i]);
-		
+		{
+		Element->place = &(Dots[i]);
+		printf("%i) %f\n", i, Element->place->area);
+		}
+	
+	printf("\nEnter \"d\" to delete anyone figure.\nEnter: ");
+	fflush(stdin);
+	arg = gchar();	
+	if(arg == 'd' || arg == 'D')
+		do{
+			do{
+				printf("\nEnter number of tringle to delete (0 - 4).\nEnter: ");
+				i = gint();
+			}while(i < 0 || i > Element->current_fig - 1);
+			delete_fig(Element, Dots, i);
+			
+			if(!Element->current_fig)
+				break;
+			
+			printf("\nEnter \"d\" to delete one more figure.\nEnter: ");
+			fflush(stdin);
+			arg = gchar();
+		}while(arg == 'd' || arg == 'D');
+	
 	printf("\nEnter \"e\" to stop working, or else to continue: ");
 	fflush(stdin);
 	arg = gchar();	
@@ -59,6 +71,7 @@ while(true)
 		break;
 	}
 delete_all(Element, Dots);
+
 system("pause");
 return 0;
 }
