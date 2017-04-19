@@ -148,7 +148,7 @@ void PrintFile (int Length, char *MasFile) //print result in file;
 	fclose(file);
 }
 
-int BinarySearch(int length, char *MasFile, int find)
+int BinarySearch(int length, char *MasFile, char find)
 {
 	int Left = 0;
 	int Right = length;
