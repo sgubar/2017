@@ -9,5 +9,5 @@ void selectionSort(int length , char *MasFile);
 void bubbleSort(int length , char *MasFile);
 void insertionSort(int length , char *MasFile);
 void shellSort(int length , char *MasFile);
-int BinarySearch(int length, char *MasFile, int find);
+int BinarySearch(int length, char *MasFile, char find);
 void PrintFile(int Length , char *MasFile);
