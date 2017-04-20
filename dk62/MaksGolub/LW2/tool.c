@@ -8,12 +8,10 @@
 int LengthFile(FILE *aFile) //counting length of file;
 {
 	
-	int length=0;
-	while(fgetc(aFile)!=EOF)
-	{		
-		length++;
-	}	
-	printf("length: %i\n", length);
+	fseek (aFile, 0, SEEK_END);
+    int length = ftell(aFile);
+	printf("length: %d\n", length);
+	
 	return length;
 	
 }
