@@ -44,18 +44,18 @@ int TLIntValueAtIndex(CharList *aList, int anIndex);
 // otherwise 'int' value
 int TLInsertCharSymbolAtIndex(CharList *aList, char *anCharValue, int anIndex);
 
-//int LT_ExtractCharNode(CharList *aList,int anIndex);
+int LT_ExtractCharNode(CharList *aList,int anIndex);
 
 // print list
 void TLPrintList(CharList *aList);
 
-/*
+
 void quickSort(int anArray[], int aLeftIndex, int aRightIndex);
 
 void m_manualSort(int anArray[], int aLeftIndex, int aRightIndex);
 
 int m_partitionIt(int anArray[], int aLeftIndex, int aRightIndex, int aPivot);
-*/
+
 
 //void bubbleSort(CharList *anArray);
 

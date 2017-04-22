@@ -17,39 +17,31 @@ int main(int argc, const char * argv[])
 		return -1;
 	}
 	
+    
 	TLAddCharSymbolToList(theList, "a");
     TLAddCharSymbolToList(theList, "b");
     TLAddCharSymbolToList(theList, "c");
 
     TLAddCharSymbolToList(theList, "d");
 
+    TLAddCharSymbolToList(theList, "e");
 
     
 	TLPrintList(theList);
 	
 	printf ("The value at index %d: %c\n", 3, TLIntValueAtIndex(theList, 3));
     
-	//printf ("The value at index %d: %c\n", 100, TLIntValueAtIndex(theList, 100));
-	
 	printf ("The count of value in the list: %d\n", theList->count);
 	
-    
-	TLInsertCharSymbolAtIndex(theList, "H", 1);
-    
-
 	TLPrintList(theList);
 
-    //LT_ExtractCharNode(theList,3);
+    TLInsertCharSymbolAtIndex(theList,"L",5);
+    LT_ExtractCharNode(theList,0);
     
+    TLPrintList(theList);
+
     printf ("The count of value in the list: %d\n", theList->count);
 
-    
-   // quickSort(theList, theList->head, theList->tail);
-   //  bubbleSort(theList, theList->count);
-
-    
-    
-    
 	TLDestroyIntList(theList);
 	
 	// insert code here...
