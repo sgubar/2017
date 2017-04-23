@@ -62,14 +62,14 @@ void insertionSort(DK_Figures *FigureList)
 }
 
 
-void shellSort(DK_Figures *anArray)
+void shellSort(DK_Figures *FigureList)
 {
     int theInner = 0;
     int theOuter = 0;
     int theH = 1; // start h = 1
     
     //1. Calculate start value of h
-    while (theH <= anArray->current_size/3)
+    while (theH <= FigureList->current_size/3)
     {
         theH = theH*3 + 1; // 1, 4, 13, 40, 121, ....
     }
@@ -77,19 +77,19 @@ void shellSort(DK_Figures *anArray)
     //2. Sequental decrease h to 1
     while (theH > 0)
     {
-        for (theOuter = theH; theOuter < anArray->current_size; theOuter ++)
+        for (theOuter = theH; theOuter < FigureList->current_size; theOuter ++)
         {
-            descriptionOfFigure theTmp = anArray->ListOfFigures[theOuter];
+            descriptionOfFigure theTmp = FigureList->ListOfFigures[theOuter];
             theInner = theOuter;
             
             // the first sub-array {0, 4, 8}
-            while (theInner > theH-1 && CalculateAreaQuadrilateral(&anArray->ListOfFigures[theInner - theH]) >= CalculateAreaQuadrilateral(&theTmp))
+            while (theInner > theH-1 && CalculateAreaQuadrilateral(&FigureList->ListOfFigures[theInner - theH]) >= CalculateAreaQuadrilateral(&theTmp))
             {
-                anArray->ListOfFigures[theInner] = anArray->ListOfFigures[theInner - theH];
+                FigureList->ListOfFigures[theInner] = FigureList->ListOfFigures[theInner - theH];
                 theInner -= theH;
             }
             
-            anArray->ListOfFigures[theInner] = theTmp;
+            FigureList->ListOfFigures[theInner] = theTmp;
         }
         
         theH = (theH - 1) / 3; //decrease h
