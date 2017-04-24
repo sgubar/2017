@@ -29,9 +29,13 @@ scanf("%f",&xD);
 float yD=0; 
 printf("Vodim yD:");
 scanf("%f",&yD);
-
+ printf("Âåä³òü ê³ëüê³ñòü ô³ãóð:");
+	int n=inputint(4);
+	spisok_figur *spisok=new_spisok_figur(9999);
+	for(int i=0; i<n; i++)
+    {
 float xAB=xB -xA;
-float yAB=yB-yA;
+float yAB=yB-yA; 
 float xBC=xC -xB;
 float yBC=yC -yB;
 float xCD=xD-xC;
@@ -53,4 +57,9 @@ float p = (modulAB+modulBC+modulCD+modulDA)/2;
 float S = sqrt((p -modulAB )*(p-modulBC)*(p-modulCD)*(p-modulDA)-modulAB*modulBC*modulCD*modulDA*(A*C)/2);
 printf("Plosha ravno:\n");
 printf("%f",S);
+return 0;
+  add_ñoord(spisok);
+    }
+	print_figura(spisok);
+	delete_spisok_figur(spisok);
 }
