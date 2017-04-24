@@ -62,7 +62,7 @@ void InclusionSort(int arr[],int N){
         }
     }
 }
-void MergeSort(int arr[],int N){
+/*void MergeSort(int arr[],int N){ Frozen until the end of atestation week
     int step = 1;
     int k;
     for(int i = 0; i < N ; i++){
@@ -70,4 +70,4 @@ void MergeSort(int arr[],int N){
 
 
     }
-}
+}*/
