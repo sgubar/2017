@@ -53,7 +53,7 @@ switch(*Atypevalues)
 	}
 
 do{
-    printf("\nEnter number of type of searching:\n0 - All types;\n1 - Line;\n");
+	printf("\nEnter number of type of searching:\n0 - All types;\n1 - Line;\n");
 	printf("2 - Binary;\n\nEnter: ");
 	*Atypesearch = gint();
 }while(*Atypesearch < 0 || *Atypesearch > 2);
@@ -70,9 +70,9 @@ switch(*Atypevalues)
 	case 1:
 		{
 		do{
-   			printf("Enter value to search (between 0 and %i).\n\nEnter: ", *Aarray_size/5);
+   			printf("Enter value to search (between 0 and %i).\n\nEnter: ", *Atypeval_similar);
    			*Avalue = gint();
-   		}while(*Avalue < 0 || *Avalue > *Aarray_size/5);
+   		}while(*Avalue < 0 || *Avalue > *Atypeval_similar);
 		break;
 		}
 	case 2:
@@ -86,7 +86,7 @@ switch(*Atypevalues)
 	case 3:
 		{
 		do{
-   			printf("Enter value to search (between 0 and %i).\n\nEnter: ", *Aarray_size);
+			printf("Enter value to search (between 0 and %i).\n\nEnter: ", *Aarray_size);
    			*Avalue = gint();
    		}while(*Avalue < 0 || *Avalue > *Aarray_size);
 		break;
@@ -250,9 +250,10 @@ switch(typevalues)
 		if(!sort)
 			{
 			printf("Memory Error!!!\n");
+			free(sec_array);
+			free(array);
 			free(sort);
 			free(fal);
-			free(array);
 			exit(20);
 			}
 		strcpy(sort, "Several similar with choise of quantity");
@@ -264,9 +265,10 @@ switch(typevalues)
 		if(!sort)
 			{
 			printf("Memory Error!!!\n");
+			free(sec_array);
+			free(array);
 			free(sort);
 			free(fal);
-			free(array);
 			exit(21);
 			}
 		strcpy(sort, "All random");
@@ -278,9 +280,10 @@ switch(typevalues)
 		if(!sort)
 			{
 			printf("Memory Error!!!\n");
+			free(sec_array);
+			free(array);
 			free(sort);
 			free(fal);
-			free(array);
 			exit(22);
 			}
 		strcpy(sort, "Numbers in opposite order");
@@ -292,9 +295,10 @@ switch(typevalues)
 		if(!sort)
 			{
 			printf("Memory Error!!!\n");
+			free(sec_array);
+			free(array);
 			free(sort);
 			free(fal);
-			free(array);
 			exit(23);
 			}
 		strcpy(sort, "Sorted array with one false value");
@@ -310,9 +314,10 @@ switch(typeval_false)
 		if(!fal)
 			{
 			printf("Memory Error!!!\n");
+			free(sec_array);
+			free(array);
 			free(sort);
 			free(fal);
-			free(array);
 			exit(30);
 			}
 		strcpy(fal, "First element");
@@ -324,10 +329,11 @@ switch(typeval_false)
 		if(!fal)
 			{
 			printf("Memory Error!!!\n");
+			free(sec_array);
+			free(array);
 			free(sort);
 			free(fal);
-			free(array);
-			exit (31);
+			exit(31);
 			}	
 		strcpy(fal, "Center element");
 		break;
@@ -338,9 +344,10 @@ switch(typeval_false)
 		if(!fal)
 			{
 			printf("Memory Error!!!\n");
+			free(sec_array);
+			free(array);
 			free(sort);
 			free(fal);
-			free(array);
 			exit(32);
 			}
 		strcpy(fal, "End of array");
@@ -352,9 +359,10 @@ switch(typeval_false)
 		if(!fal)
 			{
 			printf("Memory Error!!!\n");
+			free(sec_array);
+			free(array);
 			free(sort);
 			free(fal);
-			free(array);
 			exit(33);
 			}
 		strcpy(fal, "Random place");
@@ -373,7 +381,7 @@ switch(typetest)
 	{
 	case 0:
 		{
-		printf("\nPrepering...\n");
+		printf("\nPreparing...\n");
 		}
 	case 1:
 		{
@@ -567,7 +575,7 @@ switch(typesearch)
 	{
 	case 0:
 		{
-		printf("\nPrepering...\n");
+		printf("\nPreparing...\n");
 		}
 	case 1:
 		{

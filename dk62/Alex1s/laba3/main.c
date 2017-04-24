@@ -1,3 +1,4 @@
+#include <time.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -39,8 +40,8 @@ FILE *file = fopen("Results.txt", "w");
 if(!file)
 	{
 	printf("File Error!!!\n");
-	free(array);
 	free(sec_array);
+	free(array);
 	exit(3);
 	}
 
@@ -60,4 +61,3 @@ free(array);
 system("pause");
 return 0;
 }
-

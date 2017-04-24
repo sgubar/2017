@@ -1,6 +1,9 @@
 #include <stdio.h>
+#include <float.h>
 #include <stdlib.h>
+#include <limits.h>
 #include <string.h>
+#include <stdbool.h>
 
 #include "cor_types.h"
 
