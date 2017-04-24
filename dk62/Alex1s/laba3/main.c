@@ -8,7 +8,7 @@
 
 int main(int argc, const char *argv[])
 {
-int array_size, typetest, typevalues, typeval_similar = 0, typeval_false = 0, typesearch, typelin_arr = 0, value;
+int array_size, typetest, typevalues, typeval_similar = 0, typeval_false = 0, typesearch, typelin_arr = 10, value;
 
 printf("Greetings! The program is designed to test the effectiveness of types of ");
 printf("sorting and searching numbers 0-32767(99999).\n");

@@ -56,9 +56,9 @@ do{
     printf("\nEnter number of type of searching:\n0 - All types;\n1 - Line;\n");
 	printf("2 - Binary;\n\nEnter: ");
 	*Atypesearch = gint();
-}while(*Atypetest < 0 || *Atypetest > 2);
+}while(*Atypesearch < 0 || *Atypesearch > 2);
 
-if(*Atypesearch = 0 || *Atypesearch == 1)
+if(*Atypesearch == 0 || *Atypesearch == 1)
 	do{
 		printf("\nEnter type of array for line search:\n0 - All types;\n1 - Sorted;\n");
 		printf("2 - Unsorted;\n\nEnter: ");
@@ -561,28 +561,28 @@ void array_search(FILE *file, int *array, int *sec_array, int array_size, int ty
 clock_t time_start, time_end;
 double time_sort;
 
-fprintf(file, "\nType of searching\tTime\t\t\t\t\t\t\tArray\t\tType of array\t\tValue\t\tResult\n");
-int i = typesearch, j = typelin_arr;
+fprintf(file, "\nType of searching\tTime\t\t\t\t\t\t\tArray\t\tType of array\t\tValue\t\tResult\n\n");
+int i = typesearch, j = typelin_arr, k;
 
 switch(i)
 	{
-	case 0:																		//all
+	case 0:
 		{
 		i++;
 		}
-	case 1:																		//line
+	case 1:
 		{
 		switch(j)
 			{
-			case 0:																//all arr
+			case 0:
 				{
 				j++;
 				}
-			case 1:																//sorted
+			case 1:
 				{
 				printf("Line search in sorted array started...\n");
 				time_start = clock();
-				j = line_search(value, array_size, array);
+				k = line_search(value, array_size, array);
 				time_end = clock();
 				time_sort = (time_end - time_start)/CLOCKS_PER_SEC;
 				printf("Line search in sorted array finished.\n");
@@ -602,19 +602,19 @@ switch(i)
 				else
 					fprintf(file, "%i\t\t", value);
 					
-				if(j >= 0)
-					fprintf(file, "%i\n", j);
+				if(k >= 0)
+					fprintf(file, "%i\n", k);
 				else
 					fprintf(file, "Not founded!\n");
 				
 				if(typelin_arr)
 					break;
 				}
-			case 2:																//unsorted
+			case 2:
 				{
 				printf("Line search in unsorted array started...\n");
 				time_start = clock();
-				j = line_search(value, array_size, sec_array);
+				k = line_search(value, array_size, sec_array);
 				time_end = clock();
 				time_sort = (time_end - time_start)/CLOCKS_PER_SEC;
 				printf("Line search in unsorted array finished.\n");
@@ -634,8 +634,8 @@ switch(i)
 				else
 					fprintf(file, "%i\t\t", value);
 				
-				if(j >= 0)
-					fprintf(file, "%i\n", j);
+				if(k >= 0)
+					fprintf(file, "%i\n", k);
 				else
 					fprintf(file, "Not founded!\n");
 				
@@ -646,11 +646,11 @@ switch(i)
 		if(typesearch)
 			break;
 		}
-	case 2:																		//binary
+	case 2:
 		{
 		printf("Binary search in sorted array started...\n");
 		time_start = clock();
-		i = binary_search(value, array_size, array);
+		k = binary_search(value, array_size, array);
 		time_end = clock();
 		time_sort = (time_end - time_start)/CLOCKS_PER_SEC;
 		printf("Binary search in sorted array finished.\n");
@@ -670,8 +670,8 @@ switch(i)
 		else
 			fprintf(file, "%i\t\t", value);
 		
-		if(i >= 0)
-			fprintf(file, "%i\n", i);
+		if(k >= 0)
+			fprintf(file, "%i\n", k);
 		else
 			fprintf(file, "Not founded!\n");
 		
