@@ -1,13 +1,13 @@
-Type of sorting		Time							Array		Type of unsorted array
+Type of sorting		Time					Array		Type of unsorted array
 
-Bubblesort			61.000000000000000000 sec		100000		All random
-Mergesort			0.000000000000000000 sec		100000		All random
+Bubblesort		61.000000000000000000 sec		100000		All random
+Mergesort		0.000000000000000000 sec		100000		All random
 Insertionsort		13.000000000000000000 sec		100000		All random
 Selectionsort		21.000000000000000000 sec		100000		All random
-Shellsort			0.000000000000000000 sec		100000		All random
-Quicksort			0.000000000000000000 sec		100000		All random
+Shellsort		0.000000000000000000 sec		100000		All random
+Quicksort		0.000000000000000000 sec		100000		All random
 
 Type of searching	Time							Array		Type of array		Value		Result
-Line search			0.000000000000000000 sec		100000		Sorted				8123		24837
-Line search			0.000000000000000000 sec		100000		Unsorted			8123		5602
+Line search		0.000000000000000000 sec		100000		Sorted				8123		24837
+Line search		0.000000000000000000 sec		100000		Unsorted			8123		5602
 Binary search		0.000000000000000000 sec		100000		Sorted				8123		24839
