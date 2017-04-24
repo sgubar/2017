@@ -3,8 +3,8 @@
 
 int main(int argc, const char *argv[])
 {
-koordunatu* A = xy_koordunatu();
-enter(A);
+koordunatu* A = (koordunatu*)malloc(sizeof(koordunatu));
+  enter(A);
 
 float S = calculate(A);
 printf("\nResult: %.12f\n", S); 
