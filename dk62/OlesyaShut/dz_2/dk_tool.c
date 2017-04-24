@@ -7,13 +7,7 @@
 
 
 koordunatu* xy_koordunatu()
-{
-	koordunatu* A = (koordunatu*)malloc(sizeof(koordunatu));
-	if(NULL != A)
-		memset(A, 0, sizeof(koordunatu));
-	
-	return A;
-}
+
 
 
 void enter(koordunatu *AA)
