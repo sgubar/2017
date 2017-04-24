@@ -369,16 +369,15 @@ if(typeval_false)
 else
 	fprintf(file, "\n\n");
 
-int i = typetest;
-switch(i)
+switch(typetest)
 	{
 	case 0:
 		{
-		i++;
+		printf("\nPrepering...\n");
 		}
 	case 1:
 		{
-		printf("\nBubble sort started...\n");
+		printf("Bubble sort started...\n");
 		time_start = clock();
 		bubblesort(array, array_size);
 		time_end = clock();
@@ -562,21 +561,20 @@ clock_t time_start, time_end;
 double time_sort;
 
 fprintf(file, "\nType of searching\tTime\t\t\t\t\t\t\tArray\t\tType of array\t\tValue\t\tResult\n\n");
-int i = typesearch, j = typelin_arr, k;
+int k;
 
-switch(i)
+switch(typesearch)
 	{
 	case 0:
 		{
-		i++;
+		printf("\nPrepering...\n");
 		}
 	case 1:
 		{
-		switch(j)
+		switch(typelin_arr)
 			{
 			case 0:
 				{
-				j++;
 				}
 			case 1:
 				{
