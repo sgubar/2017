@@ -26,6 +26,13 @@ int main(int argc, const char * argv[])
 
     TLAddCharSymbolToList(theList, "e");
 
+    TLAddCharSymbolToList(theList, "f");
+    TLAddCharSymbolToList(theList, "r");
+    TLAddCharSymbolToList(theList, "m");
+    
+    TLAddCharSymbolToList(theList, "o");
+    
+    TLAddCharSymbolToList(theList, "i");
     
 	TLPrintList(theList);
 	
@@ -40,6 +47,11 @@ int main(int argc, const char * argv[])
     
     TLPrintList(theList);
 
+    
+    bubbleSort(theList);
+    TLPrintList(theList);
+
+    
     printf ("The count of value in the list: %d\n", theList->count);
 
 	TLDestroyIntList(theList);

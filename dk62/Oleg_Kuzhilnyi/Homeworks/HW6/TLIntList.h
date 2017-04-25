@@ -49,6 +49,7 @@ int LT_ExtractCharNode(CharList *aList,int anIndex);
 // print list
 void TLPrintList(CharList *aList);
 
+void bubbleSort(CharList *anArray);
 
 void quickSort(int anArray[], int aLeftIndex, int aRightIndex);
 
