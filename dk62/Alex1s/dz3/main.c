@@ -26,13 +26,27 @@ if(!Dots)
 	}
 
 char arg;
-int i, f = 0;
+int i, j = 0, f = 0;
 
-FILE *file = fopen("result.json", "w");
+FILE *file = fopen("data.json", "w");
+if(!file)
+	{
+	free(Dots);
+	free(Element);
+	exit(12);
+	}
 
 while(true)
 	{
 	do{
+		if(j)
+			{
+			printf("\nEnter \"t\" to create new triangle.\nEnter: ");
+			fflush(stdin);
+			arg = gchar();
+			if(arg != 't' && arg != 'T')
+				break;
+			}
 		printf("\nCreating tringle[%i]...\n\n", Element->current_fig);
 		make_triangle(Element, Dots);
 		printf("Enter \"y\" to add one more figure, or else for next step.\nEnter: ");
@@ -40,31 +54,41 @@ while(true)
 		arg = gchar();	
 	}while(arg == 'y'|| arg == 'Y');
 	
-	printf("\nAmount of figures: %i\nList of areas:\n\n", Element->current_fig);
-	for(i = 0; i < Element->current_fig; i++)
+	printf("\nAmount of figures: %i\n", Element->current_fig);
+	if(Element->current_fig)
 		{
-		Element->place = &(Dots[i]);
-		printf("%i) %f\n", i, Element->place->area);
+		printf("List of areas:\n\n");
+		for(i = 0; i < Element->current_fig; i++)
+			{
+			Element->place = &(Dots[i]);
+			printf("%i) %f\n", i, Element->place->area);
+			}
 		}
 	
-	printf("\nEnter \"d\" to delete anyone figure.\nEnter: ");
-	fflush(stdin);
-	arg = gchar();	
-	if(arg == 'd' || arg == 'D')
-		do{
+	if(Element->current_fig)
+		{
+		printf("\nEnter \"d\" to delete anyone figure.\nEnter: ");
+		fflush(stdin);
+		arg = gchar();	
+		if(arg == 'd' || arg == 'D')
 			do{
-				printf("\nEnter number of tringle to delete (0 - 4).\nEnter: ");
-				i = gint();
-			}while(i < 0 || i > Element->current_fig - 1);
-			delete_fig(Element, Dots, i);
-			
-			if(!Element->current_fig)
-				break;
-			
-			printf("\nEnter \"d\" to delete one more figure.\nEnter: ");
-			fflush(stdin);
-			arg = gchar();
-		}while(arg == 'd' || arg == 'D');
+				do{
+					if(Element->current_fig == 1)
+						printf("\nEnter number of tringle to delete (0).\nEnter: ");
+					else
+						printf("\nEnter number of tringle to delete (0 - %i).\nEnter: ", Element->current_fig - 1);
+					i = gint();
+				}while(i < 0 || i > Element->current_fig - 1);
+				delete_fig(Element, Dots, i);
+				
+				if(!Element->current_fig)
+					break;
+				
+				printf("\nEnter \"d\" to delete one more figure.\nEnter: ");
+				fflush(stdin);
+				arg = gchar();
+			}while(arg == 'd' || arg == 'D');
+		}
 	
 	printf("\nEnter \"f\" to add information to file.\nEnter: ");
 	fflush(stdin);
@@ -72,6 +96,7 @@ while(true)
 	if(arg == 'f' || arg == 'F')
 		file_triangle(file, Element, Dots, &f);
 	
+	j++;
 	printf("\nEnter \"e\" to stop working, or else to continue: ");
 	fflush(stdin);
 	arg = gchar();	
@@ -82,6 +107,7 @@ delete_all(Element, Dots);
 
 fflush(file);
 fclose(file);
+
 system("pause");
 return 0;
 }

@@ -88,32 +88,34 @@ if(i < Element->current_fig)
 		Element->place = &(Dots[l]);
 		Element->place->area = tmp3;
 		}
+	Element->current_fig--;
 	}
-Element->current_fig--;
 }
 
 //-----------------------------------------------------------------------------------------------------------
 
 void file_triangle(FILE *file, Triangles *Element, Figure *Dots, int *f)
 {
-fprintf(file, "Record #%i.\n", *f);
-if(!(*f))
-	fprintf(file, "Max size: %i;\n", Element->max_fig);
+fprintf(file, "{\"Record\":%i,", *f);
+fprintf(file, "\"Max size\":%i,", Element->max_fig);
 
 (*f)++;
-fprintf(file, "Current size: %i;\n", Element->current_fig);
+fprintf(file, "\"Current size\":%i", Element->current_fig);
 
 if(Element->current_fig)
 	{
 	int l;
+	fprintf(file, ",\"Triangles\":[\n");
+
 	for(l = 0; l < Element->current_fig; l++)
 		{
 		Element->place = &(Dots[l]);
-		fprintf(file, "\nFigure #%i\nArea: %f\n", l, Element->place->area);
-		fprintf(file, "Dot [0]: %f\t%f\n", Element->place->x_coor[0], Element->place->y_coor[0]);
-		fprintf(file, "Dot [1]: %f\t%f\n", Element->place->x_coor[1], Element->place->y_coor[1]);
-		fprintf(file, "Dot [2]: %f\t%f\n", Element->place->x_coor[2], Element->place->y_coor[2]);
+		fprintf(file, "{\"Area\":%.3f},", Element->place->area);
+		fprintf(file, "{\"Dot[0]\":%.3f  %.3f},", Element->place->x_coor[0], Element->place->y_coor[0]);
+		fprintf(file, "{\"Dot[1]\":%.3f  %.3f},", Element->place->x_coor[1], Element->place->y_coor[1]);
+		fprintf(file, "{\"Dot[2]\":%.3f  %.3f}\n", Element->place->x_coor[2], Element->place->y_coor[2]);
 		}
+	fprintf(file, "]");
 	}
-fprintf(file, "//------------------------------------------------------------------------------\n");
+fprintf(file, "}\n");
 }
