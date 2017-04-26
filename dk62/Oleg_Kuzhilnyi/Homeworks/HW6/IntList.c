@@ -257,25 +257,34 @@ CharNode *createCharNodeWithSymbol(char CharSymbol)
 	
 	return theNode;
 }
-/*
+
+
 void bubbleSort(CharList *anArray)
 {
-    CharList *anArray = NULL;
+    CharNode *TheNode = anArray->head;
+
+    //CharNode *Count = (CharNode*)malloc(sizeof(CharNode));
     
-    for (int theOut = aSize - 1; theOut > 1; theOut --)
+    for (int theOut = anArray->count - 1; theOut > 1 && NULL != anArray; theOut --)
     {
+        TheNode = TheNode->next;
+
         for (int theIn = 0; theIn < theOut; theIn ++)
         {
-            if (anArray[theIn] > anArray[theIn + 1])
+
+            if (anArray->head > anArray->head->next)
             {
-                int theTmp = anArray[theIn];
-                anArray[theIn] = anArray[theIn + 1];
-                anArray[theIn + 1] = theTmp;
+               
+                CharNode *thetmp = TheNode ;
+                TheNode = TheNode->next;
+                TheNode->next = thetmp;
+                
             }
+     
         }
     }
 }
- */
+
 /*
 int mediana(int anArray[], int aLeftIndex, int aRightIndex)
 {
