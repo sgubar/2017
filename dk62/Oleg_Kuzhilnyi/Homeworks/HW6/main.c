@@ -18,24 +18,26 @@ int main(int argc, const char * argv[])
 	}
 	
     
+    TLAddCharSymbolToList(theList, "i");
 	TLAddCharSymbolToList(theList, "a");
-    TLAddCharSymbolToList(theList, "b");
+    TLAddCharSymbolToList(theList, "o");
+    TLAddCharSymbolToList(theList, "f");
+
     TLAddCharSymbolToList(theList, "c");
+    TLAddCharSymbolToList(theList, "m");
 
     TLAddCharSymbolToList(theList, "d");
 
-    TLAddCharSymbolToList(theList, "e");
-
-    TLAddCharSymbolToList(theList, "f");
+    TLAddCharSymbolToList(theList, "b");
     TLAddCharSymbolToList(theList, "r");
-    TLAddCharSymbolToList(theList, "m");
     
-    TLAddCharSymbolToList(theList, "o");
+    TLAddCharSymbolToList(theList, "e");
     
-    TLAddCharSymbolToList(theList, "i");
-    
+    printf("\t\t\t Before Sorting\n");
+
 	TLPrintList(theList);
 	
+    /*
 	printf ("The value at index %d: %c\n", 3, TLIntValueAtIndex(theList, 3));
     
 	printf ("The count of value in the list: %d\n", theList->count);
@@ -46,18 +48,19 @@ int main(int argc, const char * argv[])
     LT_ExtractCharNode(theList,0);
     
     TLPrintList(theList);
-
+    */
+    
     
     bubbleSort(theList);
+
+    printf("\t\t\t After Sorting\n");
     TLPrintList(theList);
 
     
     printf ("The count of value in the list: %d\n", theList->count);
 
 	TLDestroyIntList(theList);
-	
-	// insert code here...
-	printf("Hello, World!\n");
+
 
 	return 0;
 }

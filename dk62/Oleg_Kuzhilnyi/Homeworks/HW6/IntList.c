@@ -261,28 +261,21 @@ CharNode *createCharNodeWithSymbol(char CharSymbol)
 
 void bubbleSort(CharList *anArray)
 {
-    CharNode *TheNode = anArray->head;
-
-    //CharNode *Count = (CharNode*)malloc(sizeof(CharNode));
+    CharNode *TheNodeList = anArray->head;
     
-    for (int theOut = anArray->count - 1; theOut > 1 && NULL != anArray; theOut --)
-    {
-        TheNode = TheNode->next;
-
-        for (int theIn = 0; theIn < theOut; theIn ++)
+    for (CharNode *theOut = TheNodeList; theOut ; theOut = theOut->next)
+        for (CharNode *theIn = TheNodeList; theIn; theIn = theIn->next)
         {
 
-            if (anArray->head > anArray->head->next)
+            if (theOut->value < theIn->value)
             {
-               
-                CharNode *thetmp = TheNode ;
-                TheNode = TheNode->next;
-                TheNode->next = thetmp;
+                char thetmp = theOut->value ;
+                theOut->value = theIn->value;
+                theIn->value = thetmp;
                 
             }
      
         }
-    }
 }
 
 /*
