@@ -266,54 +266,47 @@ void bubbleSort(CharList *anArray)
     for (CharNode *theOut = TheNodeList; theOut ; theOut = theOut->next)
         for (CharNode *theIn = TheNodeList; theIn; theIn = theIn->next)
         {
-
             if (theOut->value < theIn->value)
             {
                 char thetmp = theOut->value ;
                 theOut->value = theIn->value;
                 theIn->value = thetmp;
-                
             }
      
         }
 }
 
-/*
-int mediana(int anArray[], int aLeftIndex, int aRightIndex)
+
+
+void quickSort(CharList anArray[], int aLeftIndex, int aRightIndex)
 {
-    int theCenter = (aLeftIndex + aRightIndex) / 2;
-    
-    if (anArray[aLeftIndex] > anArray[theCenter])
+    if (aRightIndex - aLeftIndex <= 0)
     {
-        swap(anArray, aLeftIndex, theCenter);
+        return; // the array size equals to 1 - the array is fully sorted
     }
     
-    if (anArray[aLeftIndex] > anArray[aRightIndex])
-    {
-        swap(anArray, aLeftIndex, aRightIndex);
-    }
+    char thePivot = TLIntValueAtIndex(anArray,aRightIndex);
+    int thePartitionIndex = partitionIt(anArray, aLeftIndex, aRightIndex, thePivot);
     
-    if (anArray[theCenter] > anArray[aRightIndex])
-    {
-        swap(anArray, theCenter, aRightIndex);
-    }
+    //left part sorting
+    quickSort(anArray, aLeftIndex, thePartitionIndex - 1);
     
-    swap(anArray, theCenter, aRightIndex - 1);
-    
-    return anArray[aRightIndex - 1];
+    //right part sorting
+    quickSort(anArray, thePartitionIndex + 1, aRightIndex);
 }
-int m_partitionIt(int anArray[], int aLeftIndex, int aRightIndex, int aPivot)
+
+int partitionIt(CharList anArray[], int aLeftIndex, int aRightIndex, char aPivot)
 {
-    int theLeft = aLeftIndex;
-    int theRight = aRightIndex - 1;
-    
+    char theLeft = aLeftIndex - 1;
+    char theRight = aRightIndex;
+
     while (1)
     {
         // search the bigest element
-        while (anArray[++theLeft] < aPivot);
+        while (TLIntValueAtIndex(anArray,++theLeft) < aPivot);
         
         // search the lowest element
-        while (anArray[--theRight] > aPivot);
+        while (theRight > 0 && TLIntValueAtIndex(anArray,--theRight) > aPivot);
         
         if (theLeft >= theRight) // pointer are the same
         {
@@ -322,78 +315,27 @@ int m_partitionIt(int anArray[], int aLeftIndex, int aRightIndex, int aPivot)
         else
         {
             //lets to swap elements
-            swap(anArray, theLeft, theRight);
+            CharNode *theNode = theNode->next;
+
+            char theTmp = theNode->value;
+            theNode->value = theNode->next->value;
+            theNode->next->value = theTmp;
+            
+            /*
+            char theTmp = anArray->value[theLeft];
+            anArray->value[theLeft] = anArray->value[theRight];
+            anArray->value[theRight] = theTmp;
+             */
         }
     }
-    
+    CharNode *theNode = theNode->next;
+
     //lets to swap elements
-    swap(anArray, theLeft, aRightIndex - 1);
+    char theTmp = theNode->value;
+    theNode->value = theNode->next->value;
+    theNode->next->value = theTmp;
+    
     
     return theLeft; // return break position
 }
 
-void quickSort(CharList anArray[], CharList aLeftIndex, CharList aRightIndex)
-{
-    int theSize = aRightIndex - aLeftIndex + 1;
-    
-    if (theSize <= 3)
-    {
-        m_manualSort(anArray, aLeftIndex, aRightIndex);
-    }
-    else
-    {
-        int thePivot = mediana(anArray, aLeftIndex, aRightIndex);
-        int thePartitionIndex = m_partitionIt(anArray, aLeftIndex, aRightIndex, thePivot);
-        
-        //left part sorting
-        quickSort(anArray, aLeftIndex, thePartitionIndex - 1);
-        
-        //right part sorting
-        quickSort(anArray, thePartitionIndex + 1, aRightIndex);
-    }
-}
-
-void m_manualSort(int anArray[], int aLeftIndex, int aRightIndex)
-{
-    int theSize = aRightIndex - aLeftIndex + 1;
-    
-    if (theSize <= 1)
-    {
-        return;
-    }
-    
-    if (2 == theSize)
-    {
-        if (anArray[aLeftIndex] > anArray[aRightIndex])
-        {
-            swap(anArray, aLeftIndex, aRightIndex);
-        }
-        return ;
-    }
-    else
-    {
-        // 3 elementes
-        if (anArray[aLeftIndex] > anArray[aRightIndex - 1])
-        {
-            swap(anArray, aLeftIndex, aRightIndex - 1);
-        }
-        
-        if (anArray[aLeftIndex] > anArray[aRightIndex])
-        {
-            swap(anArray, aLeftIndex, aRightIndex);
-        }
-        
-        if (anArray[aRightIndex - 1] > anArray[aRightIndex])
-        {
-            swap(anArray, aRightIndex - 1, aRightIndex);
-        }
-    }
-}
-
-void swap(CharList *anArray, CharNode aLeftIndex, CharNode aRightIndex)
-{
-    CharNode theTmp = anArray-> [aLeftIndex];
-    anArray[aLeftIndex] = anArray[aRightIndex];
-    anArray[aRightIndex] = theTmp;
-}
-*/

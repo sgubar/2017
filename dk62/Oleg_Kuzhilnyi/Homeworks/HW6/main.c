@@ -51,7 +51,9 @@ int main(int argc, const char * argv[])
     */
     
     
-    bubbleSort(theList);
+    quickSort( theList ,  0, theList->count);
+
+    //bubbleSort(theList);
 
     printf("\t\t\t After Sorting\n");
     TLPrintList(theList);

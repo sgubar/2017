@@ -51,11 +51,11 @@ void TLPrintList(CharList *aList);
 
 void bubbleSort(CharList *anArray);
 
-void quickSort(int anArray[], int aLeftIndex, int aRightIndex);
+void quickSort(CharList anArray[], int aLeftIndex, int aRightIndex);
 
 void m_manualSort(int anArray[], int aLeftIndex, int aRightIndex);
 
-int m_partitionIt(int anArray[], int aLeftIndex, int aRightIndex, int aPivot);
+int partitionIt(CharList anArray[], int aLeftIndex, int aRightIndex, char aPivot);
 
 
 //void bubbleSort(CharList *anArray);
