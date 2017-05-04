@@ -170,6 +170,8 @@ void list()
     }while (choice!=10);
 
     printf("Thanks for using this List!\n");
+    printf("End version of your list \n");
+    printList(aList);
     destroyIntList(aList);
 
 }
