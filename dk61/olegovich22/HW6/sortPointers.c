@@ -188,11 +188,12 @@ void swapNodes(intList *aList, int index1, int index2)
 
     intNode *node1=searchNodeByIndex(aList, index1);
     intNode *node2=searchNodeByIndex(aList, index2);
-    intNode *theTmp=createIntNodeWithValue(0);
+    intNode *theTmpPrev=node1->prev;
+    intNode *theTmpNext=node1->next;
 
     //save tmp pointers
-    theTmp->prev=node1->prev;
-    theTmp->next=node1->next;
+    //theTmp->prev=node1->prev;
+    //theTmp->next=node1->next;
 
     int cheker=index1-index2;
     if(cheker==-1)
@@ -206,9 +207,9 @@ void swapNodes(intList *aList, int index1, int index2)
         node1->prev=node2;
 
         if(index1!=0)
-            theTmp->prev->next=node2;
+            theTmpPrev->next=node2;
 
-        node2->prev=theTmp->prev;
+        node2->prev=theTmpPrev;
     }
     else
     {
@@ -224,16 +225,16 @@ void swapNodes(intList *aList, int index1, int index2)
 
         //change pointers node2 from tmp pointers
         if(index1!=0)
-            theTmp->prev->next=node2;
+            theTmpPrev->next=node2;
 
-        node2->prev=theTmp->prev;
-        node2->next=theTmp->next;
+        node2->prev=theTmpPrev;
+        node2->next=theTmpNext;
 
         if(index1!=aList->count-1)
-            theTmp->next->prev=node2;
+            theTmpNext->prev=node2;
 
     }
-    free(theTmp);
+    //free(theTmp);
 
     if(index1==0)
     {
