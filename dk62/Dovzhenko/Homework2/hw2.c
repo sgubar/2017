@@ -20,7 +20,7 @@ SphereList * createSphereList(int aSize)
 	return newList;
 }
 
-int addSphere(SphereList *aSphere, int x,int y, int z, int R) //the function transfer list and set the parameters Sphere
+int createnewSpheree(SphereList *aSphere, int x,int y, int z, int R) //the function transfer list and set the parameters Sphere
 {
 	if(NULL != aSphere && 0 < R) //check whether generated list and radius  more 0
 	{
