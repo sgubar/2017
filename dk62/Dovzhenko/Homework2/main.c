@@ -6,11 +6,11 @@ int main()
 {
 	SphereList * Sphere = createSphereList(7);
 	
-	addSphere(Sphere, 2, 2, 2, 5);
-	addSphere(Sphere, 3, 3, 3, 4);
-	addSphere(Sphere, 5, 8, 5, 7);
-	addSphere(Sphere, 1, 1, 0, 2);
-	addSphere(Sphere, 6, 5, 4, 1);
+	createnewSphere(Sphere, 2, 2, 2, 5);
+	createnewSphere(Sphere, 3, 3, 3, 4);
+	createnewSphere(Sphere, 5, 8, 5, 7);
+	createnewSphere(Sphere, 1, 1, 0, 2);
+	createnewSphere(Sphere, 6, 5, 4, 1);
 	
 	int a;
 	for(a=0; a<5; a++)
