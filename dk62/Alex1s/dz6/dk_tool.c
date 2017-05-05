@@ -109,6 +109,7 @@ if(!(head->next))
 
 while(head->next->next)
 	head = head->next;
+
 return head;
 }
 
@@ -121,6 +122,7 @@ if(!head || !tmp)
 
 while(head->next != tmp && !(head->next))
 	head = head->next;
+
 return head;
 }
 
@@ -128,13 +130,10 @@ return head;
 
 int delLast_pop(Node **head)
 {
-Node *last = NULL;
-if(!head)
+if(!head || !(*head))
     exit(-10);
-if(!(*head))
-	exit(-11);
 
-last = getPre_last(*head);
+Node *last = getPre_last(*head);
 int val = last->value;
 if(!last)
 	{
@@ -175,10 +174,8 @@ head->next = tmp;
 
 int del_el(Node **head, int num)
 {
-if(!head)
+if(!head || !(*head))
     exit(-12);
-if(!(*head))
-	exit(-13);
 
 if(!num)
     return delFirst_pop(head);
@@ -199,7 +196,7 @@ else
 void delList(Node **head)
 {
 if(!head)
-    exit(-14);
+    exit(-13);
 
 Node* last = NULL;
 while((*head)->next)
@@ -216,7 +213,7 @@ free(*head);
 void getVal_arr(Node **head, int *anArray, int aSize)
 {
 if(!anArray || !aSize)
-    exit(-15);
+    exit(-14);
 
 do{
     crFirst_push(head, anArray[--aSize]);
@@ -228,7 +225,7 @@ do{
 int *getVal_list(Node *head)
 {
 if(!head)
-    exit(-16);
+    exit(-15);
 
 int i, len = getLength(head);
 int *aArray = (int *) malloc(sizeof(int) * len);
@@ -245,7 +242,7 @@ return aArray;
 void printList(Node *head)
 {
 if(!head)
-    exit(-17);
+    exit(-16);
 
 while(head)
 	{
@@ -260,7 +257,7 @@ printf("\n");
 int getLength(Node *head)
 {
 if(!head)
-    exit(-18);
+    exit(-17);
 
 int i = 0;
 while(head)
@@ -276,7 +273,7 @@ return i;
 void change_el(Node *head, int num, int val)
 {
 if(!head)
-    exit(-19);
+    exit(-18);
 
 int i = 0;
 while(i++ < num && head->next)
@@ -290,7 +287,7 @@ head->value = val;
 void qSortList(Node *left, Node *right)
 {
 if(!left || !right)
-    exit(-20);
+    exit(-19);
 
 if(left == right)
     return;
@@ -329,8 +326,9 @@ else
 void swap_el(Node *a, Node *b)
 {
 if(!a || !b)
-    exit(-21);
-if(a == b)
+    exit(-20);
+
+if(a == b || a->value == b->value)
 	return;
 
 int tmp = a->value;

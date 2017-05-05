@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 #include "dk_tool.h"
 #include "cor_types.h"
 
@@ -239,6 +240,13 @@ switch(arg)
 		srand(time(NULL));
 		for(i = 0; i < 21; i++)
     		crFirst_push(&head, rand());
+		
+		printf("\nAmount of elements: %i\n", getLength(head));
+		printf("Linked list:\n");
+		printList(head);
+		
+		printf("\nDeleting [10] node...\n");
+		del_el(&head, 10);
 		
 		printf("\nAmount of elements: %i\n", getLength(head));
 		printf("Linked list:\n");

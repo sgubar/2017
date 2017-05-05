@@ -1,10 +1,5 @@
-#ifndef _COR_TYPES_H
-#define _COR_TYPES_H
-
-#include <float.h>
-#include <limits.h>
-#include <stdbool.h>
-#include <stdlib.h>
+#ifndef cor_types_h
+#define cor_types_h
 
 char gch(void);
 double gdbl(void);

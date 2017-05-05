@@ -1,6 +1,9 @@
 #include <stdio.h>
+#include <float.h>
 #include <stdlib.h>
 #include <string.h>
+#include <limits.h>
+#include <stdbool.h>
 
 #include "cor_types.h"
 
@@ -141,8 +144,7 @@ while(true)
 void gstring(char *min)
 {
 char *buf = NULL;
-unsigned int cp = 0;
-unsigned int n = 0;
+unsigned int cp = 0, n = 0;
 int c;
 
 while((c = fgetc(stdin)) != '\n' && c != EOF)
@@ -177,6 +179,7 @@ if(!n && c == EOF)
 min = realloc(min, sizeof(char) * (n + 1));
 strncpy(min, buf, n);
 free(buf);
+
 min[n] = '\0';
 }
 
