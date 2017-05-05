@@ -7,7 +7,7 @@
 
 SphereList * createSphereList(int aSize)
 {
-	SphereList *newList = (SphereList *)malloc(sizeof(SphereList)); //select  memory to create a list
+	SphereList *newList = (SphereList *)malloc(sizeof(SphereList)); //distinguish  memories to create a list
 	
 	if(newList != NULL)
 	{
@@ -22,7 +22,7 @@ SphereList * createSphereList(int aSize)
 
 int createnewSphere(SphereList *aSphere, int x,int y, int z, int R) //the function transfer list and set the parameters Sphere
 {
-	if(NULL != aSphere && 0 < R) //check whether generated list and radius  more 0
+	if(NULL != aSphere && 0 < R) //check is there the list and radius  more 0
 	{
 		if(aSphere -> currentSize < aSphere->size)
 		{
