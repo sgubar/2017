@@ -238,7 +238,7 @@ switch(arg)
 		int i;
 		printf("\nCreating linked list...\n");
 		srand(time(NULL));
-		for(i = 0; i < 21; i++)
+		for(i = 0; i < 16; i++)
     		crFirst_push(&head, rand());
 		
 		printf("\nAmount of elements: %i\n", getLength(head));
@@ -247,6 +247,13 @@ switch(arg)
 		
 		printf("\nDeleting [10] node...\n");
 		del_el(&head, 10);
+		
+		printf("\nAmount of elements: %i\n", getLength(head));
+		printf("Linked list:\n");
+		printList(head);
+		
+		printf("\nCreating [7] node...\n");
+		insert_el(head, 7, 77777);
 		
 		printf("\nAmount of elements: %i\n", getLength(head));
 		printf("Linked list:\n");
