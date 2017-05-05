@@ -167,6 +167,11 @@ void list()
 
         }
 
+        if(choice!=10)
+        {
+            printf("\nChoose act from 1 to 10\n");
+        }
+
     }while (choice!=10);
 
     printf("Thanks for using this List!\n");
