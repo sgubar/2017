@@ -4,6 +4,7 @@
 #include "sortValues.h"
 
 #define errorEmptyList printf("U can't do any act when list is empty. Add values to list!\n")
+#define errorWithMemory printf("ERROR Value haven't been added. Your computer havan't enough memory or another error.\n")
 
 //declarations
 int getAnswer();
@@ -15,6 +16,9 @@ int getFromUser1or2();
 void list()
 {
     intList *aList=createIntList();
+
+    if(aList==NULL)
+        return;
 
     int choice=0;
 
@@ -44,8 +48,14 @@ void list()
         {
             case 1:
                 printf("You chose add int to list\n");
-                addIntValueToList(aList, getIntFromUser());
+                chek=addIntValueToList(aList, getIntFromUser());
+
+                if(chek==-1)
+                    errorWithMemory;
+
                 printList(aList);
+
+
                 break;
 
             case 2:
@@ -80,8 +90,11 @@ void list()
                 aList->count==0
                     ?errorEmptyList
                     :(printf("You chose insert int in list at index\n"),
-                        insertIntValueAtIndex(aList, getIntFromUser(),getIndexFromUser(aList)),
+                        chek=insertIntValueAtIndex(aList, getIntFromUser(),getIndexFromUser(aList)),
                         printList(aList));
+
+                if(chek==-1)
+                    errorWithMemory;
 
                 break;
 

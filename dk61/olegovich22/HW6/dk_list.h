@@ -37,7 +37,7 @@ int insertIntValueAtIndex(intList *aList, int anIntValue, int anIndex);
 
 // -1 if the value was not inserted to the list
 // otherwise 0
-int deleteIntValueAtIndex(intList *aList, int anIndex);
+void deleteIntValueAtIndex(intList *aList, int anIndex);
 
 // -1 if the value was not inserted to the list
 // otherwise 0

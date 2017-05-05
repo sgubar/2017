@@ -91,6 +91,8 @@ int insertIntValueAtIndex(intList *aList, int anIntValue, int anIndex)
 
     // a b c ^ d(1) => a ->d->b c
     intNode *aNewNode=createIntNodeWithValue(anIntValue);
+    if(aNewNode==NULL)
+        return theResult;
 
     if(anIndex==0)
     {
@@ -121,13 +123,12 @@ int insertIntValueAtIndex(intList *aList, int anIntValue, int anIndex)
 }
 
 //delete int value in list by index
-int deleteIntValueAtIndex(intList *aList, int anIndex)
+void deleteIntValueAtIndex(intList *aList, int anIndex)
 {
-    int theResult=-1;
-
     if(aList==NULL || anIndex>=aList->count || anIndex<0)
     {
-        return theResult;
+        printf("You have wrong index or problem with list\n");
+        return;
     }
 
     if(aList->count==1)
@@ -159,13 +160,9 @@ int deleteIntValueAtIndex(intList *aList, int anIndex)
         free(aNode);
     }
     aList->count--;
-
-    theResult=0;
-
-    return theResult;
-
 }
 
+//delete int value
 int deleteIntValue(intList *aList, int key)
 {
     int index=searchKeyPosition(aList, key);
