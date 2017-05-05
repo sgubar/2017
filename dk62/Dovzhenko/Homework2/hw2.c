@@ -7,7 +7,7 @@
 
 SphereList * createSphereList(int aSize)
 {
-	SphereList *newList = (SphereList *)malloc(sizeof(SphereList)); //виділення пам*яті для створення списку
+	SphereList *newList = (SphereList *)malloc(sizeof(SphereList)); //select  memory to create a list
 	
 	if(newList != NULL)
 	{
@@ -20,16 +20,16 @@ SphereList * createSphereList(int aSize)
 	return newList;
 }
 
-int addSphere(SphereList *aSphere, int x,int y, int z, int R) //в функцію передаємо  створенні списки і параметри сфери
+int addSphere(SphereList *aSphere, int x,int y, int z, int R) //the function transfer list and set the parameters Sphere
 {
-	if(NULL != aSphere && 0 < R) //перевірка на створення списку і чи радіус більше 0
+	if(NULL != aSphere && 0 < R) //check whether generated list and radius  more 0
 	{
 		if(aSphere -> currentSize < aSphere->size)
 		{
 			SpherePosition *theSphere = &(aSphere->spheres[aSphere->currentSize]);
 			if( NULL != theSphere) 
 			{
-				theSphere -> x = x; //заповнюємо масив
+				theSphere -> x = x; //fill the array
 				theSphere -> y = y;
 				theSphere -> z = z;
 				theSphere -> R = R;
