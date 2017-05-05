@@ -13,6 +13,11 @@ CMakeFiles/HW6.dir/main.c.obj: ../dk_list.h
 CMakeFiles/HW6.dir/main.c.obj: ../dk_tool.h
 CMakeFiles/HW6.dir/main.c.obj: ../main.c
 
+CMakeFiles/HW6.dir/simple_dk_tool.c.obj: ../dk_list.h
+CMakeFiles/HW6.dir/simple_dk_tool.c.obj: ../simple_dk_tool.c
+CMakeFiles/HW6.dir/simple_dk_tool.c.obj: ../sortPointers.h
+CMakeFiles/HW6.dir/simple_dk_tool.c.obj: ../sortValues.h
+
 CMakeFiles/HW6.dir/sortPointers.c.obj: ../dk_list.h
 CMakeFiles/HW6.dir/sortPointers.c.obj: ../sortPointers.c
 CMakeFiles/HW6.dir/sortPointers.c.obj: ../sortPointers.h

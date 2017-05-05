@@ -4,6 +4,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/HW6.dir/sortValues.c.obj"
   "CMakeFiles/HW6.dir/sortPointers.c.obj"
   "CMakeFiles/HW6.dir/dk_list.c.obj"
+  "CMakeFiles/HW6.dir/simple_dk_tool.c.obj"
   "HW6.pdb"
   "HW6.exe"
   "HW6.exe.manifest"

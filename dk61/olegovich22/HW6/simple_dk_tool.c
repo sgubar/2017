@@ -1,8 +1,9 @@
+
 #include "dk_list.h"
 #include "stdio.h"
 #include "sortPointers.h"
 #include "sortValues.h"
-
+/*
 #define errorEmptyList printf("U can't do any act when list is empty. Add values to list!\n")
 
 //declarations
@@ -30,31 +31,18 @@ void list()
     printf("9 - sort list by quick sort\n");
     printf("10 - exit\n");
 
-    //declaration of variable
-    int chek=0; //use in 3 case
-    int theInt=0; //use in 5 case
-    int result=0; //use in 6 case
-    int answer=0; //use in 8,9 cases
-
     do
     {
         choice=getAnswer();
-
         switch (choice)
         {
             case 1:
-                printf("You chose add int to list\n");
                 addIntValueToList(aList, getIntFromUser());
                 printList(aList);
                 break;
 
             case 2:
-
-                aList->count==0
-                    ?errorEmptyList
-                    :(printf("You chose delete int from list at index\n"),
-                        deleteIntValueAtIndex(aList, getIndexFromUser(aList)),
-                        printList(aList));
+                aList->count==0 ?errorEmptyList :deleteIntValueAtIndex(aList, getIndexFromUser(aList)), printList(aList);
                 break;
 
             case 3:
@@ -65,8 +53,7 @@ void list()
                 }
                 else
                 {
-                    printf("You chose delete int from list\n");
-                    chek= deleteIntValue(aList, getIntFromUser());
+                    int chek= deleteIntValue(aList, getIntFromUser());
                     if (chek==-1)
                     {
                         printf("This list hasn't this value\n");
@@ -77,66 +64,101 @@ void list()
 
             case 4:
 
-                aList->count==0
-                    ?errorEmptyList
-                    :(printf("You chose insert int in list at index\n"),
-                        insertIntValueAtIndex(aList, getIntFromUser(),getIndexFromUser(aList)),
-                        printList(aList));
-
+                aList->count==0 ?errorEmptyList :insertIntValueAtIndex(aList, getIntFromUser(), getIndexFromUser(aList)), printList(aList);
                 break;
 
             case 5:
 
-                aList->count==0
-                    ?errorEmptyList
-                    :(printf("You chose show int value at index\n"),
-                        theInt=intValueAtIndex(aList, getIndexFromUser(aList)),
-                        printf("On this index value=%i\n", theInt));
+                if(aList->count==0)
+                {
+                    errorEmptyList;
+                }
+                else
+                {
+                    int theInt=intValueAtIndex(aList, getIndexFromUser(aList));
+                    printf("On this index value=%i\n", theInt);
+                }
                 break;
 
             case 6:
 
-                aList->count==0
-                    ?errorEmptyList
-                    :(printf("You chose search int in list\n"),
-                        result=searchKeyPosition(aList, getIntFromUser()),
-                        (result==-1 ?printf("This list hasn't this value\n") :printf("The value has been found on %i position\n", result)));
-
+                if(aList->count==0)
+                {
+                    errorEmptyList;
+                }
+                else
+                {
+                    int result=searchKeyPosition(aList, getIntFromUser());
+                    if (result==-1)
+                    {
+                        printf("This list hasn't this value\n");
+                    }
+                    else
+                    {
+                        printf("The value has been found on %i position\n", result);
+                    }
+                }
                 break;
 
             case 7:
 
-                aList->count==0 ?errorEmptyList :(printf("You chose print list\n"), printList(aList));
+                aList->count==0 ?errorEmptyList :printList(aList);
                 break;
 
             case 8:
 
-                aList->count==0
-                    ?errorEmptyList
-                    :(printf("You chose sort list by shell sort\n"),
-                        answer=getFromUser1or2(),
-                        (answer==1 ?shellSortPointers(aList) :shellSortValues(aList)),
-                        printList(aList));
+                if(aList->count==0)
+                {
+                    errorEmptyList;
+                }
+                else
+                {
+                    int answer=getFromUser1or2();
+                    if(answer==1)
+                    {
+                        shellSortPointers(aList);
+                    }
+                    else if(answer==2)
+                    {
+                        shellSortValues(aList);
+                    }
+                    printList(aList);
+                }
                 break;
 
             case 9:
 
-                aList->count==0
-                ?errorEmptyList
-                :(printf("You chose sort list by shell sort\n"),
-                        answer=getFromUser1or2(),
-                        (answer==1 ?quickSortPointers(aList, 0, aList->count-1) :quickSortValues(aList, 0, aList->count-1)),
-                        printList(aList));
+                if(aList->count==0)
+                {
+                    errorEmptyList;
+                }
+                else
+                {
+                    int answer=getFromUser1or2();
+                    if(answer==1)
+                    {
+                        quickSortPointers(aList, 0, aList->count-1);
+                    }
+                    else if(answer==2)
+                    {
+                        quickSortValues(aList, 0, aList->count-1);
+                    }
+                    printList(aList);
+                }
                 break;
 
             default:
                 break;
         }
 
+
         if(choice!=10)
             printf("\nChoose act from 1 to 10\n");
 
+
+
     }while (choice!=10);
+
 
     printf("Thanks for using this List!\n");
     if (aList->count!=0)
@@ -223,4 +245,4 @@ int getFromUser1or2()
     }while(chek!=1 || answer<1 || answer>2);
 
     return answer;
-}
+}*/

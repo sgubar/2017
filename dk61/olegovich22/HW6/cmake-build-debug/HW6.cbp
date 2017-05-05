@@ -95,6 +95,9 @@
 		<Unit filename="D:/CLionProjects/HW6/main.c">
 			<Option target="HW6"/>
 		</Unit>
+		<Unit filename="D:/CLionProjects/HW6/simple_dk_tool.c">
+			<Option target="HW6"/>
+		</Unit>
 		<Unit filename="D:/CLionProjects/HW6/sortPointers.c">
 			<Option target="HW6"/>
 		</Unit>

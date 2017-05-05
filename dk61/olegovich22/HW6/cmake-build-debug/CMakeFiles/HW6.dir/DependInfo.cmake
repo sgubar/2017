@@ -7,6 +7,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "D:/CLionProjects/HW6/dk_list.c" "D:/CLionProjects/HW6/cmake-build-debug/CMakeFiles/HW6.dir/dk_list.c.obj"
   "D:/CLionProjects/HW6/dk_tool.c" "D:/CLionProjects/HW6/cmake-build-debug/CMakeFiles/HW6.dir/dk_tool.c.obj"
   "D:/CLionProjects/HW6/main.c" "D:/CLionProjects/HW6/cmake-build-debug/CMakeFiles/HW6.dir/main.c.obj"
+  "D:/CLionProjects/HW6/simple_dk_tool.c" "D:/CLionProjects/HW6/cmake-build-debug/CMakeFiles/HW6.dir/simple_dk_tool.c.obj"
   "D:/CLionProjects/HW6/sortPointers.c" "D:/CLionProjects/HW6/cmake-build-debug/CMakeFiles/HW6.dir/sortPointers.c.obj"
   "D:/CLionProjects/HW6/sortValues.c" "D:/CLionProjects/HW6/cmake-build-debug/CMakeFiles/HW6.dir/sortValues.c.obj"
   )

@@ -203,6 +203,33 @@ main.c.s:
 	$(MAKE) -f CMakeFiles\HW6.dir\build.make CMakeFiles/HW6.dir/main.c.s
 .PHONY : main.c.s
 
+simple_dk_tool.obj: simple_dk_tool.c.obj
+
+.PHONY : simple_dk_tool.obj
+
+# target to build an object file
+simple_dk_tool.c.obj:
+	$(MAKE) -f CMakeFiles\HW6.dir\build.make CMakeFiles/HW6.dir/simple_dk_tool.c.obj
+.PHONY : simple_dk_tool.c.obj
+
+simple_dk_tool.i: simple_dk_tool.c.i
+
+.PHONY : simple_dk_tool.i
+
+# target to preprocess a source file
+simple_dk_tool.c.i:
+	$(MAKE) -f CMakeFiles\HW6.dir\build.make CMakeFiles/HW6.dir/simple_dk_tool.c.i
+.PHONY : simple_dk_tool.c.i
+
+simple_dk_tool.s: simple_dk_tool.c.s
+
+.PHONY : simple_dk_tool.s
+
+# target to generate assembly for a file
+simple_dk_tool.c.s:
+	$(MAKE) -f CMakeFiles\HW6.dir\build.make CMakeFiles/HW6.dir/simple_dk_tool.c.s
+.PHONY : simple_dk_tool.c.s
+
 sortPointers.obj: sortPointers.c.obj
 
 .PHONY : sortPointers.obj
@@ -275,6 +302,9 @@ help:
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
+	@echo ... simple_dk_tool.obj
+	@echo ... simple_dk_tool.i
+	@echo ... simple_dk_tool.s
 	@echo ... sortPointers.obj
 	@echo ... sortPointers.i
 	@echo ... sortPointers.s

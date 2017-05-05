@@ -130,7 +130,14 @@ int deleteIntValueAtIndex(intList *aList, int anIndex)
         return theResult;
     }
 
-    if(anIndex==0)
+    if(aList->count==1)
+    {
+        intNode *aNode=aList->head;
+        aList->head=NULL;
+        aList->tail=NULL;
+        free(aNode);
+    }
+    else if(anIndex==0)
     {
         intNode *aNode=aList->head;
         aList->head=aList->head->next;
@@ -189,7 +196,7 @@ void printList(intList *aList)
 {
     if(aList==NULL || aList->count==0)
     {
-        printf("List haven't elements\n");
+        printf("Your List haven't elements\n");
         return;
     }
 
