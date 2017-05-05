@@ -293,7 +293,7 @@ if(left == right)
     return;
 
 else if(left->next == right && left->value > right->value)
-        swap_el(left, right);
+    swap_el(left, right);
 
 else
 	{
