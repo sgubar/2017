@@ -19,7 +19,7 @@ typedef struct List
 
 SphereList * createSphereList(int aSize);
 void removeSphereList(SphereList *aSphere);
-int addSphere(SphereList *aSphere, int x,int y,int z , int R);
+int createnewSphere(SphereList *aSphere, int x,int y,int z , int R);
 float Squareareas(SpherePosition * theSphere);
 
 #endif
