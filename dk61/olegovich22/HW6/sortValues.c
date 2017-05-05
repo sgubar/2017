@@ -44,13 +44,13 @@ void shellSortValues(intList *aList)
             {
                 // anArray[theInner] = anArray[theInner - theH];
 
-                intNode *node1=searchNodeByIndex(aList, theInner);
-                intNode *node2=searchNodeByIndex(aList, theInner-theH);
+                intNode *node1=intNodeAtIndex(aList, theInner);
+                intNode *node2=intNodeAtIndex(aList, theInner-theH);
                 node1->value=node2->value;
 
                 theInner -= theH;
             }
-            intNode *node1=searchNodeByIndex(aList, theInner);
+            intNode *node1=intNodeAtIndex(aList, theInner);
             node1->value = theTmp;
         }
 
@@ -183,8 +183,8 @@ void m_manualSortV(intList *aList, int aLeftIndex, int aRightIndex)
 
 void swapValues(intList *aList, int index1, int index2)
 {
-    intNode *node1=searchNodeByIndex(aList, index1);
-    intNode *node2=searchNodeByIndex(aList, index2);
+    intNode *node1=intNodeAtIndex(aList, index1);
+    intNode *node2=intNodeAtIndex(aList, index2);
 
     int tmp=node1->value;
     node1->value=node2->value;

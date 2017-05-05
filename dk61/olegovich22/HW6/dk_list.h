@@ -51,7 +51,7 @@ int intValueAtIndex(intList *aList, int anIndex);
 void printList(intList *aList);
 
 //search node
-intNode *searchNodeByIndex(intList *aList, int anIndex);
+intNode *intNodeAtIndex(intList *aList, int anIndex);
 
 //create node
 intNode *createIntNodeWithValue(int anIntValue);

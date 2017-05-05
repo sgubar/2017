@@ -105,7 +105,7 @@ int insertIntValueAtIndex(intList *aList, int anIntValue, int anIndex)
     }
     else
     {
-        intNode *aNode=searchNodeByIndex(aList, anIndex);
+        intNode *aNode=intNodeAtIndex(aList, anIndex);
         aNewNode->next=aNode;
         aNewNode->prev=aNode->prev;
         aNode->prev->next=aNewNode;
@@ -153,7 +153,7 @@ int deleteIntValueAtIndex(intList *aList, int anIndex)
     }
     else
     {
-        intNode *aNode=searchNodeByIndex(aList, anIndex);
+        intNode *aNode=intNodeAtIndex(aList, anIndex);
         aNode->prev->next=aNode->next;
         aNode->next->prev=aNode->prev;
         free(aNode);
@@ -186,7 +186,7 @@ int intValueAtIndex(intList *aList, int anIndex)
         return -1;
     }
 
-    intNode *aNode=searchNodeByIndex(aList, anIndex);
+    intNode *aNode=intNodeAtIndex(aList, anIndex);
 
     return aNode->value;
 }
@@ -216,7 +216,7 @@ void printList(intList *aList)
 }
 
 //return address of node which user to need
-intNode *searchNodeByIndex(intList *aList, int anIndex)
+intNode *intNodeAtIndex(intList *aList, int anIndex)
 {
     if(aList==NULL || aList->count==0)
     {

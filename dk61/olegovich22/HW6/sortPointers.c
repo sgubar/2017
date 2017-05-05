@@ -186,8 +186,8 @@ void swapNodes(intList *aList, int index1, int index2)
         index2=tmp;
     }
 
-    intNode *node1=searchNodeByIndex(aList, index1);
-    intNode *node2=searchNodeByIndex(aList, index2);
+    intNode *node1=intNodeAtIndex(aList, index1);
+    intNode *node2=intNodeAtIndex(aList, index2);
     intNode *theTmpPrev=node1->prev;
     intNode *theTmpNext=node1->next;
 
