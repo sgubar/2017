@@ -330,6 +330,8 @@ void swap_el(Node *a, Node *b)
 {
 if(!a || !b)
     exit(-21);
+if(a == b)
+	return;
 
 int tmp = a->value;
 a->value = b->value;
