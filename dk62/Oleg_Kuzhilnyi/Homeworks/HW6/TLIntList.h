@@ -38,24 +38,24 @@ int TLAddCharSymbolToList(CharList *aList, char *anCharSymbol);
 
 // -1 if the value was not added to the list
 // otherwise 0
-int TLIntValueAtIndex(CharList *aList, int anIndex);
+char FindElementAtIndex(CharList *aList, int anIndex);
 
 // MaxInteger if value is not found
 // otherwise 'int' value
 int TLInsertCharSymbolAtIndex(CharList *aList, char *anCharValue, int anIndex);
 
-int LT_ExtractCharNode(CharList *aList,int anIndex);
+int LT_DeleteCharNode(CharList *aList,int anIndex);
 
 // print list
 void TLPrintList(CharList *aList);
 
 void bubbleSort(CharList *anArray);
 
-void quickSort(CharList anArray[], int aLeftIndex, int aRightIndex);
+//void quickSort(CharList anArray[], int aLeftIndex, int aRightIndex);
 
-void m_manualSort(int anArray[], int aLeftIndex, int aRightIndex);
+//void m_manualSort(int anArray[], int aLeftIndex, int aRightIndex);
 
-int partitionIt(CharList anArray[], int aLeftIndex, int aRightIndex, char aPivot);
+//int partitionIt(CharList anArray[], int aLeftIndex, int aRightIndex, char aPivot);
 
 
 //void bubbleSort(CharList *anArray);

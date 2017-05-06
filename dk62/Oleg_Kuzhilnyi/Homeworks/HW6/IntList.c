@@ -86,32 +86,34 @@ int TLAddCharSymbolToList(CharList *aList, char *anCharSymbol)
 }
 
 
-int TLIntValueAtIndex(CharList *aList, int anIndex)
+char FindElementAtIndex(CharList *aList, int anIndex)
 {
-	int theResult = INT_MAX;
+	 char theResult = '\0';
 	
 	if (NULL == aList || anIndex >= aList->count)
 	{
 		return theResult;
 	}
 	
+    int i = 0;
 	CharNode *theNode = aList->head;
-	int i = 1;
 	
 	do
 	{
 		if (i == anIndex)
 		{
+            theResult = theNode->value;
 			break;
 		}
 	
+        i++;
 		theNode = theNode->next;
-		i++;
 	
 	}while (NULL != theNode);
 	
-	return theNode->value;
+    return theResult;
 }
+
 
 // print list
 void TLPrintList(CharList *aList)
@@ -195,7 +197,7 @@ int TLInsertCharSymbolAtIndex(CharList *aList, char *anCharValue, int anIndex)
 }
 
 
-int LT_ExtractCharNode(CharList *aList,int anIndex)
+int LT_DeleteCharNode(CharList *aList,int anIndex)
 {
     int theResult = -1;
     
@@ -204,39 +206,46 @@ int LT_ExtractCharNode(CharList *aList,int anIndex)
         return theResult;
     }
     
-    CharNode *theNode = aList->head;
     int i = 1;
+    CharNode *theNode = aList->head;
     
     do
     {
         if (i == anIndex)
         {
+            if(0 == anIndex)
+            {
+                theNode = theNode->next;
+           
+                CharNode *theBNode = theNode; //указатель на след элемент после головы
+                
+                aList->head = theBNode->next;
+
+                //aList->head = theBNode->next;//указатель на голову присв указателю на след - след элемент
+
+                theNode->next = NULL;
+                
+            }else if(aList->count-1 == anIndex)
+            {
+                theNode->next = NULL;
+                
+            }else if(NULL != theNode)
+            {
+                CharNode *thePrevNode = theNode; //текущий
+                
+                theNode = theNode->next;    //следующий
+
+                thePrevNode->next = theNode->next;
+                theNode->next = NULL;
+            }
+            free(theNode);
             break;
+
         }
-        
-    theNode = theNode->next;
-    i++;
+        i++;
+        theNode = theNode->next;
         
     }while (NULL != theNode);
-
-        if(anIndex == 0)
-        {
-            theNode = aList->head;
-            CharNode *theBNode = theNode;
-            aList->head = theBNode->next;
-            
-            
-        }else if(aList->count-1 == anIndex)
-        {
-            theNode->next = NULL;
-            
-        }else if(NULL != theNode)
-            
-        {
-          theNode->next = theNode->next->next;
-          theNode = NULL;
-       
-      }
     
     aList->count --;
     theResult = 0;
@@ -275,7 +284,60 @@ void bubbleSort(CharList *anArray)
      
         }
 }
+/*
 
+int partitionIt(CharList anArray[], int aLeftIndex, int aRightIndex, char aPivot)
+{
+ 
+    char theLeft = aLeftIndex - 1;
+    char theRight = aRightIndex;
+ 
+    
+    CharNode *theLeft = TLIntValueAtIndex(anArray, aLeftIndex-1);
+    CharNode *theRight = TLIntValueAtIndex(anArray, aRightIndex);
+    
+                DoubleElement *theNextLeft = theLeft-> nextElement;
+				DoubleElement *thePreviousLeft = theLeft->previousElement;
+				DoubleElement *theNextRight = theRight->nextElement;
+				DoubleElement *thePreviousRight = theRight->previousElement;
+    
+    while (1)
+    {
+        // search the bigest element
+        while (TLIntValueAtIndex(anArray,++theLeft) < aPivot);
+        
+        // search the lowest element
+        while (theRight > 0 && TLIntValueAtIndex(anArray,--theRight) > aPivot);
+        
+        if (theLeft >= theRight) // pointer are the same
+        {
+            break;
+        }
+        else
+        {
+            //lets to swap elements
+            
+            char theTmp = theNode->value;
+            theNode->value = theNode->next->value;
+            theNode->next->value = theTmp;
+            
+    
+             char theTmp = anArray->value[theLeft];
+             anArray->value[theLeft] = anArray->value[theRight];
+             anArray->value[theRight] = theTmp;
+ 
+        }
+    }
+    CharNode *theNode = theNode->next;
+    
+    //lets to swap elements
+    char theTmp = theNode->value;
+    theNode->value = theNode->next->value;
+    theNode->next->value = theTmp;
+    
+    
+    return theLeft; // return break position
+}
 
 
 void quickSort(CharList anArray[], int aLeftIndex, int aRightIndex)
@@ -295,47 +357,4 @@ void quickSort(CharList anArray[], int aLeftIndex, int aRightIndex)
     quickSort(anArray, thePartitionIndex + 1, aRightIndex);
 }
 
-int partitionIt(CharList anArray[], int aLeftIndex, int aRightIndex, char aPivot)
-{
-    char theLeft = aLeftIndex - 1;
-    char theRight = aRightIndex;
-
-    while (1)
-    {
-        // search the bigest element
-        while (TLIntValueAtIndex(anArray,++theLeft) < aPivot);
-        
-        // search the lowest element
-        while (theRight > 0 && TLIntValueAtIndex(anArray,--theRight) > aPivot);
-        
-        if (theLeft >= theRight) // pointer are the same
-        {
-            break;
-        }
-        else
-        {
-            //lets to swap elements
-            CharNode *theNode = theNode->next;
-
-            char theTmp = theNode->value;
-            theNode->value = theNode->next->value;
-            theNode->next->value = theTmp;
-            
-            /*
-            char theTmp = anArray->value[theLeft];
-            anArray->value[theLeft] = anArray->value[theRight];
-            anArray->value[theRight] = theTmp;
-             */
-        }
-    }
-    CharNode *theNode = theNode->next;
-
-    //lets to swap elements
-    char theTmp = theNode->value;
-    theNode->value = theNode->next->value;
-    theNode->next->value = theTmp;
-    
-    
-    return theLeft; // return break position
-}
-
+*/
