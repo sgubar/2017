@@ -105,38 +105,22 @@ intNode *findNodeWithValue(intTree *aTree, int aValue)
         int counter=1;
 
         intNode *theCurrent=aTree->root;
-        while(1)
+        while(theCurrent->value!=aValue)
         {
-            if(theCurrent->value==aValue)
+            theCurrent=(theCurrent->value>aValue
+                        ?(addWayValueToList(aList, "left_Child_Lev", counter), theCurrent=theCurrent->leftChild)
+                        :(addWayValueToList(aList, "right_Child_Lev", counter), theCurrent=theCurrent->rightChild));
+
+            if(theCurrent==NULL)
             {
-                theResult=theCurrent;
-                printList(aList);
+                printf("Not found\n");
                 break;
             }
-            else if(theCurrent->value>aValue)
-            {
-                if(theCurrent->leftChild==NULL)
-                {
-                    printf("Not found\n");
-                    break;
-                }
-                addWayValueToList(aList, "left_Child_Lev", counter);
-                theCurrent=theCurrent->leftChild;
-            }
-            else if(theCurrent->value<aValue)
-            {
-                if(theCurrent->rightChild==NULL)
-                {
-                    printf("Not found\n");
-                    break;
-                }
-                addWayValueToList(aList, "right_Child_Lev", counter);
-                theCurrent=theCurrent->rightChild;
-            }
-
             counter++;
-
         }
+
+        if(theCurrent!=NULL)
+        printList(aList);
 
         destroyWayList(aList);
     }
@@ -147,7 +131,7 @@ intNode *findNodeWithValue(intTree *aTree, int aValue)
 
 void printTree(intTree *aTree)
 {
-
+    
 }
 
 
