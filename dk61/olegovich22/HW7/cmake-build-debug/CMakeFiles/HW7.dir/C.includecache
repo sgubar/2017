@@ -9,12 +9,26 @@
 D:/CLionProjects/HW7/dk_tool.c
 dk_tool.h
 D:/CLionProjects/HW7/dk_tool.h
+dk_tree.h
+D:/CLionProjects/HW7/dk_tree.h
+stdlib.h
+-
+string.h
+-
+stdio.h
+-
+
+D:/CLionProjects/HW7/dk_tool.h
+
+D:/CLionProjects/HW7/dk_tree.c
+dk_tree.h
+D:/CLionProjects/HW7/dk_tree.h
 stdlib.h
 -
 string.h
 -
 
-D:/CLionProjects/HW7/dk_tool.h
+D:/CLionProjects/HW7/dk_tree.h
 stdio.h
 -
 
@@ -23,4 +37,6 @@ stdio.h
 -
 dk_tool.h
 D:/CLionProjects/HW7/dk_tool.h
+dk_tree.h
+D:/CLionProjects/HW7/dk_tree.h
 

@@ -5,6 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
   "D:/CLionProjects/HW7/dk_tool.c" "D:/CLionProjects/HW7/cmake-build-debug/CMakeFiles/HW7.dir/dk_tool.c.obj"
+  "D:/CLionProjects/HW7/dk_tree.c" "D:/CLionProjects/HW7/cmake-build-debug/CMakeFiles/HW7.dir/dk_tree.c.obj"
   "D:/CLionProjects/HW7/main.c" "D:/CLionProjects/HW7/cmake-build-debug/CMakeFiles/HW7.dir/main.c.obj"
   )
 set(CMAKE_C_COMPILER_ID "GNU")

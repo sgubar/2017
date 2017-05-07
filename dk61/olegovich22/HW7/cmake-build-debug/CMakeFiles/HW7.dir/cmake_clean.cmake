@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/HW7.dir/main.c.obj"
   "CMakeFiles/HW7.dir/dk_tool.c.obj"
+  "CMakeFiles/HW7.dir/dk_tree.c.obj"
   "HW7.pdb"
   "HW7.exe"
   "HW7.exe.manifest"

@@ -86,6 +86,12 @@
 		<Unit filename="D:/CLionProjects/HW7/dk_tool.h">
 			<Option target="HW7"/>
 		</Unit>
+		<Unit filename="D:/CLionProjects/HW7/dk_tree.c">
+			<Option target="HW7"/>
+		</Unit>
+		<Unit filename="D:/CLionProjects/HW7/dk_tree.h">
+			<Option target="HW7"/>
+		</Unit>
 		<Unit filename="D:/CLionProjects/HW7/main.c">
 			<Option target="HW7"/>
 		</Unit>

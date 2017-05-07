@@ -3,278 +3,164 @@
 //
 
 #include "dk_tool.h"
+#include "dk_tree.h"
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
 
-//declaration
-void destroyNode(intNode *aNode);
-intNode *createIntNodeWithValue(int aValue);
+#define errorWithMemory printf("ERROR Your computer haven't enough memory or another error.\n")
 
-//list way declaration
-wayNode *createWayNodeWithValue(char aName[16], int level);
-wayList *createWayList();
-void destroyWayList(wayList *aList);
-int addWayValueToList(wayList *aList, char aName[20], int level);
-void printList(wayList *aList);
+//declarations
+int getAnswer();
+int getIntFromUser();
+int getTypeBypass();
 
-
-intTree *createIntTree()
+void tree()
 {
-    intTree *aTree=(intTree *)malloc(sizeof(intTree));
-
-    if(aTree!=NULL)
-    {
-        aTree->count=0;
-        aTree->root=NULL;
-    }
-
-    return aTree;
-}
-
-void destroyIntTree(intTree *aTree)
-{
-    if(aTree!=NULL)
-    {
-        destroyNode(aTree->root);
-        free(aTree);
-    }
-}
-
-void insertIntValueToTree(intTree *aTree, int aValue)
-{
-    if(aTree==NULL)
-        return;
-
-    intNode *aNode=createIntNodeWithValue(aValue);
-    if(aNode==NULL)
-        return;
-
-    if(aTree->root==NULL)
-    {
-        aTree->root=aNode;
-    }
-    else
-    {
-        intNode *theCurrent=aTree->root;
-        while(1)
-        {
-            if(theCurrent->value==aValue)
-            {
-                printf("can't be 2 the same elements\n");
-                break;
-            }
-            else if(theCurrent->value>aValue)
-            {
-                if(theCurrent->leftChild==NULL)
-                {
-                    theCurrent->leftChild=aNode;
-                    break;
-                }
-                theCurrent=theCurrent->leftChild;
-            }
-            else if(theCurrent->value<aValue)
-            {
-                if(theCurrent->rightChild==NULL)
-                {
-                    theCurrent->rightChild=aNode;
-                    break;
-                }
-                theCurrent=theCurrent->rightChild;
-            }
-
-        }
-    }
-    aTree->count++;
-}
-
-intNode *findNodeWithValue(intTree *aTree, int aValue)
-{
-    intNode *theResult=NULL;
+    intTree *aTree=createIntTree();
 
     if(aTree==NULL)
-        return theResult;
-
-    if(aTree->root==NULL)
     {
-        printf("Not found. Tree haven't elements\n");
-        return theResult;
+        errorWithMemory;
+        return;
     }
-    else
+
+    printf("Please enter numb of your choice. From 1 to 10\n");
+    printf("1 - insert int to tree\n");
+    printf("2 - delete int from tree\n");
+    printf("3 - search int in tree\n");
+    printf("4 - print tree\n");
+    printf("5 - exit\n");
+
+    //declaration of variable
+    int choice=0;
+
+    do
     {
-        wayList *aList=createWayList();
-        int counter=1;
+        choice=getAnswer();
 
-        intNode *theCurrent=aTree->root;
-        while(theCurrent->value!=aValue)
+        switch (choice)
         {
-            theCurrent=(theCurrent->value>aValue
-                        ?(addWayValueToList(aList, "left_Child_Lev", counter), theCurrent=theCurrent->leftChild)
-                        :(addWayValueToList(aList, "right_Child_Lev", counter), theCurrent=theCurrent->rightChild));
+            case 1:
+                printf("\nYou chose insert int to tree\n");
 
-            if(theCurrent==NULL)
-            {
-                printf("Not found\n");
+                int theInt=getIntFromUser();
+
+                int check=insertIntValueToTree(aTree, theInt);
+
+                if(check!=-1)
+                {
+
+                    printf("Inserted at ");
+                    findNodeWithValue(aTree, theInt);
+                    printTree(aTree, 1);
+
+                }
                 break;
-            }
-            counter++;
+
+            case 2:
+                printf("\nYou chose delete int from tree\n");
+
+                theInt=getIntFromUser();
+
+                check=deleteNodeWithValue(aTree, theInt);
+
+                if(check!=-1)
+                {
+                    printf("Successful deleted\n");
+                    printTree(aTree, 1);
+                }
+                break;
+
+            case 3:
+                printf("You chose search int in tree\n");
+
+                theInt=getIntFromUser();
+
+                printf("Address your search node ");
+
+                findNodeWithValue(aTree, theInt);
+
+
+                break;
+            case 4:
+                printf("You chose print tree\n");
+                theInt=getTypeBypass();
+                printTree(aTree, theInt);
+                break;
+
+            default:
+                break;
         }
 
-        if(theCurrent!=NULL)
-        printList(aList);
+        if(choice!=5)
+            printf("\nChoose act from 1 to 5\n");
 
-        destroyWayList(aList);
-    }
+    }while(choice!=5);
 
-    return theResult;
+    printf("Thanks for using this Tree!\n");
+    printf("Final version : \n");
+    printTree(aTree, 1);
+
+destroyIntTree(aTree);
 
 }
 
-void printTree(intTree *aTree)
+//geting answer from user
+int getAnswer()
 {
-    
-}
-
-
-
-
-
-void destroyNode(intNode *aNode)
-{
-    if(aNode!=NULL)
+    int answer=0;
+    int chek=0;
+    do
     {
-        destroyNode(aNode->leftChild);
-        destroyNode(aNode->rightChild);
-        free(aNode);
-    }
-}
+        chek=scanf("%i", &answer);
+        fflush(stdin);
 
-intNode *createIntNodeWithValue(int aValue)
-{
-    intNode *aNode=(intNode *)malloc(sizeof(intNode));
-
-    if(aNode!=NULL)
-    {
-        aNode->rightChild=NULL;
-        aNode->leftChild=NULL;
-        aNode->value=aValue;
-    }
-    return aNode;
-}
-
-//------list-------
-//create list
-wayList *createWayList()
-{
-    wayList *aList=(wayList *)malloc(sizeof(wayList));
-
-    if (aList!=NULL)
-    {
-        aList->head=NULL;
-        aList->tail=NULL;
-        aList->count=0;
-    }
-    return aList;
-}
-
-//destroy list
-void destroyWayList(wayList *aList)
-{
-    if(aList==NULL)
-    {
-        return;
-    }
-
-    if(aList->tail!=NULL && aList->head!=NULL)
-    {
-        wayNode *aNode=aList->head;
-        int counter=0;
-        while(counter<aList->count)
+        if(chek!=1 || answer>5 || answer<1)
         {
-            wayNode *aNodeToDelete=aNode;
-            aNode=aNode->next;
-
-            free(aNodeToDelete);
-            counter++;
+            printf("ERROR. Please enter numb of your choice. From 1 to 5\n");
         }
-    }
 
-    free(aList);
+    }while (chek!=1 || answer>5 || answer<1);
+
+    return answer;
 }
 
-wayNode *createWayNodeWithValue(char aName[20], int level)
+int getIntFromUser()
 {
-    wayNode *aNode=(wayNode *)malloc(sizeof(wayNode));
-
-    if (aNode!=NULL)
+    printf("Please enter int.\n");
+    int chek=0;
+    int answer=0;
+    do
     {
-        int counter=0;
-        while(counter<strlen(aName))
+
+        chek=scanf("%i", &answer);
+        if (chek!=1)
         {
-            aNode->name[counter]=aName[counter];
-            counter++;
+            printf("ERROR. Please enter int.\n");
         }
-        aNode->name[counter]='\0';
-        aNode->level=level;
-    }
-    return aNode;
+    }while(chek!=1);
+
+    return answer;
 }
 
-//add int to end of list
-int addWayValueToList(wayList *aList, char aName[20], int level)
+int getTypeBypass()
 {
-    int theResult=-1;
+    printf("Please enter numb of your choice(1 - 3)\n");
+    printf("1 - print by symmetry bypass\n");
+    printf("2 - print by direct bypass\n");
+    printf("3 - print by reverse bypass\n");
 
-    if (aList!=NULL)
+    int chek=0;
+    int answer=0;
+    do
     {
-        wayNode *aNode=createWayNodeWithValue(aName, level);
-
-        if(aNode!=NULL)
+        chek=scanf("%i", &answer);
+        if (chek!=1 || answer<1 || answer>3)
         {
-
-            if(aList->head==NULL && aList->tail==NULL)
-            {
-                aList->tail=aList->head=aNode;
-            }
-            else
-            {
-                // (head) a b c (tail) + d -> (head)a b c=>d (tail)
-                wayNode *aTail=aList->tail;
-                aList->tail=aNode;
-                //aNode->prev=aTail;
-                aTail->next=aNode;
-            }
-
-            aList->count++;
-            theResult=0;
+            printf("ERROR. Please enter int 1 - 3\n");
         }
-    }
+    }while(chek!=1 || answer<1 || answer>3);
 
-    return theResult;
-
+    return answer;
 }
-
-// print list
-void printList(wayList *aList)
-{
-    if(aList->head==NULL)
-        return;
-
-    printf("WAY TO ELEMENT - /root_Lev0");
-
-    wayNode *aNode=aList->head;
-    int counter=0;
-
-    while(counter<aList->count)
-    {
-        printf("/%s%i", aNode->name, aNode->level);
-        aNode=aNode->next;
-        counter++;
-    }
-    printf("\n");
-
-}
-//----list------
-
-
-
-

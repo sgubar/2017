@@ -149,6 +149,33 @@ dk_tool.c.s:
 	$(MAKE) -f CMakeFiles\HW7.dir\build.make CMakeFiles/HW7.dir/dk_tool.c.s
 .PHONY : dk_tool.c.s
 
+dk_tree.obj: dk_tree.c.obj
+
+.PHONY : dk_tree.obj
+
+# target to build an object file
+dk_tree.c.obj:
+	$(MAKE) -f CMakeFiles\HW7.dir\build.make CMakeFiles/HW7.dir/dk_tree.c.obj
+.PHONY : dk_tree.c.obj
+
+dk_tree.i: dk_tree.c.i
+
+.PHONY : dk_tree.i
+
+# target to preprocess a source file
+dk_tree.c.i:
+	$(MAKE) -f CMakeFiles\HW7.dir\build.make CMakeFiles/HW7.dir/dk_tree.c.i
+.PHONY : dk_tree.c.i
+
+dk_tree.s: dk_tree.c.s
+
+.PHONY : dk_tree.s
+
+# target to generate assembly for a file
+dk_tree.c.s:
+	$(MAKE) -f CMakeFiles\HW7.dir\build.make CMakeFiles/HW7.dir/dk_tree.c.s
+.PHONY : dk_tree.c.s
+
 main.obj: main.c.obj
 
 .PHONY : main.obj
@@ -188,6 +215,9 @@ help:
 	@echo ... dk_tool.obj
 	@echo ... dk_tool.i
 	@echo ... dk_tool.s
+	@echo ... dk_tree.obj
+	@echo ... dk_tree.i
+	@echo ... dk_tree.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
