@@ -4,7 +4,7 @@
 #include "sortValues.h"
 
 #define errorEmptyList printf("U can't do any act when list is empty. Add values to list!\n")
-#define errorWithMemory printf("ERROR Value haven't been added. Your computer havan't enough memory or another error.\n")
+#define errorWithMemory printf("ERROR Your computer haven't enough memory or another error.\n")
 
 //declarations
 int getAnswer();
@@ -18,11 +18,15 @@ void list()
     intList *aList=createIntList();
 
     if(aList==NULL)
+    {
+        errorWithMemory;
         return;
+    }
 
-    int choice=0;
 
-    printf("Please enter numb of your choice. From 1 to 8\n");
+
+
+    printf("Please enter numb of your choice. From 1 to 10\n");
     printf("1 - add int to list\n");
     printf("2 - delete int from list at index\n");
     printf("3 - delete int from list\n");
@@ -35,10 +39,9 @@ void list()
     printf("10 - exit\n");
 
     //declaration of variable
-    int chek=0; //use in 3 case
-    int theInt=0; //use in 5 case
-    int result=0; //use in 6 case
-    int answer=0; //use in 8,9 cases
+    int theInt=0;
+    int choice=0;
+
 
     do
     {
@@ -48,9 +51,9 @@ void list()
         {
             case 1:
                 printf("You chose add int to list\n");
-                chek=addIntValueToList(aList, getIntFromUser());
+                theInt=addIntValueToList(aList, getIntFromUser());
 
-                if(chek==-1)
+                if(theInt==-1)
                     errorWithMemory;
 
                 printList(aList);
@@ -76,8 +79,8 @@ void list()
                 else
                 {
                     printf("You chose delete int from list\n");
-                    chek= deleteIntValue(aList, getIntFromUser());
-                    if (chek==-1)
+                    theInt=deleteIntValue(aList, getIntFromUser());
+                    if (theInt==-1)
                     {
                         printf("This list hasn't this value\n");
                     }
@@ -90,10 +93,10 @@ void list()
                 aList->count==0
                     ?errorEmptyList
                     :(printf("You chose insert int in list at index\n"),
-                        chek=insertIntValueAtIndex(aList, getIntFromUser(),getIndexFromUser(aList)),
+                        theInt=insertIntValueAtIndex(aList, getIntFromUser(),getIndexFromUser(aList)),
                         printList(aList));
 
-                if(chek==-1)
+                if(theInt==-1)
                     errorWithMemory;
 
                 break;
@@ -112,8 +115,8 @@ void list()
                 aList->count==0
                     ?errorEmptyList
                     :(printf("You chose search int in list\n"),
-                        result=searchKeyPosition(aList, getIntFromUser()),
-                        (result==-1 ?printf("This list hasn't this value\n") :printf("The value has been found on %i position\n", result)));
+                        theInt=searchKeyPosition(aList, getIntFromUser()),
+                        (theInt==-1 ?printf("This list hasn't this value\n") :printf("The value has been found on %i position\n", theInt)));
 
                 break;
 
@@ -123,12 +126,11 @@ void list()
                 break;
 
             case 8:
-
                 aList->count==0
                     ?errorEmptyList
                     :(printf("You chose sort list by shell sort\n"),
-                        answer=getFromUser1or2(),
-                        (answer==1 ?shellSortPointers(aList) :shellSortValues(aList)),
+                        theInt=getFromUser1or2(),
+                        (theInt==1 ?shellSortPointers(aList) :shellSortValues(aList)),
                         printList(aList));
                 break;
 
@@ -137,8 +139,8 @@ void list()
                 aList->count==0
                 ?errorEmptyList
                 :(printf("You chose sort list by shell sort\n"),
-                        answer=getFromUser1or2(),
-                        (answer==1 ?quickSortPointers(aList, 0, aList->count-1) :quickSortValues(aList, 0, aList->count-1)),
+                        theInt=getFromUser1or2(),
+                        (theInt==1 ?quickSortPointers(aList, 0, aList->count-1) :quickSortValues(aList, 0, aList->count-1)),
                         printList(aList));
                 break;
 
