@@ -1,0 +1,46 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+D:/CLionProjects/LW5/dk_tool.c
+dk_tool.h
+D:/CLionProjects/LW5/dk_tool.h
+dk_tree.h
+D:/CLionProjects/LW5/dk_tree.h
+stdio.h
+-
+
+D:/CLionProjects/LW5/dk_tool.h
+
+D:/CLionProjects/LW5/dk_tree.c
+dk_tree.h
+D:/CLionProjects/LW5/dk_tree.h
+wayList.h
+D:/CLionProjects/LW5/wayList.h
+stdlib.h
+-
+
+D:/CLionProjects/LW5/dk_tree.h
+stdio.h
+-
+
+D:/CLionProjects/LW5/main.c
+dk_tool.h
+D:/CLionProjects/LW5/dk_tool.h
+
+D:/CLionProjects/LW5/wayList.c
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+wayList.h
+D:/CLionProjects/LW5/wayList.h
+
+D:/CLionProjects/LW5/wayList.h
+
