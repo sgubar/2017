@@ -203,6 +203,33 @@ main.c.s:
 	$(MAKE) -f CMakeFiles\HW7.dir\build.make CMakeFiles/HW7.dir/main.c.s
 .PHONY : main.c.s
 
+wayList.obj: wayList.c.obj
+
+.PHONY : wayList.obj
+
+# target to build an object file
+wayList.c.obj:
+	$(MAKE) -f CMakeFiles\HW7.dir\build.make CMakeFiles/HW7.dir/wayList.c.obj
+.PHONY : wayList.c.obj
+
+wayList.i: wayList.c.i
+
+.PHONY : wayList.i
+
+# target to preprocess a source file
+wayList.c.i:
+	$(MAKE) -f CMakeFiles\HW7.dir\build.make CMakeFiles/HW7.dir/wayList.c.i
+.PHONY : wayList.c.i
+
+wayList.s: wayList.c.s
+
+.PHONY : wayList.s
+
+# target to generate assembly for a file
+wayList.c.s:
+	$(MAKE) -f CMakeFiles\HW7.dir\build.make CMakeFiles/HW7.dir/wayList.c.s
+.PHONY : wayList.c.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -221,6 +248,9 @@ help:
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
+	@echo ... wayList.obj
+	@echo ... wayList.i
+	@echo ... wayList.s
 .PHONY : help
 
 

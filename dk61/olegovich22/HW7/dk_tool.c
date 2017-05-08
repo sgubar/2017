@@ -4,24 +4,21 @@
 
 #include "dk_tool.h"
 #include "dk_tree.h"
-#include <stdlib.h>
-#include <string.h>
 #include <stdio.h>
-
-#define errorWithMemory printf("ERROR Your computer haven't enough memory or another error.\n")
 
 //declarations
 int getAnswer();
 int getIntFromUser();
 int getTypeBypass();
 
+//main function for tree
 void tree()
 {
     intTree *aTree=createIntTree();
 
     if(aTree==NULL)
     {
-        errorWithMemory;
+        printf("ERROR Your computer haven't enough memory or another error.\n");
         return;
     }
 
@@ -45,16 +42,13 @@ void tree()
                 printf("\nYou chose insert int to tree\n");
 
                 int theInt=getIntFromUser();
-
                 int check=insertIntValueToTree(aTree, theInt);
 
                 if(check!=-1)
                 {
-
                     printf("Inserted at ");
                     findNodeWithValue(aTree, theInt);
                     printTree(aTree, 1);
-
                 }
                 break;
 
@@ -62,7 +56,6 @@ void tree()
                 printf("\nYou chose delete int from tree\n");
 
                 theInt=getIntFromUser();
-
                 check=deleteNodeWithValue(aTree, theInt);
 
                 if(check!=-1)
@@ -78,13 +71,12 @@ void tree()
                 theInt=getIntFromUser();
 
                 printf("Address your search node ");
-
                 findNodeWithValue(aTree, theInt);
-
-
                 break;
+
             case 4:
                 printf("You chose print tree\n");
+
                 theInt=getTypeBypass();
                 printTree(aTree, theInt);
                 break;
@@ -99,7 +91,7 @@ void tree()
     }while(choice!=5);
 
     printf("Thanks for using this Tree!\n");
-    printf("Final version : \n");
+    printf("Final version your tree: \n");
     printTree(aTree, 1);
 
 destroyIntTree(aTree);

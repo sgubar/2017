@@ -3,23 +3,18 @@
 //
 
 #include "dk_tree.h"
+#include "wayList.h"
 #include <stdlib.h>
-#include <string.h>
 
-//declaration
+//help function declaration
 void destroyNode(intNode *aNode);
 intNode *createIntNodeWithValue(int aValue);
 intNode *findReceiver(intNode *aNodeToDelete);
 void printNode(intNode *aNode, int typeBypass);
 
-//list way declaration
-wayNode *createWayNodeWithValue(char aName[16], int level, int value);
-wayList *createWayList();
-void destroyWayList(wayList *aList);
-int addWayValueToList(wayList *aList, char aName[20], int level, int value);
-void printList(wayList *aList);
 
 
+//create tree
 intTree *createIntTree()
 {
     intTree *aTree=(intTree *)malloc(sizeof(intTree));
@@ -33,6 +28,7 @@ intTree *createIntTree()
     return aTree;
 }
 
+//detroy tree
 void destroyIntTree(intTree *aTree)
 {
     if(aTree!=NULL)
@@ -42,6 +38,7 @@ void destroyIntTree(intTree *aTree)
     }
 }
 
+//insert value to tree
 int insertIntValueToTree(intTree *aTree, int aValue)
 {
     int theResult=-1;
@@ -104,6 +101,7 @@ int insertIntValueToTree(intTree *aTree, int aValue)
 
 }
 
+//find node in tree
 intNode *findNodeWithValue(intTree *aTree, int aValue)
 {
     intNode *theResult=NULL;
@@ -168,6 +166,7 @@ intNode *findNodeWithValue(intTree *aTree, int aValue)
 
 }
 
+//print tree
 void printTree(intTree *aTree, int typeBypass)
 {
     if(aTree!=NULL)
@@ -184,6 +183,7 @@ void printTree(intTree *aTree, int typeBypass)
 
 }
 
+//delete value in tree
 int deleteNodeWithValue(intTree *aTree, int aValue)
 {
     int theResult=-1;
@@ -300,7 +300,7 @@ int deleteNodeWithValue(intTree *aTree, int aValue)
 }
 
 
-
+//help function
 void destroyNode(intNode *aNode)
 {
     if(aNode!=NULL)
@@ -384,118 +384,4 @@ void printNode(intNode *aNode, int typeBypass)
     }
 }
 
-
-//------list-------
-//create list
-wayList *createWayList()
-{
-    wayList *aList=(wayList *)malloc(sizeof(wayList));
-
-    if (aList!=NULL)
-    {
-        aList->head=NULL;
-        aList->tail=NULL;
-        aList->count=0;
-    }
-    return aList;
-}
-
-//destroy list
-void destroyWayList(wayList *aList)
-{
-    if(aList==NULL)
-    {
-        return;
-    }
-
-    if(aList->tail!=NULL && aList->head!=NULL)
-    {
-        wayNode *aNode=aList->head;
-        int counter=0;
-        while(counter<aList->count)
-        {
-            wayNode *aNodeToDelete=aNode;
-            aNode=aNode->next;
-
-            free(aNodeToDelete);
-            counter++;
-        }
-    }
-
-    free(aList);
-}
-
-wayNode *createWayNodeWithValue(char aName[20], int level, int value)
-{
-    wayNode *aNode=(wayNode *)malloc(sizeof(wayNode));
-
-    if (aNode!=NULL)
-    {
-        int counter=0;
-        while(counter<strlen(aName))
-        {
-            aNode->name[counter]=aName[counter];
-            counter++;
-        }
-        aNode->name[counter]='\0';
-        aNode->level=level;
-        aNode->value=value;
-    }
-    return aNode;
-}
-
-//add int to end of list
-int addWayValueToList(wayList *aList, char aName[20], int level, int value)
-{
-    int theResult=-1;
-
-    if (aList!=NULL)
-    {
-        wayNode *aNode=createWayNodeWithValue(aName, level, value);
-
-        if(aNode!=NULL)
-        {
-
-            if(aList->head==NULL && aList->tail==NULL)
-            {
-                aList->tail=aList->head=aNode;
-            }
-            else
-            {
-                // (head) a b c (tail) + d -> (head)a b c=>d (tail)
-                wayNode *aTail=aList->tail;
-                aList->tail=aNode;
-                aTail->next=aNode;
-            }
-
-            aList->count++;
-            theResult=0;
-        }
-    }
-
-    return theResult;
-
-}
-
-// print list
-void printList(wayList *aList)
-{
-    if(aList->head==NULL)
-        return;
-
-    //printf(" - /root_Lev0");
-
-    wayNode *aNode=aList->head;
-    int counter=0;
-
-    while(counter<aList->count)
-    {
-        printf("/%s%i_Value%i", aNode->name, aNode->level, aNode->value);
-        aNode=aNode->next;
-        counter++;
-    }
-    printf("\n");
-
-}
-//----list------
 

@@ -95,6 +95,12 @@
 		<Unit filename="D:/CLionProjects/HW7/main.c">
 			<Option target="HW7"/>
 		</Unit>
+		<Unit filename="D:/CLionProjects/HW7/wayList.c">
+			<Option target="HW7"/>
+		</Unit>
+		<Unit filename="D:/CLionProjects/HW7/wayList.h">
+			<Option target="HW7"/>
+		</Unit>
 		<Unit filename="D:/CLionProjects/HW7/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

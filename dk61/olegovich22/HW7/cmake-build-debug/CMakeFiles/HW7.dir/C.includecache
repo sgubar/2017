@@ -11,10 +11,6 @@ dk_tool.h
 D:/CLionProjects/HW7/dk_tool.h
 dk_tree.h
 D:/CLionProjects/HW7/dk_tree.h
-stdlib.h
--
-string.h
--
 stdio.h
 -
 
@@ -23,9 +19,9 @@ D:/CLionProjects/HW7/dk_tool.h
 D:/CLionProjects/HW7/dk_tree.c
 dk_tree.h
 D:/CLionProjects/HW7/dk_tree.h
+wayList.h
+D:/CLionProjects/HW7/wayList.h
 stdlib.h
--
-string.h
 -
 
 D:/CLionProjects/HW7/dk_tree.h
@@ -33,10 +29,18 @@ stdio.h
 -
 
 D:/CLionProjects/HW7/main.c
-stdio.h
--
 dk_tool.h
 D:/CLionProjects/HW7/dk_tool.h
-dk_tree.h
-D:/CLionProjects/HW7/dk_tree.h
+
+D:/CLionProjects/HW7/wayList.c
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+wayList.h
+D:/CLionProjects/HW7/wayList.h
+
+D:/CLionProjects/HW7/wayList.h
 
