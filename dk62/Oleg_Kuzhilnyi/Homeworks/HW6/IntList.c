@@ -114,6 +114,34 @@ char FindElementAtIndex(CharList *aList, int anIndex)
     return theResult;
 }
 
+CharNode *FindElementAtIndexAndReturnStruct(CharList *aList, int anIndex)
+{
+    CharNode *theResult = NULL;
+    
+    if (NULL == aList || anIndex >= aList->count)
+    {
+        return theResult;
+    }
+    
+    int i = 0;
+    CharNode *theNode = aList->head;
+    
+    do
+    {
+        if (i == anIndex)
+        {
+            theResult = theNode;
+            break;
+        }
+        
+        i++;
+        theNode = theNode->next;
+        
+    }while (NULL != theNode);
+    
+    return theResult;
+}
+
 
 // print list
 void TLPrintList(CharList *aList)
@@ -289,50 +317,61 @@ void bubbleSort(CharList *anArray)
      
         }
 }
-/*
 
-int partitionIt(CharList anArray[], int aLeftIndex, int aRightIndex, char aPivot)
+int partitionIt(CharList aList[], int aLeftIndex, int aRightIndex, char aPivot)
 {
  
-    char theLeft = aLeftIndex - 1;
-    char theRight = aRightIndex;
- 
+    int theLeft = aLeftIndex - 1;
+    int theRight = aRightIndex;
+
     
-    CharNode *theLeft = TLIntValueAtIndex(anArray, aLeftIndex-1);
-    CharNode *theRight = TLIntValueAtIndex(anArray, aRightIndex);
-    
-                DoubleElement *theNextLeft = theLeft-> nextElement;
-				DoubleElement *thePreviousLeft = theLeft->previousElement;
-				DoubleElement *theNextRight = theRight->nextElement;
-				DoubleElement *thePreviousRight = theRight->previousElement;
+        //        CharNode *theNextLeft = theLeft-> next;
+			//	CharNode *theNextRight = theRight->next;
     
     while (1)
     {
-        // search the bigest element
-        while (TLIntValueAtIndex(anArray,++theLeft) < aPivot);
         
+        
+        CharNode *TheLeftElement = FindElementAtIndexAndReturnStruct(aList,theLeft);
+        
+        while (TheLeftElement->value < aPivot)
+        {
+            theLeft++;
+            TheLeftElement = FindElementAtIndexAndReturnStruct(aList, theLeft);
+        }
         // search the lowest element
-        while (theRight > 0 && TLIntValueAtIndex(anArray,--theRight) > aPivot);
         
+        CharNode *TheRightElement = FindElementAtIndexAndReturnStruct(aList,theRight);
+
+            while (theRight > 0 && TheRightElement->value > aPivot)
+            {
+                --theRight;
+                TheRightElement = FindElementAtIndexAndReturnStruct(aList,theRight);
+            }
         if (theLeft >= theRight) // pointer are the same
         {
             break;
         }
-        else
-        {
-            //lets to swap elements
+            else
+            {
+                //lets to swap elements
             
-            char theTmp = theNode->value;
-            theNode->value = theNode->next->value;
-            theNode->next->value = theTmp;
+                char theTmp = theNode->value;
+                theNode->value = theNode->next->value;
+                theNode->next->value = theTmp;
             
-    
-             char theTmp = anArray->value[theLeft];
-             anArray->value[theLeft] = anArray->value[theRight];
-             anArray->value[theRight] = theTmp;
- 
-        }
+                /*
+                 char theTmp = anArray->value[theLeft];
+                 anArray->value[theLeft] = anArray->value[theRight];
+                 anArray->value[theRight] = theTmp;
+                */
+            }
+            
+        
     }
+    
+    
+        
     CharNode *theNode = theNode->next;
     
     //lets to swap elements
@@ -345,21 +384,80 @@ int partitionIt(CharList anArray[], int aLeftIndex, int aRightIndex, char aPivot
 }
 
 
-void quickSort(CharList anArray[], int aLeftIndex, int aRightIndex)
+void quickSort(CharList aList[], int aLeftIndex, int aRightIndex)
 {
     if (aRightIndex - aLeftIndex <= 0)
     {
         return; // the array size equals to 1 - the array is fully sorted
     }
     
-    char thePivot = TLIntValueAtIndex(anArray,aRightIndex);
-    int thePartitionIndex = partitionIt(anArray, aLeftIndex, aRightIndex, thePivot);
+    char thePivot = FindElementAtIndex(aList, aRightIndex);
+    int thePartitionIndex = partitionIt(aList, aLeftIndex, aRightIndex, thePivot);
     
     //left part sorting
-    quickSort(anArray, aLeftIndex, thePartitionIndex - 1);
+    quickSort(aList, aLeftIndex, thePartitionIndex - 1);
     
     //right part sorting
-    quickSort(anArray, thePartitionIndex + 1, aRightIndex);
+    quickSort(aList, thePartitionIndex + 1, aRightIndex);
 }
 
-*/
+
+void swap(CharList *aList, int aLeftIndex, int aRightIndex)
+{
+    if (NULL != aList && aRightIndex < aList->count && -1 < aLeftIndex && 0 < (aRightIndex-aLeftIndex) && aRightIndex > aLeftIndex)
+    {
+        int i = 0;
+        
+        CharNode *theLeft = FindElementAtIndexAndReturnStruct(aList, aLeftIndex);
+         CharNode *theRight = FindElementAtIndexAndReturnStruct(aList, aRightIndex);
+        
+        if(NULL != theLeft && NULL != theRight)	{
+            if(1 < (aRightIndex-aLeftIndex)){
+                DoubleElement *theNextLeft = theLeft->next;
+                DoubleElement *theNextRight = theRight->next;
+                
+                theNextLeft->previousElement = theRight;
+                if(NULL != thePreviousLeft)
+                    thePreviousLeft->nextElement = theRight;
+                else
+                    aList->head = theRight;
+                if(NULL != theNextRight)
+                    theNextRight->previousElement = theLeft;
+                else
+                    aList->tail = theLeft;
+                thePreviousRight->nextElement = theLeft;
+                theLeft->previousElement = thePreviousRight;
+                if(NULL != theNextRight)
+                    theLeft->nextElement = theNextRight;
+                else
+                    theLeft->nextElement = NULL;
+                if(NULL != thePreviousLeft)
+                    theRight->previousElement = thePreviousLeft;
+                else
+                    theRight->previousElement = NULL;
+                theRight->nextElement = theNextLeft;
+            }else{
+                DoubleElement *thePreviousLeft = theLeft->previousElement;
+                DoubleElement *theNextRight = theRight->nextElement;
+                if(NULL != thePreviousLeft)
+                    thePreviousLeft->nextElement = theRight;
+                else
+                    aList->head = theRight;
+                if(NULL != theNextRight)
+                    theNextRight->previousElement = theLeft;
+                else
+                    aList->tail = theLeft;
+                theLeft->previousElement = theRight;
+                theRight->nextElement = theLeft;
+                if(NULL != theNextRight)
+                    theLeft->nextElement = theNextRight;
+                else
+                    theLeft->nextElement = NULL;
+                if(NULL != thePreviousLeft)
+                    theRight->previousElement = thePreviousLeft;
+                else
+                    theRight->previousElement = NULL;
+            }
+        }
+    }
+

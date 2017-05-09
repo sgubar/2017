@@ -39,6 +39,7 @@ int TLAddCharSymbolToList(CharList *aList, char *anCharSymbol);
 // -1 if the value was not added to the list
 // otherwise 0
 char FindElementAtIndex(CharList *aList, int anIndex);
+CharNode *FindElementAtIndexAndReturnStruct(CharList *aList, int anIndex);
 
 // MaxInteger if value is not found
 // otherwise 'int' value
@@ -51,7 +52,7 @@ void TLPrintList(CharList *aList);
 
 void bubbleSort(CharList *anArray);
 
-//void quickSort(CharList anArray[], int aLeftIndex, int aRightIndex);
+//void quickSort(CharList aList[], int aLeftIndex, int aRightIndex);
 
 //void m_manualSort(int anArray[], int aLeftIndex, int aRightIndex);
 
