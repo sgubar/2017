@@ -234,6 +234,8 @@ int LT_DeleteCharNode(CharList *aList,int anIndex)
     {
         aList->tail = theNode->next;
         theNode->next = NULL;
+      //  aList->tail = NULL;
+
         
     }else if(NULL != theNode)
         
