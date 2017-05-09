@@ -50,8 +50,9 @@ int main(int argc, const char * argv[])
     */
     
         
-    LT_DeleteCharNode(theList,0);
+    LT_DeleteCharNode(theList,9);
 
+    printf("theil %c\n",FindElementAtIndex(theList, 8));
     TLPrintList(theList);
     
     

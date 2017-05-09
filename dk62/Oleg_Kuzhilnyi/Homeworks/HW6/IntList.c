@@ -197,6 +197,8 @@ int TLInsertCharSymbolAtIndex(CharList *aList, char *anCharValue, int anIndex)
 }
 
 
+
+
 int LT_DeleteCharNode(CharList *aList,int anIndex)
 {
     int theResult = -1;
@@ -206,52 +208,53 @@ int LT_DeleteCharNode(CharList *aList,int anIndex)
         return theResult;
     }
     
-    int i = 1;
     CharNode *theNode = aList->head;
+    int i = 1;
     
     do
     {
         if (i == anIndex)
         {
-            if(0 == anIndex)
-            {
-                theNode = theNode->next;
-           
-                CharNode *theBNode = theNode; //указатель на след элемент после головы
-                
-                aList->head = theBNode->next;
-
-                //aList->head = theBNode->next;//указатель на голову присв указателю на след - след элемент
-
-                theNode->next = NULL;
-                
-            }else if(aList->count-1 == anIndex)
-            {
-                theNode->next = NULL;
-                
-            }else if(NULL != theNode)
-            {
-                CharNode *thePrevNode = theNode; //текущий
-                
-                theNode = theNode->next;    //следующий
-
-                thePrevNode->next = theNode->next;
-                theNode->next = NULL;
-            }
-            free(theNode);
             break;
-
         }
-        i++;
+        
         theNode = theNode->next;
+        i++;
         
     }while (NULL != theNode);
     
+    if(anIndex == 0)
+    {
+        theNode = aList->head;
+        CharNode *theBNode = theNode;
+        aList->head = theBNode->next;
+        
+        
+    }else if(aList->count == anIndex)
+    {
+        aList->tail = theNode->next;
+        theNode->next = NULL;
+        
+    }else if(NULL != theNode)
+        
+    {
+        CharNode *thePrevNode = theNode; //текущий
+        
+        theNode = theNode->next;    //следующий
+        
+        thePrevNode->next = theNode->next;
+        
+        aList->tail = thePrevNode->next;
+        theNode->next = NULL;
+    }
+    
+    free(theNode);
     aList->count --;
     theResult = 0;
     
     return theResult;
 }
+
 
 #pragma mark -
 #pragma mark IntNode interface
