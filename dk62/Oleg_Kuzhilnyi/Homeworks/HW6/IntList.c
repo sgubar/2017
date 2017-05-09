@@ -355,30 +355,29 @@ int partitionIt(CharList aList[], int aLeftIndex, int aRightIndex, char aPivot)
             else
             {
                 //lets to swap elements
-            
+            /*
                 char theTmp = theNode->value;
                 theNode->value = theNode->next->value;
                 theNode->next->value = theTmp;
-            
+            */
                 /*
                  char theTmp = anArray->value[theLeft];
                  anArray->value[theLeft] = anArray->value[theRight];
                  anArray->value[theRight] = theTmp;
                 */
+                
+                 swap(aList,TheLeftElement, TheRightElement);
+
             }
-            
-        
     }
     
-    
-        
-    CharNode *theNode = theNode->next;
-    
-    //lets to swap elements
-    char theTmp = theNode->value;
-    theNode->value = theNode->next->value;
-    theNode->next->value = theTmp;
-    
+    swap(aList,TheLeftElement, TheRightElement);
+
+        /*
+         int theTmp = anArray[theLeft];
+         anArray[theLeft] = anArray[aRightIndex];
+         anArray[aRightIndex] = theTmp;
+    */
     
     return theLeft; // return break position
 }
@@ -401,7 +400,7 @@ void quickSort(CharList aList[], int aLeftIndex, int aRightIndex)
     quickSort(aList, thePartitionIndex + 1, aRightIndex);
 }
 
-
+/*
 void swap(CharList *aList, int aLeftIndex, int aRightIndex)
 {
     if (NULL != aList && aRightIndex < aList->count && -1 < aLeftIndex && 0 < (aRightIndex-aLeftIndex) && aRightIndex > aLeftIndex)
@@ -460,4 +459,18 @@ void swap(CharList *aList, int aLeftIndex, int aRightIndex)
             }
         }
     }
-
+    */
+/*
+p - A_LEFT
+q - a right
+  */
+    void swap(CharList * aList,CharNode * aLeftIndex, CharNode * aRightIndex) {
+        CharNode *thetmp;
+        thetmp = aLeftIndex->next;
+        aLeftIndex->next = aRightIndex->next;
+        aRightIndex->next = thetmp;
+        
+        thetmp = aLeftIndex->next->next;
+        aRightIndex->next->next = aLeftIndex->next->next;
+        aLeftIndex->next->next = thetmp;
+    }
