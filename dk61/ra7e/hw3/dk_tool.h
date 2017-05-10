@@ -22,6 +22,6 @@ void printBook(book *aBook);
 void printBookShelf(BookShelf *aShelf);
 void destroyBookShelf(BookShelf *aShelf);
 void writeBook(FILE *aFile, book *BookShelf);
-void writeBookShelf(FILE *aFile, BookShelf *aBook)
+void writeBookShelf(FILE *aFile, BookShelf *Shelf);
 
 #endif /* dk_tool_h */

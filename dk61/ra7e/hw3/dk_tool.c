@@ -5,7 +5,6 @@
 
 
 
-static void writeString(FILE *aFile, char *aKey, char *aString);
 
 int addBook( BookShelf *aShelf, char* author, char* title )
 {
@@ -94,33 +93,33 @@ void printBook(book *aBook)
 	printf("\n");
 }
 
-void writeBook(FILE *aFile, book *BookShelf)
+void writeBook(FILE *aFile, book *BookS)
 {
 	fprintf (aFile, "{");
 
-	writeString(aFile, "Author name", BookShelf->author);
+	writeString(aFile, "Author name", BookS->author);
 
 	fprintf (aFile, ",");
-	fprintf (aFile, "\"Title\":\"%s\"", BookShelf->title);
+	fprintf (aFile, "\"Title\":\"%s\"", BookS->title);
 
 	fprintf (aFile, "}");
 }
 
 
-void writeBookShelf(FILE *aFile, BookShelf *aBook)
+void writeBookShelf(FILE *aFile, BookShelf *Shelf)
 {
 	fprintf (aFile, "{");
 	
 	
-	fprintf(aFile, "\"size\":%d", aBook->aSize);
+	fprintf(aFile, "\"size\":%d", Shelf->aSize);
 	fprintf(aFile, ",");
 
-	fprintf(aFile, "\"current_size\":%d", aBook->current_size);
+	fprintf(aFile, "\"current_size\":%d", Shelf->current_size);
 	fprintf(aFile, ",");
 	
-	fprintf(aFile, "\"notes\":");
+	fprintf(aFile, "\"books\":");
 	
-	if (NULL == aBook->books)
+	if (NULL == Shelf->books)
 	{
 		fprintf(aFile, "null");
 	}
@@ -129,13 +128,13 @@ void writeBookShelf(FILE *aFile, BookShelf *aBook)
 		fprintf(aFile, "[");
 		int i;
 	
-		for ( i=0; i < aBook->current_size; i++)
+		for ( i=0; i < Shelf->current_size; i++)
 		{
-			BookShelf *aBook = &(aBook->books[i]);
+			book *aBook = &(Shelf->books[i]);
 		
-			writeNote(aFile, aBook);
+			writeBook(aFile,aBook);
 		
-			if (i < (aBook->current_size - 1))
+			if (i < (Shelf->current_size - 1))
 			{
 				fprintf (aFile, ",");
 			}
