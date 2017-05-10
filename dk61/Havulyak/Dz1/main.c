@@ -8,8 +8,16 @@
 
 int main(void)
 {
-	int x, y, matr1[x][y], matr2[x][y], matr_otvet[x][y];
-    create_matrix(x, y, matr1, matr2, matr_otvet);
+	int x, y, i, j;
+	int *d, *f;
+	d=&x;
+	f=&y;
+	printf("Write lines and colums");
+	scand("%i""%i", &x, &y);
+	create_matrixt(*d, *f);//Create matr1 and matr2;
+	substraction_matrix(*matrx1, *matrx2, *d, *f); //matr1-matr2;
+	return 0;
 }
 
+	
 
