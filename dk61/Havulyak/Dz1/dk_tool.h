@@ -7,6 +7,9 @@
 
 #include <stdio.h>
 
-void create_matrix(int x, int y, int matr1[x][y], int matr2[x][y], int matr_otvet[x][y]);
+int create_matrix(int *d, int *f);
+int substraction_matrix(int *matrx1, int *matrx2, int *d, int *f);
+
+
 
 #endif 
