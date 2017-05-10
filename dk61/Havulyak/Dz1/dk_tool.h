@@ -7,8 +7,9 @@
 
 #include <stdio.h>
 
-int create_matrix(int *d, int *f);
-int substraction_matrix(int *matrx1, int *matrx2, int *d, int *f);
+void create_matrix(int x, int y, int **matrix1, int **matrix2);
+
+void substraction_matrix(int **matrx1, int **matrx2, int **result, int d, int f);
 
 
 

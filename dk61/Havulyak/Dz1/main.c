@@ -4,18 +4,28 @@
 
 
 #include <stdio.h>
+#include <stdlib.h>
 #include "dk_tool.h"
 
 int main(void)
 {
-	int x, y, i, j;
-	int *d, *f;
-	d=&x;
-	f=&y;
+	int x, y;
+
 	printf("Write lines and colums");
-	scand("%i""%i", &x, &y);
-	create_matrixt(*d, *f);//Create matr1 and matr2;
-	substraction_matrix(*matrx1, *matrx2, *d, *f); //matr1-matr2;
+	scanf("%i""%i", &x, &y);
+	
+	int **matrix1 = (int **)malloc(x*y*sizeof(int));
+	int **matrix2 = (int **)malloc(x*y*sizeof(int));
+	int **result = (int **)malloc(x*y*sizeof(int));
+	
+	create_matrixt(x, y, matrix1, matrix2);//Create matr1 and matr2;
+
+	substraction_matrix(matrix1, matrix2, result, x, y); //matr1-matr2;
+	
+	free (matrix2);
+	free (matrix1);
+	free (result);
+	
 	return 0;
 }
 
