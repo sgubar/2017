@@ -61,4 +61,6 @@ int addNoteToPhoneBook(DK_PhoneBook *inPhoneBook, char *aName, char *aPhone);
 void printPhoneBook(DK_PhoneBook *inPhoneBook);
 void sortPhoneBook(DK_PhoneBook *inPhoneBook);
 
+void test_multiply(char *str, ...);
+
 #endif /* dk_tool_h */

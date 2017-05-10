@@ -9,6 +9,7 @@
 #include "dk_tool.h"
 #include <stdlib.h>
 #include <string.h>
+#include <stdarg.h>
 
 static void writeString(FILE *aFile, char *aKey, char *aString);
 
@@ -207,4 +208,26 @@ void writeString(FILE *aFile, char *aKey, char *aString)
 		fprintf (aFile, "\"%s\"", aString);
 	}
 }
+
+
+void test_multiply(char *str, ...)
+{
+
+	int term;
+	printf ("\n");
+
+	va_list arg_list;
+	va_start(arg_list,str);
+
+	while((term = va_arg(arg_list, int))>0)
+	{
+		printf ("arg: %d\n", term);
+	}
+
+	va_end(arg_list);
+
+	printf ("\n");
+
+}
+
 
