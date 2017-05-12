@@ -1,8 +1,5 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <time.h>
 #include "laba3.h"
+
 void swap(char *line, int LeftElem, int RightElem)
 {
 	int tmp = line[LeftElem];
@@ -10,152 +7,77 @@ void swap(char *line, int LeftElem, int RightElem)
 	line[RightElem] = tmp;
 }
 
-int mediana(char *line, int LeftElem, int RightElem)
+int BinarySearch(char *line, char find)
 {
-	int theCenter = (LeftElem + RightElem) / 2;
+	int middle, Left = 0;
+	int Right = strlen(line) - 1;
 	
-	if (line[LeftElem] > line[theCenter])
+	while(Left <= Right)
 	{
-		swap(line,LeftElem, theCenter);
-	}
-
-	if (line[LeftElem] > line[RightElem])
-	{
-		swap(line, LeftElem, RightElem);
-	}
-
-	if (line[theCenter] > line[RightElem])
-	{
-		swap(line, theCenter, RightElem);
-	}
-	
-	swap(line, theCenter, RightElem - 1);
-	
-	char aPivot = line[RightElem - 1];
-	return aPivot;
-}
-
-int partitionIt(char *line, int LeftElem, int RightElem, char aPivot)
-{
-	int theRight = RightElem-1;
-	int theLeft = LeftElem ;
-	
-	while (1)
-	{
-		// search the bigest element
-		while (line[++theLeft] < aPivot);
-	
-		// search the lowest element
-		while( line[--theRight]>aPivot);
+		middle = (Left + Right) / 2;
 		
-	
-		if (theLeft >= theRight) // pointer are the same 
+		if(line[middle] == find)
 		{
-			break;
+			return middle;
+		}
+		else if(line[middle] > find)
+		{
+			Right = middle - 1;
 		}
 		else
 		{
-			// swap elements
-			swap(line, theLeft, theRight);
+			Left = middle + 1;
 		}
 	}
-}
-void additionalsort(char *line, int LeftElem, int RightElem)
-{
-	int Size = RightElem - LeftElem + 1;
-	if (Size <= 1)
-	{
-		return;
-	}
-	
-	if (2 == Size)
-	{
-		if (line[LeftElem] > line[RightElem])
-		{
-			swap(line, LeftElem, RightElem);
-		}
-		return ;
-	}
-	else
-	{
-		// 3 elementes
-		if (line[LeftElem] > line[RightElem - 1])
-		{
-			swap(line, LeftElem, RightElem - 1);
-		}
-	
-		if (line[LeftElem] > line[RightElem])
-		{
-			swap(line, LeftElem, RightElem);
-		}
-
-		if (line[RightElem - 1] > line[RightElem])
-		{
-			swap(line, RightElem - 1, RightElem);
-		}
-	}
+	return -1;
 }
 
-void quickSort(char *line, int LeftElem, int RightElem)
+void quicksort(char *line, int LeftElem, int RightElem)
 {
-	int Size = RightElem- LeftElem + 1;
-	if (Size <= 3)
-	{
-		additionalsort(line, LeftElem, RightElem);
-	}
-	else
-	{
-		int Pivot = mediana(line, LeftElem, RightElem);
-		int PartitionIndex = partitionIt(line, LeftElem, RightElem, Pivot);
-		quickSort(line, LeftElem, PartitionIndex - 1);
-		quickSort(line, PartitionIndex + 1, RightElem);
+	int i = LeftElem, j = RightElem, counter = line[(LeftElem + RightElem) / 2];
+	do{
+		while(line[i] < counter)
+			i++;
+    	while(line[j] > counter)
+			j--;
 		
-	}
-	
+		if(i <= j)
+		{
+			if(line[i] > line[j])
+				swap(line, i, j);
+			
+			i++;
+			j--;
+		}
+	}while(i <= j);
+
+	if(i < RightElem)
+		quicksort(line, i, RightElem);
+	if(LeftElem < j)
+		quicksort(line, LeftElem, j);
 }
 
-void Print_To_File (int counter,char *string)
+void ReadFile(FILE *afile, char *line)
 {
-	FILE *file = fopen("Ffile.txt","w");
-	int i = 0;
-	while(i<counter)
-	{		
-		fprintf(file, "%s", string[i]);
+	int i = 0, c;
+	while(c != EOF)			//end of file
+	{
+		c = fgetc(afile);	//take value of element 
+		if(c =='\n')
+			c = ' ';
+		line[i] = c;
 		i++;
 	}
 }
-	
 
-
-int BinarySearch( char* string, char find)
+int LookFile(FILE *afile)
 {
-	int Left = 0;
-	int Right = strlen(string);
-	int middle = 0;
-	int R = -1;
-	
-	while(Left < Right)
+	int i = 0, c;
+	while(c != EOF)
 	{
-		middle = (Left + Right)/2;
-		if(string[middle] == find)
-		{
-			R = middle;
-		//	return (R);
-			break;
-			
-		}
-		else
-		{
-			if(string[middle] > find)
-			{
-				Right = middle - 1;
-			}
-			else
-			{
-				Left = middle + 1;
-			}
-		}
+		c = getc(afile);
+		i++;
 	}
-
-	return (R);	
+	rewind (afile);
+	return i;
 }
