@@ -52,12 +52,12 @@ void TLPrintList(CharList *aList);
 
 void bubbleSort(CharList *anArray);
 
-void swap(CharList * aList,CharNode * aLeftIndex, CharNode * aRightIndex);
-//void quickSort(CharList aList[], int aLeftIndex, int aRightIndex);
+void swap(CharList *inputList, CharNode *aLeftIndex,CharNode *aRightIndex);
+void quickSort(CharList aList[], int aLeftIndex, int aRightIndex);
 
 //void m_manualSort(int anArray[], int aLeftIndex, int aRightIndex);
 
-//int partitionIt(CharList anArray[], int aLeftIndex, int aRightIndex, char aPivot);
+int partitionIt(CharList anArray[], int aLeftIndex, int aRightIndex, CharNode *aPivot);
 
 
 //void bubbleSort(CharList *anArray);

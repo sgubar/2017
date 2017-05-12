@@ -33,8 +33,8 @@ int main(int argc, const char * argv[])
     
     TLAddCharSymbolToList(theList, "e");
     
-    bubbleSort(theList);
-
+    //bubbleSort(theList);
+    quickSort(theList, 0, 10);
     printf("\t\t\t Before Sorting\n");
 
 	TLPrintList(theList);
@@ -50,9 +50,9 @@ int main(int argc, const char * argv[])
     */
     
         
-    LT_DeleteCharNode(theList,9);
+    LT_DeleteCharNode(theList,0);
 
-    printf("theil %c\n",FindElementAtIndex(theList, 8));
+   // printf("theil %c\n",FindElementAtIndex(theList, 8));
     TLPrintList(theList);
     
     

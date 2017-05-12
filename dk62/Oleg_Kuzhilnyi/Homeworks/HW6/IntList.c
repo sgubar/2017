@@ -256,7 +256,8 @@ int LT_DeleteCharNode(CharList *aList,int anIndex)
         theNode = aList->head;
         CharNode *theBNode = theNode;
         aList->head = theBNode->next;
-        
+      
+        //aList->head = theNode->next;
         
     }else if(aList->count == anIndex)
     {
@@ -273,9 +274,6 @@ int LT_DeleteCharNode(CharList *aList,int anIndex)
         theNode = theNode->next;    //следующий
         
         thePrevNode->next = theNode->next;
-        
-        aList->tail = thePrevNode->next;
-        theNode->next = NULL;
     }
     
     free(theNode);
@@ -318,10 +316,10 @@ void bubbleSort(CharList *anArray)
         }
 }
 
-int partitionIt(CharList aList[], int aLeftIndex, int aRightIndex, char aPivot)
+int partitionIt(CharList aList[], int aLeftIndex, int aRightIndex, CharNode *aPivot)
 {
  
-    int theLeft = aLeftIndex - 1;
+    int theLeft = aLeftIndex-1;
     int theRight = aRightIndex;
 
     
@@ -334,7 +332,7 @@ int partitionIt(CharList aList[], int aLeftIndex, int aRightIndex, char aPivot)
         
         CharNode *TheLeftElement = FindElementAtIndexAndReturnStruct(aList,theLeft);
         
-        while (TheLeftElement->value < aPivot)
+        while (TheLeftElement->value < aPivot->value)
         {
             theLeft++;
             TheLeftElement = FindElementAtIndexAndReturnStruct(aList, theLeft);
@@ -343,7 +341,7 @@ int partitionIt(CharList aList[], int aLeftIndex, int aRightIndex, char aPivot)
         
         CharNode *TheRightElement = FindElementAtIndexAndReturnStruct(aList,theRight);
 
-            while (theRight > 0 && TheRightElement->value > aPivot)
+            while (theRight > 0 && TheRightElement->value > aPivot->value)
             {
                 --theRight;
                 TheRightElement = FindElementAtIndexAndReturnStruct(aList,theRight);
@@ -371,7 +369,7 @@ int partitionIt(CharList aList[], int aLeftIndex, int aRightIndex, char aPivot)
             }
     }
     
-    swap(aList,TheLeftElement, TheRightElement);
+ //   swap(aList,TheLeftElement, TheRightElement);
 
         /*
          int theTmp = anArray[theLeft];
@@ -382,7 +380,7 @@ int partitionIt(CharList aList[], int aLeftIndex, int aRightIndex, char aPivot)
     return theLeft; // return break position
 }
 
-
+/*
 void quickSort(CharList aList[], int aLeftIndex, int aRightIndex)
 {
     if (aRightIndex - aLeftIndex <= 0)
@@ -390,7 +388,7 @@ void quickSort(CharList aList[], int aLeftIndex, int aRightIndex)
         return; // the array size equals to 1 - the array is fully sorted
     }
     
-    char thePivot = FindElementAtIndex(aList, aRightIndex);
+    CharNode *thePivot = FindElementAtIndexAndReturnStruct(aList, aRightIndex);
     int thePartitionIndex = partitionIt(aList, aLeftIndex, aRightIndex, thePivot);
     
     //left part sorting
@@ -399,71 +397,68 @@ void quickSort(CharList aList[], int aLeftIndex, int aRightIndex)
     //right part sorting
     quickSort(aList, thePartitionIndex + 1, aRightIndex);
 }
+*/
 
-/*
-void swap(CharList *aList, int aLeftIndex, int aRightIndex)
+
+
+
+
+
+
+void swap(CharList *inputList, CharNode *aLeftIndex,CharNode *aRightIndex)
 {
-    if (NULL != aList && aRightIndex < aList->count && -1 < aLeftIndex && 0 < (aRightIndex-aLeftIndex) && aRightIndex > aLeftIndex)
-    {
-        int i = 0;
-        
-        CharNode *theLeft = FindElementAtIndexAndReturnStruct(aList, aLeftIndex);
-         CharNode *theRight = FindElementAtIndexAndReturnStruct(aList, aRightIndex);
-        
-        if(NULL != theLeft && NULL != theRight)	{
-            if(1 < (aRightIndex-aLeftIndex)){
-                DoubleElement *theNextLeft = theLeft->next;
-                DoubleElement *theNextRight = theRight->next;
+    // Do simple sorting
+    CharNode *theNode = inputList->head; ///<- seems like 'left' is head
+    
+   
+           // if (theNode->letter > theSubNode->v)
+           // {
+                //swap nodes
+                //1. Swap pointers
                 
-                theNextLeft->previousElement = theRight;
-                if(NULL != thePreviousLeft)
-                    thePreviousLeft->nextElement = theRight;
-                else
-                    aList->head = theRight;
-                if(NULL != theNextRight)
-                    theNextRight->previousElement = theLeft;
-                else
-                    aList->tail = theLeft;
-                thePreviousRight->nextElement = theLeft;
-                theLeft->previousElement = thePreviousRight;
-                if(NULL != theNextRight)
-                    theLeft->nextElement = theNextRight;
-                else
-                    theLeft->nextElement = NULL;
-                if(NULL != thePreviousLeft)
-                    theRight->previousElement = thePreviousLeft;
-                else
-                    theRight->previousElement = NULL;
-                theRight->nextElement = theNextLeft;
-            }else{
-                DoubleElement *thePreviousLeft = theLeft->previousElement;
-                DoubleElement *theNextRight = theRight->nextElement;
-                if(NULL != thePreviousLeft)
-                    thePreviousLeft->nextElement = theRight;
-                else
-                    aList->head = theRight;
-                if(NULL != theNextRight)
-                    theNextRight->previousElement = theLeft;
-                else
-                    aList->tail = theLeft;
-                theLeft->previousElement = theRight;
-                theRight->nextElement = theLeft;
-                if(NULL != theNextRight)
-                    theLeft->nextElement = theNextRight;
-                else
-                    theLeft->nextElement = NULL;
-                if(NULL != thePreviousLeft)
-                    theRight->previousElement = thePreviousLeft;
-                else
-                    theRight->previousElement = NULL;
+                CharNode *theTmpNode = theNode;
+              //  if (NULL != theNode->prevNode)
+              //  {
+               //     theNode->prevNode->nextNode = theSubNode;
+                //}
+               // else
+                //{
+                    //the border case: update head
+                  //  inputList->left = theSubNode;
+                //}
+                
+            //    if (NULL != aLeftIndex->next)
+              //  {
+                   // theSubNode->nextNode->prevNode = theNode;
+              //  }
+              //  else
+                //{
+                    //the border case: update tail.
+                  //  inputList->right = theNode;
+                //}
+                
+               // charNode *theTmpNext = theNode->next;
+               // charNode *theTmpPrev = theNode->prevNode;
+                
+                theNode->next = aLeftIndex->next;
+               // theNode->prevNode = (theNode != theSubNode->prevNode) ? theSubNode->prevNode : theSubNode;
+                
+                aRightIndex->next = (aRightIndex != theTmpNode) ? theTmpNode : theNode;
+              //  theSubNode->prevNode = theTmpPrev;
+                
+                //3. Corrected local variables
+                theTmpNode = theNode;
+                theNode = aRightIndex;
+                aRightIndex = theTmpNode;
             }
-        }
-    }
-    */
+
+ 
+
 /*
 p - A_LEFT
 q - a right
   */
+/*
     void swap(CharList * aList,CharNode * aLeftIndex, CharNode * aRightIndex) {
         CharNode *thetmp;
         thetmp = aLeftIndex->next;
@@ -474,3 +469,4 @@ q - a right
         aRightIndex->next->next = aLeftIndex->next->next;
         aLeftIndex->next->next = thetmp;
     }
+ */
