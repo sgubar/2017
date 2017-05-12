@@ -1,53 +1,82 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <time.h>
 #include "laba3.h"
 
-int main(void)
+int main()
 {
 	char find;
-	 char *aline; 
-	FILE *file = fopen("file.txt", "r"); 
-	char line[1000];
-	if (file == NULL) 
-		{ 
-			printf("Sorry, but file not found.\n"); 
-			return -1; 
-		} 
-	aline = fgets(line, sizeof(line), file);
-	printf("String of the file: %s \n", line); 
-	int counter = strlen(line); 
+	
+	FILE *file = fopen("file.txt", "r");
+	if(file == NULL)
+	{
+		printf("Sorry, but file not found.\n");
+		return 1;
+	}
+	FILE *ffile = fopen("data.txt", "w");
+	if(ffile == NULL)
+	{
+		printf("Sorry, but file not created/found.\n");
+		fclose(file);
+		return 1;
+	}
+	
+	int check = LookFile(file);
+	if(check == 0)
+	{
+		printf("Empty file.\n");
+		fclose(ffile);
+		fclose(file);
+		return 1;
+	}
+	else
+	{
+		printf("Symbols: %i\n", check);
+		check++;
+	}
+	
+	char *line = (char *) calloc(check, sizeof(char));
+	if(line == 0)
+	{
+		printf("Error!\n");
+		fclose(ffile);
+		fclose(file);
+		return 1;
+	}
+	ReadFile(file, line);
 	fclose(file);
 	
-	float time, time1, time2;
+	printf("String of the file:\n%s\n", line);
+	
+	int counter = strlen(line) - 1, f;
+	float time;
 	
 	time = clock();
-	quickSort(line, 0, counter);
-	time=clock() - time;
-	printf ("Time of selectionSort: %.4f\n", time /CLOCKS_PER_SEC);
-	printf("\n"); 
+	quicksort(line, 0, counter);
+	time = clock() - time;
+	printf("Time of Quicksort: %.4f\n\n", time / CLOCKS_PER_SEC);
+	fprintf(ffile, "Time of Quicksort: %.4f\n", time / CLOCKS_PER_SEC);
 	
-	printf("Please, enter the symbol what you want to find: \n");
+	printf("Sorted string:\n");
+	for(f = 0; f <= counter; f++)
+	{
+		if(line[f] != 32)					
+		printf("%c", line[f]);
+	}
+	printf("\n\nPlease, enter the symbol what you want to find: ");
 	scanf("%c", &find);
-	Print_To_File(counter,line);
 	
-	FILE *ffile = fopen("Ffile.txt", "r"); 
-	if (ffile == NULL) 
-		{ 
-			printf("Sorry, but file not found.\n"); 
-			return -1; 
-		} 
-	aline = fgets(line, sizeof(line), ffile);
-	printf("String of the file: %s \n", line); 
+	time = clock();
+	int finding = BinarySearch(line, find);
+	time = clock() - time;
+	
+	printf("Time of search: %.4f\n", time / CLOCKS_PER_SEC);
+	fprintf(ffile, "Time of search: %.4f\n", time / CLOCKS_PER_SEC);
+	
+	if(finding == -1)
+		printf("This element is not found.\n");
+	else
+		printf("Found in the %i position.\n", finding );
+	
+	fflush(ffile);
 	fclose(ffile);
-	
-	time1=clock();
-	int finding = BinarySearch( line, find);
-	time1=clock()-time1;
-printf ("Time of search: %.4f\n", time1 /CLOCKS_PER_SEC);
-if(-1==finding) 
-	printf("This element is not found.\n");
-else
-	printf("\nFound in the %i position \n",finding+1);
+	free(line);
+	return 0;
 }
