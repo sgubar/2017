@@ -1,0 +1,2 @@
+Time of Quicksort: 0.0000
+Time of search: 0.0000
