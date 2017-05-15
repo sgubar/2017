@@ -1,0 +1,1 @@
+int findWord (char *str);
