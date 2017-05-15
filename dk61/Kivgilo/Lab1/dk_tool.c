@@ -1,61 +1,51 @@
 #include <stdio.h>
-#include "dk_tool.h"
-	
-float dobutok (int A,int B,int C)
+#include "tool.h" 
 
+float suma_factorialov(float D,float B)
 {
-	printf ("A = %i", A);
-	printf ("\nB = %i",B);
-	printf ("\nC = %i", C);
-	float ab = A*B;
-	printf ("ab= %.2f\n", ab);
-	float bc = B+(C*C);
-	
-	printf ("b+c*c= %.2f", bc);
-	if (bc==0)
-		{
-			printf ("Proveryai(B+C*C=0!!!)");
-			return 0;
-		}
-	float D1= ab/bc;
-	return D1;
+float sum=0;
+float fact=1;
+
+    for (D=0;D<=B;D++)
+    {
+        if (D==0)
+            sum++;
+        else
+        {
+            fact=fact*D;
+            sum = fact + sum;
+        }
+    }
+   return sum;
+    printf("\n");
 }
 
-float scan(int min, int max) 
-{ 
-
-float dobutok; 
-int q; 
-do 
-{ 
-q = scanf("%f", &dobutok); 
-
-fflush(stdin); 
-
-if((dobutok<min || dobutok>max) || q!=1) 
-{ 
-printf("\ngive me the correct number pls!"); 
-} 
-
-} 
-
-while ((dobutok<min || dobutok>max) || q!=1); 
-
-return dobutok; 
-
-}
-
-int  sum (int B)
+float sqr(float C) 
 {
-
-	int U = 1, factorial = 1;
-	if (B>0)
-	{
-		// summa 
-		for (U ;U<=B;U++)
-		{
-			factorial = factorial*U;
-		}
-	}
-	return factorial;
+float result=0;
+    result=C*C;
+return result;
 }
+float vtoroy_faktorial(float A,float C,float Y,float D,float B,float X,float Q)
+{
+ if (B + sqr(C) == 0 && B <= 0) 
+        {
+         printf(" Vvedi chislo > 0 \n"); 
+         return 0;
+        }
+    else
+        {
+            X=(A*B)/(B+sqr(C)); 
+            printf("X=%f",(A*B)/(B+sqr(C))); 
+        }
+    printf("\n");
+    
+    Y=suma_factorialov(D,B); 
+    
+    printf("Y=%f",suma_factorialov(D,B)); 
+    printf("\n");
+
+    Q=X+Y;
+    printf("Q=%f",X+Y);
+ } 
+
