@@ -5,11 +5,10 @@ typedef struct {
     int y;
 } point;
 typedef struct {
-    point a [4];
-    int side[4];
+    point a;
+    int side[2];
     double square;
 } square;
-double sideof(point A,point B);
 void MakeSquare(square *ptr, int n);
 void squareof(square *s);
 void destroyFigure(square *s);
