@@ -91,8 +91,8 @@ ShortNode *findNodeWithValue(ShortTree *aTree, short aValue)
 	
 	if (NULL != aTree)
 	{
-		ShortNode *theCurrentNode = aTree->root; //<! - start from root
-		while (aValue != theCurrentNode->value) //<! - walk through the tree
+		ShortNode *theCurrentNode = aTree->root; ///< - start from root
+		while (aValue != theCurrentNode->value) ///< - walk through the tree
 		{
 			theCurrentNode = (aValue < theCurrentNode->value)
 						? theCurrentNode->leftChild
@@ -105,10 +105,10 @@ ShortNode *findNodeWithValue(ShortTree *aTree, short aValue)
 		}
 	}
 	
-	int a = 5;
-	int b = 7;
+//	int a = 5;
+//	int b = 7;
 	
-	int c = (a > b) ? 5 : 8;
+	//int c = (a > b) ? 5 : 8;
 	
 	return theCurrentNode;
 }
