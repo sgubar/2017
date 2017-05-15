@@ -57,7 +57,7 @@ void quicksort(char *line, int LeftElem, int RightElem)
 		quicksort(line, LeftElem, j);
 }
 
-void ReadFile(FILE *afile, char *line)
+void ReadFile(FILE *afile, char *line) //переписує символи з файла в рядок
 {
 	int i = 0, c;
 	while(c != EOF)			//end of file
@@ -70,7 +70,7 @@ void ReadFile(FILE *afile, char *line)
 	}
 }
 
-int LookFile(FILE *afile)
+int LookFile(FILE *afile) //функція, яка перебирає кожен елемент пока недойде до кінця файлу
 {
 	int i = 0, c;
 	while(c != EOF)
