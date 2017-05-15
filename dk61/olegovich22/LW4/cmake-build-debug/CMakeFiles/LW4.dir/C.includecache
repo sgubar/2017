@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+D:/CLionProjects/LW4/dk_checker.c
+dk_checker.h
+D:/CLionProjects/LW4/dk_checker.h
+stdlib.h
+-
+stdio.h
+-
+
+D:/CLionProjects/LW4/dk_checker.h
+stdio.h
+-
+
+D:/CLionProjects/LW4/dk_tool.c
+dk_tool.h
+D:/CLionProjects/LW4/dk_tool.h
+stdio.h
+-
+string.h
+-
+limits.h
+-
+
+D:/CLionProjects/LW4/dk_tool.h
+
+D:/CLionProjects/LW4/main.c
+stdio.h
+-
+dk_tool.h
+D:/CLionProjects/LW4/dk_tool.h
+dk_checker.h
+D:/CLionProjects/LW4/dk_checker.h
+stdlib.h
+-
+
