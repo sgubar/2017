@@ -1,10 +1,4 @@
-//
-//  SortingList.h
-//  HW6
-//
-//  Created by air on 16.05.17.
-//  Copyright © 2017 Oleg Kuzhilnyi. All rights reserved.
-//
+
 
 #ifndef SortingList_h
 #define SortingList_h
