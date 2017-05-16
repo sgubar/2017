@@ -185,7 +185,7 @@ if(anIndex < aList->count)
     aList->count--;
     return theNode;
 }
-return NULL;
+return 0;
 }
 
 // print list
@@ -235,6 +235,9 @@ CharNode *createCharNodeWithSymbol(char CharSymbol)
                             */
 
 /*
+ 
+ //1.Insert
+ 
  int TLInsertCharSymbolAtIndex(CharList *aList, char *anCharValue, int anIndex)
  {
  
@@ -294,6 +297,9 @@ CharNode *createCharNodeWithSymbol(char CharSymbol)
  */
 
 /*
+ 
+//2.Delete node 
+ 
  int LT_DeleteCharNode(CharList *aList,int anIndex)
  {
  int theResult = -1;

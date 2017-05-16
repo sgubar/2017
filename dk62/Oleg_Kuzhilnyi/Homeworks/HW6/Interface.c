@@ -51,6 +51,8 @@ int doList()
     TLInsertCharSymbolAtIndex(theList,"L",5);
     
     removeCharNodeAtIndex(theList, 0);
+    removeCharNodeAtIndex(theList, 5);
+    removeCharNodeAtIndex(theList, 8);
 
      TLPrintList(theList);
     

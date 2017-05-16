@@ -23,7 +23,7 @@ void bubbleSort(CharList *anArray)
 
 void quickSort(CharList *aList, int aLeftIndex, int aRightIndex)
 {
-    if(aList==NULL || aList->count<2)
+    if(aList==NULL || aList->count <  2)
     {
         return;
     }
