@@ -6,7 +6,7 @@
 
 
 
-ListFigures *CreateListFigure (int aSize)
+ListFigures *CreateListFigure (int aSize) //описуємо функцію створення списку структур
 {
 ListFigures *aFigures = (ListFigures*) malloc(sizeof(ListFigures));
 
@@ -22,7 +22,7 @@ ListFigures *aFigures = (ListFigures*) malloc(sizeof(ListFigures));
 }
 
 
-void Coordinates(RectanglePoint*PointA, RectanglePoint*PointB, RectanglePoint*PointC, RectanglePoint*PointD )
+void Coordinates(RectanglePoint*PointA, RectanglePoint*PointB, RectanglePoint*PointC, RectanglePoint*PointD ) //описуємо функцію опису структури кожної точки чотирикутника
 {
     printf("Coordinate_X_A: ");
         scanf("%i",&PointA->x);
@@ -45,7 +45,7 @@ void Coordinates(RectanglePoint*PointA, RectanglePoint*PointB, RectanglePoint*Po
         scanf("%i",&PointD->y);
 }
 
-int AddRectangle(ListFigures * AFigures)
+int AddRectangle(ListFigures * AFigures) //описуємо функцію додавання нового чотирикутника до структури масиву фігур 
 {
     int theResult = 0;
     if (NULL != AFigures)
@@ -82,7 +82,7 @@ int AddRectangle(ListFigures * AFigures)
 
 
 
-void DestroyList (ListFigures * AFigures)
+void DestroyList (ListFigures * AFigures) //видаляємо список структур
 {
     if (NULL != AFigures)
     {
@@ -108,7 +108,7 @@ void DestroyList (ListFigures * AFigures)
 
 
 
-double Square(Rectangle * rectangle)
+double Square(Rectangle * rectangle) //знаходимо площу чотирикутника, якого додаємо до структури
 {
     double result = sqrt( pow(rectangle->PointA->x - rectangle->PointB->x,2) + pow(rectangle->PointA->y - rectangle->PointB->y,2)) *
                     sqrt( pow(rectangle->PointB->x - rectangle->PointC->x,2) + pow(rectangle->PointB->y - rectangle->PointC->y,2));
@@ -116,7 +116,7 @@ double Square(Rectangle * rectangle)
 };
 
 
-void PrintSquare(ListFigures *FiguresNumber)
+void PrintSquare(ListFigures *FiguresNumber) //опис функції, яка виводить значення площ чотирикутників, які ввійшли до структури
 {
     for (int i = 0; i < FiguresNumber->current_size+1; i++)
     {
@@ -126,7 +126,7 @@ void PrintSquare(ListFigures *FiguresNumber)
     }
 };
 
-void writeRectangle(FILE *aFile, Rectangle *aNote)
+void writeRectangle(FILE *aFile, Rectangle *aNote) //описуємо функцію запису даних чотирикутника до масива структур
 {
     fprintf (aFile, "{");
     fprintf(aFile, "\n");
@@ -176,7 +176,7 @@ void writeRectangle(FILE *aFile, Rectangle *aNote)
 }
 
 
-void writeList(FILE *aFile, ListFigures * AFigures)
+void writeList(FILE *aFile, ListFigures * AFigures)  //описуємо функцію запису стуктури даних масиву чотирикутників до файлу в форматі JSON
 {
     fprintf(aFile, "{");
     fprintf(aFile, "\n");
