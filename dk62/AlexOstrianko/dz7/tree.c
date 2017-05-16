@@ -83,6 +83,7 @@ int countNodesWithTree(CharTree *aTree)
 {
 	if(NULL != aTree)
 		return aTree->count;
+	return 0;
 }
 
 void printTree(CharTree *aTree, int Way)
