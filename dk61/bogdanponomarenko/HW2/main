@@ -1,0 +1,15 @@
+#include <stdio.h>
+#include "t.h"
+
+
+int main() {
+
+    ListFigures * figure = CreateListFigure(3);
+
+    AddRectangle(figure);
+
+    PrintSquare(figure);
+
+    DestroyList(figure);
+
+}
