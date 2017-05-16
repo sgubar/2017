@@ -16,15 +16,15 @@ char *Transform_file (int *Lenght_of_Str)
 		printf("File don't open string.txt\n");
 		return 0;
 	}
-	int Lenth_of_File=0;
+	int Lenght=0;
 	while(fgetc(file)!=EOF)
 	{		
-		Lenth_of_File++;
+		Lenght++;
 	}
 	
-	printf("Lenght_of_File: %i\n",Lenth_of_File);
+	printf("Lenght_of_File: %i\n",Lenght);
 	
-	char *String = (char *)malloc(sizeof(char)*(Lenth_of_File));
+	char *String = (char *)malloc(sizeof(char)*(Lenght));
 	
 	fseek(file, 0L, SEEK_SET); 	
 	int i = 0;
