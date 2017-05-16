@@ -21,6 +21,7 @@ int EnterWay(void)
 		if(1 > WayOfSorting || WayOfSorting > 3)
 			printf("Incorrect value!\n");
 	}while(1 > WayOfSorting || WayOfSorting > 3);
+	return WayOfSorting;
 }
 
 char EnterElementToDelete(void)
