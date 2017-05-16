@@ -205,7 +205,6 @@ void writeList(FILE *aFile, ListFigures * AFigures)
 
         fprintf(aFile, "}");
     }
-    puts("Record to  data.json completed");
 }
 
 
