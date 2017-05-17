@@ -1,19 +1,25 @@
-#ifndef dk_tool_h 
-#define dk_tool_h 
+#ifndef dk_tool_h
+#define dk_tool_h
 
-typedef struct koordinates 
-{ 
-	float x_koordunatu; 
-	float y_koordunatu; 
-	float radius; 
-}koordunatu; 
+typedef struct aCoordinates			
+{
+	float x;
+	float y;
+	float r;
+}coordinates;						
 
-koordunatu *paranetru(); 
+typedef struct aList				
+{
+	int maxSize;					
+	int currentSize;				
+	coordinates *circle;			
+}list;								
 
-float proverka(); 
+list *createList(int aSize);		
+void destroyList(list *aList);		
 
-void enter(koordunatu *AA); 
-
-float calculate(koordunatu *AAA); 
+void newCoordinate(list *aList);	
+void print(list *aList);			
+float square(coordinates *current);	
 
 #endif
