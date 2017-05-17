@@ -45,29 +45,9 @@ void sortArray(int *aArray, int aSize, FILE *file)
 	fprintf(file, "Selectionsort\t%.5lf s\n", time);
 	
 	
-	values(aArray, aSize);
+
 	
-	printf("Shellsort started\n");
-	first = clock();
-	shellsort(aArray, aSize);
-	second = clock();
-	
-	time = (second - first)/1000;
-	printf("Shellsort finished\n");
-	fprintf(file, "Shellsort\t%.5lf s\n", time);
-	
-	
-	values(aArray, aSize);
-	
-	printf("Quicksort started\n");
-	first = clock();
-	quicksort(aArray, 0, aSize - 1);
-	second = clock();
-	
-	time = (second - first)/1000;
-	printf("Quicksort finished\n");
-	fprintf(file, "Quicksort\t%.5lf s\n", time);
-}
+
 
 void values(int *aArray, int aSize)
 {
