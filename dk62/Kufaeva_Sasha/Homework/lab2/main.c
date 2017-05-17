@@ -30,3 +30,4 @@ int main(int argc, const char *argv[])
 	
 	fflush(file);
 	fclose(file);
+        free(aArray);
