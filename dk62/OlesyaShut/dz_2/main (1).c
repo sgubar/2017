@@ -1,17 +1,25 @@
-#include <stdio.h> 
-#include "dk_tool.h" 
+#include <stdio.h>
+#include <stdlib.h>
+#include "dk_tool.h"
 
 int main(int argc, const char *argv[])
 {
-koordunatu* A = (koordunatu*)malloc(sizeof(koordunatu));
-  enter(A);
-
-float S = calculate(A);
-printf("\nResult: %.12f\n", S); 
-
-if(NULL != A) 
-free(A);
-
-system("pause"); 
-return 0; 
+	int a = 0;
+	do{										
+		printf("Enter number of circles: ");
+		scanf("%i", &a);
+	}while(a < 1);
+	
+	list *circ = createList(a);				
+	
+	while(a != 0)							
+	{
+		newCoordinate(circ);
+		a--;
+	}
+	
+	printArea(circ);
+	destroyList(circ);
+	
+	return 0;
 }
