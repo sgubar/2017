@@ -1,5 +1,0 @@
-Bubblesort	0.00000 s
-Insertionsort	0.00000 s
-Selectionsort	0.00000 s
-Shellsort	0.00000 s
-Quicksort	0.00000 s
