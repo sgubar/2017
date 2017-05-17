@@ -47,7 +47,7 @@ void sortArray(int *aArray, int aSize, FILE *file)
 	
 
 	
-
+}
 
 void values(int *aArray, int aSize)
 {
