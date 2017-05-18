@@ -45,3 +45,10 @@ void insertionsort(int *aArray, int aSize)
 		}
 		aArray[theIn] = theTmp;
 	}
+	void swap(int *tmp1, int *tmp2)
+{
+	int tmp = *tmp1;
+	*tmp1 = *tmp2;
+	*tmp2 = tmp;
+}
+
