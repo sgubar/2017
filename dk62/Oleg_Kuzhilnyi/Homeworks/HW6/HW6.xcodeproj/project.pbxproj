@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4544D7F91EBA1E48001FE415 /* CharList.c in Sources */ = {isa = PBXBuildFile; fileRef = 4544D7F61EBA1E48001FE415 /* CharList.c */; };
-		4544D7FA1EBA1E48001FE415 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 4544D7F71EBA1E48001FE415 /* main.c */; };
-		4582C4021ECA5BE100553354 /* SortingList.c in Sources */ = {isa = PBXBuildFile; fileRef = 4582C4001ECA5BE100553354 /* SortingList.c */; };
-		4582C4051ECA5CB500553354 /* CreateDestroyList.c in Sources */ = {isa = PBXBuildFile; fileRef = 4582C4031ECA5CB500553354 /* CreateDestroyList.c */; };
+		45E6C9571ECA600700C10514 /* CharList.c in Sources */ = {isa = PBXBuildFile; fileRef = 45E6C9501ECA600700C10514 /* CharList.c */; };
+		45E6C9581ECA600700C10514 /* Interface.c in Sources */ = {isa = PBXBuildFile; fileRef = 45E6C9511ECA600700C10514 /* Interface.c */; };
+		45E6C9591ECA600700C10514 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 45E6C9531ECA600700C10514 /* main.c */; };
+		45E6C95A1ECA600700C10514 /* SortingList.c in Sources */ = {isa = PBXBuildFile; fileRef = 45E6C9541ECA600700C10514 /* SortingList.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,13 +27,13 @@
 
 /* Begin PBXFileReference section */
 		450E6C9E1EAAA359006CEC0F /* HW6 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = HW6; sourceTree = BUILT_PRODUCTS_DIR; };
-		4544D7F61EBA1E48001FE415 /* CharList.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CharList.c; path = ../../../../../2017/dk62/Oleg_Kuzhilnyi/Homeworks/HW6/CharList.c; sourceTree = "<group>"; };
-		4544D7F71EBA1E48001FE415 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = main.c; path = ../../../../../2017/dk62/Oleg_Kuzhilnyi/Homeworks/HW6/main.c; sourceTree = "<group>"; };
-		4544D7F81EBA1E48001FE415 /* TLCharList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TLCharList.h; path = ../../../../../2017/dk62/Oleg_Kuzhilnyi/Homeworks/HW6/TLCharList.h; sourceTree = "<group>"; };
-		4582C4001ECA5BE100553354 /* SortingList.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SortingList.c; sourceTree = "<group>"; };
-		4582C4011ECA5BE100553354 /* SortingList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SortingList.h; sourceTree = "<group>"; };
-		4582C4031ECA5CB500553354 /* CreateDestroyList.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CreateDestroyList.c; sourceTree = "<group>"; };
-		4582C4041ECA5CB500553354 /* CreateDestroyList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateDestroyList.h; sourceTree = "<group>"; };
+		45E6C9501ECA600700C10514 /* CharList.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CharList.c; sourceTree = "<group>"; };
+		45E6C9511ECA600700C10514 /* Interface.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Interface.c; sourceTree = "<group>"; };
+		45E6C9521ECA600700C10514 /* DoCreateDestroyList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoCreateDestroyList.h; sourceTree = "<group>"; };
+		45E6C9531ECA600700C10514 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		45E6C9541ECA600700C10514 /* SortingList.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SortingList.c; sourceTree = "<group>"; };
+		45E6C9551ECA600700C10514 /* SortingList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SortingList.h; sourceTree = "<group>"; };
+		45E6C9561ECA600700C10514 /* TLCharList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLCharList.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,13 +66,13 @@
 		450E6CA01EAAA359006CEC0F /* HW6 */ = {
 			isa = PBXGroup;
 			children = (
-				4544D7F71EBA1E48001FE415 /* main.c */,
-				4544D7F61EBA1E48001FE415 /* CharList.c */,
-				4582C4001ECA5BE100553354 /* SortingList.c */,
-				4582C4011ECA5BE100553354 /* SortingList.h */,
-				4582C4031ECA5CB500553354 /* CreateDestroyList.c */,
-				4582C4041ECA5CB500553354 /* CreateDestroyList.h */,
-				4544D7F81EBA1E48001FE415 /* TLCharList.h */,
+				45E6C9531ECA600700C10514 /* main.c */,
+				45E6C9501ECA600700C10514 /* CharList.c */,
+				45E6C9511ECA600700C10514 /* Interface.c */,
+				45E6C9521ECA600700C10514 /* DoCreateDestroyList.h */,
+				45E6C9541ECA600700C10514 /* SortingList.c */,
+				45E6C9551ECA600700C10514 /* SortingList.h */,
+				45E6C9561ECA600700C10514 /* TLCharList.h */,
 			);
 			path = HW6;
 			sourceTree = "<group>";
@@ -134,10 +134,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4582C4021ECA5BE100553354 /* SortingList.c in Sources */,
-				4544D7FA1EBA1E48001FE415 /* main.c in Sources */,
-				4582C4051ECA5CB500553354 /* CreateDestroyList.c in Sources */,
-				4544D7F91EBA1E48001FE415 /* CharList.c in Sources */,
+				45E6C95A1ECA600700C10514 /* SortingList.c in Sources */,
+				45E6C9581ECA600700C10514 /* Interface.c in Sources */,
+				45E6C9571ECA600700C10514 /* CharList.c in Sources */,
+				45E6C9591ECA600700C10514 /* main.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

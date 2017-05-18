@@ -13,29 +13,36 @@
 
 typedef struct __tagNode
 {
-	short value;
+	double value;
 	struct __tagNode *leftChild;
 	struct __tagNode *rightChild;
-} ShortNode;
+} Double_Node;
 
 typedef struct __tagTree
 {
-	ShortNode *root;
+	Double_Node *root;
 	int count;
-} ShortTree;
+} DoubleTree;
 
 // interface
-ShortTree *createShortTree();
-void destroyShortTree(ShortTree *aTree);
+DoubleTree *createDoubleTree();
+void destroyDoubleTree(DoubleTree *aTree);
 
-void insertShortValueToTree(ShortTree *aTree, short aValue);
+void insertDoubleValueToTree(DoubleTree *aTree, double aValue);
 
-ShortNode *findNodeWithValue(ShortTree *aTree, short aValue);
-void deleteNodeWithValue(ShortTree *aTree, short aValue);
+Double_Node *findNodeWithValue(DoubleTree *aTree, double aValue);
+void deleteNodeWithValue(DoubleTree *aTree, double aValue);
 
-void mergeTrees(ShortTree *aTreeDst, ShortTree *aTreeSrc);
+void mergeTrees(DoubleTree *aTreeDst, DoubleTree *aTreeSrc);
 
-void printTree(ShortTree *aTree);
-int countNodesWithTree(ShortTree *aTree);
+//void print (Double_Node *t,int u);
+
+int countNodesWithTree(DoubleTree *aTree);
+
+void printDoubleTree(DoubleTree *aTree, int aTypeOfPassage);
+
+void SymmetricPassage_And_PrintTree(Double_Node *aNode);
+void PlainPassage_And_PrintTree(Double_Node *aNode);
+void BackPassage_And_PrintTree(Double_Node *aNode);
 
 #endif /* tree_h */
