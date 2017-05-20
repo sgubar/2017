@@ -1,5 +1,5 @@
-#ifndef hw2.h
-#define hw2.h
+#ifndef hw4.h
+#define hw4.h
 
 typedef struct position
 {
