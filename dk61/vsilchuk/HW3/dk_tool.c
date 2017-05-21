@@ -270,7 +270,7 @@ int FilePrintPyramid(pyramid *aPyramid, FILE *ptrFile)
 			fprintf (ptrFile,"\n\t\t}\n\n");
 		}
 	}
-return 0;	
+	return 0;	
 }
 
 void FilePrintSquare(pyramidsList *aPyramidsList) 
