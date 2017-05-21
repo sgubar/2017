@@ -111,26 +111,35 @@ void printinfile_spisok(FILE *file, spisok_figur *myfigura)
 	}
 	else
 	{
-	for (int i = 0; i < myfigura->Flag; i++)
+		fprintf(file, "{\n");
+		fprintf(file, "\"chotirikytniki\":\n\t");
+		fprintf(file, "[\n\t");
+		for (int i = 0; i < myfigura->Flag; i++)
 		{
-				fprintf (file, "Фігура %i:\n",i+1);
-				figura *theFigure = &(myfigura->quadrangle[i]);
-				printinfile_figura(file, theFigure);
-				if (i < (myfigura->Flag - 1))
-				{
+
+			figura *theFigure = &(myfigura->quadrangle[i]);
+			printinfile_figura(file, theFigure);
+			if (i < (myfigura->Flag - 1))
+			{
+				fprintf (file, ",\n\t");	
 			}
 		}
+		fprintf(file, "\n\t]\n");
 	}
-
+	fprintf (file, "}");
 }
+
+
 void printinfile_figura(FILE *file, figura *myfigura)
 {
-	
+	fprintf(file, " {\n\t");
 	for (int i = 0; i < 4; i++)
     {
-	fprintf(file, "Координати точки %i:(%i,%i)", i+1, myfigura->tochki[i].x, myfigura->tochki[i].y);
-    fprintf(file, "\n");
+	fprintf(file, " \"Point[%i]\": {\"CoordX:\%i, \"CoordY:\%i}", i+1, myfigura->tochki[i].x, myfigura->tochki[i].y);
+	if (i<3)
+	  {
+	  	fprintf(file, ",\n\t");
+	  }
     }
-    fprintf(file,"Площа чотирикутника: %f\n", Ploshcha(myfigura)); 
-    fprintf(file, "-----------------------------\n");
+    fprintf(file, "\n\t }");
 }
