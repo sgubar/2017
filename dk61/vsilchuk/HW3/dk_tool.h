@@ -1,4 +1,4 @@
-#ifndef tool_h
+#ifndef dk_tool_h
 #define dk_tool_h
 
 typedef struct pyramidVertex				
