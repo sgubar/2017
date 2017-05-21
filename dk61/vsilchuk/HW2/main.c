@@ -6,13 +6,13 @@ int main()
 {
 	printf("Max count of pyramids:\n");
 	
-	int aSize = NumInput();					//максимальный размер комнаты, количество пирамид, которые можно впихнуть в нашу комнату 
+	int aSize = NumInput();					 
 	if(aSize < 1 || aSize > 100000000)
 	{
 		return 1;
 	}
 	
-	pyramidsList *aPyramidsList = createPyramidsList(aSize);		//создали комнату, выделили память под пирамиды
+	pyramidsList *aPyramidsList = createPyramidsList(aSize);		
 	
 	int i;
 	for(i = 0; i < aSize; i++)
