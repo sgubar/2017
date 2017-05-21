@@ -110,10 +110,12 @@ if(Element->current_fig)
 	for(l = 0; l < Element->current_fig; l++)
 		{
 		Element->place = &(Dots[l]);
-		fprintf(file, "{%.3f},", Element->place->area);
-		fprintf(file, "{%.3f,  %.3f},", Element->place->x_coor[0], Element->place->y_coor[0]);
-		fprintf(file, "{%.3f,  %.3f},", Element->place->x_coor[1], Element->place->y_coor[1]);
-		fprintf(file, "{%.3f,  %.3f}\n", Element->place->x_coor[2], Element->place->y_coor[2]);
+		fprintf(file, "{\n");
+		fprintf(file, "\t\"Area\":%.3f,\n", Element->place->area);
+		fprintf(file, "\t\"Dot[0]\":{\"X\":%.3f,  \"Y\":%.3f},\n", Element->place->x_coor[0], Element->place->y_coor[0]);
+		fprintf(file, "\t\"Dot[1]\":{\"X\":%.3f,  \"Y\":%.3f},\n", Element->place->x_coor[1], Element->place->y_coor[1]);
+		fprintf(file, "\t\"Dot[2]\":{\"X\":%.3f,  \"Y\":%.3f}\n", Element->place->x_coor[2], Element->place->y_coor[2]);
+		fprintf(file, "}\n");
 		}
 	fprintf(file, "]");
 	}
