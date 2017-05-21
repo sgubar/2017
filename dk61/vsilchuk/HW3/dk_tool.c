@@ -170,37 +170,37 @@ float pyramidSquare(pyramid *aPyramid)
 	
 		        pow(aPyramid -> vertices[0].y - aPyramid -> vertices[1].y , 2) + 
 				    
-			 	pow(aPyramid -> vertices[0].z - aPyramid -> vertices[1].z , 2)	);
+			 pow(aPyramid -> vertices[0].z - aPyramid -> vertices[1].z , 2)	);
 		 		
 	PB = sqrt(	pow(aPyramid -> vertices[0].x - aPyramid -> vertices[2].x , 2) + 
 	
 		        pow(aPyramid -> vertices[0].y - aPyramid -> vertices[2].y , 2) + 
 				    
-			 	pow(aPyramid -> vertices[0].z - aPyramid -> vertices[2].z , 2)	);
+			 pow(aPyramid -> vertices[0].z - aPyramid -> vertices[2].z , 2)	);
 				 
 	PC = sqrt(	pow(aPyramid -> vertices[0].x - aPyramid -> vertices[3].x , 2) + 
 	
 		      	pow(aPyramid -> vertices[0].y - aPyramid -> vertices[3].y , 2) + 
 				    
-			 	pow(aPyramid -> vertices[0].z - aPyramid -> vertices[3].z , 2)	);			 	 		
+			 pow(aPyramid -> vertices[0].z - aPyramid -> vertices[3].z , 2)	);			 	 		
 					
 	AB = sqrt(	pow(aPyramid -> vertices[1].x - aPyramid -> vertices[2].x , 2) + 
 	
 		      	pow(aPyramid -> vertices[1].y - aPyramid -> vertices[2].y , 2) + 
 				    
-		 		pow(aPyramid -> vertices[1].z - aPyramid -> vertices[2].z , 2)	);
+		 	pow(aPyramid -> vertices[1].z - aPyramid -> vertices[2].z , 2)	);
 		 		
 	AC = sqrt(	pow(aPyramid -> vertices[1].x - aPyramid -> vertices[3].x , 2) + 
 	
 		      	pow(aPyramid -> vertices[1].y - aPyramid -> vertices[3].y , 2) + 
 				    
-		 		pow(aPyramid -> vertices[1].z - aPyramid -> vertices[3].z , 2)	);	 
+		 	pow(aPyramid -> vertices[1].z - aPyramid -> vertices[3].z , 2)	);	 
 				 
 	BC = sqrt(	pow(aPyramid -> vertices[2].x - aPyramid -> vertices[3].x , 2) + 
 	
 		      	pow(aPyramid -> vertices[2].y - aPyramid -> vertices[3].y , 2) + 
 				    
-		 		pow(aPyramid -> vertices[2].z - aPyramid -> vertices[3].z , 2)	);	
+		 	pow(aPyramid -> vertices[2].z - aPyramid -> vertices[3].z , 2)	);	
 				 
 	halfPerimeter = (PA + PB + AB) / 2;
 	PABsquare = sqrt( halfPerimeter * ((halfPerimeter - PA)*(halfPerimeter - PB)*(halfPerimeter - AB)) );
@@ -273,12 +273,12 @@ int FilePrintPyramid(pyramid *aPyramid, FILE *ptrFile)
 return 0;	
 }
 
-void filePrintSquare(pyramidsList *aPyramidsList) 
+void FilePrintSquare(pyramidsList *aPyramidsList) 
 {
 	FILE * ptrFile = fopen("aPyramidsList.json", "a");
 	if (ptrFile != NULL)
 	{
-		int i;
+	    int i;
 	    for (i = 0; i < aPyramidsList -> pyramidsCounter; i++)
 	    {
 	        pyramid *aPyramid = &(aPyramidsList -> pyramids[i]);
