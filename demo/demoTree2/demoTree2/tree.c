@@ -3,12 +3,12 @@
 #include "tree.h"
 #include <stdlib.h>
 
-static void destroyNode(Double_Node *aNode);
-static Double_Node *createDoubleNodeWithValue(double aValue);
+static void destroyNode(ShortNode *aNode);
+static ShortNode *createShortNodeWithValue(short aValue);
 
-DoubleTree *createDoubleTree()
+ShortTree *createShortTree()
 {
-	DoubleTree *theTree = (DoubleTree *)malloc(sizeof(DoubleTree));
+	ShortTree *theTree = (ShortTree *)malloc(sizeof(ShortTree));
 	
 	if (NULL != theTree)
 	{
@@ -19,7 +19,7 @@ DoubleTree *createDoubleTree()
 	return theTree;
 }
 
-void destroyDoubleTree(DoubleTree *aTree)
+void destroyShortTree(ShortTree *aTree)
 {
 	if (NULL != aTree)
 	{
@@ -28,15 +28,14 @@ void destroyDoubleTree(DoubleTree *aTree)
 	}
 }
 
-void insertDoubleValueToTree(DoubleTree *aTree, double aValue)
+void insertShortValueToTree(ShortTree *aTree, short aValue)
 {
 	if (NULL == aTree)
 	{
 		return;
 	}
 
-	Double_Node *theNode = createDoubleNodeWithValue(aValue);
-    
+	ShortNode *theNode = createShortNodeWithValue(aValue);
 	if (NULL == theNode)
 	{
 		return;
@@ -49,8 +48,8 @@ void insertDoubleValueToTree(DoubleTree *aTree, double aValue)
 	}
 	else
 	{
-		Double_Node *theCurrent = aTree->root;
-		Double_Node *theParent = NULL;
+		ShortNode *theCurrent = aTree->root;
+		ShortNode *theParent = NULL;
 
 		while (1)
 		{
@@ -80,14 +79,14 @@ void insertDoubleValueToTree(DoubleTree *aTree, double aValue)
 	}
 }
 
-Double_Node *findNodeWithValue(DoubleTree *aTree, double aValue)
+ShortNode *findNodeWithValue(ShortTree *aTree, short aValue)
 {
-    Double_Node *theCurrentNode = NULL; ///< - start from root
+	ShortNode *theCurrentNode = NULL;
 	
 	if (NULL != aTree)
 	{
-		Double_Node *theCurrentNode = aTree->root; ///< - start from root
-		while (aValue != theCurrentNode->value) ///< - walk through the tree
+		ShortNode *theCurrentNode = aTree->root; //<! - start from root
+		while (aValue != theCurrentNode->value) //<! - walk through the tree
 		{
 			theCurrentNode = (aValue < theCurrentNode->value)
 						? theCurrentNode->leftChild
@@ -98,14 +97,29 @@ Double_Node *findNodeWithValue(DoubleTree *aTree, double aValue)
 				break;
 			}
 		}
-    }
+	}
+	
+	int a = 5;
+	int b = 7;
+	
+	int c = (a > b) ? 5 : 8;
 	
 	return theCurrentNode;
 }
+<<<<<<< HEAD
 
+=======
+
+void deleteNodeWithValue(ShortTree *aTree, short aValue);
+
+void mergeTrees(ShortTree *aTreeDst, ShortTree *aTreeSrc);
+
+void printTree(ShortTree *aTree);
+int countNodesWithTree(ShortTree *aTree);
+>>>>>>> origin/master
 
 #pragma mark -
-void destroyNode(Double_Node *aNode)
+void destroyNode(ShortNode *aNode)
 {
 	if (NULL != aNode)
 	{
@@ -116,9 +130,9 @@ void destroyNode(Double_Node *aNode)
 	}
 }
 
-Double_Node *createDoubleNodeWithValue(double aValue)
+ShortNode *createShortNodeWithValue(short aValue)
 {
-	Double_Node *theNode = (Double_Node *)malloc(sizeof(Double_Node));
+	ShortNode *theNode = (ShortNode *)malloc(sizeof(ShortNode));
 	
 	if (NULL != theNode)
 	{
@@ -129,6 +143,7 @@ Double_Node *createDoubleNodeWithValue(double aValue)
 	
 	return theNode;
 }
+<<<<<<< HEAD
 
 
 
@@ -268,3 +283,5 @@ Double_Node* FindMinNodeInBinarTree(Double_Node* root)
 
     return Node;
 }
+=======
+>>>>>>> origin/master
