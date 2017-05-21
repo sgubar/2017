@@ -33,6 +33,5 @@ else {
 printf("Area of the polygon: %.2f\n", area);
 printf("\n\n\n");
 }
-printf("Area of the polygon: %.2f\n", area);
 }
 }
