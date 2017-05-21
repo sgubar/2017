@@ -224,7 +224,7 @@ void FilePrintPyramidsList(pyramidsList *aPyramidsList)
 	FILE * ptrFile = fopen("aPyramidsList.json", "w");
 	if (ptrFile != NULL)
   	{
-    	if(NULL != aPyramidsList)
+    		if(NULL != aPyramidsList)
 		{
 			int i;
 			fprintf (ptrFile,"{");
