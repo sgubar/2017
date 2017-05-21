@@ -23,7 +23,7 @@ int main()
 	FilePrintPyramidsList(aPyramidsList);
 
 	printSquare(aPyramidsList);
-	filePrintSquare(aPyramidsList);
+	FilePrintSquare(aPyramidsList);
 
 	destroyAPyramidsList(aPyramidsList);
 
