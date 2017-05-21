@@ -112,6 +112,8 @@ void printinfile_spisok(FILE *file, spisok_figur *myfigura)
 	else
 	{
 		fprintf(file, "{\n");
+		fprintf(file, " \"maxkolfigur\":%d,\n", myfigura->N);
+		fprintf(file, " \"kolfigur\":%d,\n", myfigura->Flag);
 		fprintf(file, "\"chotirikytniki\":\n\t");
 		fprintf(file, "[\n\t");
 		for (int i = 0; i < myfigura->Flag; i++)
