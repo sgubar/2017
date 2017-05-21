@@ -217,7 +217,6 @@ float pyramidSquare(pyramid *aPyramid)
 	pyramidSquare = PABsquare + PBCsquare + PACsquare + ABCsquare;
 	
 	return pyramidSquare;
-
 }
 
 
