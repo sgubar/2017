@@ -8,32 +8,32 @@
 int NumInput()
 {
 	int Num;
-	int Proof;							//для проверки того, что возратит scanf - 0 или 1
+	int Proof;							
 	while(1)
 	{						
 		Proof = scanf("%d", &Num);
-		if ( Proof == 1)		 		//ввели число - выходим из цикла
+		if ( Proof == 1)		 		
 			{
 				break;
 			}
 		printf("Please enter another number:\n");
-		fflush (stdin); 				//если ввели не число, то есть scanf возвратил не единицу, а false, то чистим память, то, что ввели, и цикл крутится заново, пока не введут число
+		fflush (stdin); 				
 	}
 	return Num;
 }
 
-pyramidsList *createPyramidsList(int aSize)									//создали комнату, этап чисто выделения памяти под пирамиды
+pyramidsList *createPyramidsList(int aSize)									
 {	
-	pyramidsList *aPyramidsList = (pyramidsList *) malloc(sizeof(pyramidsList));	//выделили память под структуру pyramidesList - комнату
+	pyramidsList *aPyramidsList = (pyramidsList *) malloc(sizeof(pyramidsList));	
 	
 	if (aPyramidsList != NULL)
 	{
-		aPyramidsList -> pyramids = (pyramid *) malloc(aSize * sizeof(pyramid));		//предварительно выделили память под нужное нам количество пирамид
+		aPyramidsList -> pyramids = (pyramid *) malloc(aSize * sizeof(pyramid));		
 			
-		memset(aPyramidsList -> pyramids, 0, aSize * sizeof(pyramid));				//перестраховка, забили нулями
+		memset(aPyramidsList -> pyramids, 0, aSize * sizeof(pyramid));				
 				
-		aPyramidsList -> maxSize = aSize;											//задаём размер своей комнаты
-		aPyramidsList -> pyramidsCounter = 0;										//поточный размер, поточное количество пирамид
+		aPyramidsList -> maxSize = aSize;											
+		aPyramidsList -> pyramidsCounter = 0;										
 			
 		printf("\naPyramidsList was successfully created!\n");
 	}
@@ -61,7 +61,7 @@ int addPyramid (pyramidsList *aPyramidsList )
 	{
 		if (aPyramidsList->pyramidsCounter < aPyramidsList -> maxSize)
 		{
-			pyramid *aPyramid = &(aPyramidsList -> pyramids[aPyramidsList -> pyramidsCounter]);		//идём к пирамиде под номером current_size, амперсанд говорит, как именно мы к ней пришли, даёт адрес этого обьекта
+			pyramid *aPyramid = &(aPyramidsList -> pyramids[aPyramidsList -> pyramidsCounter]);		
 				
 			if (NULL != aPyramid)
 			{
@@ -109,9 +109,9 @@ void printPyramidsList(pyramidsList *aPyramidsList)
 		{
 			pyramid *aPyramid = &(aPyramidsList -> pyramids[i]);
 			
-			printPyramid(aPyramid);										//юзаем функцию printPyramid, которая ниже, для вывода каждой пирамиды из aPyramidsList
+			printPyramid(aPyramid);										
 			
-			if (i < aPyramidsList -> pyramidsCounter - 1) 		//чисто для запятой, лол
+			if (i < aPyramidsList -> pyramidsCounter - 1) 		
 			{
 				printf(",\n");
 			}
