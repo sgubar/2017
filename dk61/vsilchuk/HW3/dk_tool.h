@@ -33,7 +33,7 @@ float pyramidSquare(pyramid *aPyramid);
 
 void FilePrintPyramidsList(pyramidsList *aPyramidsList);
 int FilePrintPyramid(pyramid *aPyramid, FILE *ptrFile);
-void filePrintSquare(pyramidsList *aPyramidsList);
+void FilePrintSquare(pyramidsList *aPyramidsList);
 
 int NumInput(void);
 
