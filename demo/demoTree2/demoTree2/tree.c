@@ -1,10 +1,4 @@
-//
-//  tree.c
-//  demoTree2
-//
-//  Created by Slava Gubar on 4/25/17.
-//  Copyright © 2017 Slava Gubar. All rights reserved.
-//
+
 
 #include "tree.h"
 #include <stdlib.h>
@@ -108,149 +102,7 @@ Double_Node *findNodeWithValue(DoubleTree *aTree, double aValue)
 	
 	return theCurrentNode;
 }
-/*
-void deleteNodeWithValue(DoubleTree *aTree, double aValue)
-{
-    Double_Node *theCurrentNode = NULL;
-    Double_Node *theParentNode = NULL;
 
-
-        if(NULL != aTree)
-        {
-            Double_Node *theParentNode = aTree->root;
-            Double_Node *theCurrentNode = aTree->root;
-            while(aValue != theCurrentNode->value)
-            {
-                
-                theParentNode = theCurrentNode;
-
-                theCurrentNode = (aValue < theCurrentNode->value)
-                ? theCurrentNode->leftChild
-                : theCurrentNode->rightChild;
-                
-                
-                
-                if(NULL == theCurrentNode)
-                    return ;
-                
-            }
-            
-        }
-    
-    //if the node does not have children then just remove it
-    if(NULL == theCurrentNode->leftChild && NULL == theCurrentNode->rightChild)
-    {
-        if(NULL != theParentNode)
-        {
-            if(theCurrentNode->value < theParentNode->value)
-            {
-                theParentNode->leftChild = NULL;
-            }
-            if(theCurrentNode->value > theParentNode->value)
-            {
-                theParentNode->rightChild = NULL;
-            }
-        }
-    }
-    else
-    {
-        if(NULL == theCurrentNode->leftChild)
-        {
-            if(NULL != theParentNode)
-            {
-                if(theCurrentNode->value < theParentNode->value)
-                {
-                    theParentNode->leftChild = theCurrentNode->rightChild;
-                }
-                if(theCurrentNode->value > theParentNode->value)
-                {
-                    theParentNode->rightChild = theCurrentNode->rightChild;
-                }
-            }
-            else
-                aTree->root = theCurrentNode->rightChild;
-        }
-        else
-        {
-            if(NULL == theCurrentNode->rightChild)
-            {
-                if(NULL != theParentNode)
-                {
-                    if(theCurrentNode->value < theParentNode->value)
-                    {
-                        theParentNode->leftChild = theCurrentNode->leftChild;
-                    }
-                    if(theCurrentNode->value > theParentNode->value)
-                    {
-                        theParentNode->rightChild = theCurrentNode->leftChild;
-                    }
-                }
-                else
-                    aTree->root = theCurrentNode->leftChild;
-            }
-            
-            else
-            {
-                Double_Node *ParentOfReceiver = NULL;
-                Double_Node *Receiver = theCurrentNode->rightChild;
-                if(Receiver->leftChild == NULL && Receiver->rightChild == NULL)
-                {
-                    if(NULL != theParentNode)
-                    {
-                        if(theCurrentNode->value < theParentNode->value)
-                        {
-                            theParentNode->leftChild = Receiver;
-                        }
-                        if(theCurrentNode->value > theParentNode->value)
-                        {
-                            theParentNode->rightChild = Receiver;
-                        }
-                    }
-                    else
-                        aTree->root = Receiver;
-                    Receiver->leftChild = theCurrentNode->leftChild;
-                }
-                else
-                {
-                    if(Receiver->leftChild == NULL)
-                    {
-                        if(NULL != theParentNode)					
-                            theParentNode->rightChild = Receiver;					
-                        else					
-                            aTree->root = Receiver;								
-                        Receiver->leftChild = aNodeToDelete->leftChild;	
-                    }
-                    else
-                    {
-                        while(Receiver->leftChild != NULL)
-                        {
-                            ParentOfReceiver = Receiver;
-                            Receiver = Receiver->leftChild;
-                        }
-                        if(Receiver->rightChild != NULL)
-                            ParentOfReceiver->leftChild = Receiver->rightChild;	
-                        else
-                            ParentOfReceiver->leftChild = NULL;
-                        if(NULL != theParentNode)					
-                            theParentNode->rightChild = Receiver;					
-                        else					
-                            aTree->root = Receiver;								
-                        Receiver->leftChild = aNodeToDelete->leftChild;		
-                        Receiver->rightChild = aNodeToDelete->rightChild;
-                    }
-                }														
-            }
-        }		
-    }
-
-    
-    
-}
-*/
-void mergeTrees(DoubleTree *aTreeDst, DoubleTree *aTreeSrc);
-
-void printTree(DoubleTree *aTree);
-int countNodesWithTree(DoubleTree *aTree);
 
 #pragma mark -
 void destroyNode(Double_Node *aNode)
@@ -292,65 +144,127 @@ void printDoubleTree(DoubleTree *aTree, int aTypeOfPassage)
             case 1 :
                 
                 
-                SymmetricPrintNode(aTree->root);
+                SymmetricPassage_And_PrintNode(aTree->root);
                 putchar('\n');
                 
-                printf("The root: %.3f\n",aTree->root->value);
+                printf("The root: %.2f\n",aTree->root->value);
 
         
             break;
     
             case 2 :
                 
-                PlainPrintNode(aTree->root);
+                PlainPassage_And_PrintNode(aTree->root);
                 putchar('\n');
                 
-                printf("The root: %.3f\n",aTree->root->value);
-
+                printf("The root: %.2f\n",aTree->root->value);
 
 
             break;
                 
             case 3 :
                 
-                BackPrintNode(aTree->root);
+                BackPassage_And_PrintNode(aTree->root);
                 putchar('\n');
                 
-                printf("The root: %.3f\n",aTree->root->value);
+                printf("The root: %.2f\n",aTree->root->value);
 
-
-
+                
             break;
         }
     }
 }
 
-void SymmetricPassage_And_PrintTree(Double_Node *aNode);
-{
-    if(NULL != aNode)
-    {
-        SymmetricPrintNode(aNode->leftChild);
-        printf(" %.3f ",aNode->value);
-        SymmetricPrintNode(aNode->rightChild);
-    }
-}
-
-void PlainPassage_And_PrintTree(Double_Node *aNode);
-{
-    if(NULL != aNode)
-    {
-        printf(" %.3f ",aNode->value);
-        PlainPrintNode(aNode->leftChild);
-        PlainPrintNode(aNode->rightChild);
-    }
-}
-
-void BackPassage_And_PrintTree(Double_Node *aNode);
+void BackPassage_And_PrintNode(Double_Node *aNode)
 {
     if(NULL != aNode)
     {
         BackPassage_And_PrintNode(aNode->leftChild);
-        BackPassage_And_PrintTree(aNode->rightChild);
-        printf(" %.3f ",aNode->value);
+        BackPassage_And_PrintNode(aNode->rightChild);
+        printf(" %.2f ",aNode->value);
     }
+}
+
+void PlainPassage_And_PrintNode(Double_Node *aNode)
+{
+    if(NULL != aNode)
+    {
+        printf(" %.2f ",aNode->value);
+        PlainPassage_And_PrintNode(aNode->leftChild);
+        PlainPassage_And_PrintNode(aNode->rightChild);
+    }
+}
+
+
+void SymmetricPassage_And_PrintNode(Double_Node *aNode)
+{
+    if(NULL != aNode)
+    {
+        SymmetricPassage_And_PrintNode(aNode->leftChild);
+        printf(" %.2f ",aNode->value);
+        SymmetricPassage_And_PrintNode(aNode->rightChild);
+    }
+}
+
+
+Double_Node* FindMinNodeInBinarTree(Double_Node* root)
+{
+    while(root->leftChild != NULL) root = root->leftChild;
+    return root;
+}
+// Function to search a delete a value from tree.
+
+
+ Double_Node* DeleteNodeFromTree(DoubleTree *aTree,Double_Node *Node, double data)
+
+{
+    if(Node == NULL) return Node;
+    
+    
+    else if(data < Node->value)
+        Node->leftChild = DeleteNodeFromTree(aTree,Node->leftChild,data);
+
+    
+    else if (data > Node->value)
+        Node->rightChild = DeleteNodeFromTree(aTree,Node->rightChild,data);
+
+    else {
+        
+        if(Node->leftChild == NULL && Node->rightChild == NULL) /*if no have children*/
+        {
+            free( Node);
+            Node = NULL;
+            
+            aTree->count--;
+        }
+        
+        //if have only one children
+    else if(Node->leftChild == NULL)        /*if have right children*/
+        {
+             Double_Node *temp = Node;
+            Node = Node->rightChild;
+            free( temp);
+            
+            aTree->count--;
+        }
+    else if(Node->rightChild == NULL)       /*if have left children*/
+        {
+             Double_Node *temp = Node;
+            Node = Node->leftChild;
+            free(temp);
+            
+           aTree->count--;
+        }
+        //if have 2 children
+    else
+        {
+             Double_Node *temp = FindMinNodeInBinarTree(Node->rightChild);
+            Node->value = temp->value;
+            Node->rightChild = DeleteNodeFromTree(aTree,Node->rightChild,temp->value);
+        }
+
+        aTree->count = aTree->count --;
+    }
+
+    return Node;
 }
