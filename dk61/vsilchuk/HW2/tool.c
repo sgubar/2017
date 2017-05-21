@@ -126,12 +126,12 @@ void printPyramidsList(pyramidsList *aPyramidsList)
 
 int printPyramid(pyramid *aPyramid)
 {
-	if (NULL == aPyramid)	//objects == NULL
+	if (NULL == aPyramid)	
 	{
 		printf("null");
 	}
 		
-	else					// objects exists
+	else					
 	{
 		int i; 
 		for (i = 0; i < 4; i++)
@@ -149,7 +149,7 @@ int printPyramid(pyramid *aPyramid)
 
 void printSquare(pyramidsList *aPyramidsList) 
 {
-	int i;
+    int i;
     for (i = 0; i < aPyramidsList -> pyramidsCounter; i++)
     {
         pyramid *aPyramid = &(aPyramidsList -> pyramids[i]);
@@ -170,37 +170,37 @@ float pyramidSquare(pyramid *aPyramid)
 	
 		        pow(aPyramid -> vertices[0].y - aPyramid -> vertices[1].y , 2) + 
 				    
-		 		pow(aPyramid -> vertices[0].z - aPyramid -> vertices[1].z , 2)	);
+		 	pow(aPyramid -> vertices[0].z - aPyramid -> vertices[1].z , 2)	);
 		 		
 	PB = sqrt(	pow(aPyramid -> vertices[0].x - aPyramid -> vertices[2].x , 2) + 
 	
 		        pow(aPyramid -> vertices[0].y - aPyramid -> vertices[2].y , 2) + 
 				    
-		 	    pow(aPyramid -> vertices[0].z - aPyramid -> vertices[2].z , 2)	);
+		 	pow(aPyramid -> vertices[0].z - aPyramid -> vertices[2].z , 2)	);
 				 
 	PC = sqrt(	pow(aPyramid -> vertices[0].x - aPyramid -> vertices[3].x , 2) + 
 	
 		      	pow(aPyramid -> vertices[0].y - aPyramid -> vertices[3].y , 2) + 
 				    
-		 		pow(aPyramid -> vertices[0].z - aPyramid -> vertices[3].z , 2)	);			 	 		
+		 	pow(aPyramid -> vertices[0].z - aPyramid -> vertices[3].z , 2)	);			 	 		
 					
 	AB = sqrt(	pow(aPyramid -> vertices[1].x - aPyramid -> vertices[2].x , 2) + 
 	
 		      	pow(aPyramid -> vertices[1].y - aPyramid -> vertices[2].y , 2) + 
 				    
-		 		pow(aPyramid -> vertices[1].z - aPyramid -> vertices[2].z , 2)	);
+		 	pow(aPyramid -> vertices[1].z - aPyramid -> vertices[2].z , 2)	);
 		 		
 	AC = sqrt(	pow(aPyramid -> vertices[1].x - aPyramid -> vertices[3].x , 2) + 
 	
 		      	pow(aPyramid -> vertices[1].y - aPyramid -> vertices[3].y , 2) + 
 				    
-		 		pow(aPyramid -> vertices[1].z - aPyramid -> vertices[3].z , 2)	);	 
+		 	pow(aPyramid -> vertices[1].z - aPyramid -> vertices[3].z , 2)	);	 
 				 
 	BC = sqrt(	pow(aPyramid -> vertices[2].x - aPyramid -> vertices[3].x , 2) + 
 	
 		      	pow(aPyramid -> vertices[2].y - aPyramid -> vertices[3].y , 2) + 
 				    
-		 		pow(aPyramid -> vertices[2].z - aPyramid -> vertices[3].z , 2)	);	
+		 	pow(aPyramid -> vertices[2].z - aPyramid -> vertices[3].z , 2)	);	
 				 
 	halfPerimeter = (PA + PB + AB) / 2;
 	PABsquare = sqrt( halfPerimeter * ((halfPerimeter - PA)*(halfPerimeter - PB)*(halfPerimeter - AB)) );
