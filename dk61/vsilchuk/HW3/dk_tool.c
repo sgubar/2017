@@ -255,7 +255,7 @@ int FilePrintPyramid(pyramid *aPyramid, FILE *ptrFile)
 {
 
 	if (NULL == aPyramid)	
-		printf("null");
+		fprintf (ptrFile,"null");
 		
 	else					
 	{
