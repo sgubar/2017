@@ -1,8 +1,112 @@
-
+//
+//  tree.c
+//  demoTree2
+//
+//  Created by Slava Gubar on 4/25/17.
+//  Copyright © 2017 Slava Gubar. All rights reserved.
+//
 
 #include "tree.h"
 #include <stdlib.h>
 
+static void destroyNode(Double_Node *aNode);
+static Double_Node *createDouble_NodeWithValue(double aValue);
+
+DoubleTree *createDoubleTree()
+{
+    DoubleTree *theTree = (DoubleTree *)malloc(sizeof(DoubleTree));
+    
+    if (NULL != theTree)
+    {
+        theTree->root = NULL;
+        theTree->count = 0;
+    }
+    
+    return theTree;
+}
+
+void destroyDoubleTree(DoubleTree *aTree)
+{
+    if (NULL != aTree)
+    {
+        destroyNode(aTree->root);
+        free(aTree);
+    }
+}
+
+void insertDoubleValueToTree(DoubleTree *aTree, double aValue)
+{
+    if (NULL == aTree)
+    {
+        return;
+    }
+    
+    Double_Node *theNode = createDouble_NodeWithValue(aValue);
+    if (NULL == theNode)
+    {
+        return;
+    }
+    
+    if (NULL == aTree->root)
+    {
+        aTree->root = theNode;
+        aTree->count ++;
+    }
+    else
+    {
+        Double_Node *theCurrent = aTree->root;
+        Double_Node *theParent = NULL;
+        
+        while (1)
+        {
+            theParent = theCurrent;
+            
+            if (aValue < theCurrent->value)
+            {
+                theCurrent = theCurrent->leftChild;
+                if (NULL == theCurrent)
+                {
+                    theParent->leftChild = theNode;
+                    break;
+                }
+            }
+            else
+            {
+                theCurrent = theCurrent->rightChild;
+                if (NULL == theCurrent)
+                {
+                    theParent->rightChild = theNode;
+                    break;
+                }
+            }
+        }
+        
+        aTree->count ++;
+    }
+}
+
+Double_Node *findNodeWithValue(DoubleTree *aTree, double aValue)
+{
+    Double_Node *theCurrentNode = NULL;
+    
+    if (NULL != aTree)
+    {
+        Double_Node *theCurrentNode = aTree->root; ///< - start from root
+        while (aValue != theCurrentNode->value) ///< - walk through the tree
+        {
+            theCurrentNode = (aValue < theCurrentNode->value)
+            ? theCurrentNode->leftChild
+            : theCurrentNode->rightChild;
+            
+            if (NULL == theCurrentNode)
+            {
+                break;
+            }
+        }
+    }
+    
+    return theCurrentNode;
+}
 void printDoubleTree(DoubleTree *aTree, int aTypeOfPassage)
 {
     if(NULL != aTree)
@@ -19,19 +123,19 @@ void printDoubleTree(DoubleTree *aTree, int aTypeOfPassage)
                 putchar('\n');
                 
                 printf("The root: %.2f\n",aTree->root->value);
-
-        
-            break;
-    
+                
+                
+                break;
+                
             case 2 :
                 
                 PlainPassage_And_PrintNode(aTree->root);
                 putchar('\n');
                 
                 printf("The root: %.2f\n",aTree->root->value);
-
-
-            break;
+                
+                
+                break;
                 
             case 3 :
                 
@@ -39,9 +143,9 @@ void printDoubleTree(DoubleTree *aTree, int aTypeOfPassage)
                 putchar('\n');
                 
                 printf("The root: %.2f\n",aTree->root->value);
-
                 
-            break;
+                
+                break;
         }
     }
 }
@@ -86,7 +190,7 @@ Double_Node* FindMinNodeInBinarTree(Double_Node* root)
 // Function to search a delete a value from tree.
 
 
- Double_Node* DeleteNodeFromTree(DoubleTree *aTree,Double_Node *Node, double data)
+Double_Node* DeleteNodeFromTree(DoubleTree *aTree,Double_Node *Node, double data)
 
 {
     if(Node == NULL) return Node;
@@ -94,11 +198,11 @@ Double_Node* FindMinNodeInBinarTree(Double_Node* root)
     
     else if(data < Node->value)
         Node->leftChild = DeleteNodeFromTree(aTree,Node->leftChild,data);
-
+    
     
     else if (data > Node->value)
         Node->rightChild = DeleteNodeFromTree(aTree,Node->rightChild,data);
-
+    
     else {
         
         if(Node->leftChild == NULL && Node->rightChild == NULL) /*if no have children*/
@@ -110,32 +214,58 @@ Double_Node* FindMinNodeInBinarTree(Double_Node* root)
         }
         
         //if have only one children
-    else if(Node->leftChild == NULL)        /*if have right children*/
+        else if(Node->leftChild == NULL)        /*if have right children*/
         {
-             Double_Node *temp = Node;
+            Double_Node *temp = Node;
             Node = Node->rightChild;
             free( temp);
             
             aTree->count--;
         }
-    else if(Node->rightChild == NULL)       /*if have left children*/
+        else if(Node->rightChild == NULL)       /*if have left children*/
         {
-             Double_Node *temp = Node;
+            Double_Node *temp = Node;
             Node = Node->leftChild;
             free(temp);
             
-           aTree->count--;
+            aTree->count--;
         }
         //if have 2 children
-    else
+        else
         {
-             Double_Node *temp = FindMinNodeInBinarTree(Node->rightChild);
+            Double_Node *temp = FindMinNodeInBinarTree(Node->rightChild);
             Node->value = temp->value;
             Node->rightChild = DeleteNodeFromTree(aTree,Node->rightChild,temp->value);
         }
-
+        
         aTree->count = aTree->count --;
     }
-
+    
     return Node;
+}
+
+#pragma mark -
+void destroyNode(Double_Node *aNode)
+{
+    if (NULL != aNode)
+    {
+        destroyNode(aNode->leftChild);
+        destroyNode(aNode->rightChild);
+        
+        free(aNode);
+    }
+}
+
+Double_Node *createDouble_NodeWithValue(double aValue)
+{
+    Double_Node *theNode = (Double_Node *)malloc(sizeof(Double_Node));
+    
+    if (NULL != theNode)
+    {
+        theNode->leftChild = NULL;
+        theNode->rightChild = NULL;
+        theNode->value = aValue;
+    }
+    
+    return theNode;
 }

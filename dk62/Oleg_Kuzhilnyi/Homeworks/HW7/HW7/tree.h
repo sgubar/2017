@@ -3,6 +3,20 @@
 
 #include <stdio.h>
 
+typedef struct __tagNode
+{
+    double value;
+    struct __tagNode *leftChild;
+    struct __tagNode *rightChild;
+} Double_Node;
+
+typedef struct __tagTree
+{
+    Double_Node *root;
+    int count;
+} DoubleTree;
+
+
 //Create Binar Tree
 DoubleTree *createDoubleTree();
 
@@ -28,5 +42,7 @@ Double_Node* FindMinNodeInBinarTree(Double_Node* root);
 void SymmetricPassage_And_PrintNode(Double_Node *aNode);
 void PlainPassage_And_PrintNode(Double_Node *aNode);
 void BackPassage_And_PrintNode(Double_Node *aNode);
+
+
 
 #endif /* tree_h */
