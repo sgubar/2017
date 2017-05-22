@@ -9,7 +9,7 @@ void bubblesort(int *aArray, int aSize)
     {
 	    for(i = 0; i < aSize-1-j; i++)
         {
-	        if(aArray[i] > aArray[i+1])			//этот знак влияет на направление сортировки. в данном случае от меньшего к большему
+	        if(aArray[i] > aArray[i+1])			
 	            swap(&aArray[i], &aArray[i+1]);
         }
     }
@@ -23,7 +23,7 @@ void selectionsort(int *aArray, int aSize)
 		int theMinIndex = theOut, theIn;
 		for(theIn = theOut + 1; theIn < aSize; theIn++)
 		{
-			if(aArray[theIn] < aArray[theMinIndex])		//аналогично предыдущему комментарию
+			if(aArray[theIn] < aArray[theMinIndex])		
 				theMinIndex = theIn;
 		}
 		swap(&aArray[theOut], &aArray[theMinIndex]);
