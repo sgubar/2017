@@ -33,6 +33,7 @@ Double_Node *findNodeWithValue(DoubleTree *aTree, double aValue);
 //Show Nodes
 void printDoubleTree(DoubleTree *aTree, int aTypeOfPassage);
 
+//Count of Nodes
 int count_NodesOfTree(DoubleTree *aTree);
 
 //Delete Node from Tree
