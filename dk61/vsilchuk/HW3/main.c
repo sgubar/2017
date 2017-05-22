@@ -22,10 +22,10 @@ int main()
 	}	
 	
 	printPyramidsList(aPyramidsList);
-	FilePrintPyramidsList(aPyramidsList);
+	FilePrintPyramidsList(ptrFile, aPyramidsList);
 
 	printSquare(aPyramidsList);
-	FilePrintSquare(aPyramidsList);
+	FilePrintSquare(ptrFile, aPyramidsList);
 
 	destroyAPyramidsList(aPyramidsList);
 	
