@@ -31,9 +31,9 @@ int printPyramid(pyramid *aPyramid);
 void printSquare(pyramidsList *aPyramidsList);
 float pyramidSquare(pyramid *aPyramid);
 
-void FilePrintPyramidsList(pyramidsList *aPyramidsList);
+void FilePrintPyramidsList(FILE * ptrFile, pyramidsList *aPyramidsList);
 int FilePrintPyramid(pyramid *aPyramid, FILE *ptrFile);
-void FilePrintSquare(pyramidsList *aPyramidsList);
+void FilePrintSquare(FILE * ptrFile, pyramidsList *aPyramidsList);
 
 int NumInput(void);
 
