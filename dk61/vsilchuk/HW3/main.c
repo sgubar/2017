@@ -3,6 +3,8 @@
 
 int main() 
 {
+	FILE * ptrFile = fopen("aPyramidsList.json", "w");
+	
 	printf("Max count of pyramids:\n");
 	
 	int aSize = NumInput();					 
@@ -26,6 +28,8 @@ int main()
 	FilePrintSquare(aPyramidsList);
 
 	destroyAPyramidsList(aPyramidsList);
-
+	
+	fclose (ptrFile);
+	
 	return 0;
 }
