@@ -7,8 +7,8 @@
 
 int main(int argc, const char *argv[])
 {
-	int *Array = (int *) malloc(sizeof(int) * ARRAY_SIZE);		//выделение памяти на 50000 элементов
-	if(Array == 0)												//если не выделило, указатель равен нулю
+	int *Array = (int *) malloc(sizeof(int) * ARRAY_SIZE);		
+	if(Array == 0)												
 	{
 		printf("Error!\n");
 		return -1;
@@ -18,6 +18,6 @@ int main(int argc, const char *argv[])
 	
 	sorting(Array, ARRAY_SIZE);
 	
-	free(Array);												//освобождаем память
+	free(Array);												
 	return 0;
 }
