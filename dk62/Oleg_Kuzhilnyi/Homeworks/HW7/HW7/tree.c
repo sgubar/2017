@@ -1,11 +1,3 @@
-//
-//  tree.c
-//  demoTree2
-//
-//  Created by Slava Gubar on 4/25/17.
-//  Copyright © 2017 Slava Gubar. All rights reserved.
-//
-
 #include "tree.h"
 #include <stdlib.h>
 
