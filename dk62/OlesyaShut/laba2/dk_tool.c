@@ -6,39 +6,39 @@
 
 void fill_Array(int *aArray, int aSize)
 {
-	srand(time(NULL));										//создание "ключа" для генератора случайных чисел. используем текущее время на компьютере в секундах
+	srand(time(NULL));								
 	int i;
 	for(i = 0; i < aSize; i++)
-		aArray[i] = rand() % 10001;							//элемент массива[i] = остача от деления случайного числа на 10001 были (чтобы числа были от 0 до 10000)
+		aArray[i] = rand() % 10001;							
 }
 
 void sorting(int *aArray, int aSize)
 {
-	FILE *file = fopen("Result.txt", "w");					//создаем указатель на файл file, функцией fopen открываем файл "Result.txt" для записи "w"
-	if(file == NULL)										//указатель равен нулю, если файла нет. поскольку файл для записи, то его не создало/не открыло
+	FILE *file = fopen("Result.txt", "w");					
+	if(file == NULL)										
 	{
 		printf("File lost!\n");
 		free(aArray);
-		exit(-2);											//выход из программы со значением -2 (return -2;)
+		exit(-2);											
 	}
 	
 	fprintf(file, "Size of array: %i\n\n", aSize);
 	
-	clock_t start, finish;									//clock_t - тип данных время в милисекундах
-	double result;											//сюда запишем разницу во времени до начала сортировки и после её окончания - результат
+	clock_t start, finish;									
+	double result;									
 	
-	fill_Array(aArray, aSize);								//заполнение массива случайными числами от 0 до 10000
+	fill_Array(aArray, aSize);								
 	
-	start = clock();										//записываем время до начала сортировки в милисекундах
+	start = clock();										
 	bubblesort(aArray, aSize);
-	finish = clock();										//после сортировки
+	finish = clock();										
 	
-	result = (finish - start)/CLOCKS_PER_SEC;				//(конец - начало)/1000
+	result = (finish - start)/CLOCKS_PER_SEC;				
 	printf("Bubblesort finished\n");
-	fprintf(file, "Bubblesort\t\t\t%.18lf sec\n", result);	//записываем в файл название сортировки и время (%.18lf) 18 знаков после ,
+	fprintf(file, "Bubblesort\t\t\t%.18lf sec\n", result);	
 	
 	
-	fill_Array(aArray, aSize);								//снова заполняем массив случайными числами
+	fill_Array(aArray, aSize);								//Г±Г­Г®ГўГ  Г§Г ГЇГ®Г«Г­ГїГҐГ¬ Г¬Г Г±Г±ГЁГў Г±Г«ГіГ·Г Г©Г­Г»Г¬ГЁ Г·ГЁГ±Г«Г Г¬ГЁ
 	
 	start = clock();
 	insertionsort(aArray, aSize);
