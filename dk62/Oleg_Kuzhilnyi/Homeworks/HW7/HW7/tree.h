@@ -33,6 +33,8 @@ Double_Node *findNodeWithValue(DoubleTree *aTree, double aValue);
 //Show Nodes
 void printDoubleTree(DoubleTree *aTree, int aTypeOfPassage);
 
+int count_NodesOfTree(DoubleTree *aTree);
+
 //Delete Node from Tree
 Double_Node* DeleteNodeFromTree(DoubleTree *aTree,Double_Node *Node, double data);
 Double_Node* FindMinNodeInBinarTree(Double_Node* root);
@@ -42,7 +44,6 @@ Double_Node* FindMinNodeInBinarTree(Double_Node* root);
 void SymmetricPassage_And_PrintNode(Double_Node *aNode);
 void PlainPassage_And_PrintNode(Double_Node *aNode);
 void BackPassage_And_PrintNode(Double_Node *aNode);
-
 
 
 #endif /* tree_h */

@@ -15,30 +15,30 @@ int main(int argc, const char * argv[]) {
         insertDoubleValueToTree(TheTree,  3.63);
         insertDoubleValueToTree(TheTree,  9.1);
         insertDoubleValueToTree(TheTree,  9.3);
-        insertDoubleValueToTree(TheTree,  2.63);
-        insertDoubleValueToTree(TheTree,  1.63);
-    
         insertDoubleValueToTree(TheTree,  2.28);
     
-        findNodeWithValue(TheTree,  2.28);
-    
+
         printDoubleTree (TheTree,1);
-        printf("The count of nodes: %d\n",TheTree->count);
     
-        Double_Node *TheNode = TheTree->root;
+    printf("The count of nodes: %d\n", count_NodesOfTree(TheTree));
+
     
-        DeleteNodeFromTree(TheTree,TheNode,5.6);
-        DeleteNodeFromTree(TheTree,TheNode,9.1);
-        DeleteNodeFromTree(TheTree,TheNode,11.1);
+    Double_Node *aFineNode = findNodeWithValue(TheTree,  3.63);
     
-         printDoubleTree (TheTree,1);
-        printf("The count of nodes: %d\n",TheTree->count);
+    printf("The find element: %.3f\n",aFineNode->value);
     
-     //  printf("The count of nodes: %d\n",  countNodesWithTree(TheTree));
+    
+        DeleteNodeFromTree(TheTree,TheTree->root,5.6);
+        DeleteNodeFromTree(TheTree,TheTree->root,9.1);
+        DeleteNodeFromTree(TheTree,TheTree->root,11.1);
+        DeleteNodeFromTree(TheTree,TheTree->root,3.4);
+
+    
+         printDoubleTree (TheTree,2);
+        printf("The count of nodes: %d\n",count_NodesOfTree(TheTree));
     
     
         destroyDoubleTree(TheTree);
-    
     
     return 0;
 }

@@ -85,6 +85,17 @@ void insertDoubleValueToTree(DoubleTree *aTree, double aValue)
     }
 }
 
+
+int count_NodesOfTree(DoubleTree *aTree)
+{
+    if(NULL != aTree)
+    return aTree->count;
+    
+    
+    return 0;
+}
+
+
 Double_Node *findNodeWithValue(DoubleTree *aTree, double aValue)
 {
     Double_Node *theCurrentNode = NULL;
@@ -100,19 +111,25 @@ Double_Node *findNodeWithValue(DoubleTree *aTree, double aValue)
             
             if (NULL == theCurrentNode)
             {
-                break;
+                return NULL;
+
             }
+            
         }
+        return theCurrentNode;
+
     }
-    
     return theCurrentNode;
+
 }
+
+
 void printDoubleTree(DoubleTree *aTree, int aTypeOfPassage)
 {
     if(NULL != aTree)
     {
         
-        printf("\t\t\t\t\t\tThe tree\n");
+        printf("\t\t\t\t\t\t\tThe tree\n");
         
         switch(aTypeOfPassage)
         {
@@ -122,7 +139,7 @@ void printDoubleTree(DoubleTree *aTree, int aTypeOfPassage)
                 SymmetricPassage_And_PrintNode(aTree->root);
                 putchar('\n');
                 
-                printf("The root: %.2f\n",aTree->root->value);
+                printf("The root: (%.2f)\n",aTree->root->value);
                 
                 
                 break;
@@ -132,7 +149,7 @@ void printDoubleTree(DoubleTree *aTree, int aTypeOfPassage)
                 PlainPassage_And_PrintNode(aTree->root);
                 putchar('\n');
                 
-                printf("The root: %.2f\n",aTree->root->value);
+                printf("The root: (%.2f)\n",aTree->root->value);
                 
                 
                 break;
@@ -142,7 +159,7 @@ void printDoubleTree(DoubleTree *aTree, int aTypeOfPassage)
                 BackPassage_And_PrintNode(aTree->root);
                 putchar('\n');
                 
-                printf("The root: %.2f\n",aTree->root->value);
+                printf("The root: (%.2f)\n",aTree->root->value);
                 
                 
                 break;
@@ -156,7 +173,7 @@ void BackPassage_And_PrintNode(Double_Node *aNode)
     {
         BackPassage_And_PrintNode(aNode->leftChild);
         BackPassage_And_PrintNode(aNode->rightChild);
-        printf(" %.2f ",aNode->value);
+        printf(" (%.2f) ",aNode->value);
     }
 }
 
@@ -164,7 +181,7 @@ void PlainPassage_And_PrintNode(Double_Node *aNode)
 {
     if(NULL != aNode)
     {
-        printf(" %.2f ",aNode->value);
+        printf(" (%.2f) ",aNode->value);
         PlainPassage_And_PrintNode(aNode->leftChild);
         PlainPassage_And_PrintNode(aNode->rightChild);
     }
@@ -176,7 +193,7 @@ void SymmetricPassage_And_PrintNode(Double_Node *aNode)
     if(NULL != aNode)
     {
         SymmetricPassage_And_PrintNode(aNode->leftChild);
-        printf(" %.2f ",aNode->value);
+        printf(" (%.2f) ",aNode->value);
         SymmetricPassage_And_PrintNode(aNode->rightChild);
     }
 }
@@ -193,7 +210,15 @@ Double_Node* FindMinNodeInBinarTree(Double_Node* root)
 Double_Node* DeleteNodeFromTree(DoubleTree *aTree,Double_Node *Node, double data)
 
 {
-    if(Node == NULL) return Node;
+    
+     if(NULL == findNodeWithValue(aTree, data))
+    {
+        printf("Your element (%.2f) not found for delete\n",data);
+        return NULL;
+        
+    }else
+    
+    if(NULL == Node) return Node;
     
     
     else if(data < Node->value)
@@ -203,6 +228,7 @@ Double_Node* DeleteNodeFromTree(DoubleTree *aTree,Double_Node *Node, double data
     else if (data > Node->value)
         Node->rightChild = DeleteNodeFromTree(aTree,Node->rightChild,data);
     
+   
     else {
         
         if(Node->leftChild == NULL && Node->rightChild == NULL) /*if no have children*/
