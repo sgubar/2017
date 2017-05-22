@@ -219,9 +219,8 @@ float pyramidSquare(pyramid *aPyramid)
 	return pyramidSquare;
 }
 
-void FilePrintPyramidsList(pyramidsList *aPyramidsList)
+void FilePrintPyramidsList(FILE * ptrFile, pyramidsList *aPyramidsList)
 {
-	FILE * ptrFile = fopen("aPyramidsList.json", "w");
 	if (ptrFile != NULL)
   	{
     		if(NULL != aPyramidsList)
@@ -245,15 +244,12 @@ void FilePrintPyramidsList(pyramidsList *aPyramidsList)
 			fprintf (ptrFile,"\n");
 			fprintf (ptrFile,"}");
 		}
-	
-		fclose (ptrFile);
   	}	
 }
 
 
 int FilePrintPyramid(pyramid *aPyramid, FILE *ptrFile)
 {
-
 	if (NULL == aPyramid)	
 		fprintf (ptrFile,"null");
 		
@@ -273,9 +269,8 @@ int FilePrintPyramid(pyramid *aPyramid, FILE *ptrFile)
 	return 0;	
 }
 
-void FilePrintSquare(pyramidsList *aPyramidsList) 
+void FilePrintSquare(FILE * ptrFile, pyramidsList *aPyramidsList) 
 {
-	FILE * ptrFile = fopen("aPyramidsList.json", "a");
 	if (ptrFile != NULL)
 	{
 	    int i;
@@ -285,8 +280,6 @@ void FilePrintSquare(pyramidsList *aPyramidsList)
 	
 	        fprintf (ptrFile,"\n\nThe area of the pyramid #%d = %.4f", i+1, pyramidSquare(aPyramid));
 	    }
-	    
-	    fclose (ptrFile);
 	}
 }
 
