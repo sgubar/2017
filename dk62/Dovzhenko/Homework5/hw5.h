@@ -1,5 +1,5 @@
-#ifndef hw4_h
-#define hw4_h
+#ifndef hw5_h
+#define hw5_h
 
 typedef struct position
 {
