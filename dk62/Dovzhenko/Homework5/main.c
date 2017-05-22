@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "hw4.h"
+#include "hw5.h"
 #include <string.h>
 #include <math.h>
 
@@ -41,12 +41,13 @@ int main()
 	if(result == -1)
 		printf("Don't found.\n");
 	else
+	{
 		printf("Number of sphere in sorted array: %i\n",result+1);
 		int t =Sphere->spheres[result].R;
 		float s = 4*3.14*pow(t,2);
 		printf("Area of sphere:%.3f\n", s);
 		removeSphereList(Sphere);
-	
+	}
 	return 0;
 	
 }
