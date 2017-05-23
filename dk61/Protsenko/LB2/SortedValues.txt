@@ -1,0 +1,11 @@
+Before sorting: sdfhvb zdsgdgfhmvbbdrejcnvvrtjfmnbdgatewyrtjgnbdgaewyrdfbsadAA
+
+After sorting  AAaaabbbbbbcddddddddeeeffffggggghhjjjmmnnnrrrrssstttvvvvwwyyz
+BubbleSort_Time: 0.0000000000
+
+After sorting  AAaaabbbbbbcddddddddeeeffffggggghhjjjmmnnnrrrrssstttvvvvwwyyz
+SelectionSort_Time: 0.0000000000
+
+After sorting  AAaaabbbbbbcddddddddeeeffffggggghhjjjmmnnnrrrrssstttvvvvwwyyz
+InsertionSort_Time: 0.0000000000
+
