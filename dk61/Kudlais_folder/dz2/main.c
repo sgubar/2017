@@ -88,6 +88,7 @@ int main() {
         PrintFigures(ptr,n);
     else if(c == 3){
         char filename[100];
+        printf("Please give the name of file(without the type of file)\n");
         scanf("%s",filename);
         filename[strlen(filename+1)] = 't';
         filename[strlen(filename+2)] = 'x';
@@ -97,7 +98,7 @@ int main() {
         while (!access){
             access = JSON(ptr,n,filename);
             if(access)
-                printf("File does not exist\n");
+                printf("File %s does not exist\n",filename);
             else
                 ("Figures printed into the file\n");
         }
