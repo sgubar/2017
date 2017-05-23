@@ -1,6 +1,5 @@
 #include <stdlib.h>
 #include <string.h>
-#include <stdarg.h>
 
 
 DK_Polka *createPolka(int aSize)
