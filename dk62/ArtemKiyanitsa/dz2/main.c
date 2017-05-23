@@ -12,7 +12,7 @@ int main(void)
 	{
 		theCar->max = 4;
 		theCar->curent = 0;
-		theCar->kolvo = (Koleso *)malloc(4 * sizeof(Koleso));// space dlya koles
+		theCar->KolvoKoles = (Koleso *)malloc(4 * sizeof(Koleso));// space dlya koles
 	}
 	do
 	{
@@ -28,9 +28,10 @@ int main(void)
 		scanf("%s",InputPokrishka); 
 		printf("Parametr Diska: ");
 		scanf("%s",InpDisk); 
+		
 		AddKoleso (theCar,InputPokrishka,InpDisk);//add koleso
 		printf("Koleso added !\n");	
-		printf ("Parametr Diska: %s\n",theCar->kolvo[theCar->curent-1].disk); //vivodim znachenie diska kolesa
+		printf ("Parametr Diska: %s\n",theCar->KolvoKoles[theCar->curent-1].disk); //vivodim znachenie diska kolesa
 		i++;
 	
 	}
