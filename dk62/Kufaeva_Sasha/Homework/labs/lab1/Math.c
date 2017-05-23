@@ -30,7 +30,10 @@ int Divide (int A, int B, int C)
 
 int factorial(int n)
 {
-    if (n == 1)
-        return 1;
-    return factorial(n-1)*n;
+    int Number = 1;
+   for(int i=2; i <= n; i++)
+   {
+       Number *= i;
+   }
+ return Number;  
 }
