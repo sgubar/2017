@@ -9,7 +9,7 @@ typedef struct tagKoleso
 
 typedef struct tagCar
 {
-	Koleso *kolvo;
+	Koleso *KolvoKoles;
 	int max;
 	int curent;
 }Car;
