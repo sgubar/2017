@@ -1,4 +1,5 @@
 #include "SS.h"
+#include <stdbool.h>
 #include "figure.h"
 
 void swap(int *a, int *b){// Big "s"
@@ -10,6 +11,15 @@ void Sqswap(square *a,square *b){ //Little "s"
     square tmp = *a;
     *a = *b;
     *b = tmp;
+}
+bool isSorted(square arr[], int N){
+    while(N > 0){
+        if(arr[N].square < arr[N-1].square){
+            return false;
+        }
+        N--;
+    }
+    return true;
 }
 void BubbleSort(square arr[],int N) {
     int counter = 0;

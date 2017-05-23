@@ -1,8 +1,10 @@
 #ifndef FIGURA_SS_H
 #define FIGURA_SS_H
 #include "figure.h"
+#include <stdbool.h>
 void swap(int *a,int *b);
 void Sqswap(square *a,square *b);
+bool isSorted(square arr[],int N);
 void BubbleSort(square arr[],int N);
 void SampleSort(square arr[],int N);
 void InclusionSort(square arr[],int N);

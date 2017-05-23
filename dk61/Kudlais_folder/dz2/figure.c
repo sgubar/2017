@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 #include "figure.h"
 void MakeSquare(square *ptr, int n){
     printf("Please teke the coordinates of A (lower left point)\nX:\n");
@@ -24,11 +25,29 @@ int Squareof(square s){
 }
 void destroyFigure(square *s){
     if(s != NULL){
-        free(s);
+        free((void*)s->square);
+        free((void*)s->a.x);
+        free((void*)s->a.y);
+        free((void*)s->side[0]);
+        free((void*)s->side[1]);
+
     }
 }
 void PrintFigures(square ptr[],int n) {
     for (int k = 0; k < n; ++k) {
         printf("Square %i with starting point(%i,%i), sides %i, %i and square %i\n",k+1,ptr[k].a.x,ptr[k].a.y,ptr[k].side[0],ptr[k].side[1],ptr[k].square);
     }
+}
+bool JSON(square *ptr, int n, char *filename){
+    FILE *file = fopen(filename,"a+");
+    if(file != NULL) {
+        fprintf(file,"var Square = '{\"NumberOfFigure\",\"Square\",\"StartPoint\" : {X,Y},\"SideA\",\"SideB\"}';");
+        for (int i = 0; i < n; ++i) {
+            fprintf(file,"Square %i {\n\"NumberOfFigure\":%i,\n\"Square\":%i,\n\"StartPoint\" :{\n%i\n,%i\n},\n\"SideA\":%i,\n\"SideB\":%i\n\n};",i+1,i+1,ptr[i].square,ptr[i].a.x,ptr[i].a.y,ptr[i].side[0],ptr[i].side[1]);
+            fflush(file);
+        }
+    } else
+        return false;
+    fclose(file);
+    return true;
 }

@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
+#include <string.h>
 #include "figure.h"
 #include "SS.h"
 int main() {
@@ -14,7 +16,7 @@ int main() {
     for (int i = 0; i < n; ++i) {
         ptr[i].square = Squareof(ptr[i]);
     }
-    printf("Press 1 for Quick sort\n\nPress 2 for Shall sort\n\nPress 3 for Bubble sort\n\nPress 4 for Inclusion sort\n\nPress 5 for Sample sort\n\nPress 6 to find the value by Linear search\n\nPress 7 to print the squares\n");
+    printf("Press 1 for Quick sort\n\nPress 2 for Shall sort\n\nPress 3 for Bubble sort\n\nPress 4 for Inclusion sort\n\nPress 5 for Sample sort\n\nPress 6 to find the value by Linear search\n\nPress 7 to print the figure on the screen\n");
     int c;
     goto novalue;
     novalue://spagnetti
@@ -63,9 +65,13 @@ int main() {
             goto novalue; //I love spagnetti
 
     }
-    printf("Now you have some new possibilities\n\nPress 1 to find some value by Bineary search\n\nPress 2 to  print the figures\n\nOr press any other bottom to clear the memory and exit now!\n");
+    printf("Now you have some new possibilities\n\nPress 1 to find some value by Binary search\n\nPress 2 to  print the figures on the screen\n\nPress 3 to print into the file int txt format\n\nOr press any other bottom to clear the memory and exit now!\n");
     scanf("%i",&c);
     if(c == 1) {
+        if(!isSorted(ptr,n)){
+            printf("You can not use binary search! You have to sort your array first!\n");
+            goto novalue; //spagnetti
+        }
         int fnd = -1;
         int xi;
         while (fnd == -1) {
@@ -80,6 +86,22 @@ int main() {
     }
     else if(c == 2)
         PrintFigures(ptr,n);
+    else if(c == 3){
+        char filename[100];
+        scanf("%s",filename);
+        filename[strlen(filename+1)] = 't';
+        filename[strlen(filename+2)] = 'x';
+        filename[strlen(filename+3)] = 't';
+        filename[strlen(filename+4)] = '\0';
+        bool access = false;
+        while (!access){
+            access = JSON(ptr,n,filename);
+            if(access)
+                printf("File does not exist\n");
+            else
+                ("Figures printed into the file\n");
+        }
+    }
 
     printf("Let's clean it!");
     for (int j = 0; j < n; ++j) {
