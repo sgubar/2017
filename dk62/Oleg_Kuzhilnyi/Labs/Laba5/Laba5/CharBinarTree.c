@@ -8,7 +8,7 @@
 
 #include "CharBinarTree.h"
 #include <stdlib.h>
-
+#include <ctype.h>
 static void destroyNode(Char_Node *aNode);
 static Char_Node *createChar_NodeWithValue(char aValue);
 
@@ -118,7 +118,7 @@ int count_NodesOfTree(CharTree *aTree)
     return 0;
 }
 
-void printCharTree(CharTree *aTree, int aTypeOfPassage)
+void printCharTree(CharTree *aTree, char aTypeOfPassage)
 {
     if(NULL != aTree)
     {
@@ -127,7 +127,7 @@ void printCharTree(CharTree *aTree, int aTypeOfPassage)
         
         switch(aTypeOfPassage)
         {
-            case 1 :
+            case 's' :
                 
                 
                 SymmetricPassage_And_PrintNode(aTree->root);
@@ -138,7 +138,7 @@ void printCharTree(CharTree *aTree, int aTypeOfPassage)
                 
                 break;
                 
-            case 2 :
+            case 'p' :
                 
                 PlainPassage_And_PrintNode(aTree->root);
                 putchar('\n');
@@ -148,7 +148,7 @@ void printCharTree(CharTree *aTree, int aTypeOfPassage)
                 
                 break;
                 
-            case 3 :
+            case 'b' :
                 
                 BackPassage_And_PrintNode(aTree->root);
                 putchar('\n');
@@ -167,7 +167,7 @@ void BackPassage_And_PrintNode(Char_Node *aNode)
     {
         BackPassage_And_PrintNode(aNode->leftChild);
         BackPassage_And_PrintNode(aNode->rightChild);
-        printf(" (%с) ",aNode->value);
+        printf(" (%c) ",aNode->value);
     }
 }
 
@@ -260,6 +260,55 @@ Char_Node* DeleteNodeFromTree(CharTree *aTree,Char_Node *Node, char data)
     }
     
     return Node;
+}
+
+char chooseTypeOfPassage()
+{
+    char option = '\0';
+
+    printf("Please Enter the type of Passage for print: (p)lain, (b)ack,(symmetric):\n");
+    while  (
+            option != 'b' &&
+            option != 'p' &&
+            option != 's'
+           )
+    {
+        option = getchar();
+    }
+    
+    return option;
+    
+}
+
+char EnterNodeForDelete()
+{
+    char option = '\0';
+    
+    printf("Please Enter char node for delete with another register:\n");
+    
+    while  ( !isalpha(option) )
+    {
+        option = getchar();
+    }
+    
+    return option;
+    
+}
+
+
+char EnterNodeForFind()
+{
+    char option = '\0';
+    
+    printf("Please Enter char node for find in Tree:\n");
+    
+    while  ( !isalpha(option) )
+    {
+        option = getchar();
+    }
+    
+    return option;
+    
 }
 
 #pragma mark -

@@ -44,11 +44,17 @@ Char_Node *findNodeWithValue(CharTree *aTree, char aValue);
 int count_NodesOfTree(CharTree *aTree);
 
 //Show Nodes
-void printCharTree(CharTree *aTree, int aTypeOfPassage);
+void printCharTree(CharTree *aTree, char aTypeOfPassage);
 
 //Delete Node from Tree
 Char_Node* DeleteNodeFromTree(CharTree *aTree,Char_Node *Node, char data);
 Char_Node* FindMinNodeInBinarTree(Char_Node* root);
+
+
+/*  Interface */
+char chooseTypeOfPassage();
+char EnterNodeForDelete();
+char EnterNodeForFind();
 
 
 /*              the types of Passage            */
