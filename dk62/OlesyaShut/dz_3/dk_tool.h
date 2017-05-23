@@ -1,26 +1,26 @@
 #ifndef dk_tool_h
 #define dk_tool_h
 
-typedef struct aCoordinates			//структура содержит только 2 КООРДИНАТЫ точки и радиус
+typedef struct aCoordinates			
 {
 	float x;
 	float y;
 	float r;
-}coordinates;						//это структура кругов
+}coordinates;						
 
-typedef struct aList				//структура содержит
+typedef struct aList				
 {
-	int maxSize;					//максимальное количество кругов
-	int currentSize;				//текущее количество кругов
-	coordinates *circle;			//указатель на первый круг (на все сразу т.к.
-}list;								//они расположены подряд одним блоком памяти)
+	int maxSize;					
+	int currentSize;				
+	coordinates *circle;			
+}list;								
 
-list *createList(int aSize);		//создает одну вторую структуру и aSize первой
-void destroyList(list *aList);		//освобождает память
+list *createList(int aSize);		
+void destroyList(list *aList);		
 
-void newCoordinate(list *aList);	//вводит знаения x, y, radius.
-void printArea(list *aList);		//печатает на экране параметры кругов (x y r S)
-void printJson(list *aList);		//печатает в файл параметры кругов
-float square(coordinates *current);	//считает площадь круга
+void newCoordinate(list *aList);	
+void printArea(list *aList);		
+void printJson(list *aList);		
+float square(coordinates *current);	
 
 #endif
