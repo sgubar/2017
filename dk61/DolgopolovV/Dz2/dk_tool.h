@@ -1,25 +1,28 @@
-#ifndef dk_tool.h
-#define dk_tool.h
+#ifndef dk_tool_h
+#define dk_tool_h
 
 #include <stdio.h>
-#include <Windows.h>
-#include <conio.h>
 
-struct polka
+typedef struct tagBook
 {
-char avtor[50];
-char nazva[100];
-int stan;
-}mas[20];
+	char *Author;
+	char Nazva[100];
+}DK_Book;
 
-int sozd(void);
+typedef struct tagPolka
+{
+	DK_Book *notes;
+	int size;
+	int current_size;
+}DK_Polka;
 
-void add(int size);
+DK_Polka *createPolka(int aSize);
+	
+int addBookToPolka(DK_Polka *inPolka, char *aAuthor, char *aNazva);
 
-void del(int size);
+void printBook(DK_Book *aBook);
 
-void shov(int size, int flag);
+void printPolka(DK_Polka *inPolka);
 
-int valid_i(void);
 
-#endif 
+#endif
