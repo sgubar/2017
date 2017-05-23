@@ -48,9 +48,9 @@ void bubbleSort(pyramidsList *aPyramidsList)
 	int i, j;
 	for (i = aPyramidsList -> pyramidsCounter - 1; i > 1; i--)
 	{						
-		for (j = 0; j < i; j++)	//€чейки массива, которые будем сравнивать
+		for (j = 0; j < i; j++)	
 		{
-			if (pyramidSquare(&(aPyramidsList -> pyramids[j])) > pyramidSquare(&(aPyramidsList -> pyramids[j+1]))) // если элемент слева больше элемента справа, свапаем
+			if (pyramidSquare(&(aPyramidsList -> pyramids[j])) > pyramidSquare(&(aPyramidsList -> pyramids[j+1]))) 
 			{
 				swap(	&(aPyramidsList -> pyramids[j]) , &(aPyramidsList -> pyramids[j+1])	);				
 			}
