@@ -5,7 +5,7 @@ int main()
 	DK_Polka *thePolka = createPolka(20);
 	
 	char theAuthor[] = "Name author";
-	char theNazva[] = "";
+	char theNazva[] = "the title of the book";
 	
 	addBookToPolka(thePolka, "Nikolai Gogol", "Viy");
 	addBookToPolka(thePolka, "Garcia Marquez", "One Hundred Years of Solitude");
