@@ -8,7 +8,7 @@ void AddKoleso (Car *PointerCar,char *InputPokrishka,char InputDisk[10])
 	{
 		if(PointerCar->curent<PointerCar->max)//proveryaem nalichie mesta dlya kolesa
 		{
-			Koleso *theKoleso = &(PointerCar->kolvo[PointerCar->curent]);//sozdaem ukazatel na koleso kotoroe dobavlyaem
+			Koleso *theKoleso = &(PointerCar->KolvoKoles[PointerCar->curent]);//sozdaem ukazatel na koleso kotoroe dobavlyaem
 			theKoleso->pokrishka = (char *)malloc(sizeof(char)*(strlen(InputPokrishka)+1));//rezerviruem mesto pod pokrishku
 			strcpy(theKoleso->pokrishka, InputPokrishka);
 			strcpy(theKoleso->disk, InputDisk);
@@ -23,7 +23,7 @@ void DeleteKoleso (Car *PointerCar)
 	{
 		if(PointerCar->curent != 0)
 		{
-			Koleso theKoleso = PointerCar->kolvo[PointerCar->curent-1];//sodaem ukazatel na poslednee koleso
+			Koleso theKoleso = PointerCar->KolvoKoles[PointerCar->curent-1];//sodaem ukazatel na poslednee koleso
 				if (NULL != theKoleso.pokrishka)
 				{
 					free(theKoleso.pokrishka);//chistim znachenie pokrishkaishki v poslednem kolese
@@ -36,19 +36,19 @@ void DeletesCar(Car *PointerCar)
 {
 	if (NULL != PointerCar)
 		{
-			if(NULL != PointerCar->kolvo)
+			if(NULL != PointerCar->KolvoKoles)
 			{
 				int i;
 				for (i = 0; i < PointerCar->curent; i++)//sozdaem ukazatel na kolesa esli oni est nachinaya s poslednego
 				{
-					Koleso theKoleso = PointerCar->kolvo[i];
+					Koleso theKoleso = PointerCar->KolvoKoles[i];
 					if (NULL != theKoleso.pokrishka)
 					{
 						free(theKoleso.pokrishka);//chistim znachenie pokrishkaishki v poslednem kolese
 					}
 				}
 				
-				free(PointerCar->kolvo);//udalyaem kolesa
+				free(PointerCar->KolvoKoles);//udalyaem kolesa
 			}			
 			free(PointerCar);//udalaem mashinu
 		}
