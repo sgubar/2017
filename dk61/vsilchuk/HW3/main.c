@@ -29,6 +29,7 @@ int main()
 
 	destroyAPyramidsList(aPyramidsList);
 	
+	fflush (ptrFile);
 	fclose (ptrFile);
 	
 	return 0;
