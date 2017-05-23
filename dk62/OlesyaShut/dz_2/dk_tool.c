@@ -56,12 +56,7 @@ void newCoordinate(list *aList)
 
 float square(coordinates *current)
 {
-	float result = M_PI * current->r * current->r;
-	
-	if(result < 0) 
-		result *= -1;
-
-	return result;
+	return M_PI * current->r * current->r;
 }
 
 void printArea(list *aList)
