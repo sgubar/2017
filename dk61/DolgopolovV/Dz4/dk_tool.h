@@ -2,28 +2,30 @@
 #define dk_tool_h
 
 #include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 
-typedef struct tagBook
+typedef struct Book
 {
 	char *Author;
 	char Nazva[100];
 }DK_Book;
 
-typedef struct tagPolka
+typedef struct Shelf
 {
-	DK_Book *notes;
+	DK_Book *Books;
 	int size;
 	int current_size;
-}DK_Polka;
+}DK_Shelf;
 
-DK_Polka *createPolka(int aSize);
+DK_Shelf *createShelf(int aSize);
 	
-int addBookToPolka(DK_Polka *inPolka, char *aAuthor, char *aNazva);
+int addBookToShelf(DK_Shelf *aShelf, char *aAuthor, char *aNazva);
 
 void printBook(DK_Book *aBook);
 
-void printPolka(DK_Polka *inPolka);
+void printShelf(DK_Shelf *inShelf);
 
-void sortPhoneBook(DK_Polka *inPolka)
+void sortShelf(DK_Shelf *inShelf)
 
 #endif
