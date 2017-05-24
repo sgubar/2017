@@ -1,32 +1,19 @@
-#ifndef dk_tool_h
-#define dk_tool_h
+#include "dk_tool.h"
 
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-
-typedef struct Book
+int main()
 {
-	char *Author;
-	char Nazva[100];
-}DK_Book;
-
-typedef struct Shelf
-{
-	DK_Book *Books;
-	int size;
-	int current_size;
-}DK_Shelf;
-
-DK_Shelf *createShelf(int aSize);
+	DK_Shelf *theShelf = createShelf(20);
 	
-int addBookToShelf(DK_Shelf *aShelf, char *aAuthor, char *aNazva);
+	addBookToShelf(theShelf, "Nikolai Gogol", "Viy");
+	addBookToShelf(theShelf, "Garcia Marquez", "One Hundred Years of Solitude");
+	addBookToShelf(theShelf, "Mikhail Bulgakov", "The Master and Margarita");
+	addBookToShelf(theShelf, "J.R.R.Tolkien", "The Lord of the Rings");
+	
+	printShelf(theShelf);
+	
+	sortPhoneBook(theShelf);
 
-void printBook(DK_Book *aBook);
-
-void printShelf(DK_Shelf *inShelf);
-
-void sortShelf(DK_Shelf *inShelf)
-
-
-#endif
+	printf ("After sorting ");
+	printShelf(theShelf);
+	
+}
