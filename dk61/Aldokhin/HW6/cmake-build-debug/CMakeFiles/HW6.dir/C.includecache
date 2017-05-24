@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+D:/Inform/HW6/Tool.c
+Tool.h
+D:/Inform/HW6/Tool.h
+limits.h
+-
+stdlib.h
+-
+stdio.h
+-
+string.h
+-
+
+D:/Inform/HW6/Tool.h
+
+D:/Inform/HW6/main.c
+stdio.h
+-
+malloc.h
+-
+Tool.h
+D:/Inform/HW6/Tool.h
+

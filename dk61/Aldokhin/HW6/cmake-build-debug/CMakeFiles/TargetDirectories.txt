@@ -1,0 +1,3 @@
+D:/Inform/HW6/cmake-build-debug/CMakeFiles/HW6.dir
+D:/Inform/HW6/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/Inform/HW6/cmake-build-debug/CMakeFiles/rebuild_cache.dir
