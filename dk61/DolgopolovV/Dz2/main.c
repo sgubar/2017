@@ -2,17 +2,12 @@
 
 int main()
 {
-	DK_Polka *thePolka = createPolka(20);
+	DK_Shelf *theShelf = createShelf(20);
 	
-	char theAuthor[] = "Name author";
-	char theNazva[] = "the title of the book";
+	addBookToShelf(theShelf, "Nikolai Gogol", "Viy");
+	addBookToShelf(theShelf, "Garcia Marquez", "One Hundred Years of Solitude");
+	addBookToShelf(theShelf, "Mikhail Bulgakov", "The Master and Margarita");
+	addBookToShelf(theShelf, "J.R.R.Tolkien", "The Lord of the Rings");
 	
-	addBookToPolka(thePolka, "Nikolai Gogol", "Viy");
-	addBookToPolka(thePolka, "Garcia Marquez", "One Hundred Years of Solitude");
-	addBookToPolka(thePolka, "Mikhail Bulgakov", "The Master and Margarita");
-	addBookToPolka(thePolka, "J.R.R.Tolkien", "The Lord of the Rings");
-	
-	printPolka(thePolka);
-		
-	return 0;
+	printShelf(theShelf);
 }
