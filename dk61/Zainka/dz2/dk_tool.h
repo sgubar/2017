@@ -28,4 +28,3 @@ filepiramida *Createfilepiramida(int aSize);
  
 
 #endif
- 
