@@ -1,43 +1,35 @@
-#include <stdlib.h>
-#include <string.h>
+#include "dk_tool.h"
 
-
-DK_Polka *createPolka(int aSize)
+DK_Shelf *createShelf(int aSize)
 {
-	DK_Polka *thePolka = (DK_Polka *)malloc(sizeof(DK_Polka));
+	DK_Shelf *theShelf = (DK_Shelf *)malloc(sizeof(DK_Shelf));
 
-	if (NULL != thePolka)
+	if (NULL != theShelf)
 	{
-		thePolka->notes = (DK_Book *)malloc(aSize * sizeof(DK_Book));
-	
-	
-		thePolka->size = aSize;
-		thePolka->current_size = 0;
+		theShelf->Books = (DK_Book *)malloc(aSize * sizeof(DK_Book));
+		theShelf->size = aSize;
+		theShelf->current_size = 0;
 	}
 
-	return thePolka;
+	return theShelf;
 }
 
-int addBookToPolka(DK_Polka *aPolka, char *aAuthor, char *aNazva)
+int addBookToShelf(DK_Shelf *aShelf, char *aAuthor, char *aNazva)
 {
-	int theResult = 0;
-	
-	if (NULL != aPolka && NULL != aAuthor && NULL != aNazva)
+int theResult = 0;	
+
+	if (NULL != aShelf && NULL != aAuthor && NULL != aNazva)
 	{
-		if (aPolka->current_size < aPolka->size)
+		if (aShelf->current_size < aShelf->size)
 		{
-			DK_Book *theBook = &(aPolka->notes[aPolka->current_size]);
+			DK_Book *theBook = &(aShelf->Books[aShelf->current_size]);
 		
 			theBook->Author = (char *)malloc(sizeof(char)*(strlen(aAuthor)+1));
 		
 			strcpy(theBook->Author, aAuthor);
 			strcpy(theBook->Nazva, aNazva);
 		
-			aPolka->current_size ++;
-		}
-		else
-		{
-			theResult = -2;
+			aShelf->current_size ++;
 		}
 	}
 	else
@@ -54,14 +46,14 @@ void printBook(DK_Book *aBook)
 	printf("Nazva: %s\n", aBook->Nazva);
 }
 
-void printPolka(DK_Polka *inPolka)
+void printShelf(DK_Shelf *inShelf)
 {
-	printf("size: %d\t", inPolka->size);
-	printf("current size: %d\n", inPolka->current_size);
+	printf("size: %d\t", inShelf->size);
+	printf("current size: %d\n", inShelf->current_size);
 	
-	for (int i = 0; i < inPolka->current_size; i++)
+	for (int i = 0; i < inShelf->current_size; i++)
 	{
 		printf("[%d] - ", i);
-		printBook(&(inPolka->notes[i]));
+		printBook(&(inShelf->Books[i]));
 	}
 }
