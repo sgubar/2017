@@ -3,44 +3,49 @@
 #include <string.h>
 #include <math.h>
 #include <memory.h>
-
 #include "dk_tool.h"
  
  
-int addPiramida(filepiramida *polochka) // ïåðåäàºìî êóäà áóäåì ëîæèòü 
+int addPiramida(filepiramida *polochka) // передаємо куда будем ложить 
 {
 	int theResult = 0;
 	
 	
-	if (NULL != polochka && polochka->current_size < polochka->size) // ÿêùî ïîòî÷íèé ðîçì³ð ìåíøå ìàêñèìàëüíîãî 
+	if (NULL != polochka && polochka->current_size < polochka->size) // якщо поточний розмір менше максимального 
 	{
-	
+		int index = (polochka->current_size > 0) ? polochka->current_size-1 : 0;
 
-		Piramida *heops = &(polochka->Piramida[polochka->current_size]); //  àäðåñ ïóñòîãî ìåñòà çàïîëíÿì åãî êîîðäèíàòàìè 
+		Piramida *heops = &(polochka->Piramida[index]); //  адрес пустого места заполням его координатами 
 		int i,value = 0; 
 		if(NULL != heops)
 		{
 			for( i = 0; i < 4; i++)
 			{
+				kordinati *coord = (kordinati *)malloc(sizeof(kordinati));
+				heops->points[i] = coord;
+				
 				printf("type a number'\n");
-				scanf("%d", &value ); //// äî 0 òî÷êè ïðèñâàèâàåì 1 çíà÷åíèå  
+				scanf("%d", &value ); //// до 0 точки присваиваем 1 значение  
 				heops->points[i]->x = value;
-				scanf("%d", &value ); //// äî 0 òî÷êè ïðèñâàèâàåì 1 çíà÷åíèå  
+				printf("type 2\n");
+				scanf("%d", &value ); //// до 0 точки присваиваем 1 значение  
 				heops->points[i]->y = value;
-				scanf("%d", &value ); //// äî 0 òî÷êè ïðèñâàèâàåì 1 çíà÷åíèå  
+				printf("type 3\n");
+				scanf("%d", &value ); //// до 0 точки присваиваем 1 значение  
 				heops->points[i]->z = value;
+				
 			}	
 		}
-			 polochka->current_size ++; // íîìåð ñâîá ìåñòà 
+			 polochka->current_size ++; // номер своб места 
   }
 	else
 	{
-		theResult = -1;
+	theResult = -1;
 	}
 	return theResult;
 }
 
-filepiramida *Createfilepiramida(int aSize) // ïîëî÷êà ðàñ÷èàòíà íà òîëüêî àçàéç
+filepiramida *Createfilepiramida(int aSize) // полочка расчиатна на только азайз
 {
 	filepiramida *polochka = (filepiramida *)malloc(sizeof(filepiramida));
 
@@ -52,7 +57,7 @@ filepiramida *Createfilepiramida(int aSize) // ïîëî÷êà ðàñ÷èàòíà
 		polochka->size = aSize;
 		polochka->current_size = 0; //  
 	}
-	return polochka; // âûäàå ïîëî÷êó ôîðìàò êàêîé ôàéë ïèðàìèäà 
+	return polochka; // выдае полочку формат какой файл пирамида 
 }
 
 
@@ -70,7 +75,7 @@ float area(Piramida *heops)
 	length1 = sqrt(pow(heops->points[2]->x - heops->points[0]->x, 2) + pow(heops->points[2]->y - heops->points[0]->y, 2) + pow(heops->points[2]->z - heops->points[0]->z, 2));
 	length2 = sqrt(pow(heops->points[3]->x - heops->points[0]->x, 2) + pow(heops->points[3]->y - heops->points[0]->y, 2) + pow(heops->points[3]->z - heops->points[0]->z, 2));
 	length3 = sqrt(pow(heops->points[3]->x - heops->points[1]->x, 2) + pow(heops->points[3]->y - heops->points[1]->y, 2) + pow(heops->points[3]->z - heops->points[1]->z, 2));
-	length4 = sqrt(pow(heops->points[2]->x - heops->points[3]->x, 2) + pow(heops->points[2]->y - heops->points[3]->y, 2) + pow(heops->points[2]->z - heops->points[4]->z, 2));
+	length4 = sqrt(pow(heops->points[2]->x - heops->points[3]->x, 2) + pow(heops->points[2]->y - heops->points[3]->y, 2) + pow(heops->points[2]->z - heops->points[3]->z, 2));
 	length5 = sqrt(pow(heops->points[2]->x - heops->points[1]->x, 2) + pow(heops->points[2]->y - heops->points[1]->y, 2) + pow(heops->points[2]->z - heops->points[1]->z, 2));
 	
 	perimS1 = (length + length1 + length5 )/2;
