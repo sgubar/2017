@@ -1,22 +1,32 @@
-#include "dk_tool.h"
+#ifndef dk_tool_h
+#define dk_tool_h
 
-int main()
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+typedef struct Book
 {
-	DK_Polka *thePolka = createPolka(20);
-	
-	char theAuthor[] = "Name author";
-	char theNazva[] = "the title of the book";
-	
-	addBookToPolka(thePolka, "Nikolai Gogol", "Viy");
-	addBookToPolka(thePolka, "Garcia Marquez", "One Hundred Years of Solitude");
-	addBookToPolka(thePolka, "Mikhail Bulgakov", "The Master and Margarita");
-	addBookToPolka(thePolka, "J.R.R.Tolkien", "The Lord of the Rings");
-	
-	printPolka(thePolka);
-		
-	sortPhoneBook(DK_PhoneBook *inPhoneBook)
+	char *Author;
+	char Nazva[100];
+}DK_Book;
 
-	printPolka(thePolka);
+typedef struct Shelf
+{
+	DK_Book *Books;
+	int size;
+	int current_size;
+}DK_Shelf;
+
+DK_Shelf *createShelf(int aSize);
 	
-	return 0;
-}
+int addBookToShelf(DK_Shelf *aShelf, char *aAuthor, char *aNazva);
+
+void printBook(DK_Book *aBook);
+
+void printShelf(DK_Shelf *inShelf);
+
+void sortShelf(DK_Shelf *inShelf)
+
+
+#endif
