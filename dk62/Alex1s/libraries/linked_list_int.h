@@ -22,7 +22,7 @@ int deleteElement(Node **head, int num);				//delete nth element, return value o
 
 int getLength(Node *head);								//return length of list
 int getNumber(Node *head, Node *tmp);					//return number of tmp
-char getValueNumber(Node *head, int num);				//return value of element || use number in list
+int getValueNumber(Node *head, int num);				//return value of element || use number in list
 Node *getLsatElement(Node *head);						//return pointer on last element
 Node *getPreLastElement(Node *head);					//return prelast element
 Node *getElement(Node *head, int num);					//return pointer on num element
