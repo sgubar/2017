@@ -287,7 +287,7 @@ int getLength(Node *head)
 
 //-------------------------------------------------------------------------
 
-void changeElement(Node *head, int num, char val)
+void changeElement(Node *head, int num, int val)
 {
 	if(!head)
 	    exit(-20);
