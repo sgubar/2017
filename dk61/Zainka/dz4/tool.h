@@ -1,3 +1,4 @@
+
 #ifndef dk_tool_h
 #define dk_tool_h
 #include <string.h>
@@ -13,6 +14,7 @@
 typedef	struct Piramida
 {
 	kordinati *points[4]; 
+
 
 } Piramida;
 
@@ -32,6 +34,7 @@ filepiramida *Createfilepiramida(int aSize);
 void writePiramida(FILE *aFile, Piramida *heops);
 void writefilepiramida(FILE *aFile, filepiramida *polochka); 
 void swap(Piramida *var1, Piramida *var2);
+
 //void printarea(filepiramida *polochka);
 #endif
  
