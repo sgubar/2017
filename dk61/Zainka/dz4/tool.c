@@ -5,6 +5,7 @@
 
 #include "sort.h"
 #include "dk_tool.h" 
+#include "binary.h"
 int addPiramida(filepiramida *polochka) // ïåðåäàºìî êóäà áóäåì ëîæèòü 
 {
 	int theResult = 0;
@@ -62,12 +63,11 @@ filepiramida *Createfilepiramida(int aSize) // ïîëî÷êà ðàñ÷èàòíà
 void writePiramida(FILE *aFile, Piramida *heops)
 
 {
-int i;	
-  for (  i =0; i< 3; i++)
+int i =0;	
+  for (  i =0; i< 4; i++)
     {
     fprintf(aFile, "\"kordinati[%d]\"= {%d , %d , %d}, \n" , i+1 , heops->points[i]->x , heops-> points[i]->y , heops->points[i]->z );                     
-	if (i==2)
-		fprintf(aFile, "\"kordinati[%d]\"= {%d , %d , %d}, \n" , i+1 , heops->points[i]->x , heops-> points[i]->y , heops->points[i]->z );
+
 	}
 
 
@@ -87,17 +87,13 @@ void writefilepiramida(FILE *aFile , filepiramida *polochka)
 			 writePiramida(aFile , heops);
 			 if (i < polochka->current_size-1  )
 			 {
-			 fprintf( aFile, "},\n\n");
+			 fprintf( aFile, "}\n\n");
 			 
 			 }
 			else 
 			if ( i <= polochka->current_size-1)
 			fprintf( aFile , "},\n\n");
 			}    
-   
-   fprintf(aFile , "]\n");
-   fprintf(aFile , "]\n");
-   
    
    }
 void swap(Piramida *var1, Piramida *var2)
@@ -117,6 +113,9 @@ void swap(Piramida *var1, Piramida *var2)
     }
 }
 */
+
+
+
 float area(Piramida *heops)
 {
 	
