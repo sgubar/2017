@@ -31,4 +31,3 @@ void writePiramida(FILE *aFile, Piramida *heops);
 void writefilepiramida(FILE *aFile, filepiramida *polochka); 
 
 #endif
- 
