@@ -1,7 +1,7 @@
 #include "dk_tool.h"
 #include <stdlib.h>
 #include <string.h>
-#include <stdarg.h>
+
 
 
 MyShelf *createShelf(int aSize)
@@ -59,6 +59,28 @@ void printShelf(MyShelf *inShelf)
 	{
 		printf("[%d] - ", i);
 		printBook(&(inShelf->Books[i]));
+	}
+}
+
+void destroyShelf(MyShelf *aShelf)
+{
+	if (NULL != aShelf)
+	{
+		if(NULL != aShelf->Books)
+		{
+			for (int i = 0; i < aShelf->current_size; i++)
+			{
+				BookDescription theBook = aShelf->Books[i];
+				if (NULL != theBook.The_author)
+				{
+					free(theBook.The_author);
+				}
+			}
+
+			free(aShelf->Books);
+		}
+
+		free(aShelf);
 	}
 }
 
