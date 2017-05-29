@@ -14,4 +14,5 @@ int main()
 	addBookToMyShelf(theShelf, "Oscar Wilde", "The Picture of Dorian Gray");
 
 	printShelf(theShelf);
+	destroyShelf(theShelf);
 }
