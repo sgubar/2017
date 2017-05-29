@@ -24,4 +24,6 @@ void printBook(BookDescription *aBook);
 
 void printShelf(MyShelf *inShelf);
 
+void destroyShelf(MyShelf *aShelf);
+
 #endif
