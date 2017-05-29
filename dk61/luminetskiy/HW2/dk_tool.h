@@ -1,39 +1,18 @@
-#ifndef dk_tool.h
-#define  dk_tool.h
+#ifndef dk_tool_h
+#define dk_tool_h
 
+#define Pi 3.141592654
 
-//count square
-float Square (Circle *aCircle)
-
-
-//circle size
-typedef struct Circle
-{
+typedef struct {
     int x;
     int y;
     int rad;
-}circle;
+    long double square;
+} circle;
+circle * CreateList(int size);//creating array of circles
+void NewCircle(circle *ptr);//adding fig to array
+long double square(circle s);
 
-//circle options
-typedef struct List
-{
-    circle *sizeCircle;
-    int size;
-    int current_size;
-} FigList;
-
-
-FigList *createCircle(int size);
-//deleting
-void destroyFigure(FigList *aFigList);
-
-//interface
-int addToFigure(FigList *aFigList, int x, int y, int rad);
-
-void print(FigList *aFigList);
-
-//count square
-float Square (circle *aCircle);
-
+void PrintFigures(circle mass[],int n);
 
 #endif //dk_tool_h
