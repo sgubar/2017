@@ -1,0 +1,27 @@
+Sorting time:  0.0000000000 seconds
+
+Size of array is 23 
+ 
+Number[1] 9961 
+Number[2] 9358 
+Number[3] 9169 
+Number[4] 8467 
+Number[5] 8145 
+Number[6] 6962 
+Number[7] 6827 
+Number[8] 6500 
+Number[9] 6334 
+Number[10] 5724 
+Number[11] 5705 
+Number[12] 5436 
+Number[13] 4827 
+Number[14] 4604 
+Number[15] 4464 
+Number[16] 3902 
+Number[17] 3281 
+Number[18] 2995 
+Number[19] 2391 
+Number[20] 1942 
+Number[21] 1478 
+Number[22] 491 
+Number[23] 41 
