@@ -10,6 +10,6 @@ typedef struct {
 } circle;
 
 void NewCircle(circle *ptr);//adding fig to array
-double Squareof(circle s);
+double Square(circle s);
 void ShowTheFigures(circle ptr[],int n);
 #endif //dk_tool_h
