@@ -1,0 +1,20 @@
+{ "size":3,
+ "current_size":3,
+"triangle": 
+	
+	{
+		"Spot A":{"Coord X": 7, "Coord Y": 8},
+		"Spot B":{"Coord X": 9, "Coord Y": 4},
+		"Spot C":{"Coord X": 5, "Coord Y": 6}
+	},
+	{
+		"Spot A":{"Coord X": 17, "Coord Y": 10},
+		"Spot B":{"Coord X": 19, "Coord Y": 14},
+		"Spot C":{"Coord X": 14, "Coord Y": 16}
+	},
+	{
+		"Spot A":{"Coord X": 27, "Coord Y": 28},
+		"Spot B":{"Coord X": 29, "Coord Y": 24},
+		"Spot C":{"Coord X": 25, "Coord Y": 26}
+	},
+}
