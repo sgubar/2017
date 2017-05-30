@@ -11,7 +11,7 @@ int main() {
     square *ptr = (square*) malloc(sizeof(square)*n);
     for (int k = 0; k < n; ++k) {
         printf("Square number %i",k+1);
-        MakeSquare(&ptr[k], n);
+        MakeSquare(&ptr[k]);
     }
     for (int i = 0; i < n; ++i) {
         ptr[i].square = Squareof(ptr[i]);
@@ -90,14 +90,15 @@ int main() {
         char filename[100];
         printf("Please give the name of file(without the type of file)\n");
         scanf("%s",filename);
-        filename[strlen(filename+1)] = 't';
-        filename[strlen(filename+2)] = 'x';
-        filename[strlen(filename+3)] = 't';
-        filename[strlen(filename+4)] = '\0';
+        int str = strlen((filename));
+        filename[str+1] = 't';
+        filename[str+2] = 'x';
+        filename[str+3] = 't';
+        filename[str+4] = '\0';
         bool access = false;
         while (!access){
             access = JSON(ptr,n,filename);
-            if(access)
+            if(!access)
                 printf("File %s does not exist\n",filename);
             else
                 ("Figures printed into the file\n");
@@ -105,8 +106,6 @@ int main() {
     }
 
     printf("Let's clean it!");
-    for (int j = 0; j < n; ++j) {
-        destroyFigure(&ptr[j]);
-    }
+    free(ptr);
     return 0;
 }
