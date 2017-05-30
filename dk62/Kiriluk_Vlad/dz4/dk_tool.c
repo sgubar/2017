@@ -88,7 +88,7 @@ void printShelfJson(MyShelf *inShelf)
 {
 	if(inShelf != NULL)
 	{
-		FILE *afile = fopen("D\Vlad\json.json","w");
+		FILE *afile = fopen("Library.json","w");
 		if(afile == NULL)
 		{
 			printf("File error\n");
