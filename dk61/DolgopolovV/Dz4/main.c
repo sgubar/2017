@@ -11,7 +11,7 @@ int main()
 	
 	printShelf(theShelf);
 	
-	sortPhoneBook(theShelf);
+	sortShelf(DK_Shelf *inShelf);
 
 	printf ("After sorting ");
 	printShelf(theShelf);
