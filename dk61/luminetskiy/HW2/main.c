@@ -10,7 +10,7 @@ int main(int argc, char *argv[]) {
 	circle *mass =(circle *) malloc(sizeof(circle)*size);
     for (int i = 0; i < size; ++i) {
         NewCircle(&mass[i]);
-        mass[i].square = Squareof(mass[i]);
+        mass[i].square = Square(mass[i]);
     }
     ShowTheFigures(mass,size);
 	return 0;
