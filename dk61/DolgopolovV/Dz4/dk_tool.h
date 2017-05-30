@@ -26,6 +26,6 @@ void printBook(DK_Book *aBook);
 
 void printShelf(DK_Shelf *inShelf);
 
-void sortShelf(DK_Shelf *inShelf)
+void sortShelf(DK_Shelf *inShelf);
 
 #endif
