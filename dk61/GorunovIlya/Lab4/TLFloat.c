@@ -249,7 +249,7 @@ int TLDestroyFloatValueAtIndex(FloatList *aList, int anIndex)
 
 
 //lesser than average
-int deleteFirstFloatElement(FloatList *aList, int aValue)
+int deleteFirstFloatElement(FloatList *aList, float aValue)
 {
 	
 	if(NULL == aList)
