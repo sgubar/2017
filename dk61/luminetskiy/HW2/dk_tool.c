@@ -17,7 +17,7 @@ void NewCircle(circle *ptr)
 
 }
 
-double Squareof(circle s)
+double Square(circle s)
 {
     return Pi * s.rad * s.rad ;
 }
