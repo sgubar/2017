@@ -11,25 +11,39 @@ int *createArray(int Asize)
 
 int fillingArray(int *AnArray, int Asize)
 {
-	int i = 0;
-	for(i;i< Asize; i++)
+
+	for(int i = 0; i < Asize; i++)
 	{
 		AnArray[i] = rand()% 10000;
 	}
 }
 
+
 void WriteToFile(FILE *file, int *AnArray, int Asize, float Time)
 {
-	fprintf(file, "Sorting time: % .10f seconds\n\n", Time);
-
-
-fprintf(file,"Size of array is %d \n \n",Asize);
+	fprintf(file, "Sorting time: % .5f seconds\n\n", Time);
+	fprintf(file,"Size of array is %d \n \n",Asize);
 	for(int i=0;i<Asize; i++)
 	{
 		fprintf(file, "Number[%i] %i \n", i+1, AnArray[i]);
 	}
 
 }
+
+/*
+void Show(int *AnArray, int Asize, float Time)
+{
+	printf("Sorting time: % .5f seconds\n\n", Time);
+	printf("Size of array is %d \n \n",Asize);
+	for(int i=0;i<Asize; i++)
+	{
+		printf( "Number[%i] %i \n", i+1, AnArray[i]);
+	}
+printf( "\n \n ");
+printf("\n Sorting is completed. You can see sorted massiv in result.txt\n\n\n ");
+}
+
+*/
 
 float Sort(int *AnArray, int Asize)
 {
@@ -39,37 +53,35 @@ float Sort(int *AnArray, int Asize)
 	 
 	
 	
+	float Time= clock();
 	if(num == 1)
 	{
-		float start, end;
-		start = clock();
+		
 		printf("\n Sorting is completed. You can see sorted massiv in result.txt\n\n\n ");
   		bubbleSort(AnArray, Asize);
-  		end = clock();
-  		float Time = ((end - start)/CLOCKS_PER_SEC);
-  		return Time;
+  	 float endTime = (clock()-Time)/CLOCKS_PER_SEC;
+  	printf("\n Time of sorting %.5f\n\n\n ", endTime);
 	}
 	if(num == 2)
 	{
-		float start, end;
-		start = clock();
+	
 		printf("\n Sorting is completed. You can see sorted massiv in result.txt\n\n\n ");
 	    selectionSort(AnArray, Asize);
-	    end = clock();
-  		float Time = ((end - start)/CLOCKS_PER_SEC);
-  		return Time;
+	   float endTime = (clock()-Time)/CLOCKS_PER_SEC;
+  	printf("\n Time of sorting %.5f\n\n\n ", endTime);
 
 	}
 	if(num == 3)
 	{
-		float start, end;
-		start = clock();
+	
 		printf("\n Sorting is completed. You can see sorted massiv in result.txt\n\n\n ");
 		insertionSort(AnArray,Asize);
-		end = clock();
-  		float Time = ((end - start)/CLOCKS_PER_SEC);
-  		return Time;
+		
+  		float endTime = (clock()-Time)/CLOCKS_PER_SEC;
+  	printf("\n Time of sorting %.5f \n\n\n ", endTime);
 	}
+	
+
 }
 
 
