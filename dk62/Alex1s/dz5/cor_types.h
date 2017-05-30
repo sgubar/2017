@@ -1,16 +1,13 @@
-#ifndef _COR_TYPES_H
-#define _COR_TYPES_H
+#ifndef cor_types_h
+#define cor_types_h
 
-#include <float.h>
-#include <limits.h>
-#include <stdbool.h>
-#include <stdlib.h>
-
-char gchar();
-//double gdouble();
-//float gfloat();
-int gint();
-long long glonglong();
-char *gstring();
+char getCharValue(void);
+double getDoubleValue(void);
+float getFloatValue(void);
+int getIntValue(void);
+long long getLoLongValue(void);
+void getStringStdin(char *min);
+//void getFileString(char *min, FILE *file, int num);
+//void getFileAll(char *min, FILE *file);
 
 #endif
