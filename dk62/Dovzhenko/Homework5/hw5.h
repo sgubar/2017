@@ -22,6 +22,7 @@ int createnewSphere(SphereList *aSphere, int x,int y,int z , int R);
 float Squareareas(SpherePosition * theSphere);
 int binarySearch(SphereList *aSphere, int find);
 void shellSort(SphereList *aSphere);
+void printSphere(SphereList *Sphere);
 
 
 #endif
