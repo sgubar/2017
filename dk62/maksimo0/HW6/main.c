@@ -1,7 +1,5 @@
 //
-
 // Created by Max on 29.05.2017.
-
 //
 
 #include <stdio.h>
@@ -14,6 +12,7 @@ int main(void)
     {
         return -1;
     }
+    
     AddIntValueToList(theList, 1);
     AddIntValueToList(theList, 2);
     AddIntValueToList(theList, 3);
