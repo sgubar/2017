@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
-#include "hw5.h"
+#include "hw4.h"
 
 
 SphereList * createSphereList(int aSize)
@@ -120,8 +120,24 @@ int binarySearch(SphereList *aSphere, int find)
     return -1;
 }
 
-
-
+void printSphere(SphereList *Sphere)
+{
+	if(Sphere->currentSize != 0)
+	{
+		int i;
+		printf("Size: %i, Current size: %i\n", Sphere->size, Sphere->currentSize);
+		printf("Spheres:\n");
+		
+		for(i = 0; i < Sphere->currentSize; i++)
+		{
+			SpherePosition *firstSphere = &(Sphere->spheres[i]);
+			printf("Figure #%i, X: %i, Y: %i, ", i, firstSphere->x, firstSphere->y);
+			printf("Z: %i, Radius: %i, ", firstSphere->z, firstSphere->R);
+			printf("Square of sphere: %.3f\n", Squareareas(firstSphere));
+		}
+	
+	}
+}
 
 
 
