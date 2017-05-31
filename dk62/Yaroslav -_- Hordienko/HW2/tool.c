@@ -1,7 +1,7 @@
 /*
  * tool.c
  *
- *  Created on: 16 мая 2017 г.
+ *  Created on: 16 Г¬Г Гї 2017 ГЈ.
  *      Author: Yaroslav Hordiienko
  */
 #include "tool.h"
@@ -102,7 +102,7 @@ int zapis (spisok *the_spisok, int i){
 	        printf("Error 404\n");
 	     else{
 	    	 kolo *kolo = &(the_spisok->kolas[i]);
-	    	 fprintf(f,"Kolo mae taki xarakteristiku\n x = %i\n y = %i\n radius = %i\n ploshcha = %f", kolo->x, kolo->y, kolo->r, print_nomer_kolo(the_spisok, i) );
+	    	 fprintf(f,"{Kolo mae taki xarakteristiku:\n Tochka x = %i\n Tochka y = %i\n Radius = %i\n     ploshcha kola :[ \n    S  = %f]\n}", kolo->x, kolo->y, kolo->r, print_nomer_kolo(the_spisok, i) );
 	     }
 	     fclose(f);
 	 	printf("Danni v file zapisany\n");
