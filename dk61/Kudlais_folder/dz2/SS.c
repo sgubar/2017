@@ -2,12 +2,12 @@
 #include <stdbool.h>
 #include "figure.h"
 
-void swap(int *a, int *b){// Big "s"
+void swap(int *a, int *b){
     int tmp = *a;
     *a = *b;
     *b = tmp;
 }//Unused now
-void Sqswap(square *a,square *b){ //Little "s"
+void Sqswap(square *a,square *b){
     square tmp = *a;
     *a = *b;
     *b = tmp;
@@ -25,9 +25,9 @@ void BubbleSort(square arr[],int N) {
     int counter = 0;
     do {
          counter = 0;
-        for (int i = 0; i < N; i++) {
-            if (arr[i].square > arr[i + 1].square) {
-                Sqswap(&arr[i], &arr[i + 1]);
+        for (int i = 1; i < N; i++) {
+            if (arr[i-1].square > arr[i].square) {
+                Sqswap(&arr[i-1], &arr[i]);
                 counter++;
             }
         }
