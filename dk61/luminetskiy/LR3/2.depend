@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1496226652 source:d:\Рабочий стол\2\alg.c
+
+1496226796 source:d:\Рабочий стол\2\main.c
+	"alg.h"
+
+1496225724 d:\Рабочий стол\2\alg.h
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+
