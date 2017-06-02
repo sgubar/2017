@@ -1,11 +1,12 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
 #include "Node.h"
 
 int main(void) {
     list buf;
-    char *text;
+    char *text = malloc(sizeof(char)*1000);
     do{
         printf("Hello. Please give the name of the file without indicating file type.\n");
         scanf("%s",&text);
