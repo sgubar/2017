@@ -20,7 +20,8 @@ bool fBuff(char *filename,list *chain){
     chain->head = NewNode((char)entermediary,NULL,NULL);
     struct node *part;
     while('\0' != (entermediary = fgetc(file))){
-        part = NewNode((char)entermediary,part,NULL);
+        if(entermediary != '\n')
+            part = NewNode((char)entermediary,part,NULL);
     }
     chain->tail = part;
     return true;
