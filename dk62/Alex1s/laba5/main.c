@@ -188,7 +188,7 @@ int main(int argc, const char *argv[])
 				type = getIntValue();
 			}while(type < 1 || type > 3);
 			
-			printf("\nCreating linked list...\n");
+			printf("\nCreating binary tree...\n");
 			
 			srand(time(NULL));
 			for(i = 0; i < 16; i++)
