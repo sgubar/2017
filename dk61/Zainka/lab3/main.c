@@ -8,8 +8,8 @@
 #include <string.h>
 int main()
 {
-int aSize = 99;
-int Size = 99;
+int aSize = 10000;
+int Size = 10000;
 	char *neotsortmassiv = (char *) malloc(sizeof(char) *aSize);
 	FILE *neotdfile = fopen("filemassiv.txt", "r"); 
 	
@@ -74,9 +74,27 @@ int Size = 99;
 	scanf("%c"  , & key);
 {
 	  
-	int  Nshel = binary_search(  key, Size, Sortmassiv);
+	char  Nshel = binary_search(  key, aSize, Sortmassiv);
 	printf("the  is: %i \n" ,Nshel);
 }
+float starshell;
+float start;
+float stop;
+{
+
+
+
+start = clock();
+	       shell_sort(  aSize, neotsortmassiv );
+			stop = clock();
+			
+		 starshell =  (stop -start) / CLOCKS_PER_SEC;
+			
+			printf("\n shellsort: %.20f\n", starshell);
+			fprintf(SortFile, " Time of sorting: %.20f.\n", starshell);
+		}
+		
+
 
 	return 0;
 }
