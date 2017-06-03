@@ -179,7 +179,7 @@ switch(arg)
 	case 'T':
 		{
 		int i, type = 2;
-		printf("\nCreating linked list...\n");
+		printf("\nCreating binary tree...\n");
 		
 		srand(time(NULL));
 		for(i = 0; i < 16; i++)
