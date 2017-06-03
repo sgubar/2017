@@ -9,7 +9,7 @@ int binary_search(char key, int aSize, char *Sortmassiv)
 {
     
     
-	int left = 0, right = aSize-1, middle;
+	int left = 0, right = aSize, middle;
 
     while (left <= right )
     {
@@ -17,7 +17,7 @@ int binary_search(char key, int aSize, char *Sortmassiv)
      if (Sortmassiv[middle] == key)
 	  return middle; 
      else 
-	 if (Sortmassiv[middle] > key)
+	 if (Sortmassiv[middle] < key)
             right = middle-1;		
         else
             left = middle+1;			
@@ -27,3 +27,4 @@ int binary_search(char key, int aSize, char *Sortmassiv)
            
 
 }
+
