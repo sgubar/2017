@@ -6,11 +6,11 @@
 int main(void)
 {   
     //printf("Hello. Programm won't work if you create more then 10 triangles \n");
-    printf("Give me the numb of squares (max 7) : ");
+    printf("Value of squares (max 7) : ");
 	
 	
 	int Size;
-	int check = scanf("%i", &Size);
+	int check = scanf("%i", &Size); //proverka na bukvi (esli bukva = scanf vidaet 0)
 	
 	if (check != 0)
 	{
