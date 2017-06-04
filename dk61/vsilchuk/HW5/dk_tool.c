@@ -262,7 +262,7 @@ int FilePrintPyramid(pyramid *aPyramid, FILE *ptrFile)
 		{
 			
 			fprintf(ptrFile, "  \t\"Vertex #%i\": \"%d\",\"%d\",\"%d\",\n", i + 1, aPyramid -> vertices[i].x, aPyramid -> vertices[i].y, aPyramid -> vertices[i].z);
-			if (i == 2)			//печать точек вершины без добавления запятой в конце
+			if (i == 2)			
 			fprintf(ptrFile, "  \t\"Vertex #%i\": \"%d\",\"%d\",\"%d\"\n", i + 1, aPyramid -> vertices[i].x, aPyramid -> vertices[i].y, aPyramid -> vertices[i].z);
 
 		}
