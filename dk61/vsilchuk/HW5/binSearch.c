@@ -4,7 +4,7 @@
 
 int binSearch(pyramidsList *aPyramidsList, float searchValue)
 {
-	int low, high, middle;
+    int low, high, middle;
     low = 0;
     high = aPyramidsList -> pyramidsCounter - 1;
     while (low <= high)
