@@ -26,8 +26,8 @@ FloatTree *Tree = createFloatTree();
 	
 	counter=0;
 	counter = counterNodes(Tree);
-	printf("The number of nodes in the tree :%d\n", counter);
 	printf("\n\n");
+	printf("The number of nodes in the tree :%d\n", counter);
 	printTree(Tree);
 	
 	destroyFloatTree(Tree);
