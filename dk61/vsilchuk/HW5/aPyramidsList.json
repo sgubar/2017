@@ -1,0 +1,81 @@
+{
+   "maxSize": 5,
+   "currentSize": 5,
+
+   "Pyramids": [
+
+   "Pyramid #1":
+
+   {
+  	"Vertex #1": "3","12","4",
+  	"Vertex #2": "3576","8","0",
+  	"Vertex #3": "767","3","56",
+  	"Vertex #3": "767","3","56"
+   },
+
+   "Pyramid #2":
+
+   {
+  	"Vertex #1": "45","4","74",
+  	"Vertex #2": "6","2","34",
+  	"Vertex #3": "13","4","356",
+  	"Vertex #3": "13","4","356"
+   },
+
+   "Pyramid #3":
+
+   {
+  	"Vertex #1": "357","65","8",
+  	"Vertex #2": "3","1","41",
+  	"Vertex #3": "343","5","65",
+  	"Vertex #3": "343","5","65"
+   },
+
+   "Pyramid #4":
+
+   {
+  	"Vertex #1": "45","23","13",
+  	"Vertex #2": "4","3","654",
+  	"Vertex #3": "75","68","45",
+  	"Vertex #3": "75","68","45"
+   },
+
+   "Pyramid #5":
+
+   {
+  	"Vertex #1": "44","5","6",
+  	"Vertex #2": "68","2","35",
+  	"Vertex #3": "3","56","786",
+  	"Vertex #3": "3","56","786"
+   }
+
+   ]
+}
+
+
+The area of the pyramid #1 = 1219128.2500
+
+The area of the pyramid #2 = 22846.6250
+
+The area of the pyramid #3 = 37184.6094
+
+The area of the pyramid #4 = 60287.4688
+
+The area of the pyramid #5 = 51588.6016
+
+
+Sorted by ShellSort. 
+
+
+After sorting: 
+
+
+The area of the pyramid #1 = 22846.6250
+
+The area of the pyramid #2 = 37184.6094
+
+The area of the pyramid #3 = 51588.6016
+
+The area of the pyramid #4 = 60287.4688
+
+The area of the pyramid #5 = 1219128.2500
