@@ -18,6 +18,7 @@ typedef struct __tagTree
 	int count;
 } FloatTree;
 
+FloatNode* findNodeWithValue(FloatTree *aTree, float aValue);
 FloatTree *createFloatTree();
 void floatValueToTree(FloatTree *aTree, float aValue);
 int counterNodes(FloatTree *aTree);
