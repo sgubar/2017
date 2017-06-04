@@ -210,3 +210,28 @@ void BackPrint(FloatNode *aNode)
 		printf("%1.1f ", aNode->value);
 	}
 }
+
+FloatNode* findNodeWithValue(FloatTree *aTree, float aValue)
+{
+	FloatNode *theCurrentNode = NULL;
+
+	if (NULL != aTree)
+	{
+		FloatNode *theCurrentNode = aTree->root; ///< - start from root
+		while (aValue != theCurrentNode->value) ///< - walk through the tree
+		{
+			theCurrentNode = (aValue < theCurrentNode->value)
+				? theCurrentNode->leftChild
+				: theCurrentNode->rightChild;
+
+			if (NULL == theCurrentNode)
+			{
+				break;
+			}
+		}
+		return theCurrentNode;
+	}
+
+	
+	return theCurrentNode;
+}
