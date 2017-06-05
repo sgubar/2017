@@ -233,8 +233,8 @@ int searchFunction(char *anArray, int aSize)
 	float startBinaryS, stopBinaryS;
 
 	char searchLetter;	
-    printf("Enter a letter which you want to search: ");
-    searchLetter = letterInput();
+   	printf("Enter a letter which you want to search: ");
+   	searchLetter = letterInput();
 
 	startBinaryS = clock();
 	int searchLetterIndex = binarySearch(anArray, aSize, searchLetter);
@@ -262,15 +262,15 @@ char letterInput(void)
 	{
 	    letter = getche();       
 	    if (isalpha(letter))
-		{
-			break;	
-		}                           
+	    {
+		    break;	
+	    }                           
 	    else 
 	    {
 		    printf("\nPlease enter another letter:\n");
 		    fflush(stdin);
-		}
-    }
+	    }
+        }
 	return letter;
 }
 
