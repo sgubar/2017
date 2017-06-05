@@ -1,0 +1,40 @@
+	- - - - - - - List of triangles before sorting - - - - - - -
+
+-Triangle #1-
+|Point 1 : [1;3]|
+|Point 2 : [2;6]|
+|Point 3 : [2;3]|
+|Square : 4|
+
+-Triangle #2-
+|Point 1 : [6;2]|
+|Point 2 : [3;8]|
+|Point 3 : [2;1]|
+|Square : 15|
+
+-Triangle #3-
+|Point 1 : [3;2]|
+|Point 2 : [1;8]|
+|Point 3 : [3;2]|
+|Square : 1|
+
+	- - - - - - - List of triangles after sorting - - - - - - -
+
+-Triangle #1-
+|Point 1 : [3;2]|
+|Point 2 : [1;8]|
+|Point 3 : [3;2]|
+|Square : 1|
+
+-Triangle #2-
+|Point 1 : [1;3]|
+|Point 2 : [2;6]|
+|Point 3 : [2;3]|
+|Square : 4|
+
+-Triangle #3-
+|Point 1 : [6;2]|
+|Point 2 : [3;8]|
+|Point 3 : [2;1]|
+|Square : 15|
+
