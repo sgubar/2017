@@ -1,0 +1,37 @@
+{
+ "size":9999,
+ "current_size":5,
+"parallelepipeds":
+	[
+	 {
+	 "Point[1]": {"CoordX:759, "CoordY:9158},
+	 "Point[2]": {"CoordX:647, "CoordY:8535},
+	 "Point[3]": {"CoordX:3731, "CoordY:5900},
+	 "Point[4]": {"CoordX:2885, "CoordY:3064}
+	 },
+	 {
+	 "Point[1]": {"CoordX:8158, "CoordY:3180},
+	 "Point[2]": {"CoordX:656, "CoordY:695},
+	 "Point[3]": {"CoordX:4361, "CoordY:5470},
+	 "Point[4]": {"CoordX:141, "CoordY:1543}
+	 },
+	 {
+	 "Point[1]": {"CoordX:5685, "CoordY:5323},
+	 "Point[2]": {"CoordX:826, "CoordY:5946},
+	 "Point[3]": {"CoordX:1279, "CoordY:65},
+	 "Point[4]": {"CoordX:684, "CoordY:296}
+	 },
+	 {
+	 "Point[1]": {"CoordX:9176, "CoordY:287},
+	 "Point[2]": {"CoordX:6053, "CoordY:8919},
+	 "Point[3]": {"CoordX:2, "CoordY:8025},
+	 "Point[4]": {"CoordX:1552, "CoordY:7751}
+	 },
+	 {
+	 "Point[1]": {"CoordX:1048, "CoordY:8847},
+	 "Point[2]": {"CoordX:330, "CoordY:9399},
+	 "Point[3]": {"CoordX:4166, "CoordY:9971},
+	 "Point[4]": {"CoordX:9905, "CoordY:3590}
+	 }
+	]
+}
