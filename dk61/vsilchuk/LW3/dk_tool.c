@@ -26,8 +26,8 @@ void fillingArrayFunction(char *anArray, int aSize)
 
         for (k = 0; k < aSize; k++)
    	{	
-	int randomIndex = 0 + rand() % 52;
-    	anArray[k] = alphabetArray[randomIndex];
+		int randomIndex = 0 + rand() % 52;
+    		anArray[k] = alphabetArray[randomIndex];
 	}
 }
 
