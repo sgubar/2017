@@ -46,18 +46,6 @@ void printBook(DK_Book *aBook)
 	printf("Nazva: %s\n", aBook->Nazva);
 }
 
-void printShelf(DK_Shelf *inShelf)
-{
-	printf("size: %d\t", inShelf->size);
-	printf("current size: %d\n", inShelf->current_size);
-	
-	for (int i = 0; i < inShelf->current_size; i++)
-	{
-		printf("[%d] - ", i);
-		printBook(&(inShelf->Books[i]));
-	}
-}
-
 void writeBook(FILE *aFile, DK_Book *aBook)
 {
 	fprintf (aFile, "[");
@@ -70,32 +58,30 @@ void writeBook(FILE *aFile, DK_Book *aBook)
 	fprintf (aFile, "]");
 }
 
+void printShelf(DK_Shelf *inShelf)
+{
+	printf("size: %d\t", inShelf->size);
+	printf("current size: %d\n", inShelf->current_size);
+	
+	for (int i = 0; i < inShelf->current_size; i++)
+	{
+		printf("[%d] - ", i);
+		printBook(&(inShelf->Books[i]));
+	}
+}
 
 void writeShelf(FILE *aFile, DK_Shelf *inShelf)
 {
 	fprintf (aFile, "[");
 	
-	
-	fprintf(aFile, "size: %d", inShelf->size);
-	fprintf(aFile, "\t");
-	fprintf(aFile, "current_size: %d", inShelf->current_size);
-	fprintf(aFile, "\n");
-	
-	fprintf(aFile, "books :");
-	
-	{
-		fprintf(aFile, "[");
-		int i;
-	
-		for ( i=0; i < inShelf->current_size; i++)
-		{
+	fprintf(aFile, "size: %d\t", inShelf->size);
+	fprintf(aFile, "current_size: %d\n", inShelf->current_size);
+	fprintf(aFile, "books :\n");
 		
-			writeBook(aFile, aBook);
+	for ( int i=0; i < inShelf->current_size; i++)
+		{	
+			writeBook(aFile,&(inShelf->Books[i]));
 			fprintf(aFile, "\n");
-		}
-	
+		}	
 		fprintf(aFile, "]");
-	}
-	
-	fprintf (aFile, "]");
 }
