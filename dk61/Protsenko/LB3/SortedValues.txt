@@ -1,0 +1,15 @@
+Before sorting: qwertyuioplkjhgfdsazxcvbnm,lkuiytrewqwsdfghjjmnb
+
+ -Bubble Sort-
+After sorting: ,abbcddeeffgghhiijjjkkllmmnnopqqrrssttuuvwwwxyyz
+
+ -Selection Sort-
+After sorting: ,abbcddeeffgghhiijjjkkllmmnnopqqrrssttuuvwwwxyyz
+
+ -Shell Sort-
+After sorting: ,abbcddeeffgghhiijjjkkllmmnnopqqrrssttuuvwwwxyyz
+
+ -Line Search-
+You entered : a
+[1] - Symbols position. Totally found 1 symbols
+Time for Linear search : 0.930 sec
