@@ -23,13 +23,7 @@ int NumInput()
 }
 
 
-char *createAnArray(int aSize)
-{
-	char *anArray = malloc(sizeof(char) * aSize);
-}
-
-
-char fillingArrayFunction(char *anArray, int aSize)
+void fillingArrayFunction(char *anArray, int aSize)
 {
 	srand(time(NULL));
  	
@@ -38,18 +32,18 @@ char fillingArrayFunction(char *anArray, int aSize)
 	char alphabetArray[53];
 	for (j = 0; j < 26; j++)
 	{
-		alphabetArray[j] = j + 65;
-		
-		for(i = j + 26; i < 52; i++)
-		{
-				alphabetArray[i] = tolower(alphabetArray[j]);	
-		}
+		alphabetArray[j] = j + 65;		
+	}
+	
+	for (i = 26; i < 52; i++)
+	{
+		alphabetArray[i] = tolower(alphabetArray[i - 26]);	
 	}	
 
-    for (k = 0; k < aSize; k++)
-    {	
+    	for (k = 0; k < aSize; k++)
+   	{	
 		int randomIndex = 0 + rand() % 52;
-    	anArray[k] = alphabetArray[randomIndex];
+    		anArray[k] = alphabetArray[randomIndex];
 	}
 }
 
