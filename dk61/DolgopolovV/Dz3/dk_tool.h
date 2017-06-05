@@ -1,4 +1,4 @@
-ndef dk_tool_h
+#ifndef dk_tool_h
 #define dk_tool_h
 
 #include <stdio.h>
