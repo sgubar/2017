@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <string.h>
 #include "dk_tool.h"
-#define MAX 1024
 
 int main(void)
 {
@@ -13,9 +12,9 @@ int main(void)
 		printf("progr. down");
 		return 0;
 	}
-	char str[MAX];   //new string
-	fgets(str, MAX, file);
-		
+	char str[100];   //new string
+	fgets(str, 100, file);
+		printf("The program can sort 100 characters");
 	int lenght = strlen(str); //lenght 
 	printf("FILE has (%i) symbols: %s\n", strlen(str), &str);
 	fprintf(file2, "FILE has (%i) symbols: %s\n", strlen(str), &str);
@@ -24,7 +23,7 @@ int main(void)
 	printf("BUBBLE:    %s\n", &str);
 	fprintf(file2, "BUBBLE: %s\n", &str);
 
-	fgets(str, MAX, file);
+	fgets(str, 100, file);
     
 	selectionSort(str, lenght); //sorting
 		printf("SELECTION: %s\n", &str);
@@ -34,7 +33,7 @@ fprintf(file2, "SELECTION: %s\n", &str);
 
 
  	
-    fgets(str, MAX, file);
+    fgets(str, 100, file);
     
 	selectionSort(str, lenght); //sorting
 	  
