@@ -12,6 +12,7 @@ int main()
 	addBookToShelf(theShelf, "J.R.R.Tolkien", "The Lord of the Rings");
 	
 	printShelf(theShelf);
+	writeShelf(theFile, theShelf);
 	
 	fflush(theFile);
 	fclose(theFile);
