@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <memory.h>
 #include <ctype.h>
 #include <time.h>
 #include "dk_tool.h"
