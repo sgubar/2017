@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "dk_tool.h"
 
 int main() 
@@ -13,7 +14,11 @@ int main()
 	}
 	while(aSize < 1 || aSize > 1000000);
 	
-	char *anArray = createAnArray(aSize);		
+	char *anArray = (char*) malloc(sizeof(char) * aSize);
+	if(anArray == NULL)
+	{
+		return 2;
+	}	
 	
 	fillingArrayFunction(anArray, aSize);
 
