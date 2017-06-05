@@ -43,5 +43,6 @@ FloatTree *Tree = createFloatTree();
 	printTree(Tree);
 	
 	destroyFloatTree(Tree);
+	printf("\nThe Tree has been deleted!\n");
 	return 0;
 }
