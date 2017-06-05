@@ -1,0 +1,43 @@
+{
+ "size":9999,
+ "current_size":6,
+"parallelepipeds":
+	[
+	 {
+	 "Point[1]": {"CoordX:33, "CoordY:41},
+	 "Point[2]": {"CoordX:93, "CoordY:73},
+	 "Point[3]": {"CoordX:27, "CoordY:30},
+	 "Point[4]": {"CoordX:84, "CoordY:41}
+	 },
+	 {
+	 "Point[1]": {"CoordX:93, "CoordY:71},
+	 "Point[2]": {"CoordX:43, "CoordY:51},
+	 "Point[3]": {"CoordX:19, "CoordY:9},
+	 "Point[4]": {"CoordX:40, "CoordY:90}
+	 },
+	 {
+	 "Point[1]": {"CoordX:21, "CoordY:87},
+	 "Point[2]": {"CoordX:4, "CoordY:41},
+	 "Point[3]": {"CoordX:31, "CoordY:98},
+	 "Point[4]": {"CoordX:85, "CoordY:25}
+	 },
+	 {
+	 "Point[1]": {"CoordX:63, "CoordY:90},
+	 "Point[2]": {"CoordX:24, "CoordY:57},
+	 "Point[3]": {"CoordX:3, "CoordY:3},
+	 "Point[4]": {"CoordX:73, "CoordY:72}
+	 },
+	 {
+	 "Point[1]": {"CoordX:76, "CoordY:90},
+	 "Point[2]": {"CoordX:40, "CoordY:64},
+	 "Point[3]": {"CoordX:47, "CoordY:20},
+	 "Point[4]": {"CoordX:92, "CoordY:86}
+	 },
+	 {
+	 "Point[1]": {"CoordX:74, "CoordY:44},
+	 "Point[2]": {"CoordX:99, "CoordY:44},
+	 "Point[3]": {"CoordX:45, "CoordY:13},
+	 "Point[4]": {"CoordX:26, "CoordY:79}
+	 }
+	]
+}
