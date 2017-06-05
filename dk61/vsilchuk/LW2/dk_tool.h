@@ -1,7 +1,7 @@
 #ifndef dk_tool_h
 #define dk_tool_h
 
-char fillingArrayFunction(char *anArray, int aSize);
+void fillingArrayFunction(char *anArray, int aSize);
 void fileWrite(FILE *ptrFile, char *anArray, int aSize);
 
 void sortType(FILE *ptrFile, char *anArray, int aSize);
