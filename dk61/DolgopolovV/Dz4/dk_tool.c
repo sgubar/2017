@@ -58,18 +58,17 @@ void printShelf(DK_Shelf *inShelf)
 	}
 }
 
-
 void sortShelf(DK_Shelf *inShelf)
 {
-	for (int First = 0;First < inShelf->current_size-1; First ++)
+	for (int First = 0;First < inShelf->current_size - 1; First ++)
 	{
-		for (int Second	= First + 1;Second < inShelf->current_size ; Second ++)
+		for (int Second = First + 1;Second < inShelf->current_size; Second ++)
 		{
-					if (inShelf->Books[Second].Author < inShelf->Books[First].Author)
+			if (inShelf->Books[Second].Nazva < inShelf->Books[First].Nazva)	
 			{
-						int theTmp = inShelf->Books[First];
-						inShelf->Books[First] = inShelf->Books[Second]
-						inShelf->Books[Second] = theTmp;
+		DK_Book theTmp = inShelf->Books[First];
+		inShelf->Books[First] = inShelf->Books[Second];
+		inShelf->Books[Second] = theTmp;
 			}
 		}
 	}
