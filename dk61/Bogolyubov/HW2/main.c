@@ -5,7 +5,6 @@
 
 int main(void)
 {   
-    //printf("Hello. Programm won't work if you create more then 10 triangles \n");
     printf("Value of squares (max 7) : ");
 	
 	
