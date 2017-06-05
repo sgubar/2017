@@ -3,25 +3,25 @@
 
 typedef struct aNode
 {
-    int value;				//÷èñëî
-    struct aNode *next;		//ñëåäóþùèé
-    struct aNode *prev;		//ïðåäûäóùèé
+    int value;				
+    struct aNode *next;		
+    struct aNode *prev;		
 }Node;
 
 typedef struct aList
 {
-	int amount;				//êîëè÷åñòâî
-	struct aNode *head;		//ïåðâûé
-	struct aNode *tail;		//ïîñëåäíèé
+	int amount;				
+	struct aNode *head;		
+	struct aNode *tail;		
 }List;
 
 List *createList();
 
-void createFirstElement(List *aList, int val);				//ñîçäà¸ò ïåðâûé ýëåìåíò
-void createNextElement(List *aList, int val);			//ñîçäà¸ò ïîñëåäíèé ýëåìåíò
+void createFirstElement(List *aList, int val);				
+void createNextElement(List *aList, int val);			
 
-void printList(List *aList);							//ïå÷àòàåò ñïèñîê
-void deleteList(List *aList);							//óäàëÿåò ñïèñîê
+void printList(List *aList);							
+void deleteList(List *aList);							
 
 void fillElements(List *aList);
 void rePrintList(List *aList);
