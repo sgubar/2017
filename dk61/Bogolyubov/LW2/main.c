@@ -35,7 +35,7 @@ fprintf(file2, "SELECTION: %s\n", &str);
  	
     fgets(str, 100, file);
     
-	selectionSort(str, lenght); //sorting
+	 insertionSort(str, lenght); //sorting
 	  
 	printf("INSERTION: %s", &str); //print arr after sort
 	fprintf(file2, "INSERTION: %s", &str);
