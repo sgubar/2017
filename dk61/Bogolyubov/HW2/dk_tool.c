@@ -7,13 +7,13 @@
  
 PtsList *createPtsList(int aSize) //create List of Pts;
 {
-    PtsList *List = (PtsList *)malloc(sizeof(PtsList));  //create List and memory;
+    PtsList *List = (PtsList *)malloc(sizeof(PtsList));  
     if(List != NULL)
 	{
-		List->triangle = (Pts *)malloc(aSize * sizeof(Pts)); //create memory for pts;
-		memset(List->triangle, 0, sizeof(Pts));
-		List->size = aSize;          //quantity of pts;
-		List->current_size = 0;		//flag of pts;
+		List->squares = (Pts *)malloc(aSize * sizeof(Pts)); //set memory
+		memset(List->squares, 0, sizeof(Pts));
+		List->size = aSize;          
+		List->current_size = 0;		
 	}
 	return List;
 }
@@ -24,12 +24,12 @@ int fillList(PtsList *aPts) //adding coordinate of coords;
 	{
 		if(aPts -> current_size < aPts->size)
 		{
-			Pts *thePts = &(aPts->triangle[aPts->current_size]);
+			Pts *thePts = &(aPts->squares[aPts->current_size]);
 			if( NULL != thePts)
 			{ int i=0;
 			
-			  thePts->coords = (Coord *)malloc(sizeof(Coord)*8); //create memory for coords;
-			    printf("\nFill a triangle by coords: \n");
+			  thePts->coords = (Coord *)malloc(sizeof(Coord)*8); //set memory
+			    printf("\nFill a squares by coords: \n");
 				for(i=0; i<4; i++)
 				{
 				printf("Enter X to coord %i : ", i+1);
@@ -59,10 +59,10 @@ void printPts(PtsList *aPts)
   for ( i = 0; i < aPts->current_size; i++) 
    { 
 
-     Pts *thePts = &(aPts->triangle[i]); 
+     Pts *thePts = &(aPts->squares[i]); 
      	
 	printf("\n - - - - -  Pts #%d - - - - - \n\n", i + 1); 
-	printf("Square  : %.2f\n", (float)square(thePts)); //print square pts;
+	printf("Area  : %.2f\n", (float)square(thePts)); //print
    } 
 }
     
