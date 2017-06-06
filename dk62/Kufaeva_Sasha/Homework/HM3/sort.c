@@ -103,27 +103,27 @@ int m_partitionIt(ParpipedList *aFigure, int aLeftIndex, int aRightIndex, int aP
 
 	while (1)
 	{
-		// search the bigest element
+		
 		while (areaCalculation(&aFigure->parpipeds[++theLeft]) < aPivot);
 
-		// search the lowest element
+		
 		while (areaCalculation(&aFigure->parpipeds[--theRight]) > aPivot);
 
-		if (theLeft >= theRight) // pointer are the same 
+		if (theLeft >= theRight) 
 		{
 			break;
 		}
 		else
 		{
-			//lets to swap elements
+			
 			swap(aFigure, theLeft, theRight);
 		}
 	}
 
-	//lets to swap elements
+	
 	swap(aFigure, theLeft, aRightIndex - 1);
 
-	return theLeft; // return break position
+	return theLeft; 
 }
 
 void quickSort2(ParpipedList *aFigure, int aLeftIndex, int aRightIndex)
@@ -138,10 +138,10 @@ void quickSort2(ParpipedList *aFigure, int aLeftIndex, int aRightIndex)
 		int thePivot = mediana(aFigure, aLeftIndex, aRightIndex);
 		int thePartitionIndex = m_partitionIt(aFigure, aLeftIndex, aRightIndex, thePivot);
 
-		//left part sorting
+		
 		quickSort2(aFigure, aLeftIndex, thePartitionIndex - 1);
 
-		//right part sorting
+		
 		quickSort2(aFigure, thePartitionIndex + 1, aRightIndex);
 	}
 }
@@ -165,7 +165,7 @@ void m_manualSort(ParpipedList *aFigure, int aLeftIndex, int aRightIndex)
 	}
 	else
 	{
-		// 3 elementes
+		
 		if (areaCalculation(&aFigure->parpipeds[aLeftIndex]) > areaCalculation(&aFigure->parpipeds[aRightIndex - 1]))
 		{
 			swap(aFigure, aLeftIndex, aRightIndex - 1);
