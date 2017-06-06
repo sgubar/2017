@@ -7,13 +7,13 @@
  
 PtsList *createPtsList(int aSize) //create List of Pts;
 {
-    PtsList *List = (PtsList *)malloc(sizeof(PtsList));  
+    PtsList *List = (PtsList *)malloc(sizeof(PtsList));  //create List and memory;
     if(List != NULL)
 	{
-		List->squares = (Pts *)malloc(aSize * sizeof(Pts)); //set memory
+		List->squares = (Pts *)malloc(aSize * sizeof(Pts)); //create memory for pts;
 		memset(List->squares, 0, sizeof(Pts));
-		List->size = aSize;          
-		List->current_size = 0;		
+		List->size = aSize;          //quantity of pts;
+		List->current_size = 0;		//flag of pts;
 	}
 	return List;
 }
@@ -28,7 +28,7 @@ int fillList(PtsList *aPts) //adding coordinate of coords;
 			if( NULL != thePts)
 			{ int i=0;
 			
-			  thePts->coords = (Coord *)malloc(sizeof(Coord)*8); //set memory
+			  thePts->coords = (Coord *)malloc(sizeof(Coord)*8); //create memory for coords;
 			    printf("\nFill a squares by coords: \n");
 				for(i=0; i<4; i++)
 				{
@@ -62,11 +62,11 @@ void printPts(PtsList *aPts)
      Pts *thePts = &(aPts->squares[i]); 
      	
 	printf("\n - - - - -  Pts #%d - - - - - \n\n", i + 1); 
-	printf("Area  : %.2f\n", (float)square(thePts)); //print
+	printf("Area  : %.2f\n", (float)Area(thePts)); //print square pts;
    } 
 }
     
-int square(Pts *Pts)
+int Area(Pts *Pts)
 {
 			float area;
 			
