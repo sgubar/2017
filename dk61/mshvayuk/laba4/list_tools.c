@@ -94,7 +94,7 @@ int printTextFromFileBackToFront (List *aList, FILE *aFile_INPUT, FILE *aFile_OU
 
 		if(NULL == aList || NULL == aFile_INPUT)
 		{
-			return NULL;
+			return 0;
 		}
 			
 		// add new node to the end of the list
@@ -221,8 +221,6 @@ void doTestList()
 		addNodeToTheEndOfList(test_list, fourth_node);
 		printf("number of elements: %i\n", CountList(test_list));
 
-
-		printListToConsole(test_list);
 		
 		FreeList(test_list);	
 		

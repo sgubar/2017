@@ -3,10 +3,10 @@
 
 #include<stdio.h>
 
-typedef struct NodeChar
+typedef struct _NodeChar
 {
 	char value;// letter or sumbol
-	struct NodeChar *nextNode;
+	struct _NodeChar *nextNode;
 //	struct NodeChar *prevNode;//previous
 }nodeChar;
 
@@ -17,8 +17,8 @@ nodeChar FreeCharNode(nodeChar *aNode);
 
 typedef struct NodeList
 {
-	struct nodeChar *head;
-	struct nodeChar *tail;
+	nodeChar *head;
+	nodeChar *tail;
 	int count;	//lenght of LIST
 }List;
 
