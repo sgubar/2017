@@ -43,10 +43,7 @@ void SampleSort(int arr[],int N){
     int min;
     for(int j = 0 ;j < N ;++j){
         for(int i = j; i < N; i++){
-            if(i==j){
-                min = i;
-            }
-            if(arr[i] < arr[min])
+            if(i == j || arr[i] < arr[min])
                 min = i;
         }
         swap(&arr[j], &arr[min]);
@@ -55,7 +52,7 @@ void SampleSort(int arr[],int N){
 void InclusionSort(int arr[],int N){
     for(int i = 1 ;i < N ;i++){
         int j = i;
-        while(arr[j] < arr[j-1] && j > 0) {
+        while(arr[j] < arr[j-1] && j >= 0) {
             swap(&arr[j], &arr[j-1]);
             j--;
         }
