@@ -37,7 +37,7 @@ void ShellSort(char *str, int lenght)
 	}
 }
 
-int LineSearch(FILE *file2, char marker, char *str, int lenght)
+void LineSearch(FILE *file2, char marker, char *str, int lenght)
 {
 	int counter;
 	printf("FIND (enter): ");
