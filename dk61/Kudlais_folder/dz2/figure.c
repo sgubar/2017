@@ -44,7 +44,9 @@ bool JSON(square *ptr, int n, char *filename){
         fprintf(file,"{\n \"Number_of_figures\" : %i\n \"Squares\":\n\t[\n",n);
         fflush(file);
         for (int i = 0; i < n; ++i) {
-            fprintf(file,"\t {\n\t \"NumberOfFigure\" : %i,\n\t \"Square\" : %i,\n\t \"StartPoint\" : {\"X\" : %i,\"Y\" : %i},\n\t \"SideA\" : %i,\n\t \"SideB\" : %i,\n\t},\n",i+1,ptr[i].square,ptr[i].a.x,ptr[i].a.y,ptr[i].side[0],ptr[i].side[1]);
+            fprintf(file,"\t {\n\t \"NumberOfFigure\" : %i,\n\t \"Square\" : %i,\n\t \"StartPoint\" : {\"X\" : %i,\"Y\" : %i},\n\t \"SideA\" : %i,\n\t \"SideB\" : %i,\n\t}\n",i+1,ptr[i].square,ptr[i].a.x,ptr[i].a.y,ptr[i].side[0],ptr[i].side[1]);
+            if(i == n - 1)
+                fprintf(file,",");
             fflush(file);
         }
         fprintf(file, "\t]\n}");
