@@ -1,20 +1,24 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include "tree.h"
-#include <string.h>
 int main(void) {
-    tree info;
-    char buffer[100];
-    printf("Please write the numbers\n");
-    scanf("%s", &buffer);
-    // char *now = malloc(sizeof(char)*100);
-    char new[100];
-    for (int i, j = 0; i < strlen(buffer); ++i) {
-        if (buffer[i] != ' ' && buffer[i] != '\n') {
-            new[j] = buffer[i];
-            j++;
+    tree* info;
+    char filename[100];
+        printf("Please indicate the file with file-type.\n");
+        scanf("%s", filename);
+        if (!GetData(filename)) { //if function GetData did not find the file
+            printf("File does not exist!\n");
+            return 0;
         }
-    }
-    printf("%s", &new);
+        info = New_tree();
+        if (info == NULL) {
+            printf("File is empty!\n");
+            return 0;
+        }
+    char src;
+    printf("Which letter do you want to find\n");
+    scanf("%c",src);
+    struct node* found = Search(info->Root,src);
+    if(found != NULL)
+        printf("Found\n");
     return 0;
 }
