@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "TLIntList.h"
+#include "hw6.h"
 
 int main() 
 {
