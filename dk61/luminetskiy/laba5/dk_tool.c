@@ -4,7 +4,7 @@
 
 static FloatNode *createFloatNodeWithValue(float aValue);
 
-FloatTree *createFloatTree()
+FloatTree *createFloatTree()//tree
 {
 	FloatTree *theTree = (FloatTree *)malloc(sizeof(FloatTree));
 
@@ -17,7 +17,7 @@ FloatTree *createFloatTree()
 	return theTree;
 }
 
-FloatNode *createFloatNodeWithValue(float aValue)
+FloatNode *createFloatNodeWithValue(float aValue)//for node
 {
 	FloatNode *theNode = (FloatNode *)malloc(sizeof(FloatNode));
 
@@ -88,7 +88,7 @@ int counterNodes(FloatTree *aTree)
 	return aTree->count;
 }
 
-void printTree(FloatTree *aTree)
+void printTree(FloatTree *aTree)//vivod dereva
 {
 	
      printf("\nPlain print tree:\n");
@@ -107,7 +107,7 @@ FloatNode* FindMin(FloatNode* aNode)
 }
 
 
-void PlainPrint(FloatNode *aNode)
+void PlainPrint(FloatNode *aNode)//pramiy obhid
 {
 	if(NULL != aNode)
 	{
@@ -130,8 +130,8 @@ FloatNode* findNodeWithValue(FloatTree *aTree, float aValue)
 		while (aValue != theCurrentNode->value) ///< - walk through the tree
 		{
 			theCurrentNode = (aValue < theCurrentNode->value)
-				? theCurrentNode->leftChild
-				: theCurrentNode->rightChild;
+				? theCurrentNode->leftChild //true
+				: theCurrentNode->rightChild; //false
 
 			if (NULL == theCurrentNode)
 			{
