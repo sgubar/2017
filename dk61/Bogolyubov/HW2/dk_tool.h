@@ -11,13 +11,13 @@ typedef struct coordinate
 
 typedef struct Coords
 {
-	Coord *coords; //coorder on coordinate;
+	Coord *coords; 
 	
 }Pts;
 
 typedef struct List
 {
-	Pts *squares; //coorder on coords;
+	Pts *squares; 
 	int size;
 	int current_size;
 	
