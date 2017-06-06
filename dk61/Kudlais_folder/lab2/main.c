@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include ".idea/Sorting.h"
+#include "Sorting.h"
 #include "Search.h"
 
 int main(void){
