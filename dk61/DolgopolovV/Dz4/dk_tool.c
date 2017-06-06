@@ -60,15 +60,15 @@ void printShelf(DK_Shelf *inShelf)
 
 void sortShelf(DK_Shelf *inShelf)
 {
-	for (int First = 0;First < inShelf->current_size - 1; First ++)
+	for (int i = 0; i < inShelf->current_size - 1; i ++)
 	{
-		for (int Second = First + 1;Second < inShelf->current_size; Second ++)
+		for (int j = i + 1; j < inShelf->current_size; j ++)
 		{
-			if (inShelf->Books[Second].Nazva < inShelf->Books[First].Nazva)	
+			if (strcmp(inShelf->Books[j].Nazva,inShelf->Books[i].Nazva)>0)	
 			{
-		DK_Book theTmp = inShelf->Books[First];
-		inShelf->Books[First] = inShelf->Books[Second];
-		inShelf->Books[Second] = theTmp;
+		DK_Book theTmp = inShelf->Books[i];
+		inShelf->Books[i] = inShelf->Books[j];
+		inShelf->Books[j] = theTmp;
 			}
 		}
 	}
