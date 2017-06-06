@@ -78,30 +78,6 @@ void shellsort(int *array, int aSize)
 	}
 }
 
-void quicksort(int *array, int first, int last)
-{
-	int i = first, j = last, x = array[(first + last) / 2];
-	do{
-		while(array[i] < x)
-			i++;
-	    while(array[j] > x)
-			j--;
-		
-		if(i <= j)
-		{
-			if(array[i] > array[j])
-				swap(&array[i], &array[j]);
-			i++;
-			j--;
-		}
-	}while(i <= j);
-	
-	if(i < last)
-		quicksort(array, i, last);
-		
-	if(first < j)
-		quicksort(array, first, j);
-}
 
 int lineSearch(int val, int aSize, int *array)
 {
