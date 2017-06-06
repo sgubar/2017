@@ -35,10 +35,13 @@ int main(void)
 
    	printf("selection sort");
 	   	if (fseek (file,0,SEEK_SET)==0) 
+		{		
       	   printf (" ");
+		}
         else
+	{
          printf ("Error\n");
-	   
+	}  
     fgets(str, MAX, file);
     
 	selectionSort(str, lenght); 
