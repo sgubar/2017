@@ -10,18 +10,15 @@ FloatTree *Tree = createFloatTree();
 	floatValueToTree(Tree, 2.2);
 	floatValueToTree(Tree, 3.3);
 	floatValueToTree(Tree, 4.4);
-	floatValueToTree(Tree, 5.5);
-	floatValueToTree(Tree, 6.6);
-	floatValueToTree(Tree, 7.7);
-	floatValueToTree(Tree, 8.8);
+
 
 	int counter = counterNodes(Tree);
 	printf("kool uzlow :%d\n", counter);
 	
 	printTree(Tree);
 	printf("\n");
-	printf(" ischem  4.4\n");
-	FloatNode* find = findNodeWithValue(Tree, 4.4);
+	printf(" ischem  2.2\n");
+	FloatNode* find = findNodeWithValue(Tree, 2.2);
 	if (find != NULL)
 		printf("That node is in tree.\n");
 	else
@@ -29,9 +26,9 @@ FloatTree *Tree = createFloatTree();
 		
 	FloatNode *aNode = Tree->root;
 
-	printf("We delete 6.6\n");
-		printf("We want to find 6.6\n");
-	 find = findNodeWithValue(Tree, 6.6);
+	printf("We delete 3.3\n");
+		printf("We want to find 3.3\n");
+	 find = findNodeWithValue(Tree, 3.3);
 	if (find != NULL)
 		printf("That node is in tree\n");
 	else

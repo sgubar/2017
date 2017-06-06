@@ -90,9 +90,9 @@ int counterNodes(FloatTree *aTree)
 
 void printTree(FloatTree *aTree)
 {
-	printf("Backprint:\n");
-		BackPrint(aTree->root);
-    
+	
+     printf("\nPlain print tree:\n");
+		PlainPrint(aTree->root);  
   
 	
 }
@@ -107,15 +107,16 @@ FloatNode* FindMin(FloatNode* aNode)
 }
 
 
-void BackPrint(FloatNode *aNode)
+void PlainPrint(FloatNode *aNode)
 {
-	if (NULL != aNode)
+	if(NULL != aNode)
 	{
-		BackPrint(aNode->leftChild);
-		BackPrint(aNode->rightChild);
-		printf("%1.1f ", aNode->value);
+		printf("%1.1f ",aNode->value);
+		PlainPrint(aNode->leftChild);
+		PlainPrint(aNode->rightChild);
 	}
 }
+
 
 
 

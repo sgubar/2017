@@ -23,7 +23,8 @@ FloatTree *createFloatTree();
 void floatValueToTree(FloatTree *aTree, float aValue);
 int counterNodes(FloatTree *aTree);
 void printTree(FloatTree *aTree);
-void BackPrint(FloatNode *aNode);
+
+void PlainPrint(FloatNode *aNode);
 
 
 
