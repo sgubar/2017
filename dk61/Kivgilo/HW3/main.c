@@ -2,11 +2,13 @@
 #include <stdlib.h>
 #include <string.h>
 #include "tool.h"
+#include <locale.h>
 
 int main(void)
-{   
+{  
+	setlocale(LC_ALL, "Rus"); 
     FILE *aFile=fopen("data.json", "w");
-    printf("Enter a quantity of Figure (not more 10):");
+    printf("Введите количество фигур (!>10):");
 	int Size=scan_f();
 	List_of_Figure *List=createList_of_Figure(10);
 	int i;
