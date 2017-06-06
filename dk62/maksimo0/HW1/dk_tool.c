@@ -1,14 +1,24 @@
+//
+//  dk_tool.c
+//  HW1
+//
+//  Created by Maxim Salim on 06.06.17.
+//  Copyright © 2017 Maxim Salim. All rights reserved.
+//
+
 #include "dk_tool.h"
 
 int Transponuvannya_Matrici(int a, int b, int matr[a][b])
 {
-    printf("Transponovana matricya:\n");
+    int aMatr[a][b];
     for(int j=0; j<b; j++)
     {
         for(int i=0; i<a; i++)
         {
-            printf("%i", matr[i][j]);                       //вивід транспонованої матриці на екран
+            aMatr[j][i]=matr[i][j];
+            printf("%d", aMatr[j][i]);
         }
         printf("\n");
     }
+    return 0;
 }

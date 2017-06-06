@@ -1,7 +1,15 @@
+//
+//  main.c
+//  HW1
+//
+//  Created by Maxim Salim on 06.06.17.
+//  Copyright © 2017 Maxim Salim. All rights reserved.
+//
+
 #include <stdio.h>
 #include "dk_tool.h"
 
-void main(int argc, const char * argv[])
+int main(int argc, const char * argv[])
 {
     printf("Vvedit rozmiru matrici:\n");
     int a,b;
@@ -15,5 +23,10 @@ void main(int argc, const char * argv[])
             scanf("%i", &matr[i][j]);             //зчитування елементів матриці
         }
     }
+    
     Transponuvannya_Matrici(a, b, matr);         //виклик функції для транспонування матриці та виводу її  на екран
+    
+    return 0;
 }
+
+

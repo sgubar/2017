@@ -1,3 +1,12 @@
+//
+//  dk_tool.h
+//  HW1
+//
+//  Created by Maxim Salim on 06.06.17.
+//  Copyright © 2017 Maxim Salim. All rights reserved.
+//
+
+
 #ifndef dk_tool_h
 #define dk_tool_h
 
