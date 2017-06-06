@@ -17,7 +17,7 @@ typedef struct Coords
 
 typedef struct List
 {
-	Pts *triangle; //coorder on coords;
+	Pts *squares; //coorder on coords;
 	int size;
 	int current_size;
 	
@@ -26,3 +26,8 @@ typedef struct List
 PtsList *createPtsList(int size);
 int fillList(PtsList *aPts);
 void printPts(PtsList *aPts);
+
+
+
+
+
