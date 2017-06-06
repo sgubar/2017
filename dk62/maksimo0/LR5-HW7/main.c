@@ -24,14 +24,16 @@ int main(void)
     insertIntValueToTree(Tree, 8);
     insertIntValueToTree(Tree, 9);
     insertIntValueToTree(Tree, 10);
-    //insertIntValueToTree(Tree, 5);
+    insertIntValueToTree(Tree, 5);
     
-    deleteNodeWithValue(Tree, 1);
+    deleteNodeWithValue(Tree, 6);
     
     printTree(Tree);
     
     //printf("%d\n", countNodesWithTree(Tree));
     
+    destroyIntTree(Tree);
     
+    return 0;
 }
 

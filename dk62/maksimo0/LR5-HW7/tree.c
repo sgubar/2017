@@ -6,7 +6,6 @@
 //  Copyright © 2017 Maxim Salim. All rights reserved.
 //
 
-
 #include "tree.h"
 #include <stdlib.h>
 
@@ -55,6 +54,7 @@ void destroyIntTree(intTree *aTree)
         destroyNode(aTree->root);
         free(aTree);
     }
+    printf("Tree destroyed!\n");
 }
 
 void insertIntValueToTree(intTree *aTree, int aValue)
@@ -247,10 +247,10 @@ void deleteNodeWithValue(intTree *aTree, int aValue)
                 Receiver->leftChild = aNodeToDelete->leftChild;
                 Receiver->rightChild = aNodeToDelete->rightChild;
             }
-        }														
+        }
     }
     
-    free(aNodeToDelete);	
+    free(aNodeToDelete);
     aTree->count--;
     printf("Deleted!\n");
 }
@@ -278,7 +278,7 @@ void plainPrintNode(IntNode *aNode)
 {
     if(NULL != aNode)
     {
-        printf("%d\n",aNode->value);
+        printf("%d\n", aNode->value);
         plainPrintNode(aNode->leftChild);
         plainPrintNode(aNode->rightChild);
     }

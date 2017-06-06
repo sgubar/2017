@@ -38,5 +38,4 @@ void printTree(intTree *aTree);
 
 void plainPrintNode(IntNode *aNode);
 
-
 #endif /* tree_h */
