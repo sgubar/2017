@@ -30,7 +30,7 @@ void testing(FILE *file, int *aArray, int aSize)
 	fprintf(file, "Bubblesort\t\t\t%.18lf sec\n", result);	
 	
 	
-	fill_Array(aArray, aSize);								//снова заполняем массив случайными числами
+	fill_Array(aArray, aSize);								//Г±Г­Г®ГўГ  Г§Г ГЇГ®Г«Г­ГїГҐГ¬ Г¬Г Г±Г±ГЁГў Г±Г«ГіГ·Г Г©Г­Г»Г¬ГЁ Г·ГЁГ±Г«Г Г¬ГЁ
 	
 	start = clock();
 	insertionsort(aArray, aSize);
@@ -63,15 +63,6 @@ void testing(FILE *file, int *aArray, int aSize)
 	fprintf(file, "Shellsort\t\t\t%.18lf sec\n", result);
 	
 	
-	fill_Array(aArray, aSize);
-	
-	start = clock();
-	quicksort(aArray, 0, aSize - 1);
-	finish = clock();
-	
-	result = (finish - start)/CLOCKS_PER_SEC;
-	printf("Quicksort finished\n");
-	fprintf(file, "Quicksort\t\t\t%.18lf sec\n\n", result);
 	
 	
 	srand(time(NULL));
