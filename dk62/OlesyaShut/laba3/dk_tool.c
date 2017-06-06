@@ -30,7 +30,7 @@ void testing(FILE *file, int *aArray, int aSize)
 	fprintf(file, "Bubblesort\t\t\t%.18lf sec\n", result);	
 	
 	
-	fill_Array(aArray, aSize);								//ñíîâà çàïîëíÿåì ìàññèâ ñëó÷àéíûìè ÷èñëàìè
+	fill_Array(aArray, aSize);
 	
 	start = clock();
 	insertionsort(aArray, aSize);
