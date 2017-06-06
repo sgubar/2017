@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include ".idea/Sorting.h"
+#include "Search.h"
 
-int main(void) {
+int main(void){
     int N;
     printf("Please enter the size of array\n");
     scanf("%i", &N);
@@ -13,7 +14,7 @@ int main(void) {
     }
     printf("\nPress 1 for Bubble sort, 2 for Sample sort, 3 for inclusion sort");
     int key;
-    while((key = getchar()) != EOF){
+    while((key = getchar())){
         switch(key){
             case 1:{
                 BubbleSort(arr,N);
@@ -27,12 +28,39 @@ int main(void) {
                 InclusionSort(arr,N);
                 break;
             }
+            case 4:{
+                Shellsort(arr,N);
+                break;
+            }
+            case 5:{
+                QuickSort(arr,0,N);
+                break;
+            }
+            case 6:{
+                int find;
+                printf("Which number do you want to find.\n");
+                find = Lsearch(arr,N,find);
+                char* additional = (find == -1) ? " (did not find)": (find == 0) ? "st": (find == 1) ? "nd": (find == 2) ? "rd" : "th";
+                printf("Your value is in the %i%s place.\n",find,additional);
+                break;
+
+            }
             default:
-                continue;
+                break;
         }
     }
     printf("\n");
-    for(int i = 0; i < N; ++i)
+    for(int i = 0; i < N; ++i) {
         printf("%i; ", arr[i]);
-    return 0;
     }
+    if (!check(arr,N))
+        return 0;
+    printf("Now you may use binary search.\n");
+    int search;
+    printf("Which number do you want to find");
+    scanf("%s",search);
+    search = BiSearch(arr,N,search);
+    char* add_al = (search == -1) ? " (did not find)": (search == 0) ? "st": (search == 1) ? "nd": (search == 2) ? "rd" : "th";
+    printf("Your value is in the %i%s place.\n",search,add_al);
+    return 0;
+}

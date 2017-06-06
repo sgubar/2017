@@ -1,6 +1,7 @@
 #include "Sorting.h"
 #include <stdlib.h>
 #include <stdbool.h>
+#include <omp.h>
 #define MAXVALUE 10001
 void swap(int *a, int *b){
     int tmp = *a;
@@ -18,27 +19,25 @@ void GetValue(int arr[], int N){
     }
 }
 bool check(int arr[], int N){
-    bool isSorted = true;
     while(N > 0){
         if(arr[N] < arr[N-1]){
-            isSorted = false;
-            break;
+            return false;
         }
+        N--;
     }
-    return (isSorted == true ? true : false);
+    return true;
 }
-void BubbleSort(int arr[],int N){//Debug
-    for(int cont = 0 ; ; ){
-        for(int i = 0; i < N; ++i){
-            if(arr[N] > arr[N+1]) {
-                swap(&arr[N], &arr[N - 1]);
-                cont++;
+void BubbleSort(int p[],int N) {
+    int counter = 0;
+    do {
+        counter = 0;
+        for (int i = 0; i < N; i++) {
+            if (p[i] > p[i + 1]) {
+                swap(&p[i], &p[i + 1]);
+                counter++;
             }
         }
-        if(cont <= 1){
-            break;
-        }
-    }
+    }while(counter);//if counter is 0, than cycle will stop
 }
 void SampleSort(int arr[],int N){
     int min;
@@ -62,12 +61,4 @@ void InclusionSort(int arr[],int N){
         }
     }
 }
-/*void MergeSort(int arr[],int N){ Frozen until the end of atestation week
-    int step = 1;
-    int k;
-    for(int i = 0; i < N ; i++){
-        k = i;
 
-
-    }
-}*/
