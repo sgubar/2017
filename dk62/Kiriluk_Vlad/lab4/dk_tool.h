@@ -1,5 +1,5 @@
-#ifndef dk_tool_h
-#define dk_tool_h
+#ifndef dk_tool.h
+#define dk_tool.h
 
 typedef struct aNode
 {
