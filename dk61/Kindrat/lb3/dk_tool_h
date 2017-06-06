@@ -1,0 +1,15 @@
+#ifndef dk_tool_h
+#define dk_tool_h
+
+#include <stdio.h>
+#include <time.h>
+#include <string.h>
+
+void bubbleSort(char *str, int lenght);
+void selectionSort(char *str, int lenght);
+void insertionSort(char *str, int lenght);
+
+void ShellSort(char *str, int lenght);
+int LineSearch(FILE* file2, char key, char *str, int lenght);
+
+#endif 
