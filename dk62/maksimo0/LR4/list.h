@@ -32,7 +32,7 @@ void DestroyIntList(IntList *aList);
 
 int AddIntValueToList(IntList *aList, int anIntValue);
 
-IntNode* TheMinNode(IntList *aList);
+IntNode *TheMinNode(IntList *aList);
 
 void PrintList(IntList *aList);
 

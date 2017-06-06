@@ -6,7 +6,6 @@
 //  Copyright © 2017 Maxim Salim. All rights reserved.
 //
 
-
 #include "list.h"
 #include <stdlib.h>
 
@@ -87,40 +86,41 @@ int AddIntValueToList(IntList *aList, int anIntValue)
 IntNode *TheMinNode(IntList *aList)
 {
     IntNode *theNode=aList->head;
-    int theMin = theNode->value;
+    IntNode *theMin=NULL;
+    theMin=theNode;
     do
     {
-        if(theMin>theNode->value)
+        if(theMin->value>theNode->value)
         {
-            theMin = theNode->value;
-            if(theNode->next == aList->head)
-                return theNode;
-        
-            theNode = theNode->next;
-            
+            theMin=theNode;
+            //if(theNode->next==aList->head)
+            //{
+            //return theMin;
+            //}
+            theNode=theNode->next;
         }
         else
-            theNode = theNode->next;
-        
-    }while(aList->head!=theNode);
-    return theNode;
+        {
+            if(theNode->next==aList->head)
+            {
+                return theMin;
+            }
+            theNode=theNode->next;
+        }
+    }while(1);
+    return theMin;
 }
 
 void PrintList(IntList *aList)
 {
     printf("[List] with count (%d):\n", aList->count);
-    
     IntNode *theNode = NULL;
-    theNode = TheMinNode(aList);
-    
-    for(int i = 0; i<aList->count+5;i++)
+    theNode=TheMinNode(aList);
+    for(int i=0; i<aList->count+5;i++)
     {
-        printf("element number %d :  %d\n ",i+1, theNode->value);
-        theNode = theNode->next;
-        
+        printf("[Node] with number (%d):%d\n ", i+1, theNode->value);
+        theNode=theNode->next;
     }
-  
-    printf ("\n");
 }
 
 

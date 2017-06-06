@@ -21,7 +21,7 @@ int main(void)
     AddIntValueToList(theList, 4);
     AddIntValueToList(theList, 3);
     AddIntValueToList(theList, 2);
-    AddIntValueToList(theList, 5);
+    AddIntValueToList(theList, 1);
     AddIntValueToList(theList, 9);
     AddIntValueToList(theList, 7);
     AddIntValueToList(theList, 8);
