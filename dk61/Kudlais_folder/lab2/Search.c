@@ -1,5 +1,5 @@
 #include "Search.h"
-#include ".idea/Sorting.h"
+#include "Sorting.h"
 int Lsearch(int arr[],int size, int k){ //search position of number k in the array with size n
     for (int i = 0; i < size; ++i)
         if(arr[i] == k)
