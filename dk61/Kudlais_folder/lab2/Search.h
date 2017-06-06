@@ -1,6 +1,6 @@
 #ifndef SEARCH_SEARCH_H
 #define SEARCH_SEARCH_H
-#include ".idea/Sorting.h"
+#include "Sorting.h"
 int Lsearch(int arr[],int size, int k);
 void Shellsort(int mas[], int n);
 void QuickSort(int arr[],int zero, int n);
