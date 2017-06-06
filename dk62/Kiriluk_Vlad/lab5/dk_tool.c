@@ -31,7 +31,6 @@ void PrintElements(Tree *myNode)
 {
 	if (myNode) {
 		PrintElements(myNode->left);
-        cout << root->data << " ";
 		printf("%f", myNode->data);
 		PrintElements(myNode->right);
 	}
