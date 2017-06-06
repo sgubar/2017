@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
 		
 	FloatNode *aNode = Tree->root;
 	deleteNodeWithValue(Tree,aNode, 66.6);
-	printf("We delete 6.6\n");
+	printf("We delete 66.6\n");
 		printf("We want to find 66.6\n");
 	 find = findNodeWithValue(Tree, 66.6);
 	if (find != NULL)
