@@ -41,10 +41,14 @@ void PrintFigures(square ptr[],int n) {
 bool JSON(square *ptr, int n, char *filename){
     FILE *file = fopen(filename,"a+");
     if(file != NULL) {
+        fprintf(file,"{\n \"Number_of_figures\" : %i\n \"Squares\":\n\t[\n",n);
+        fflush(file);
         for (int i = 0; i < n; ++i) {
-            fprintf(file,"{\"Square %i\": {\n\"NumberOfFigure\" : %i,\n\"Square\" : %i,\n\"StartPoint\" :[\n\"X\" : %i,\n\"Y\" : %i\n],\n\"SideA\" : %i,\n\"SideB\" : %i,\n}\n}",i+1,i+1,ptr[i].square,ptr[i].a.x,ptr[i].a.y,ptr[i].side[0],ptr[i].side[1]);
+            fprintf(file,"\t {\n\t \"NumberOfFigure\" : %i,\n\t \"Square\" : %i,\n\t \"StartPoint\" : {\"X\" : %i,\"Y\" : %i},\n\t \"SideA\" : %i,\n\t \"SideB\" : %i,\n\t},\n",i+1,ptr[i].square,ptr[i].a.x,ptr[i].a.y,ptr[i].side[0],ptr[i].side[1]);
             fflush(file);
         }
+        fprintf(file, "\t]\n}");
+        fflush(file);
     } else
         return false;
     fclose(file);

@@ -1,0 +1,13 @@
+{
+ "Number_of_figures" : 1
+ "Squares":
+	[
+	 {
+	 "NumberOfFigure" : 1,
+	 "Square" : 6,
+	 "StartPoint" : {"X" : 1,"Y" : 1},
+	 "SideA" : 2,
+	 "SideB" : 3,
+	},
+	]
+}
