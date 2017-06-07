@@ -1,5 +1,6 @@
-#ifndef dk_tool_h
-#define dk_tool_h
+
+#ifndef ROM3_DK_TOOL_H
+#define ROM3_DK_TOOL_H
 #define Pi 3.14159
 #include <stdbool.h>
 typedef struct {
@@ -7,10 +8,10 @@ typedef struct {
     int y;
     int rad;
     double square;
-} circle;
+}circle;
 
 void NewCircle(circle *ptr);//adding fig to array
 double Squareof(circle s);
 void ShowTheFigures(circle ptr[],int n);
-bool JSON(circle *ptr, int n, char *filename);
-#endif //dk_tool_h
+bool output(char *filename, circle *ptr, int n);
+#endif //ROM3_DK_TOOL_H
