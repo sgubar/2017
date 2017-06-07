@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "Sorting.h"
+#include ".idea/Sorting.h"
 #include "Search.h"
 
 int main(void){
@@ -62,5 +62,12 @@ int main(void){
     search = BiSearch(arr,N,search);
     char* add_al = (search == -1) ? " (did not find)": (search == 0) ? "st": (search == 1) ? "nd": (search == 2) ? "rd" : "th";
     printf("Your value is in the %i%s place.\n",search,add_al);
+    FIlE* file = fopen("New.txt","a+");
+    if(file != NULL){
+        for (int i = 0; i < N; ++i) {
+            fprintf(file," %i ",arr[i]);
+            fflush(file);
+        }
+    }
     return 0;
 }
