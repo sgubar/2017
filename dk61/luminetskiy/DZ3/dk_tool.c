@@ -1,4 +1,5 @@
-#include "dk_tool.h"
+
+#include "dk.tool.h"
 #include <stdio.h>
 #include <stdbool.h>
 
@@ -28,15 +29,23 @@ void ShowTheFigures(circle ptr[],int n)
         printf("Circle number %i with center(%i,%i), radius %i, and square %i\n",k+1,ptr[k].x,ptr[k].y,ptr[k].rad,ptr[k].square);
     }
 }
-bool JSON(circle *ptr, int n, char *filename){
-    FILE *file = fopen(filename,"a+");
-    if(file != NULL) {
-        for (int k = 0; k < n; k++) {
-            fprintf(file,"{\"Square %i\": {\n\"NumberOfFigures\" : %i,\n\"Square\" : %i,\n\"Coordinates\" :[\n\"X\" : %i,\n\"Y\" : %i\n}\n}",k+1,ptr[k].x,ptr[k].y,ptr[k].rad,ptr[k].square);
-            fflush(file);
-        }
-    } else
-        return false;
-    fclose(file);
-    return true;
+bool output(char *filename, circle *ptr, int n)
+{
+	FILE *file = fopen(filename, "w");
+	if (file == NULL)
+		return false;//You don't need to check filename
+	fprintf(file, "{\n");
+	for (int i = 0; i < n; i++)
+	{
+		fprintf(file,"\t\"Circle %i\": {\n\t\t\"X\": %i,\n\t\t\"Y\": %i,\n\t\t\"Radius\": %i,\n\t\t\"Square\": %.2f\n\t}",\
+			i,ptr[i].x,ptr[i].y,ptr[i].rad,ptr[i].square);// Ð¼Ð°Ñ‚ÑŽÐºÐ°Ñ”Ñ‚ÑŒÑÑ Ð½Ð° square
+		if (i != n - 1)
+			fprintf(file, ",");
+        fflush(file);
+		fprintf(file, "\n");
+
+	}
+	fprintf(file,"}\n");
+	fclose(file);
+	return 0;
 }
