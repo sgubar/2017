@@ -31,7 +31,7 @@ FloatNode *createFloatNodeWithValue(float aValue)//for node
 	return theNode;
 }
 
-void floatValueToTree(FloatTree *aTree, float aValue)
+void ValueToTree(FloatTree *aTree, float aValue)
 {
 	if (NULL == aTree)
 	{
@@ -82,7 +82,7 @@ void floatValueToTree(FloatTree *aTree, float aValue)
 	}
 }
 
-int counterNodes(FloatTree *aTree)
+int checkNodes(FloatTree *aTree)
 {
 	if(NULL != aTree)
 	return aTree->count;
