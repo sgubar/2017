@@ -8,8 +8,7 @@ FloatTree *Tree = createFloatTree();
 
 	ValueToTree(Tree, 1.1);
 	ValueToTree(Tree, 2.2);
-	ValueToTree(Tree, 3.3);
-	ValueToTree(Tree, 4.4);
+	
 
 
 	int counter = checkNodes(Tree);
