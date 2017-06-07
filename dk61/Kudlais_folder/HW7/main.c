@@ -13,6 +13,6 @@ int main() {
     tree* Tree = New_tree();
     PrintTree(Tree);
     printf("Hello, World!\n");
-    FreeTree(Tree);
+    FreeTree(Tree);//I'm not sure in this function
     return 0;
 }
