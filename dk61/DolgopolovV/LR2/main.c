@@ -18,7 +18,9 @@ int string_lenght = strlen(str);
 	
 printf("Before sorting: %s\n", &str);
 fprintf(fileW, "Before sorting: %s\n", &str);
-
+fclose(fileR);
+	
+	
 while(1)
 {
 printf("Select one of the options:\n\n");
@@ -49,4 +51,5 @@ case '3':
 	fprintf(fileW, "\nAfter sorting %s\n", &str);
 	printf("BubbleSort_Time: %.10f\n\n",(double)(SearchTime/CLOCKS_PER_SEC)); 
 	fprintf(fileW,"BubbleSort_Time: %.10f\n",(double)(SearchTime/CLOCKS_PER_SEC));
+	fclose(fileW);
 }
