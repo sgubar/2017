@@ -174,17 +174,17 @@ int fillingAnTree(intTree *aTree)
 	insertIntValueToTree(aTree, 7);
 	insertIntValueToTree(aTree, 14);
 	insertIntValueToTree(aTree, 15);
-	insertIntValueToTree(aTree, 21);
 	insertIntValueToTree(aTree, 19);
-	insertIntValueToTree(aTree, 17);
-	insertIntValueToTree(aTree, 20);
-	insertIntValueToTree(aTree, 27);
-	insertIntValueToTree(aTree, 23);
-	insertIntValueToTree(aTree, 34);
 	insertIntValueToTree(aTree, 21);
+	insertIntValueToTree(aTree, 23);
+	insertIntValueToTree(aTree, 25);
+	insertIntValueToTree(aTree, 27);
+	insertIntValueToTree(aTree, 29);
+	insertIntValueToTree(aTree, 34);
+	insertIntValueToTree(aTree, 38);
 	insertIntValueToTree(aTree, 45);
-	insertIntValueToTree(aTree, 13);
-	insertIntValueToTree(aTree, 28);
+	insertIntValueToTree(aTree, 63);
+	insertIntValueToTree(aTree, 97);
 	
 	int size = countNodesWithTree(aTree);
 	return size;
