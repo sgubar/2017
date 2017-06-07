@@ -31,8 +31,8 @@ void printNodeToConsole(intNode *aNode);
 
 int countNodesWithTree(intTree *aTree);
 
-int deleteNodeWithValue(intTree *aTree);
-
+intNode* deleteNodeWithValue(intTree *aTree,intNode* aNode, int aValue);
+intNode *FindMin(intNode* aNode);
 void doTestTree();
 
 int scan();// just scanf with checking on idiot

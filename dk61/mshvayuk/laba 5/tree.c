@@ -191,11 +191,6 @@ int fillingAnTree(intTree *aTree)
 	}
 	
 
-	int deleteNodeWithValue(intTree *aTree)
-	{
-		
-	}
-
 
 	void doTestTree()
 {
@@ -212,10 +207,7 @@ int fillingAnTree(intTree *aTree)
 	
 	printf("\ngive me the value to delete [0;100] = ");
 	int valueToDelete = scan(0,100);
-	
-	
-	printf("\na node with %i value was deleted", valueToDelete);
-	
+	deleteNodeWithValue(aTree,aTree->root, valueToDelete);	
 
 }
 
@@ -242,3 +234,71 @@ int fillingAnTree(intTree *aTree)
 	return buffer;	
 
 }
+
+intNode* deleteNodeWithValue(intTree *aTree,intNode* aNode, int aValue)
+{
+	
+	if (aNode == NULL) 
+	{
+		printf("This node ISNT in aTree.\n");
+		return NULL;
+	}
+	
+	else if (aValue < aNode->value)
+	aNode->leftChild = deleteNodeWithValue(aTree,aNode->leftChild, aValue);
+
+	else if (aValue > aNode->value)
+	aNode->rightChild = deleteNodeWithValue(aTree , aNode->rightChild, aValue);
+
+	else 
+	{
+
+		if (aNode->leftChild == NULL && aNode->rightChild == NULL) 
+		{
+			free(aNode);
+			aNode = NULL;
+			aTree->size--;
+			printf("\n\nNode successfully deleted!\n");
+		}
+
+		else if (aNode->leftChild == NULL) 
+		{
+			intNode *theTmp = aNode;
+			aNode = aNode->rightChild;
+			free(theTmp);
+			printf("\n\nNode successfully deleted!\n");
+			aTree->size--;
+			
+		}
+		
+		else if (aNode->rightChild == NULL) 
+		{
+			intNode *theTmp = aNode;
+			aNode = aNode->leftChild;
+			free(theTmp);
+			printf("\n\nNode successfully deleted!\n");
+			aTree->size--;
+			
+		}
+	
+		else 
+		{ 
+
+			intNode *theTmp = FindMin(aNode->rightChild);
+			aNode->value = theTmp->value;
+			aNode->rightChild = deleteNodeWithValue(aTree, aNode->rightChild,theTmp->value);
+			aTree->size--;
+			printf("\n\nNode successfully deleted!\n");
+		}	
+	}
+	return aNode;
+}
+
+intNode *FindMin(intNode* aNode)
+{
+	
+	while (aNode->leftChild != NULL) 
+	aNode = aNode->leftChild;
+	return aNode;
+}
+
