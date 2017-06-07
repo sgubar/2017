@@ -20,10 +20,9 @@ typedef struct __tagTree
 
 
 FloatTree *createFloatTree();
-void floatValueToTree(FloatTree *aTree, float aValue);
-int counterNodes(FloatTree *aTree);
+void ValueToTree(FloatTree *aTree, float aValue);
+int checkNodes(FloatTree *aTree); //counting of nodes
 void printTree(FloatTree *aTree);
-
 void PlainPrint(FloatNode *aNode);
 
 
