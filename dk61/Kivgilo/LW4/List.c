@@ -1,17 +1,20 @@
 #include "List.h"
-#include "Element.h"
+#include "Node.h"
 #include <stdlib.h>
-
+#include <stdio.h>
 
 DoubleList *CreateList()
+
 {
 	//Allocate memory for the list structure
 	DoubleList *theList = (DoubleList *)malloc(sizeof(DoubleList));
 	//Clean internal data
 	theList->head = NULL; //<!- not head
 	theList->tail = NULL; //<!- not tail
-	theList->count = 0; //<!- initial value of count is zero - no elements in the list	
+	theList->count = 0; //<!- initial value of count is zero - no elements in the list
+
 	return theList;
+
 }
 
 void FreeList(DoubleList *aList)
@@ -22,44 +25,45 @@ void FreeList(DoubleList *aList)
 		return;
 	}
 	//1. Remove all elements
-	DoubleElement *theElement = aList->head;
-	
-	while (NULL != theElement)
+	DoubleNode *theNode = aList->head;
+	while (NULL != theNode)
 	{
-		DoubleElement *theElementToBeFree = theElement;
-		theElement = theElement->nextElement;
-	
-		FreeDoubleElement(theElementToBeFree);
+		DoubleNode *theNodeToBeFree = theNode;
+		theNode = theNode->next;
+		free(theNodeToBeFree);
 	}
 	//2. Free memory for the List structure
 	free(aList);
 }
 
-DoubleElement *AddElement(DoubleList *aList, int aValue)
+DoubleNode *AddNode(DoubleList *aList, DoubleNode *aNewNode)
 {
-	DoubleElement *aNewElement = CreateElementWithDoubleLink(aValue);
 	// Check the input parameter
-	if (NULL == aList || NULL == aNewElement)
+	if (NULL == aList || NULL == aNewNode)
+
 	{
 		return NULL;
-	}	
+	}
+	//Add the new node to end of the list
 	if (NULL == aList->head && NULL == aList->tail)
 	{
 		//The list is empty
-		aList->head = aList->tail = aNewElement;
+		aList->head = aList->tail = aNewNode;
 	}
 	else
 	{
-		DoubleElement *theTail = aList->tail;
-		aList->tail = aNewElement;
-		aNewElement->previousElement = theTail;
-		theTail->nextElement = aList->tail;			
+
+		DoubleNode *theTail = aList->tail;
+		aList->tail = aNewNode;
+		aNewNode->prev = theTail;
+        theTail->next = aList->tail;
 	}
-	aList->count += 1;	
-	return aNewElement;
+
+	aList->count += 1;
+	return aNewNode;
 }
 
-int CountList(const DoubleList *aList)
+int CountList(DoubleList *aList)
 {
 	int theResult = -1;
 
@@ -71,156 +75,55 @@ int CountList(const DoubleList *aList)
 	return theResult;
 }
 
-void AddElementAtIndex(DoubleList *aList, int aValue, int anIndex)
+DoubleNode *NodeAtIndex(DoubleList *aList, int anIndex)
 {
-	DoubleElement *aNewElement = CreateElementWithDoubleLink(aValue);
-	if (NULL != aList && anIndex < aList->count  && NULL != aNewElement)
-	{
-		int i = 0;
-		DoubleElement *theElement = aList->head;
-		do
-		{
-			if (i == anIndex) //<!- index was found
-			{				
-				DoubleElement *thePreviousElement = theElement->previousElement;
-				aNewElement->nextElement = theElement;
-				if(NULL != thePreviousElement)
-					thePreviousElement->nextElement = aNewElement;
-				else
-					aList->head = aNewElement;
-				aNewElement->previousElement = thePreviousElement;
-				theElement->previousElement = aNewElement;				
-				aList->count += 1;
-				break;
-			}		
-			i++; // increase index
-			theElement = theElement->nextElement; //<! - go to next node		
-		} while (NULL != theElement);	
-	}
-}
-
-void DeleteElementAtIndex(DoubleList *aList, int anIndex)
-{
-	if (NULL != aList && anIndex < aList->count)
-	{
-		int i = 0;
-		DoubleElement *theElement = aList->head;	
-		do
-		{
-			if (i == anIndex) //<!- index was found
-			{
-				DoubleElement *PreviousElement = theElement->previousElement;
-				DoubleElement *NextElement = theElement->nextElement;
-				if(NULL != PreviousElement)
-						PreviousElement->nextElement = NextElement;	
-				else
-				{
-					aList->head = NextElement;
-					if(NULL != NextElement)
-						NextElement->previousElement = NULL;
-				}
-				if(NULL != NextElement)
-					NextElement->previousElement = PreviousElement;
-				else{
-					aList->tail = PreviousElement;
-					if(NULL != PreviousElement)
-						PreviousElement->nextElement = NULL;
-				}
-				FreeDoubleElement(theElement);					
-				aList->count-=1; 	
-				break;
-			}		
-			i++; // increase index
-			theElement = theElement->nextElement; //<! - go to next element		
-		} while (NULL != theElement);	
-	}
-}
-
-DoubleElement *ElementAtIndex(const DoubleList *aList, int anIndex)
-{
-	DoubleElement *theResult = NULL;
+	DoubleNode *theResult = NULL;
 
 	if (NULL != aList && anIndex < aList->count)
 	{
 		int i = 0;
-		DoubleElement *theElement = aList->head;
-	
+		DoubleNode *theNode = aList->head;
 		do
 		{
 			if (i == anIndex) //<!- index was found
 			{
-				theResult = theElement; //<! - our element
+				theResult = theNode; //<! - our node
 				break;
 			}
-		
 			i++; // increase index
-			theElement = theElement->nextElement; //<! - go to next element
-		
-		} while (NULL != theElement);
+			theNode = theNode->next; //<! - go to next node
+		} while (NULL != theNode);
 	}
-	
+
 	return theResult;
 }
 
-void doPrintList(const DoubleList *aList)
+void PrintList(DoubleList *aList)
 {
 	int i;
-	DoubleElement *theElement = aList->head;
 	for (i = 0; i < CountList(aList); i++)
 	{
-		if (NULL != theElement)
+		DoubleNode *theNode = NodeAtIndex(aList, i);
+
+		if (NULL != theNode)
 		{
-			printf("Element[%d].string = %i\n", i, theElement->value);
+			printf("node[%d].value = %f\n", i+1, theNode->value);
 		}
-		theElement = theElement->nextElement;
 	}
 }
 
-void DeleteElement (DoubleList *aList)
+void BackPrintList(DoubleList *aList)
 {
-	if(NULL != aList && aList->count != 0)
+	DoubleNode *theNode = aList->tail;
+	int i;
+	for (i = CountList(aList); i>=0; i--)
 	{
-		DoubleElement *theElementToDelete = aList->tail;
-		DoubleElement *theElement = theElementToDelete->previousElement;
-		aList->tail = theElement;
-		theElement->nextElement = NULL;
-		FreeDoubleElement(theElementToDelete);
-		aList->count -= 1;		
-	}	
-}
 
-void FunkToDellTheSame(DoubleList *aList)
-{
-	DoubleElement *theElement = aList->head;
-	DoubleElement *theElementToDelete = theElement->nextElement;
-	while(theElementToDelete != NULL)
-		if(theElement->value == theElementToDelete->value)
+		if (NULL != theNode)
 		{
-				DoubleElement *PreviousElement = theElementToDelete->previousElement;
-				DoubleElement *NextElement = theElementToDelete->nextElement;
-				if(NULL != PreviousElement)
-						PreviousElement->nextElement = NextElement;	
-				else
-				{
-					aList->head = NextElement;
-					if(NULL != NextElement)
-						NextElement->previousElement = NULL;
-				}
-				if(NULL != NextElement)
-					NextElement->previousElement = PreviousElement;
-				else{
-					aList->tail = PreviousElement;
-					if(NULL != PreviousElement)
-						PreviousElement->nextElement = NULL;
-				}
-				DoubleElement *Deleting = theElementToDelete;
-				theElementToDelete = theElementToDelete->nextElement;
-				FreeDoubleElement(Deleting);					
-				aList->count-=1;
+			printf("node[%d].value = %f\n", i, theNode->value);
+			theNode = theNode->prev;
 		}
-		else
-		{
-			theElement=theElementToDelete;
-			theElementToDelete=theElement->nextElement;
-		}
+		
+	}
 }

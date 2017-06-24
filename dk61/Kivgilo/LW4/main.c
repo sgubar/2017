@@ -1,53 +1,31 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include "Element.h"
 #include "List.h"
-#include "Sort.h"
-#include "tool.h"
+#include "Node.h"
+#include <stdlib.h>
+#include <stdio.h>
 
-int main(int argc, const char * argv[])
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+int main(void)
 {
-	printf("Start to demo a double-linked list ...\n");
-	
+	printf("Start a list ...\n");
 	DoubleList *theList = CreateList();
-	
-	AddElement(theList, 1);
-	AddElement(theList, 1);	
-	AddElement(theList, 1);
-	AddElement(theList, 1);
-	AddElement(theList, 1);
-	AddElement(theList, 123456);
-	AddElement(theList, 1234);
-	AddElement(theList, 123456789);
-	AddElement(theList, 1234567);	
-	doPrintList(theList);
-	
-	printf("Enter value of element to add: ");
-	int ValueOfElementToAdd = EnterValueOfElementToAdd();	
-	printf("Enter index of element to add: ");
-	int IndexOfElement = EnterIndex(theList);	
-	AddElementAtIndex(theList,ValueOfElementToAdd,IndexOfElement);	
-	printf("\nAdded the element at index\n");
-	doPrintList(theList);	
-	
-	printf("Enter index of element to delete: ");
-	IndexOfElement = EnterIndex(theList);
-	DeleteElementAtIndex(theList, IndexOfElement);	
-	printf("\nDeleted the element at index\n");	
-	doPrintList(theList);
-	
-	quickSort2(theList, 0, CountList(theList)-1);
-	printf("\nafter sort\n");	
-	doPrintList(theList);
-		
-	printf("\ndeleting the same\n");	
-	FunkToDellTheSame(theList);	
-	printf("\nafter deleting\n");	
-	doPrintList(theList);
-	
+	DoubleNode *theNode1 = CreateNodeWithValue(1);
+	DoubleNode *theNode2 = CreateNodeWithValue(2);
+	DoubleNode *theNode3 = CreateNodeWithValue(3);
+	DoubleNode *theNode4 = CreateNodeWithValue(4);
+	DoubleNode *theNode5 = CreateNodeWithValue(5);
+	DoubleNode *theNode6 = CreateNodeWithValue(6);
+	AddNode(theList, theNode1);
+	AddNode(theList, theNode2);
+	AddNode(theList, theNode3);
+	AddNode(theList, theNode4);
+	AddNode(theList, theNode5);
+	AddNode(theList, theNode6);
+	printf("number of elements: %d\n", CountList(theList));
+	PrintList(theList);
+	printf("Back print\n");
+	BackPrintList(theList);
 	FreeList(theList);
-	
+    
 	printf("Done.\n");
-
-	return 0;
 }
