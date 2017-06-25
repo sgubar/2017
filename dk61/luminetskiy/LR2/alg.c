@@ -1,7 +1,7 @@
 #include "alg.h"
 
 void sortShell(char *a, int n)
-{
+ {
     int i,j,k;
 	char t;
 	for(k = n/2; k > 0; k /=2)
@@ -17,7 +17,7 @@ void sortShell(char *a, int n)
             }
             a[j] = t;
         }
-}
+ }
 
 int lineFind(char *a, int n, char key)
 {
