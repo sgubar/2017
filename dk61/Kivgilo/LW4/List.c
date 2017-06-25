@@ -100,15 +100,17 @@ DoubleNode *NodeAtIndex(DoubleList *aList, int anIndex)
 
 void PrintList(DoubleList *aList)
 {
+	DoubleNode *theNode = aList->head;
 	int i;
-	for (i = 0; i < CountList(aList); i++)
+	for (i = 1; i <= CountList(aList); i++)  //increase
 	{
-		DoubleNode *theNode = NodeAtIndex(aList, i);
 
 		if (NULL != theNode)
 		{
-			printf("node[%d].value = %f\n", i+1, theNode->value);
+			printf("node[%d].value = %f\n", i, theNode->value);
+			theNode = theNode->next;
 		}
+		
 	}
 }
 
