@@ -6,7 +6,7 @@ void copyMas(char *a, char *b, int n)
 }
 
 void sortBubble(char *a, int n)
-{
+ {
     int i, j;
     char t;
     for (i = n - 1; i > 0; i--)
@@ -17,7 +17,7 @@ void sortBubble(char *a, int n)
                  a[j] = a[j-1];
                  a[j-1] = t;
              }
-}
+ }
 
 
 void sortInsertion(char *a, int n)
