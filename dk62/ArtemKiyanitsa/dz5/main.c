@@ -11,20 +11,11 @@ int main(void)
 	
 	char *Name=(char *)malloc(10*sizeof(char));
 		
-	strcpy(Name, "lol");
-	AddCar(PointerPark,Name);
-	
-	strcpy(Name, "koronniy");
-	AddCar(PointerPark,Name);
-	
-	strcpy(Name, "kek");
-	AddCar(PointerPark,Name);
-	
-	strcpy(Name, "pohoronniy");
-	AddCar(PointerPark,Name);
-	
-	strcpy(Name, "lmao");
-	AddCar(PointerPark,Name);
+	AddCar(PointerPark,"kek");
+	AddCar(PointerPark,"koronniy");
+	AddCar(PointerPark,"lol");
+	AddCar(PointerPark,"pohoronniy");
+	AddCar(PointerPark,"lmao");
 	
 	quickSort2(PointerPark, 0 ,  PointerPark->curent-1);
 	if(-1 != BinarySearch(PointerPark,"kek"))
