@@ -3,56 +3,50 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/* PRIVATE */
-//повертає випадкове число [1..99]
+
 int rnd() {
 	return rand() % 99 + 1;
 }
 
-/* PUBLIC */
-//друк дерева
-/*
- * параметр глибини depth визначає рівень рекурсії і відповідає за відступ при друку поточного вузла
- */
 void print(ptr root, int depth) {
-	if (root == NULL) //кінець піддерева
+	if (root == NULL) 
 		return;
-	for (int i = 0; i < depth; i++) //відступ
+	for (int i = 0; i < depth; i++) 
 		printf("\t");
-	printf("%d\n",root->value); //друк поточного елементу
-	print(root->left,depth+1); //обхід лівого піддерева з збільшеною глибиною
-	print(root->right,depth+1); //обхід правого піддерева з збільшеною глибиною
+	printf("%d\n",root->value); 
+	print(root->left,depth+1); 
+	print(root->right,depth+1); 
 }
 
-//створення дерева з n вузлів з випадковими ключами. повертає вказівник на корінь
+
 ptr create(int n) {
-	ptr *root = (ptr*)malloc(sizeof(ptr)); //вказівник на корінь нового дерева
+	ptr *root = (ptr*)malloc(sizeof(ptr)); 
 	*root = NULL;
-	for (int i = 0; i < n; i++) //додаємо новий випадковий елемент
+	for (int i = 0; i < n; i++) 
 		add(root, rnd());
-	return *root; //повертаємо корінь
+	return *root; 
 }
 
-//додавання елементу. повертає 1 в разі успішного створення, 0 - в разі наявності елемента
+
 char add(ptr *root, int value) {
-	if (*root == NULL) { //пусте дерево
-		//створення нового елементу
+	if (*root == NULL) { 
+		
 		*root = (ptr)malloc(sizeof(root));
 		(*root)->value = value;
-		(*root)->left = (*root)->right = NULL; //обнуляємо вказівники на піддерева
+		(*root)->left = (*root)->right = NULL;
 		return 1;
-	} else if (value < (*root)->value) //значення поточного вузла більше, ніж шуканого
-		if ((*root)->left) //ліве піддерево існує
-			return add(&(*root)->left,value); //додаємо елемент в ліве піддерево
-		else { //ліве піддерево відсутнє
-			//створюємо елемент в лівому піддереві
+	} else if (value < (*root)->value) 
+		if ((*root)->left) 
+			return add(&(*root)->left,value); 
+		else { 
+			
 			ptr tmp = (ptr)malloc(sizeof(root));
 			tmp->value = value;
 			tmp->left = tmp->right = NULL;
 			(*root)->left = tmp;
 			return 1;
 		}
-	else if (value > (*root)->value) //аналогічно попереньому, робота з правим піддеревом
+	else if (value > (*root)->value) 
 		if ((*root)->right)
 			return add(&(*root)->right,value);
 		else {
@@ -62,13 +56,13 @@ char add(ptr *root, int value) {
 			(*root)->right = tmp;
 			return 1;
 		}
-	else {//поточний елемент співпадає з новим
+	else {
 		return 0;
 	}
 	
 }
 
-//видалення елементу
+
 char rem(ptr *root, int value) {
 	if ((*root)->value > value) {
 			if (rem(&(*root)->left,value) == 2) {
@@ -115,23 +109,23 @@ char rem(ptr *root, int value) {
 		return 0;
 }
 
-//пошук елементу. повертає вказівник на вузол в разі наявності, інакше - NULL
+
 ptr find(ptr root, int value) {
-	if (root == NULL) //кінець обходу
+	if (root == NULL) 
 		return NULL;
-	if (value < root->value) //значення поточного вузла більше, ніж шуканого
-		return find(root->left,value); //пошук в лівому піддереві
-	else if (value > root->value) //значення поточного вузла менше, ніж шуканого
-		return find(root->right, value); //пошук в правому піддереві
-	else //елемент знайдено
+	if (value < root->value) 
+		return find(root->left,value);
+	else if (value > root->value) 
+		return find(root->right, value); 
+	else 
 		return root;
 }
 
-//видалення дерева
+
 void erase(ptr *root) {
-	if (*root == NULL) //пусте дерево
+	if (*root == NULL) 
 		return;
-	erase(&(*root)->left); //видаляємо ліве піддерево
-	erase(&(*root)->right); //видаляємо праве піддерево
-	free(*root); //звільняємо пам'ять під праве піддерево
+	erase(&(*root)->left); 
+	erase(&(*root)->right); 
+	free(*root); 
 }
