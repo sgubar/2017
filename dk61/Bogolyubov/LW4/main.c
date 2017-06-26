@@ -1,12 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include "dk_tools.h"
 
 int main()
 {
-Node *theNode = NULL;
-FILE *file = fopen("txt.txt", "r");
+
 int a, b, edge;
 printf("There is a range [A;B]\n");
 
@@ -24,22 +22,10 @@ printf("There is a range [A;B]\n");
     Node *last = NULL;
     CreateList(&head, &last);
 
-if(file != NULL)
-	{
-		char obj;
-		while((obj = fgetc(file)) != EOF)
-		{
-		//	if(isalpha(obj))
-		//	{
-				while(obj != '\n' && obj != EOF)
-				{
-   // for(int i = 0; i < 10; i++)
-   // {
-       addElement(&theNode, obj);
-  //  }
-    }
-   // }
-    }
+
+    for(int i = 0; i < 10; i++)
+    {
+        AddElementToList(&head, &last);
     }
 
     Node *tmpHead = head;
