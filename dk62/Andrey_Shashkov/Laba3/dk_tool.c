@@ -11,13 +11,18 @@ char *Transform_file (int *Lenght_of_Str)
 	FILE *file = fopen("file.txt","r");
 	if(file == NULL)	
 	{
-		printf("File don't open string.txt\n");
+		printf("File don't open\n");
 		return 0;
 	}
 	int Lenght=0;
 	while(fgetc(file)!=EOF)
 	
-	int Length = ftell(file);
+//	int Length = ftell(file);
+	while(fgetc(file)!=EOF)
+	{		
+		Lenght++;
+	}
+	
 	
 	printf("Lenght_of_File: %i\n",Lenght);
 	
@@ -84,6 +89,11 @@ unsigned lineSearch(int Lenght_of_Str ,char *string, char Key)
 		if (string[i] == Key)
 		{
 			theResult = i;
+			break;
+		}
+	    else if(i == Lenght_of_Str - 1)
+	    {
+	    	theResult = -1;
 			break;
 		}
 	}
