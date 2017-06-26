@@ -15,7 +15,7 @@ void NewCircle(circle *ptr)
         scanf("%i",&ptr->rad);
     }
 
-}
+ }
 
 double Square(circle s)
 {
