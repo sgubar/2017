@@ -2,7 +2,7 @@
 #include <stdbool.h>
 #include "circling.h"
 
-void swap (circle *a, circle *s)
+ void swap (circle *a, circle *s)
 {
     circle tmp = *a;
     *a = *s;
