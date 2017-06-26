@@ -1,52 +1,48 @@
 #include "Proc.h"
 
 #include <stdio.h>
-//обробка стеку, аналіз балансу дужок
+
 char process(ptr top) {
-	char value; //значення поточного елементу стеку
+	char value; 
 	char result = 0; //стан рядка
 	char sc; //лічильник квадратних дужок
 	char rc; //лічильник круглих дужок
 	char fc; //лічильник фігурних дужок
-	sc = rc = fc = 0; //початкова установка
-	while (value = pop(&top)) { //поки поточний елемент не нуль (ознака пустого стеку)
-		switch (value) { //аналіз поточного символу
+	sc = rc = fc = 0; 
+	while (value = pop(&top)) { 
+		switch (value) {
 			case '[':
 				sc++;
 				break;
 			case ']':
 				if (--sc < 0)
-					result |= SB_U; //помилка. встановлення другого біту стану в 1
+					result |= SB_U; 
 				break;
 			case '(':
 				rc++;
 				break;
 			case ')':
 				if (--rc < 0)
-					result |= RB_U; //помилка. встановлення четвертого біту стану в 1
+					result |= RB_U; 
 				break;
 			case '{':
 				fc++;
 				break;
 			case '}':
 				if (--fc < 0)
-					result |= FB_U; //помилка. встановлення шостого біту стану в 1
+					result |= FB_U; 
 				break;
 		}
 	}
-	if (sc) //лічильник не дорівнює нулю - кількість дужок невірна
-		result |= SB_M; //помилка. встановлення першого біту стану в 1
+	if (sc) 
+		result |= SB_M; 
 	if (rc)
-		result |= RB_M; //помилка. встановлення третього біту стану в 1
+		result |= RB_M; 
 	if (fc)
-		result |= FB_M; //помилка. встановлення п'ятого біту стану в 1
+		result |= FB_M; 
 	return result;
 }
-//виведення результату аналізу
-/*
- * послідовно перевіряється встановлення бітів змінної стану в 1 - ознака помилки
- * в разі нульвого значення - відсутність помилок, стан відповідає збалансованому рядку
- */
+
 void show(char state) {
 	if (state & SB_M) printf("Square brackets unbalanced (wrong amount)\n");
 	if (state & SB_U) printf("Square brackets unbalanced (wrong order)\n");
