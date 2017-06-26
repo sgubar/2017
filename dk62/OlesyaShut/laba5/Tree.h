@@ -1,12 +1,12 @@
 #ifndef _LIB_TREE_H_
 #define _LIB_TREE_H_
-//вузол дерева
+
 typedef struct _node {
 	int value;
 	struct _node* left;
 	struct _node* right;
 } node;
-//вказівник на вузол
+
 typedef node* ptr;
 
 //друк дерева
