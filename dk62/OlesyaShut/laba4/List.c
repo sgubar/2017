@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-//взяття елементу
+
 char pop(ptr *top) {
 	if (*top == NULL) 
 		return 0;
@@ -15,15 +15,15 @@ char pop(ptr *top) {
 }
 
 void push(ptr *top, char value) {
-	//створення нового елементу
+	
 	ptr tmp = (ptr)malloc(sizeof(node)); 
 	tmp->value = value;
-	//новий елемент стає вершиною стеку
+	
 	tmp->link = *top; 
 	*top = tmp;
 	
 }
-//очистка
+
 void empty(ptr *top) {
 	while (pop(top)); 
 }
