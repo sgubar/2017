@@ -19,7 +19,6 @@ int CountList(const DoubleList *aList);
 void AddElementAtIndex(DoubleList *aList, DoubleElement *aNewElement, int anIndex);
 void DeleteElementAtIndex(DoubleList *aList, int anIndex);
 DoubleElement *ElementAtIndex(const DoubleList *aList, int anIndex);
-void doTestList();
 void doPrintList(const DoubleList *aList);
 void DeleteElement (DoubleList *aList);
 
