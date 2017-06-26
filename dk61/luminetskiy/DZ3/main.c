@@ -15,5 +15,5 @@ int main(int argc, char *argv[]) {
     ShowTheFigures(mass,size);
 	output("JSON.json", mass, size);
 	return 0;
-
+	
 }
