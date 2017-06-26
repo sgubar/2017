@@ -7,16 +7,16 @@
 int main(int argc, const char * argv[])
 {
 		
-	DoubleElement *theElement1 = CreateElementWithDoubleValue(32);
-	DoubleElement *theElement2 = CreateElementWithDoubleValue(612);
-	DoubleElement *theElement3 = CreateElementWithDoubleValue(23);
-	DoubleElement *theElement4 = CreateElementWithDoubleValue(228);
-	DoubleElement *theElement5 = CreateElementWithDoubleValue(998);
-	DoubleElement *theElement6 = CreateElementWithDoubleValue(2313);
-	DoubleElement *theElement7 = CreateElementWithDoubleValue(99);
-	DoubleElement *theElement8 = CreateElementWithDoubleValue(81);
+	DoubleElement *theElement1 = CreateElementWithDoubleValue(3.2);
+	DoubleElement *theElement2 = CreateElementWithDoubleValue(6.12);
+	DoubleElement *theElement3 = CreateElementWithDoubleValue(2.3);
+	DoubleElement *theElement4 = CreateElementWithDoubleValue(2.28);
+	DoubleElement *theElement5 = CreateElementWithDoubleValue(9.98);
+	DoubleElement *theElement6 = CreateElementWithDoubleValue(23.13);
+	DoubleElement *theElement7 = CreateElementWithDoubleValue(9.9);
+	DoubleElement *theElement8 = CreateElementWithDoubleValue(8.1);
 	DoubleElement *theElement9 = CreateElementWithDoubleValue(9);
-	DoubleElement *theElement10 = CreateElementWithDoubleValue(10);
+	DoubleElement *theElement10 = CreateElementWithDoubleValue(1.01);
 
 	DoubleList *theList = CreateList();
 	
@@ -36,7 +36,7 @@ int main(int argc, const char * argv[])
 	printf("\nAdded the element at index\n");	
 	
 	DeleteElementAtIndex(theList, 0);	
-	printf("\nDeleted the element at index\n");	
+	printf("\nDeleted the element at index 0\n");	
 	doPrintList(theList);
 	
 	quickSort2( theList, 0, 8);
