@@ -1,11 +1,11 @@
 #ifndef _LIB_LIST_H_
 #define _LIB_LIST_H_
-//елемент стеку
+
 typedef struct _node {
 	char value;
 	struct _node* link;
 } node;
-//вказівник на елемент
+
 typedef node* ptr;
 
 //взяття елементу
