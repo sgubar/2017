@@ -13,7 +13,7 @@ int main(int argc, char *argv[]) {
         mass[i].square = Squareof(mass[i]);
     }
     ShowTheFigures(mass,size);
-	output("JSON.json", mass, size);
+	JSON("JSON.json", mass, size);
 	return 0;
 	
 }
