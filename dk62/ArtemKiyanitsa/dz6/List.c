@@ -161,68 +161,6 @@ DoubleElement *ElementAtIndex(const DoubleList *aList, int anIndex)
 	return theResult;
 }
 
-
-
-void swap(DoubleList *aList, int aLeftIndex, int aRightIndex)
-{
-	if (NULL != aList && aRightIndex < aList->count && -1 < aLeftIndex && 0 < (aRightIndex-aLeftIndex) && aRightIndex > aLeftIndex)
-	{
-		int i = 0;
-		DoubleElement *theLeft = ElementAtIndex(aList, aLeftIndex);
-		DoubleElement *theRight = ElementAtIndex(aList, aRightIndex);
-		if(NULL != theLeft && NULL != theRight)	{
-			if(1 < (aRightIndex-aLeftIndex)){
-				DoubleElement *theNextLeft = theLeft->nextElement;
-				DoubleElement *thePreviousLeft = theLeft->previousElement;
-				DoubleElement *theNextRight = theRight->nextElement;
-				DoubleElement *thePreviousRight = theRight->previousElement;
-				
-				theNextLeft->previousElement = theRight;
-				if(NULL != thePreviousLeft)
-					thePreviousLeft->nextElement = theRight;
-				else				
-					aList->head = theRight;
-				if(NULL != theNextRight)
-					theNextRight->previousElement = theLeft;
-				else
-					aList->tail = theLeft;
-				thePreviousRight->nextElement = theLeft;
-				theLeft->previousElement = thePreviousRight;
-				if(NULL != theNextRight)
-					theLeft->nextElement = theNextRight;
-				else
-					theLeft->nextElement = NULL;
-				if(NULL != thePreviousLeft)
-					theRight->previousElement = thePreviousLeft;
-				else
-					theRight->previousElement = NULL;
-				theRight->nextElement = theNextLeft;
-			}else{				
-				DoubleElement *thePreviousLeft = theLeft->previousElement;
-				DoubleElement *theNextRight = theRight->nextElement;
-				if(NULL != thePreviousLeft)
-					thePreviousLeft->nextElement = theRight;
-				else				
-					aList->head = theRight;
-				if(NULL != theNextRight)
-					theNextRight->previousElement = theLeft;
-				else
-					aList->tail = theLeft;
-				theLeft->previousElement = theRight;
-				theRight->nextElement = theLeft;
-				if(NULL != theNextRight)
-					theLeft->nextElement = theNextRight;
-				else
-					theLeft->nextElement = NULL;
-				if(NULL != thePreviousLeft)
-					theRight->previousElement = thePreviousLeft;
-				else
-					theRight->previousElement = NULL;
-			}
-		}
-	}
-}
-
 void doPrintList(const DoubleList *aList)
 {
 	int i;
