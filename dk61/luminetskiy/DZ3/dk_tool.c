@@ -28,7 +28,7 @@ void ShowTheFigures(circle *ptr, int n)
         printf("Circle number %i with center(%i,%i), radius %i, and square %f\n",k+1,ptr[k].x,ptr[k].y,ptr[k].rad,ptr[k].square);
     }
 }
-int output(char *filename, circle *ptr, int n) 
+int JSON(char *filename, circle *ptr, int n) 
 {
 	if (filename == NULL)
 		return 1;
