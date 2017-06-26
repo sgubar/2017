@@ -5,51 +5,6 @@
 // Constants
 const int kSLListError = -1;
 
-void doTestList()
-{
-	printf("Start to demo a double-linked list ...\n");
-	
-	DoubleElement *theElement1 = CreateElementWithDoubleValue(1);
-	DoubleElement *theElement2 = CreateElementWithDoubleValue(2);
-	DoubleElement *theElement3 = CreateElementWithDoubleValue(3);
-	DoubleElement *theElement4 = CreateElementWithDoubleValue(4);
-	DoubleElement *theElement5 = CreateElementWithDoubleValue(5);
-	DoubleElement *theElement6 = CreateElementWithDoubleValue(6);
-	DoubleElement *theElement7 = CreateElementWithDoubleValue(7);
-	DoubleElement *theElement8 = CreateElementWithDoubleValue(8);
-	DoubleElement *theElement9 = CreateElementWithDoubleValue(9);
-	DoubleElement *theElement10 = CreateElementWithDoubleValue(10);
-
-	DoubleList *theList = CreateList();
-	
-	AddElement(theList, theElement5);
-	AddElement(theList, theElement8);	
-	AddElement(theList, theElement6);
-	AddElement(theList, theElement1);
-	AddElement(theList, theElement2);
-	AddElement(theList, theElement4);
-	AddElement(theList, theElement3);
-	AddElement(theList, theElement9);
-	AddElement(theList, theElement7);
-	
-	doPrintList(theList);
-	
-	AddElementAtIndex(theList,theElement10,1);	
-	printf("\nAdded the element at index\n");	
-	
-	DeleteElementAtIndex(theList, 0);	
-	printf("\nDeleted the element at index\n");	
-	doPrintList(theList);
-	
-	quickSort2( theList, 0, 8);
-	printf("\nafter sort\n");	
-	
-	doPrintList(theList);
-	
-	FreeList(theList);
-	
-	printf("Done.\n");
-}
 
 DoubleList *CreateList()
 {
