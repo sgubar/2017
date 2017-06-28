@@ -1,5 +1,0 @@
-Before sorting: 12345677089[iolkjhdsfaxcnbk;iup86958432	wqww46587809pyutrewADSXVMHGFSFADZXCNGREDACVBGFDX
-
- -Line Search-
-You entered : A
-[29] [30] [31] Time for Linear search : 1.5920000000 sec
